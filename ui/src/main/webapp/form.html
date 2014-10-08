@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
+    <link rel="stylesheet" type="text/css" href="file1.css"/>
+    <link rel="stylesheet" type="text/css" href="file2.css"/>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/underscore-min.js?de2de36187"></script>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/Gettext.js?a409328b08"></script>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/jquery-1.8.3.min.js?011a23ec54"></script>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/jquery.cookie.js?ce56bb0d2d"></script>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/locale.js?8952929b1b"></script>
+    <script type="text/javascript" src="https://cp2.timeweb.ru/js/cp_login_script.js?1821bf5463"></script>
+    <title>Личный кабинет - авторизация</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+    window.cp_host = 'https://cp2.timeweb.ru';
+    window.error_login = '';
+    window._show_form = '';
+    window.webMailErrors = $.parseJSON('{"incorrect_login":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0432 \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e\u043c \u0444\u043e\u0440\u043c\u0430\u0442\u0435. \u041d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, info@timeweb.ru.","empty_pass":"\u041f\u0430\u0440\u043e\u043b\u044c \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u043f\u0443\u0441\u0442\u044b\u043c.","fail_auth":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u0441 \u0442\u0430\u043a\u0438\u043c\u0438 \u043b\u043e\u0433\u0438\u043d\u043e\u043c \u0438 \u043f\u0430\u0440\u043e\u043b\u0435\u043c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e.","domain_blocked":"\u0412\u0445\u043e\u0434 \u0432 \u043f\u043e\u0447\u0442\u0443 \u0434\u043b\u044f \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u043e\u0433\u043e \u0434\u043e\u043c\u0435\u043d\u0430 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u0435\u043d."}');
+  </script>
+</head>
+<body class="locale-ru_RU">
+
+<div class="l_login_container">
+    <div class="l_login_wrap">
+        <div class="l_login">
+            <div class="error-alert" style="display:none"><div><span class="error-alert-message"></span></div></div>
+            <div class="b_secondary-menu js-forms-cont">
+                <form class="cp_loginscreen-form cp_loginscreen-form_hosting cp_loginscreen-form__active to-cp login_hosting" action="https://cp2.timeweb.ru" method="post" id="idFormLogin">
+
+                    <div class="b_input_wrap">
+                        <input name="_host" value="imap.timeweb.ru" type="hidden">
+                        <input name="_show_form" value="login_hosting"  type="hidden">
+                        <input name="_action" value="login" type="hidden">
+                        <label for="panel-login" class="b_input_text_placeholder" style="display:none">Имя пользователя</label>
+                        <input id="panel-login" class="b_input_text" name="username" size="30" value="" type="text"/>
+                    </div>
+                    <div class="b_input_wrap">
+                        <label for="panel-password" class="b_input_text_placeholder" style="display:none">Пароль</label>
+                        <input id="panel-password" class="b_input_text" name="password" size="30" type="password"/>
+                    </div>
+                    <div class="js-restore-block">
+                        <a class="b_link b_link-restore" href="#">Восстановить пароль</a>
+                        <label class="b_checkbox_wrap">
+                            <input class="b_checkbox" name="remember" type="checkbox"/>
+                            <i class="b_checkbox_icon"></i>
+                            Запомнить меня
+                        </label>
+                    </div>
+                    <button type="submit" class="b_submit_button_1">Войти</button>
+                </form>
+
+                <script type="text/template" class="js-captcha-tpl">
+                    <div class="js-captcha-block b_input_wrap captcha-block" style="display:none">
+                        <div class="js-captcha-cont inline_block captcha_wrap">
+                            <img src="https://cp2.timeweb.ru/captcha.php" class="js-captcha-img" />
+                            <input type="button" class="js-captcha-refresh captcha-refresh" />
+                        </div><!--
+
+                 --><label for="captcha" class="b_input_text_placeholder" style="display:none">Повторите код</label><input id="captcha" type="text" name="captcha" class="s_input_text" autocomplete="off" />
+
+                    </div>
+                </script>
+            </div>
+            <!--
+            <div class="b_pmenu_wrap">
+                <div>
+                    <i class="b_pmenu_arrow"></i>
+                    <ul class="b_primary-menu">
+                        <li class="b_pmenu_item" id="login_webmail">
+                            <a class="b_link b_pmenu_item_link" title="Почта">Почта</a>
+                        </li>
+                        <li class="b_pmenu_item" id="login_hosting">
+                            <a class="b_link b_pmenu_item_link" title="Хостинг">Хостинг</a>
+                        </li>
+                        <li class="b_pmenu_item" id="login_vds">
+                            <a class="b_link b_pmenu_item_link" title="VDS">VDS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+        <div class="js-extra-block js-login_webmail-extra-block login-extra-block">
+            <a href="https://itunes.apple.com/ru/app/timeweb24/id680550987?mt=8" class="download_app"></a>
+        </div>
+        <div class="js-extra-block js-login_vds-extra-block login-extra-block">
+            <a href="https://itunes.apple.com/ru/app/vds-live/id694652633" class="download_app"></a>
+            <a href="https://play.google.com/store/apps/details?id=ru.timeweb.android&hl=ru" class="download_google_play"></a>
+        </div>
+    </div>
+</div>
+<div class="l_login_container forget">
+    <div class="l_login_wrap">
+        <div class="l_login">
+            <div class="error-alert" style="display:none"><div><span class="error-alert-message"></span></div></div>
+            <div class='goto-auth'>
+                <a href='#'>&larr;<span class='b_link'>Вернуться к авторизации</span></a>
+            </div>
+            <div class='forget-body'>
+                <h1><span class='forgot-title'>Восстановление пароля</span><span class='sms-title'>Подтверждение входа по SMS</span></h1>
+                <div class='forget-cp'>
+                    <div class="forget-result">
+                        <p>На почту вашего аккаунта было отправлено письмо с инструкцией по восстановлению пароля. Если вы не получили письмо в течение 5 минут, вы можете<br/><a class='goto-forget-form b_link' href='#'>Отправить письмо повторно</a></p>
+                    </div>
+                    <div class="forget-form">
+                        <p>Для восстановления пароля, укажите <span class="forget-specified-options"></span>. На почту вашего аккаунта будет выслано письмо с дальнейшими инструкциями.</p>
+                        <div class="input-row">
+                            <label for="forget_login" class="b_input_text_placeholder" style="display:none"></label>
+                            <input type='text' id='forget_login' name='forget_login' class="b_input_text" />
+                        </div>
+                        <button type="submit" class="b_submit_button" onclick="return false;">Отправить</button>
+                    </div>
+                    <div class="forget-form-pass">
+                        <div class="input-row">
+                            <label for="new_pass" class="b_input_text_placeholder" style="display:none">Новый пароль</label>
+                            <input type='password' id='new_pass' name='new_pass' class="b_input_text" />
+                        </div>
+                        <div class="input-row">
+                            <label for="new_pass_conf" class="b_input_text_placeholder" style="display:none">Повторите пароль</label>
+                            <input type='password' id='new_pass_conf' name='new_pass_conf' class="b_input_text"/>
+                        </div>
+                        <button type="submit" class="b_submit_button" onclick="return false;">Сменить и войти</button>
+                    </div>
+                </div>
+                <div class="forget-webmail">
+                    <p>Для восстановления пароля от почты свяжитесь с администратором своего домена.</p>
+                </div>
+                <div class="sms-form">
+                    <p>Введите код подтверждения в поле</p>
+                    <div class="input-row">
+                        <input type='text' id='sms_code' name='sms_code' class="b_input_text" placeholder="Введите SMS-код"  autofocus/>
+                    </div>
+                    <button type="submit" class="b_submit_button" onclick="return false;">Подтвердить и войти</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-31254085-3', 'timeweb.ru');
+        ga('send', 'pageview');
+  </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter22579897 = new Ya.Metrika({id:22579897,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/22579897" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="/js/awstats_misc_tracker.js"></script><noscript><img src="/js/awstats_misc_tracker.js.php?nojs=y" height=20 width=0 border=0></noscript>
+</body>
+
+</html>
