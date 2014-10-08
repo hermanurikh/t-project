@@ -147,16 +147,7 @@ small {
     text-align: left;
 }
 
-.locale-de_DE .b_pmenu_wrap {
-    display: none;
-}
 
-.b_pmenu_wrap {
-    background-color: #eef7fb;
-    border-top: 1px solid #dde9ee;
-    border-left: 1px solid #dde9ee;
-    border-right: 1px solid #dde9ee;
-}
 
 
 
@@ -443,17 +434,8 @@ small {
     background: url(/images/xen/icon-alert.png) 20px center no-repeat #fff9f9;
     color: #933;
     font-size: 12px;
-}
 
-.locale-de_DE .error-alert>div {
-    min-width: 600px;
-    margin-left: -95px;
-}
 
-.locale-de_DE .forget .error-alert>div {
-    min-width: 600px;
-    margin-left: -8px;
-}
 
 .error-alert-message {
     display: block;
@@ -551,13 +533,8 @@ small {
     border-bottom-right-radius: 4px;
 }
 
-.sms-form {
-    display: none;
-}
 
-.sms-title {
-    display: none;
-}
+
 
 .inline_block {
     display: inline-block;
