@@ -420,6 +420,10 @@ small {
     background-image: -o-linear-gradient(top,#96e0ff,#aae7ff);
     background-image: linear-gradient(top,#96e0ff,#aae7ff);
 }
+.error-alert-message {
+    display: block;
+    margin: 0 10px 0 56px;
+}
 
 .error-alert {
     position: relative;
@@ -431,16 +435,13 @@ small {
     left: 0;
     padding: 15px 0;
     width: 100%;
-    background: url(/images/xen/icon-alert.png) 20px center no-repeat #fff9f9;
+    background: url(icon-alert.png) 20px center no-repeat #fff9f9;
     color: #933;
     font-size: 12px;
 
 
 
-.error-alert-message {
-    display: block;
-    margin: 0 10px 0 56px;
-}
+
 
 .forget .l_login {
     background: #fff;
