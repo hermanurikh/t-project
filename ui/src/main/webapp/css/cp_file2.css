@@ -2202,7 +2202,7 @@ div .primary_div {
     -moz-box-shadow: -1px 0px 0px #6284a4;
     box-shadow: -1px 0px 0px #6284a4;
     border-left: 1px solid #3e6295;
-    background: url(/images/xen/arrow-down-white-blue.png) no-repeat center center;
+    background: url(../images/arrow-down-white-blue.png) no-repeat center center;
     cursor: pointer;
     height: 32px;
     right: 3px;
@@ -3222,16 +3222,20 @@ textarea+.small-text {
     margin-top: 12px;
 }
 .info-last {
+/*
     height: 311px;
+    */
 }
 .info_small .element__vline {
     width: 7px;
 }
 .info_small.fr {
+/*
     height: 163px;
+    */
 }
 .info_small.fr.info-last {
-    height: 311px;
+
 }
 .info {
     border: 1px solid #dfe9ec;

@@ -36,7 +36,9 @@
     margin-top: 12px;
 }
 .info-last {
+/*
     height: 311px;
+    */
 }
 .info_small .element__vline {
     width: 7px;
@@ -47,7 +49,7 @@
     margin-bottom: 17px;
 }
 .npp_index .info_small {
-    width: 311px;
+    width: 640px;
     cursor: default;
 }
 .npp_index .info__header .ui-helper-icon-inline {
@@ -230,8 +232,11 @@ tr.dialog-tr_even td {
     padding-left: 3px;
 }
 .info_small.fr {
+/*
     height: 160px;
+    */
 }
 .info_small.fr.info-last {
-    height: 300px;
+    padding: 15px 14px 20px;
+
 }

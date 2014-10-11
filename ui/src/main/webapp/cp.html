@@ -158,24 +158,23 @@ this.ajax_vds_change_expand = function(v0, callback){ return do_call("ajax_vds_c
                     </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="/news/">Новости</a></li><li><a href="/support/#/list">Служба поддержки</a></li><li class="last-child"><a href="/idea/">Есть идея</a></li>
+                        <li><a href="/news/">Профиль</a></li>
+                        <!--<li><a href="/support/#/list">Служба поддержки</a></li>-->
+                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
                     </ul>
                 </div>
             </div>
             <div class="right">
-                <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script><div class="account-selector">
+                <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script>
+                <div class="account-selector dobble">
                 <div class="main">
                     <div class="info">
-                        <a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>
+                        <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                         <div class="username">gurikh<span class="shad">&nbsp;</span></div>
                         <div class="user-balance">1 р.</div>
                     </div>
-                    <div class="slide-down">
-                        <div>
-                            <div class="js-add-account new-account">
-                                <div class="avatar thumbnail-small"></div>
-                                <span class="no-link">Привязать аккаунт</span>
-                            </div>
+                    <div class="slide-down" style="display:none;">
+                        <div style="display:block;">
                             <ul></ul>
                             <div class="buttons-wrap">
                                 <a href="/info/" class="account-add link">
@@ -191,136 +190,29 @@ this.ajax_vds_change_expand = function(v0, callback){ return do_call("ajax_vds_c
                         ><div class="triangle"><div></div>
             </div>
             </div>
-                <div style='display:none;'>
-                    <div id='template_AccountAddDialog'>
-                        <div class='form-horizontal npp_account-dialog_middle'>
-                            <p>
-                                Вы можете подключить до 10 учетных записей (аккаунтов) к текущему аккаунту. Для подключения учетной записи вам необходимо указать имя пользователя и пароль.
-                            </p>
-                            <p>
-                                Подключение сохраняется до отключения или смены пароля на подключенном аккаунте.
-                            </p>
-                            <div>
-                                <div class='control-group'>
-                                    <label class='control-label'>Имя пользователя:</label>
-                                    <div class='controls jq-validate-container error'>
-                                        <input type='text' value='' class='average-input jq-validate js-add-account-login' />
-                                    </div>
-                                </div>
-                                <div class='control-group'>
-                                    <label class='control-label'>Пароль:</label>
-                                    <div class='controls jq-validate-container error'>
-                                        <input type='password' value='' class='average-input jq-validate js-add-account-pass' />
-                                    </div>
-                                </div>
-                                <div class='form-actions'>
-                                    <button class='js-add-account-button'>Подключить</button>
-                                </div>
-                                <div>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
 
     </td></tr></table></div></div></div>
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="/domains/" class="main-menu-item">
-            <i class="np_icon domains"></i>
-            <span class="href_line">Домены и поддомены</span>
+        <a href="/documents/" class="main-menu-item">
+            <i class="np_icon documents"></i>
+            <span class="href_line">Контракт</span>
         </a>
 
-        <a href="/sites/" class="main-menu-item">
-            <i class="np_icon sites"></i>
-            <span class="href_line">Сайты</span>
-        </a>
-
-        <a href="/cms/" class="main-menu-item">
-            <i class="np_icon cms"></i>
-            <span class="href_line">Каталог CMS</span>
-        </a>
-
-        <a href="/fileman/" class="main-menu-item">
-            <i class="np_icon fileman"></i>
-            <span class="href_line">Файловый менеджер</span>
-        </a>
-
-        <a href="/mysql/" class="main-menu-item">
-            <i class="np_icon mysql"></i>
-            <span class="href_line">Базы данных MySQL</span>
-        </a>
-
-        <a href="/mailman/" class="main-menu-item">
-            <i class="np_icon mailman"></i>
-            <span class="href_line">Почтовый менеджер</span>
-        </a>
-
-        <a href="/managers/" class="main-menu-item">
-            <i class="np_icon managers"></i>
-            <span class="href_line">Пользователи ПУ/FTP</span>
-        </a>
-
-        <a href="/backup/" class="main-menu-item">
-            <i class="np_icon backup"></i>
-            <span class="href_line">Резервные копии</span>
-        </a>
-
-        <a href="/crontab/" class="main-menu-item">
-            <i class="np_icon crontab"></i>
-            <span class="href_line">Crontab</span>
-        </a>
-
-        <a href="/jabber/" class="main-menu-item">
-            <i class="np_icon jabber"></i>
-            <span class="href_line">Jabber сервер</span>
-        </a>
-
-        <a href="/security/" class="main-menu-item">
-            <i class="np_icon security"></i>
-            <span class="href_line">Безопасность</span>
-        </a>
-
-        <a href="/logmanager/" class="main-menu-item">
-            <i class="np_icon logmanager"></i>
-            <span class="href_line">Логи</span>
-        </a>
-
-        <a href="/services/" class="main-menu-item">
-            <i class="np_icon services"></i>
-            <span class="href_line">Дополнительные услуги</span>
-        </a>
-
-        <div class="np_menu-line"></div>
         <a href="/tariff/" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тариф</span>
         </a>
 
-        <a href="/balance/" class="main-menu-item">
-            <i class="np_icon balance"></i>
-            <span class="href_line">Финансы</span>
-        </a>
-
-        <a href="/documents/" class="main-menu-item">
-            <i class="np_icon documents"></i>
-            <span class="href_line">Документы</span>
-        </a>
-
-        <a href="/sms/" class="main-menu-item">
-            <i class="np_icon sms"></i>
-            <span class="href_line">Уведомления</span>
-        </a>
-
-        <a href="/bonuses/" class="main-menu-item">
-            <i class="np_icon bonuses"></i>
-            <span class="href_line">Бонусы</span>
+        <a href="/crontab/" class="main-menu-item">
+            <i class="np_icon crontab"></i>
+            <span class="href_line">Блокировка номера</span>
         </a>
 
         <div class="np_menu-line"></div>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="https://cp.timeweb.ru?save"><i class="icon-back-arrow"></i><span>Вернуться к старой панели</span></a></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="https://cp.timeweb.ru?save"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
 <td class="np_content">
 <script src="/js/underscore-min.js"></script>
@@ -328,286 +220,10 @@ this.ajax_vds_change_expand = function(v0, callback){ return do_call("ajax_vds_c
 <script src="/js/path.js"></script>
 <script src="/js/punycode.js"></script>
 
-<script>
-hot_actions_block = {
-	list : [{"icon":"mysql","link":"mysql","hash":"","is_default":"Y","caption":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u0443\u044e \u0431\u0430\u0437\u0443 \u0434\u0430\u043d\u043d\u044b\u0445","position":"4","id":"5","description":"MySQL5","enabled":"N"},{"icon":"cron","link":"crontab","hash":"","is_default":"N","caption":"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0443 Cron","position":"8","id":"8","description":"\u041e\u0434\u043d\u043e\u0440\u0430\u0437\u043e\u0432\u0443\u044e \u0438\u043b\u0438 \u043c\u043d\u043e\u0433\u043e\u0440\u0430\u0437\u043e\u0432\u0443\u044e","enabled":"N"},{"icon":"cms","link":"cms","hash":"","is_default":"Y","caption":"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c CMS","position":"3","id":"4","description":"Bitrix, Wordpress, Drupal \u0438 \u0434\u0440.","enabled":"N"},{"icon":"ftp","link":"managers","hash":"","is_default":"N","caption":"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u041f\u0423\/FTP","position":"7","id":"7","description":"\u041f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u0434\u043e\u0441\u0442\u0443\u043f \u043a \u041f\u0423 \u0438 FTP","enabled":"N"},{"icon":"fileman","link":"fileman","hash":"","is_default":"Y","caption":"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0444\u0430\u0439\u043b\u044b \u043d\u0430 \u0441\u0435\u0440\u0432\u0435\u0440","position":"2","id":"3","description":"\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0444\u0430\u0439\u043b\u043e\u0432\u044b\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440","enabled":"N"},{"icon":"mailman","link":"mailman","hash":"","is_default":"Y","caption":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u044f\u0449\u0438\u043a","position":"6","id":"6","description":"\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u044f\u0449\u0438\u043a\u043e\u0432 \u043d\u0435 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u043e","enabled":"N"},{"icon":"sites","link":"sites","hash":"","is_default":"Y","caption":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0441\u0430\u0439\u0442","position":"5","id":"2","description":"\u0423\u043a\u0430\u0437\u0430\u0442\u044c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u044f","enabled":"N"},{"icon":"domain","link":"domains","hash":"\/#\/register","is_default":"Y","caption":"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0434\u043e\u043c\u0435\u043d","position":"1","id":"1","description":"\u0418\u043b\u0438 \u0441\u0440\u0430\u0437\u0443 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0434\u043e\u043c\u0435\u043d\u043e\u0432","enabled":"Y"}],
-	init : function(){
-		this.hot_actions = $('#hot_actions');
 
-		//пустой список
-		this.empty_list = $('#empty_list');
-
-		//список элементов
-		this.sort_list = $('#sort_list', this.hot_actions).sortable({
-			handle : '.hot-action__dnd',
-			update : function(e, ui){
-				$('li', this.sort_list).removeClass('hot-action_odd').filter(':odd').addClass('hot-action_odd');
-			}.bind(this),
-			stop : function(e, ui){
-				this._save();
-			}.bind(this),
-		});
-		this.sort_list.disableSelection();
-
-		//добавить
-		this.add_button = $('#add_button', this.hot_actions).click(function(e){
-			if(this.hot_actions_dialog == undefined)
-				this.hot_actions_dialog = new HotActionsDialog();
-			else
-				this.hot_actions_dialog.open_close();
-		}.bind(this));
-
-		this._set_list(this.list);
-
-		if(this.list.length == 0)
-			$('#hot_actions').hide();
-
-		this._set_default();
-	},
-
-	reload : function(){
-		ajax_hot_actions_list(function(req){
-			this._set_list(JSON.parse(req.responseText));
-			this._set_default();
-			hide_wait();
-		}.bind(this))
-	},
-
-	_set_list : function(data){
-		this.list = data;
-		_.each(this.list, function(item,key){
-			this.list[key].id = parseInt(item.id);
-			this.list[key].description = _t(item.description);
-			this.list[key].caption = _t(item.caption);
-		}.bind(this));
-	},
-
-	create_po : function(){
-		str = '';
-		_.each(this.list, function(item,key){
-			str += '<br/>&#37;'+item.description+'&#37;<br/>&#37;'+item.caption+'&#37;';
-		}.bind(this));
-		$('html').append(str);
-	},
-
-	_set_default : function(){
-		list_show = _.where(this.list, {enabled : 'Y'});
-		if(list_show.length == 0){
-			this.empty_list.show();
-			this.sort_list.hide();
-			return;
-		}else{
-			this.empty_list.hide();
-			this.sort_list.show();
-		}
-
-		this.sort_list.html('');
-
-		_.each(this.list, function(item, key){
-			if(item.enabled == 'N')
-				return;
-
-			var str = '<li class="ui-state-default hot-action">\n\
-				<div class="hot-action__dnd">\n\
-				</div>\n\
-				<a href="'+hot_actions.link(item.id)+'" class="hot-action__info '+item.icon+'">\n\
-					<span class="link">'+item.caption+'</span>\n\
-					<div class="small-text">'+item.description+'</div>\n\
-				</a>\n\
-			</li>';
-			var li = $(str)
-				.appendTo(this.sort_list)
-				.data('id', item.id);
-		}.bind(this));
-
-		$('li', this.sort_list).removeClass('hot-action_odd').filter(':odd').addClass('hot-action_odd');
-	},
-
-	_save : function(){
-		var list = [];
-		$('li', this.sort_list).each(function(key, value){
-			list.push(parseInt($(value).data('id')));
-		});
-		var list_str = list.join(',');
-		var list_old_str = _.pluck(this.list, 'id').join(',');
-
-		if(list_str == list_old_str)
-			return;
-
-		ajax_hot_actions_save(list_str,function(req){
-			this._set_list(JSON.parse(req.responseText));
-		}.bind(this));
-	}
-
-}
-
-HotActionsDialog = newClass(MethodsDialogs, {
-	// list : ,
-	constructor: function(){
-		var random = Math.round(new Date().getTime() / 1000)+'_'+(Math.floor(Math.random() * 100));
-		this.dialog_init({
-			'id_dialog' : 'hot_actions_dialog'+random,
-			'tmpl' : 'HotActionsDialog'
-		});
-
-		this.dialog = $('#'+this.id_dialog).extDialog({
-			func : function(){
-				this.tmpl_add_html();
-			}.bind(this),
-			width : '665px',
-			title: 'Настройка &laquo;Быстрых действий&raquo;',
-			draggable: true
-		});
-
-		this.tabl = $('#tabl', this.dialog);
-
-		this.save_button = $('#save_button', this.dialog).button().click(function(){
-			this._save();
-		}.bind(this));
-
-
-		this.list = hot_actions_block.list;
-		// _.each(this.list, function(item){
-		// 	item.id = parseInt(item.id);
-		// });
-
-		this._set_default();
-	},
-
-	_set_default : function(){
-		this.list_actions = [];
-		this.default_list = [];
-
-		this.tabl.html('');
-
-		var main_actions_ids = _.pluck(hot_actions_block.list, 'id');
-		var list = _.sortBy(hot_actions_block.list, function(item){ return item.id});
-		_.each(list, function(item, key){
-			this._create_switcher(item, key);
-		}.bind(this));
-
-		this.save_button.button('disable');
-	},
-
-	_create_switcher : function(item, key){
-		var flag_enable = (item.enabled == 'Y' ? true : false);
-		var td = this._get_table_td(item, key);
-
-		var switcher = $('<input type="checkbox">');
-		var label = $("<label>").append(switcher).append('<div class="help-inline">'+item.caption+'</div>');
-		switcher
-			.switcher()
-			.switcher('option', 'checked', flag_enable)
-			.change(function(){
-				this._check_default();
-			}.bind(this));
-		this.list_actions[item.id] = switcher;
-		this.default_list[item.id] = flag_enable;
-		td.append(label);
-
-		//td.append('<div class="help-inline">'+item.caption+'</div>');
-	},
-
-	_get_table_td : function(item, key){
-		if(key % 2 == 0){
-			var tr = $('<tr></tr>').appendTo(this.tabl);
-
-			var tr_class = (key%4 ? 'dialog-tr_even' : 'dialog-tr_odd');
-			tr.addClass(tr_class);
-
-			var td = $('<td></td>').appendTo(tr);
-			$('<td>&nbsp;</td>').appendTo(tr);
-		}else{
-			var tr = $('tr', this.tabl).filter(':last-child');
-			var td = $('td', tr).filter(':last-child');
-		}
-		td.html('');
-		return td;
-	},
-
-	_check_default : function(){
-		var flag_save = false;
-		_.each(this.list_actions, function(item, key){
-			if(this.default_list[key] != item.switcher('value')){
-				flag_save = true;
-			}
-		}.bind(this));
-		this.save_button.button((flag_save ? 'enable' : 'disable'));
-	},
-
-	_save : function(){
-		var main_actions = _.pluck(hot_actions_block.list, 'id');
-		_.each(this.list_actions, function(item, key){
-			var flag_switcher = item.switcher('value');
-			var flag_contains = _.contains(main_actions, key);
-
-			if(flag_switcher == false && flag_contains==true){//delete
-				main_actions = _.without(main_actions, key);
-			}else if(flag_switcher == true && flag_contains == false){//add
-				main_actions.push(key);
-			}
-		});
-		var list_str = main_actions.join(',');
-		show_wait();
-		ajax_hot_actions_save(list_str,function(req){
-			hot_actions_block.reload();
-			this.close();
-
-		}.bind(this));
-	},
-
-	open : function(){
-		this.dialog.extDialog('open');
-		this._set_default();
-	}
-});
-
-$(document).ready(function(){
-	templates.init();
-	hot_actions_block.init();
-});
-</script>
 
 <div class="primary_div npp_index">
 
-<div class="info" id="hot_actions">
-    <div class="info__header">
-        <div class="hover-wrap inlineblock">
-            <h2 class="ui-helper-inline" id="add_button">
-                <span class="no-link">Быстрые действия<i class="ui-link-btn-icon ui-link-btn-icon-plus ui-helper-icon-inline hover-wrap_element"></i></span>
-            </h2>
-        </div>
-        <!-- <div class="clear"></div> -->
-    </div>
-    <div class="info__body info__body_actions">
-        <div class="hot-actions-wraper">
-            <ul class="hot-actions" id="sort_list">
-                <!-- <li class="ui-state-default hot-action">
-                    <div class="hot-action__dnd">
-                    </div>
-                    <div class="hot-action__info mysql">
-                        <a class="link" href="#">5 Создать новую базу данных</a>
-                        <div class="small-text">MySQL5, PostgreSQL</div>
-                    </div>
-                </li>
-                <li class="ui-state-default hot-action hot-action_odd">
-                    <div class="hot-action__dnd">
-                    </div>
-                    <div class="hot-action__info mailman">
-                        <a class="link" href="#">6 Создать почтовый ящик</a>
-                        <div class="small-text">Количество ящиков неограничено</div>
-                    </div>
-                </li> -->
-            </ul>
-
-            <div class="clear"></div>
-        </div>
-
-        <div id="empty_list" class="hot_actions_empty" style="display:none;">
-            Выберите сами, какие &laquo;быстрые действия&raquo; вам нужны и разместите их прямо на главной странице
-        </div>
-    </div>
-</div>
 <div style="display:none;">
     <div id="template_HotActionsDialog">
         <div class="form-horizontal npp_index-hot_actions_dialog">
@@ -643,509 +259,6 @@ $(document).ready(function(){
 
 	</script>
 
-<div class="info info_small fl" id="accordion">
-<div class="info__header">
-    <h2 class="ui-helper-inline no-link">Статистика</h2>
-    <i class="ui-icon-sm ui-icon-arrow-down fr"></i>
-</div>
-<div class="info__body info__body_simple info__body_nlast">
-<script>
-				bisector = d3.bisector(function(d, i) { return i; }).left;
-				function value_accessor(d) { return d.val; };
-				function render_chart(id, data) {
-						var m, w, h
-							, extent, mean
-							, x, y, line, area
-							, xAxis, yAxis
-							, container, plot
-							, tooltip, tooltip_caption
-							, ticks_hours
-							, hour
-							;
-
-
-						// pre-process data items
-						data = _.map(data, function(d) {
-							//d.dt = d.dt.getHours() || '';
-							d.cap = d.val;
-							d.val = parseFloat(d.val) || 0;
-							return d;
-						});
-
-						// define plot margins, width and height
-						m = [15, 10, 35, 35];
-						width = $('#'+id).parent().width();
-						w = width - (m[3] + m[1]);
-						h = 220 - (m[0] + m[2]);
-
-
-						// calculate scales min/max and mean values
-						extent = d3.extent(data, value_accessor);
-						extent[1] = extent[1] * 1.1;
-						extent[0] = 0;
-
-						mean = d3.mean(data, value_accessor);
-
-						// define scales
-						x = d3.scale.linear().domain([0, data.length]).range([0, w +10]);
-						y = d3.scale.linear().domain(extent).range([h, 0]);
-
-						// return the X coordinate where we want to plot this datapoint
-						function fx(d, i) {
-							return x(i);
-						}
-
-						// return the Y coordinate where we want to plot this datapoint
-						function fy(d) {
-							return y(d.val);
-						}
-
-						// assign the X function to plot our line as we wish
-						line = d3.svg.line().x(fx).y(fy);
-						area = d3.svg.area().interpolate(line.interpolate()).x(line.x()).y1(line.y()).y0(y(0));
-
-						// define axis lines
-						hour = parseInt(data[0].dt);
-						ticks_hours = {'24': '','18': '','12': '','6': '','0': ''};
-
-						for(var i in ticks_hours){
-							ticks_hours[i] = hour;
-							hour = hour + 6;
-							if(hour > 24){
-								hour = hour - 24;
-							}
-						}
-						if(ticks_hours["0"] == "24"){
-							ticks_hours["0"] = 0;
-						}
-
-						xAxis = d3.svg.axis().scale(x).ticks(4).orient('bottom')
-							.tickSize(-h)
-							.tickPadding(23)
-							.tickFormat(function(d) {
-								if(d == 23){
-									d += 1;
-								}
-								return (parseInt(ticks_hours[d])<10?"0"+ticks_hours[d]:ticks_hours[d])+":00"
-							})
-							.tickValues([0, 6, 12, 18, 23]);
-
-						yAxis = d3.svg.axis().scale(y).ticks(4).orient('left')
-							.tickSize(-w)
-							.tickPadding(10)
-							.tickFormat(function(d) {
-								var pow, exp;
-
-								if (d < 1000) {
-									return d;
-								} else {
-									exp = Number.prototype.toExponential.call(d);
-
-									// split and translate
-									exp = exp.split('e+');
-									exp[0] = parseFloat(exp[0]) || 1;
-									exp[1] = parseInt(exp[1]) || 3;
-
-									pow = exp[1];
-									exp[1] = pow - (pow % 3);
-									exp[0] = exp[0] * Math.pow(10, pow - exp[1]);
-									exp[1] = (exp[1] / 3) - 1;
-									exp[1] = [_t("тыс."), _t("млн.")][exp[1]];
-
-									return exp.join(' ');
-								}
-							});
-
-						container = d3.select('#' + id);
-
-						// create a tooltip
-						tooltip = container.append('div')
-							.attr('class', 'plot-tooltip')
-							.style('opacity', 0);
-
-						// tooltip arrow
-						tooltip.append('div').attr('class', 'plot-tooltip-a');
-
-						// tooltip caption
-						tooltip_caption = tooltip.append('div').attr('class', 'plot-tooltip-c');
-console.log(m);
-						plot = container.append('svg:svg')
-						  .attr('width', 310)
-						  .attr('height', h + m[0] + m[2])
-						  .attr('class', 'plot')
-						  .append('svg:g')
-						  .attr('transform', 'translate(' + m[3] + ',' + m[0] + ')');
-
-						// add axes
-						plot.append('svg:g')
-						  .attr('class', 'axis')
-						  .style('stroke-dasharray', ('3, 3'))
-						  .attr('transform', 'translate(0,' + h + ')')
-						  .call(xAxis);
-
-						plot.append('svg:g')
-						  .attr('class', 'axis y-axis')
-						  .attr('transform', 'translate(5,0)')
-						  .call(yAxis);
-
-						// add plot lines
-						plot.selectAll('path.area')
-						  .data([data])
-						  .enter()
-						  .append("svg:path")
-						  .attr('class', 'area')
-						  .attr("d", area);
-
-						plot.selectAll('path.line')
-						  .data([data])
-						  .enter()
-						  .append("svg:path")
-						  .attr('class', 'line')
-						  .attr("d", line);
-
-						// Add the line by appending an svg:path element with the data line we created above
-						// do this AFTER the axes above so that the line is above the tick-lines
-						plot.selectAll("circle")
-						  .data(data)
-						  .enter()
-						  .append("circle")
-						  .attr("class", "point")
-						  .attr("r", 3)
-						  .attr("cx", fx)
-						  .attr("cy", fy);
-
-						var max_tick = 6;
-						$('.y-axis text').each(function(){
-							max_tick = Math.max(parseInt($(this).width()), max_tick);
-						});
-
-						function mousemove() {
-							var h = parseInt(tooltip.style("height"), 10),
-								x0 = x.invert(Math.round(d3.mouse(this)[0])),
-								i = bisector(data, x0, 1) - 1,
-								i = Math.round(x0);
-								d = data[i];
-
-							tooltip_caption.html(d.cap);
-
-							tooltip
-								.style("left", (x(i) + ((m[3] / 2) - 15)) + (max_tick - 20) + "px")
-								.style("top", y(d.val) - (h / 2) - 10 + "px");
-						}
-
-
-						plot.append("rect")
-						  .attr("class", "overlay")
-						  .attr("width", w)
-						  .attr("height", h)
-						  .on("mouseover", function() { tooltip.style("opacity", 1); })
-						  .on("mouseout", function() { tooltip.style("opacity", 0); })
-						  .on("mousemove", mousemove);
-
-						plot.attr('transform', 'translate(' + (max_tick + 16) + ',' + m[0] + ')');
-
-						if(max_tick > 30){
-							$('.load-cpu').css({'left':'-13px'});
-						}
-					}
-
-
-
-				statistics = {
-					domains : ["0a.by","aengel.ru","co0.ru","ih8.su","meluz.ga","oyyy.ru","qwebotik.webtm.ru","qweqwe.webtm.ru","testingmail.webtm.ru","wtfuck.ru"],
-					active_site: '0a.by',
-					list : [],
-
-					init : function(){
-
-						var elements = _.map(this.domains, function(item){
-							return {
-								name : item,
-								caption : punycode.ToUnicode(item)
-							};
-						});
-						// elements = [];
-
-
-						if(elements.length == 0){
-							$('#statistics_no_domains_block').show();
-							return;
-						}else{
-							$('#statistics_main_block').show();
-						}
-
-
-
-						//график
-						this.users_chart = $('#users_chart');
-
-						this.users_count = $('#users_count');
-
-
-						var width = $('#domains').parent().width();
-						this.domains = $('#domains').select({
-							width: width,
-							elements: elements,
-							selected: this.active_site,
-							select: function(e, item) {
-								ajax_get_site_stat(item.value, function(res) {
-									if (res.status == 200) {
-										var json = JSON.parse(res.responseText);
-										this.list = [];
-										for(i = 0; i<json.stat.length; i++){
-
-											this.list.push({
-												'dt' : json.stat[i].visit_time.split(':')[0],
-												'val' : json.stat[i].visit_count
-											});
-										}
-										this._set_data();
-										this.users_count.html(plural(json.uniq, ['пользователь', 'пользователя', 'пользователей']));
-									}
-
-								}.bind(this));
-							}.bind(this)
-						});
-					},
-
-					random_data : function(){
-						this.list = [];
-						for(i = 0; i<=24; i++){
-							t = (i < 10 ? '0' : '')+i;
-							// val = i + _.rand <
-							this.list.push({
-								'dt' : '2013-07-22T'+t+':00:00',
-								'val' : i + _.random(i,1000)
-							});
-						}
-
-						this.list = _.map(this.list, function(d) {
-							return {
-								'dt': $.fn.toDate(d.dt),
-								'val': 	d.val
-							}
-						});
-					},
-
-					_set_data : function(domain){
-						//построение графика
-						// this.random_data();
-						this.users_chart.html('');
-						render_chart('users_chart', this.list);
-
-						// //пользователи
-						// var text = plural(_.random(0,300), ['пользовател', 'пользователя', 'пользователей']);
-
-					}
-
-
-				};
-				$(document).ready(function(){
-					statistics.init();
-				});
-			</script>
-<div id="statistics_main_block" style="display:none;">
-    <div id="domains"></div>
-
-    <div class="small-text statistic_label">Сейчас на сайте:</div>
-    <h2 id="users_count"></h2>
-
-    <div class="wrap-load-cpu">
-        <div id="users_chart" class="load-cpu"></div>
-    </div>
-</div>
-<div id="statistics_no_domains_block" style="display:none;">
-    Для того, чтобы начать работать со статистикой, необходимо создать или привязать хотя бы один домен. Чтобы создать домен, перейдите в раздел
-    <a class="link" href="/domains">«Управление доменами»</a>.
-</div>
-</div>
-
-
-
-
-
-
-<div class="info__header info__header_last">
-    <h2 class="ui-helper-inline no-link">Информация о сервере</h2>
-    <i class="ui-icon-sm ui-icon-arrow-down fr"></i>
-</div>
-<div class="info__body info__body_simple info__body_last">
-    <script>
-				$(document).ready(function(){
-					$('#accordion .info__body').css('height', '355px');
-					$('#ssh').switcher().change(function(e){
-						show_wait();
-						if($(e.currentTarget).switcher('value')){
-							var check = this;
-							ajax_enable_ssh(function(req){
-								if(req.responseText == 'need_phone'){
-									check.no_send = 'Y';
-									hide_wait();
-									if(confirm("Для подключения SSH необходима авторизация по номеру телефона. Хотите привязать телефонный номер?")){
-										window.location = '/sms';
-									}
-									$(check).trigger('click');
-								}else{
-									hide_wait();
-								}
-							})
-						}else{
-							if(!this.no_send){
-								ajax_disable_ssh(function(req){
-									hide_wait();
-								})
-							}else{
-								hide_wait();
-							}
-							delete this.no_send;
-						}
-					});
-				});
-			</script>
-    <table class="ui-table ui-table-striped">
-        <tbody>
-
-        <tr name="trow" class="ui-state-even">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                Сервер:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                curiosity
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-odd">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                IP-адрес:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                92.53.123.96
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-even">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                SSH:
-            </td>
-            <td class="simplecell switchercell" style="vertical-align: middle;">
-                <input id="ssh" type="checkbox" checked/>
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-odd">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                Операционная система:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                3.2
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-even">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                Apache:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                2.2.24
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-odd">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                MySQL:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                5.1
-            </td>
-        </tr>
-
-        <tr name="trow" class="ui-state-even">
-            <td class="simplecell" name="tcell" style="vertical-align: top;">
-                PHP:
-            </td>
-            <td class="simplecell" style="vertical-align: middle;">
-                <a href="http://CURIOSITY.timeweb.ru/phpinfo.php" target="_blank">5.3.18</a>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
-
-
-
-    <div class="directorys">
-        <div class="small-text"></div>
-        /public_html
-    </div>
-
-    <div class="directorys">
-        <div class="small-text">Document_root</div>
-        /home/g/gurikh/public_html
-    </div>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="info info_small fr">
-    <div class="info__header">
-        <h2>Финансы</h2>
-    </div>
-    <div class="info__body info__body_simple">
-        <table class="element__table">
-            <tbody>
-            <tr>
-                <td class="element__block
-						element__block_np">
-                    <a href="/balance/#/subscription" class="link link-inverse small-text">Абонентская:</a>
-                    <div>
-                        <span class="caption caption-m">55 р.</span>
-                    </div>
-                </td>
-                <td class="element__block element__block_np">
-                    <a  href="/balance/#/moneymove" class="link link-inverse small-text">Баланс:</a>
-                    <div>
-                        <span class="caption caption-m">1 р.</span>
-                    </div>
-                </td>
-                <td class="element__block element__block_np last-child">
-                    <div class="no-border small-text">Дней осталось:</div>
-                    <div>
-                        <span class="caption caption-m">9447</span>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <a id="add_money" href="balance/#/balance" class="ui-button ui-button-primary">Пополнить баланс</a>
-
-        <script>
-			$(document).ready(function(){
-				$('#add_money').button();
-			});
-			</script>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="info info_small fr info-last">
@@ -1157,18 +270,25 @@ console.log(m);
             <tbody>
 
             <tr>
-                <td class='quota-name'><span class="ui-helper-inline">Дисковое пространство (SSD):</span></td>
-                <td><span class="ui-helper-inline quota__value">2 из 49 ГБ</span></td>
+                <td class='quota-name'><span class="ui-helper-inline">Цена:</span></td>
+                <td><span class="ui-helper-inline quota__value">240 руб./мес.</span></td>
             </tr>
+
+
             <tr>
                 <td colspan='2'>
                     <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="2" data-limit="49"></div>
                 </td>
             </tr>
 
+
+
+
+
+
             <tr>
-                <td class='quota-name'><span class="ui-helper-inline">Количество сайтов:</span></td>
-                <td><span class="ui-helper-inline quota__value">5 из 100</span></td>
+                <td class='quota-name'><span class="ui-helper-inline">Подключенные опции:</span></td>
+                <td><span class="ui-helper-inline quota__value"></span></td>
             </tr>
             <tr>
                 <td colspan='2'>
@@ -1176,55 +296,21 @@ console.log(m);
                 </td>
             </tr>
 
-            <tr>
-                <td class='quota-name'><span class="ui-helper-inline">Пользователей ПУ/FTP:</span></td>
-                <td><span class="ui-helper-inline quota__value">2 из 100</span></td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="2" data-limit="100"></div>
-                </td>
-            </tr>
 
-            <tr>
-                <td class='quota-name'><span class="ui-helper-inline">Баз данных MySQL:</span></td>
-                <td><span class="ui-helper-inline quota__value">3</span></td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="3" data-limit="999"></div>
-                </td>
-            </tr>
 
-            <tr>
-                <td class='quota-name'><span class="ui-helper-inline">Почтовая квота:</span></td>
-                <td><span class="ui-helper-inline quota__value"><a href=/mail_limit/>0,03 из 10 ГБ</a></span></td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="0,03" data-limit="10"></div>
-                </td>
-            </tr>
+
+
+
 
             </tbody>
 
         </table>
 
 
-        <script>
-				$(document).ready(function(){
-					$(".quota__line[data-value]").each(function(){
-						var data_value = parseFloat($(this).attr("data-value")), data_limit = parseFloat($(this).attr("data-limit")), percent;
-						percent = data_limit ? data_value/data_limit*100 : 0;
-						if(!data_value) percent = 0;
-						else if(percent < 1) percent = 1;
-						$(this).progressbar({value : percent });
-					});
-					$('#change_tarif').button();
-				});
-			</script>
 
-        <a id="change_tarif" href="/tariff/" class="ui-button ui-button-primary">Изменить тариф</a>
+        <a id="change_tarif" href="/tariff/" class="ui-button ui-button-primary ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Изменить тариф</span></a>
+
+
 
     </div>
 </div>
