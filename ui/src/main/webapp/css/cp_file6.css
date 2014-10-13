@@ -1,0 +1,242 @@
+.wrap-load-cpu {
+    height: 230px;
+    position: relative;
+}
+.load-cpu {
+    position: absolute;
+    left: 0px;
+    top: 0;
+    width: 305px;
+}
+.load-cpu .plot .line, .load-cpu .plot .threshold, .load-cpu .plot .point {
+    stroke: #749bb6;
+}
+.load-cpu .plot-tooltip {
+    background-color: #749bb6;
+}
+.load-cpu .plot-tooltip .plot-tooltip-a {
+    color: #749bb6;
+}
+.plot-tooltip-a, .load-cpu .plot-tooltip .plot-tooltip-c {
+    color: #fff;
+}
+.npp_index .info__body_last {
+    border-top: 1px solid #dfe9ec;
+}
+.npp_index .info__body_nlast {
+    border-bottom: 1px solid #dfe9ec;
+}
+.npp_index .element__table {
+    table-layout: auto;
+}
+.npp_index .one_line {
+    white-space: nowrap;
+}
+.npp_index .info__header .ui-icon-arrow-down, .npp_index .info__header .ui-icon-arrow-up {
+    margin-top: 12px;
+}
+.info-last {
+/*
+    height: 311px;
+    */
+}
+.info_small .element__vline {
+    width: 7px;
+}
+.npp_index .info {
+    border: 1px solid #dfe9ec;
+    border-radius: 4px;
+    margin-bottom: 17px;
+}
+.npp_index .info_small {
+    width: 640px;
+    cursor: default;
+}
+.npp_index .info__header .ui-helper-icon-inline {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.npp_index .info__header.ui-corner-all, .npp_index .info__body.ui-corner-bottom {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.npp_index .info__header.ui-helper-reset {
+    line-height: normal;
+}
+.npp_index .info__header_last {
+    border-bottom: 0px;
+}
+.npp_index .info__body_actions {
+    padding: 9px 0px 11px;
+}
+.npp_index .info__body_simple {
+    padding: 15px 14px;
+}
+.npp_index .info__body_simple .element__table {
+    table-layout: fixed;
+    margin-bottom: 13px;
+}
+.npp_index .info__body_simple .element__table>tbody>tr>td:first-child {
+    width: 82px;
+    padding-left: 0;
+    border-left: 0;
+}
+.npp_index .info__body_simple .element__table .last-child {
+    width: 82px;
+    padding-right: 0;
+}
+.npp_index .info__body_simple .element__block {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-left: 1px solid #E3EDEE;
+    line-height: 1.3;
+}
+.npp_index .info__body_simple .element__block .small-text {
+    font-size: 11px;
+}
+.hot-actions {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.hot-actions-wraper {
+    background: url("/images/np/bg-doted-pixel.png") center repeat-y;
+}
+.hot-action {
+    float: left;
+}
+.hot-action:hover {
+    background-color: #EDFAFF;
+}
+.hot-action:hover .hot-action__dnd {
+    display: block;
+}
+.hot-action_odd:hover {
+    background: url("/images/np/bg-doted-pixel.png") left repeat-y #edfaff;
+}
+.hot-action__info {
+    height: 30px;
+    padding: 14px 15px 14px 54px;
+    background: 18px center no-repeat;
+    display: block;
+    border-bottom: 0;
+    width: 252px;
+}
+.hot-action__info .small-text {
+    color: #333;
+    margin-top: 2px;
+}
+.hot-action__dnd {
+    float: right;
+    width: 6px;
+    margin-top: 12px;
+    margin-right: 15px;
+    padding-left: 20px;
+    height: 34px;
+    background: url("/images/np/doted-drag.png") right center no-repeat;
+    cursor: pointer;
+    display: none;
+}
+.hot-action__info.mailman {
+    background-image: url("/images/np/mailman-add.png");
+}
+.hot-action__info.sites {
+    background-image: url("/images/np/sites-add.png");
+}
+.hot-action__info.mysql {
+    background-image: url("/images/np/db.png");
+}
+.hot-action__info.ftp {
+    background-image: url("/images/np/icons-mdl-add-user.png");
+    background-position: 20px center;
+}
+.hot-action__info.domain {
+    background-image: url("/images/np/domains-add.png");
+}
+.hot-action__info.fileman {
+    background-image: url("/images/np/fileman.png");
+}
+.hot-action__info.cms {
+    background-image: url("/images/np/cms.png");
+}
+.hot-action__info.cron {
+    background-image: url("/images/np/cron-add.png");
+}
+.dialog.ui-table {
+    background-color: transparent;
+}
+.dialog.ui-table tr.dialog-tr_even td, .dialog.ui-table tr.dialog-tr_odd td {
+    border-top-color: #dde9eb;
+}
+.dialog.ui-table tr.dialog-tr_odd:first-child td {
+    border-top: 0px;
+}
+tr.dialog-tr_even td {
+    background-color: #F2f7f9;
+}
+.npp_index-hot_actions_dialog.form-horizontal .form-actions {
+    padding-left: 0px;
+}
+.npp_index-hot_actions_dialog.form-horizontal .help-inline {
+    color: #41526b;
+}
+.npp_index .hot_actions_empty {
+    padding: 0px 15px;
+}
+.npp_index .quota {
+    font-size: 12px;
+    cursor: default;
+}
+.npp_index .quota-name {
+    width: 300px;
+}
+.npp_index .quota-name+td {
+    white-space: nowrap;
+}
+.npp_index .quota__value.full, .npp_index .quota__value.full a {
+    color: #e2d288;
+}
+.npp_index .full .ui-progressbar-value {
+    background-color: #e2d288;
+    background-image: none;
+}
+.npp_index .quota__line {
+    margin-top: 6px;
+    margin-bottom: 15px;
+}
+.npp_index .caption-s {
+    font-size: 14px;
+    line-height: 200%}
+.npp_index .caption-m {
+    font-size: 18px;
+    line-height: 150%;
+    cursor: default;
+}
+.npp_index .directorys {
+    font-size: 14px;
+    padding-top: 25px;
+    cursor: default;
+}
+.npp_index .switchercell {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.npp_index .statistic_label {
+    margin-top: 15px;
+    cursor: default;
+}
+.directorys .small-text {
+    margin-bottom: 2px;
+    padding-left: 3px;
+}
+.info_small.fr {
+/*
+    height: 160px;
+    */
+}
+.info_small.fr.info-last {
+    padding: 15px 14px 20px;
+
+}
