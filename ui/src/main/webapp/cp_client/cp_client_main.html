@@ -9,12 +9,12 @@
     <script>window.page_data = {};</script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
     <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
     <script type="text/javascript" src="/js/locale.js?e739290ec4"></script>
     <script type="text/javascript" src="/js/jquery-1.8.3.min.js?24bd97b1de"></script>
@@ -45,81 +45,8 @@
 </div>
 
 <script>window.customer = {"free_activated":"N","action_status":"{\"tariff\":\"0\"}","p_latin":"staff","test_vds_used":"N","sms_activated":"Y","country":"ru","cp_lang":"ru","want_info_letters":"U","p_purpose":"real","period":"M","first_time":"N","kind":"customer","nps_active":"N","avatar":0,"hash":"3e75bcaf0dc0c3c4e54fffb3f79cc81e"};</script>
-<script>
-window.browser = (navigator.appName=="Microsoft Internet Explorer")?((navigator.appVersion.indexOf("MSIE 6.0")==-1)?"ie7":"ie6"):((navigator.appName=="Netscape")?((navigator.appVersion.indexOf("Safari")==-1)?"firefox":"safari"):"opera")
-function in_array(needle, haystack){ for (var h in haystack) if (haystack[h] == needle) return true; return false; };
-function array_concat(a, b){ var result = []; for (var a1 in a)  result.push(a[a1]); for (var b1 in b) result.push(b[b1]); return result;};
-window.encode_ajax="off";
-</script>
-<script>
-this.ajax_check_messages = function(callback){ return do_call("ajax_check_messages", [], callback);};
-this.ajax_preloader_off = function(callback){ return do_call("ajax_preloader_off", [], callback);};
-this.ajax_add_account = function(v0, v1, callback){ return do_call("ajax_add_account", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_unlink_account = function(v0, callback){ return do_call("ajax_unlink_account", ["v0=" + v0], callback);};
-this.ajax_change_plan = function(v0, callback){ return do_call("ajax_change_plan", ["v0=" + v0], callback);};
-this.ajax_change_lang = function(v0, callback){ return do_call("ajax_change_lang", ["v0=" + v0], callback);};
-this.ajax_first_button = function(v0, callback){ return do_call("ajax_first_button", ["v0=" + v0], callback);};
-this.ajax_check_free_domain = function(v0, callback){ return do_call("ajax_check_free_domain", ["v0=" + v0], callback);};
-this.ajax_register_free_account = function(v0, v1, v2, v3, callback){ return do_call("ajax_register_free_account", ["v0=" + v0, "v1=" + v1, "v2=" + v2, "v3=" + v3], callback);};
-this.ajax_change_subscribe = function(v0, callback){ return do_call("ajax_change_subscribe", ["v0=" + v0], callback);};
-this.ajax_send_vps_request = function(v0, v1, v2, callback){ return do_call("ajax_send_vps_request", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
-this.ajax_activate_account = function(v0, v1, callback){ return do_call("ajax_activate_account", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_activate_sms = function(v0, callback){ return do_call("ajax_activate_sms", ["v0=" + v0], callback);};
-this.ajax_set_vds_caption = function(v0, v1, callback){ return do_call("ajax_set_vds_caption", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_get_server_list_status = function(callback){ return do_call("ajax_get_server_list_status", [], callback);};
-this.ajax_load_vds = function(v0, callback){ return do_call("ajax_load_vds", ["v0=" + v0], callback);};
-this.ajax_reboot_vds = function(v0, callback){ return do_call("ajax_reboot_vds", ["v0=" + v0], callback);};
-this.ajax_turnoff_vds = function(v0, callback){ return do_call("ajax_turnoff_vds", ["v0=" + v0], callback);};
-this.ajax_turnon_vds = function(v0, callback){ return do_call("ajax_turnon_vds", ["v0=" + v0], callback);};
-this.ajax_hard_shutdown_vds = function(v0, callback){ return do_call("ajax_hard_shutdown_vds", ["v0=" + v0], callback);};
-this.ajax_clone_vds = function(v0, v1, callback){ return do_call("ajax_clone_vds", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_update_configuration = function(v0, v1, callback){ return do_call("ajax_update_configuration", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_reinstall_os = function(v0, v1, v2, callback){ return do_call("ajax_reinstall_os", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
-this.ajax_add_ip = function(v0, v1, callback){ return do_call("ajax_add_ip", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_remove_ip = function(v0, v1, callback){ return do_call("ajax_remove_ip", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_create_server = function(v0, v1, v2, v3, v4, v5, v6, callback){ return do_call("ajax_create_server", ["v0=" + v0, "v1=" + v1, "v2=" + v2, "v3=" + v3, "v4=" + v4, "v5=" + v5, "v6=" + v6], callback);};
-this.ajax_create_test_server = function(v0, callback){ return do_call("ajax_create_test_server", ["v0=" + v0], callback);};
-this.ajax_change_boot_type = function(v0, v1, callback){ return do_call("ajax_change_boot_type", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_get_server_status = function(v0, callback){ return do_call("ajax_get_server_status", ["v0=" + v0], callback);};
-this.ajax_remove_server = function(v0, callback){ return do_call("ajax_remove_server", ["v0=" + v0], callback);};
-this.ajax_load_charts_data = function(v0, v1, callback){ return do_call("ajax_load_charts_data", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_create_snapshot = function(v0, v1, callback){ return do_call("ajax_create_snapshot", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_get_snapshots = function(v0, v1, callback){ return do_call("ajax_get_snapshots", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_get_snapshots_statuses = function(v0, v1, callback){ return do_call("ajax_get_snapshots_statuses", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_mount_snapshot = function(v0, v1, callback){ return do_call("ajax_mount_snapshot", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_umount_snapshot = function(v0, v1, callback){ return do_call("ajax_umount_snapshot", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_remove_snapshot = function(v0, v1, callback){ return do_call("ajax_remove_snapshot", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_recovery_snapshot = function(v0, v1, callback){ return do_call("ajax_recovery_snapshot", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_save_ptr = function(v0, v1, callback){ return do_call("ajax_save_ptr", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_order_license = function(v0, v1, v2, callback){ return do_call("ajax_order_license", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
-this.ajax_check_license = function(v0, v1, callback){ return do_call("ajax_check_license", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_get_licenses = function(v0, callback){ return do_call("ajax_get_licenses", ["v0=" + v0], callback);};
-this.ajax_get_addtional = function(callback){ return do_call("ajax_get_addtional", [], callback);};
-this.ajax_extend_licensies = function(v0, callback){ return do_call("ajax_extend_licensies", ["v0=" + v0], callback);};
-this.ajax_set_phone_server = function(v0, callback){ return do_call("ajax_set_phone_server", ["v0=" + v0], callback);};
-this.ajax_set_phone_account = function(v0, callback){ return do_call("ajax_set_phone_account", ["v0=" + v0], callback);};
-this.ajax_choice_phone_server = function(v0, v1, callback){ return do_call("ajax_choice_phone_server", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_del_phone_server = function(v0, callback){ return do_call("ajax_del_phone_server", ["v0=" + v0], callback);};
-this.ajax_unlink_phone = function(v0, callback){ return do_call("ajax_unlink_phone", ["v0=" + v0], callback);};
-this.ajax_phone_server_confirm = function(v0, v1, callback){ return do_call("ajax_phone_server_confirm", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_change_sms_settings = function(v0, v1, v2, callback){ return do_call("ajax_change_sms_settings", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
-this.ajax_send_text_rate = function(v0, callback){ return do_call("ajax_send_text_rate", ["v0=" + v0], callback);};
-this.ajax_send_nps_rate = function(v0, callback){ return do_call("ajax_send_nps_rate", ["v0=" + v0], callback);};
-this.ajax_reject_rate = function(callback){ return do_call("ajax_reject_rate", [], callback);};
-this.ajax_enable_ssh = function(callback){ return do_call("ajax_enable_ssh", [], callback);};
-this.ajax_disable_ssh = function(callback){ return do_call("ajax_disable_ssh", [], callback);};
-this.ajax_upload_avatar = function(callback){ return do_call("ajax_upload_avatar", [], callback);};
-this.ajax_remove_avatar = function(callback){ return do_call("ajax_remove_avatar", [], callback);};
-this.ajax_get_vds_rate = function(v0, callback){ return do_call("ajax_get_vds_rate", ["v0=" + v0], callback);};
-this.ajax_create_vds_group = function(v0, callback){ return do_call("ajax_create_vds_group", ["v0=" + v0], callback);};
-this.ajax_delete_vds_group = function(v0, callback){ return do_call("ajax_delete_vds_group", ["v0=" + v0], callback);};
-this.ajax_add_vds_to_group = function(v0, v1, callback){ return do_call("ajax_add_vds_to_group", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_vds_edit_group = function(v0, v1, callback){ return do_call("ajax_vds_edit_group", ["v0=" + v0, "v1=" + v1], callback);};
-this.ajax_hot_actions_save = function(v0, callback){ return do_call("ajax_hot_actions_save", ["v0=" + v0], callback);};
-this.ajax_hot_actions_list = function(callback){ return do_call("ajax_hot_actions_list", [], callback);};
-this.ajax_get_site_stat = function(v0, callback){ return do_call("ajax_get_site_stat", ["v0=" + v0], callback);};
-this.ajax_vds_change_expand = function(v0, callback){ return do_call("ajax_vds_change_expand", ["v0=" + v0], callback);};
-</script>
+
+
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -212,7 +139,7 @@ this.ajax_vds_change_expand = function(v0, callback){ return do_call("ajax_vds_c
         </a>
 
         <div class="np_menu-line"></div>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="https://cp.timeweb.ru?save"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../login.html"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
 <td class="np_content">
 <script src="/js/underscore-min.js"></script>
