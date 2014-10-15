@@ -1,0 +1,13 @@
+.account-selector .avatar {
+    display: block;
+    float: left;
+    margin-top: 0px;
+    margin-right: 6px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+.thumbnail-small, .avatar.thumbnail-small>img {
+    height: 33px;
+    width: 33px;
+}

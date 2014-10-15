@@ -1,0 +1,11 @@
+echo "Введите название коммита";
+read commitname;
+mysqldump -uroot -proot tproject > sql/tproject_`date +%Y.%m.%d_%H_%M`.sql
+echo "Дамп базы tproject создан!"
+git add .
+echo "Файлы добавлены в коммит"
+git commit -a -m \"$commitname\"
+echo "Файлы закоммичены"
+git push origin master
+echo "git push выполнен!"
+
