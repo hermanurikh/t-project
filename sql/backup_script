@@ -1,0 +1,2 @@
+mysqldump -uroot -proot tproject > tproject_`date +%Y.%m.%d_%H_%M`.sql
+echo "Дамп базы tproject создан!"

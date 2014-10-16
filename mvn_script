@@ -1,0 +1,4 @@
+mvn clean install
+echo "Проект собран"
+cp mobile/target/mobile.war ~/Tomcat/apache-tomcat-8.0.12/webapps/
+echo "Файл war скопирован. Готово!"
