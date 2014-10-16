@@ -1,4 +1,4 @@
-/home/german/Tomcat/apache-tomcat-8.0.12/bin/./startup.sh
 mvn clean install
-cp ui/target/ui.war ~/Tomcat/apache-tomcat-8.0.12/webapps/
-cp backend/target/backend.war ~/Tomcat/apache-tomcat-8.0.12/webapps/
+echo "Проект собран"
+cp mobile/target/mobile.war ~/Tomcat/apache-tomcat-8.0.12/webapps/
+echo "Файл war скопирован. Готово!"
