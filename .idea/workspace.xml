@@ -4,68 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6058fbd4-3fea-4ecb-a68f-b98cd8946c58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/servlets/LoginServlet.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t-project.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/src/main/java/ru/tsystems/tsproject/tproject/LoginServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/cp_client/cp_client_contract.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/cp_client/cp_client_main.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/cp_employee/cp_employee_main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file1.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file4.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/cp_file6.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/login_file1.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/login_file2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/fonts/HelveticaNeueCyr-Light.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/images/arrow-down-white-blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/images/checkbox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/images/icon-alert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/images/menu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/scripts/form_script_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/scripts/form_script_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/style-client.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/style-employee.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/target/ui/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui/ui.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/cp_client/cp_client_contract.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_client/cp_client_contract.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/cp_client/cp_client_main.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_client/cp_client_main.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/cp_employee/cp_employee_main.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_main.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file1.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file1.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file2.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file2.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file3.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file3.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file4.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file4.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file5.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file5.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file6.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file6.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/login_file1.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/login_file1.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/login_file2.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/login_file2.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/css/styles.css" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/css/styles.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/fonts/HelveticaNeueCyr-Light.otf" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/fonts/HelveticaNeueCyr-Light.otf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/images/arrow-down-white-blue.png" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/images/arrow-down-white-blue.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/images/checkbox.png" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/images/checkbox.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/images/icon-alert.png" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/images/icon-alert.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/images/menu.png" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/images/menu.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/login.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/login.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/scripts/form_script_1" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/scripts/form_script_1" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/scripts/form_script_2" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/scripts/form_script_2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/style-client.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/style-client.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/style-employee.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/style-employee.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ui/src/main/webapp/test.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6058fbd4-3fea-4ecb-a68f-b98cd8946c58" name="Default" comment="" />
     <ignored path="t-project.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -393,6 +332,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

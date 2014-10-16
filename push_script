@@ -1,6 +1,6 @@
 echo "Введите название коммита";
 read commitname;
-mysqldump -uroot -proot tproject > sql/tproject_`date +%Y.%m.%d_%H_%M`.sql
+mysqldump -uroot -proot tproject > sql/dumps/tproject_`date +%Y.%m.%d_%H_%M`.sql
 echo "Дамп базы tproject создан!"
 git add .
 echo "Файлы добавлены в коммит"
