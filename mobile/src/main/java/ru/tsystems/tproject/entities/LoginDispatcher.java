@@ -6,6 +6,6 @@ package ru.tsystems.tproject.entities;
 public class LoginDispatcher {
     public static boolean dispatch(){
 
-        return false;
+        return true;
     }
 }
