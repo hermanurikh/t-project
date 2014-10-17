@@ -2,7 +2,7 @@ echo "Введите название коммита";
 read commitname;
 echo "Будем делать дамп базы? y/n"
 read answer;
-if [ "answer" = y ]
+if [ "$answer" = y ]
 then
 mysqldump -uroot -proot tproject > sql/dumps/tproject_`date +%Y.%m.%d_%H_%M`.sql
 echo "Дамп базы tproject создан!"
