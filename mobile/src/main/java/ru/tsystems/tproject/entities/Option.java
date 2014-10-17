@@ -31,5 +31,63 @@ public class Option {
             inverseJoinColumns = @JoinColumn(name = "optionTwo_ID")
     )
     private List<Option> optionsIncompatible = new ArrayList<>();
+    public Option(){}
 
+    public Option(String name, int price, int initialPrice) {
+        this.name = name;
+        this.price = price;
+        this.initialPrice = initialPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getInitialPrice() {
+        return initialPrice;
+    }
+
+    public void setInitialPrice(int initialPrice) {
+        this.initialPrice = initialPrice;
+    }
+
+    public List<Option> getOptionsTogether() {
+        return optionsTogether;
+    }
+
+    public void addOptionsTogether(Option optionTogether) {
+        this.optionsTogether.add(optionTogether);
+    }
+
+    public List<Option> getOptionsIncompatible() {
+        return optionsIncompatible;
+    }
+
+    public void addOptionsIncompatible(Option optionIncompatible) {
+        this.optionsIncompatible.add(optionIncompatible);
+    }
+
+        public String toString(){
+            return String.format("An option's name is %s, price is %s, initial price is %s.", this.getName(), this.getPrice(), this.getInitialPrice());
+    }
 }
