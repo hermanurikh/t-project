@@ -34,8 +34,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String surname, Date birthday, String passport, String address, String email, String login, String password, Role role) {
-        this.id = id;
+    public User(String name, String surname, Date birthday, String passport, String address, String email, String login, String password, Role role) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -133,5 +132,9 @@ public class User {
 
     public void addContract(Contract contract) {
         this.contracts.add(contract);
+    }
+
+    public String toString(){
+        return String.format("A client's name is %s, surname is %s, birthday is %s, address is %s, passport it %s, e-mail is %s.", this.getName(), this.getSurname(), this.getBirthday(), this.getAddress(), this.getPassport(), this.getEmail());
     }
 }
