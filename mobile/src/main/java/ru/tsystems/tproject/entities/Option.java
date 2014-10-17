@@ -21,14 +21,14 @@ public class Option {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "OPTIONS_TOGETHER",
-            joinColumns = @JoinColumn(name = "optionOne_ID"),
-            inverseJoinColumns = @JoinColumn(name = "optionTwo_ID")
+            joinColumns = @JoinColumn(name = "optionOne_id"),
+            inverseJoinColumns = @JoinColumn(name = "optionTwo_id")
     )
     private List<Option> optionsTogether = new ArrayList<>();
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "OPTIONS_INCOMPATIBLE",
-            joinColumns = @JoinColumn(name = "optionOne_ID"),
-            inverseJoinColumns = @JoinColumn(name = "optionTwo_ID")
+            joinColumns = @JoinColumn(name = "optionOne_id"),
+            inverseJoinColumns = @JoinColumn(name = "optionTwo_id")
     )
     private List<Option> optionsIncompatible = new ArrayList<>();
     public Option(){}
