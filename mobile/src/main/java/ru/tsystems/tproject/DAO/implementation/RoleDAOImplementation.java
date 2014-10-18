@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class RoleDAOImplementation implements RoleDAO{
     EntityManager entityManager;
+    public RoleDAOImplementation(EntityManager entityManager){
+        this.entityManager = entityManager;
+    }
     @Override
     public void create(Role role) throws CustomDAOException {
         try{
