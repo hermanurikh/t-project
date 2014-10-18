@@ -6,6 +6,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table (name = "ROLES")
+@NamedQuery(name = "Role.getAllRoles", query = "SELECT r FROM Role r")
 public class Role {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -35,6 +36,6 @@ public class Role {
         this.name = name;
     }
     public String toString(){
-        return String.format("The role's name is %s", this.getName());
+        return String.format("Role{name: %s}", this.getName());
     }
 }

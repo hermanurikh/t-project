@@ -24,6 +24,7 @@ public class User {
     private String address;
     private String email;
     private String login;
+    private int balance;
     private String password;
     @ManyToOne
     @JoinColumn (name = "role")
@@ -34,7 +35,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, String surname, Date birthday, String passport, String address, String email, String login, String password, Role role) {
+    public User(String name, String surname, Date birthday, String passport, String address, String email, String login, int balance, String password, Role role) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -42,6 +43,7 @@ public class User {
         this.address = address;
         this.email = email;
         this.login = login;
+        this.balance = balance;
         this.password = password;
         this.role = role;
     }
@@ -110,6 +112,10 @@ public class User {
         this.login = login;
     }
 
+    public int getBalance() { return balance; }
+
+    public void setBalance(int balance) { this.balance = balance; }
+
     public String getPassword() {
         return password;
     }
@@ -135,6 +141,6 @@ public class User {
     }
 
     public String toString(){
-        return String.format("A client's name is %s, surname is %s, birthday is %s, address is %s, passport it %s, e-mail is %s.", this.getName(), this.getSurname(), this.getBirthday(), this.getAddress(), this.getPassport(), this.getEmail());
+        return String.format("User{name: %s, surname: %s, birthday: %s, address: %s, passport: %s, balance: %s, e-mail: %s}", this.getName(), this.getSurname(), this.getBirthday(), this.getAddress(), this.getPassport(), this.getBalance(), this.getEmail());
     }
 }

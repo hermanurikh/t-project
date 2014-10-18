@@ -89,6 +89,6 @@ public class Option {
     }
 
         public String toString(){
-            return String.format("An option's name is %s, price is %s, initial price is %s.", this.getName(), this.getPrice(), this.getInitialPrice());
+            return String.format("Option{name: %s, price: %s, initialPrice: %s}", this.getName(), this.getPrice(), this.getInitialPrice());
     }
 }

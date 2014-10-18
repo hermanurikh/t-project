@@ -103,6 +103,6 @@ public class Contract {
         this.options.add(option);
     }
     public String toString(){
-        return String.format("The contract's number is %s, its user is %s, its tariff is %s, isBlocked is %s, blockedEmpID is %s.", this.getNumber(), this.getUser(), this.getTariff(), this.isBlocked(), this.getEmployee());
+        return String.format("Contract{number: %s, user: %s, tariff: %s, isBlocked: %s, blockedEmpID: %s}", this.getNumber(), this.getUser(), this.getTariff(), this.isBlocked(), this.getEmployee());
     }
 }

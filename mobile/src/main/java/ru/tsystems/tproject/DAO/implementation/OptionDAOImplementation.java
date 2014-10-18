@@ -4,6 +4,7 @@ import ru.tsystems.tproject.DAO.API.OptionDAO;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
+import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.util.List;
@@ -76,7 +77,15 @@ public class OptionDAOImplementation implements OptionDAO {
     }
 
     @Override
-    public List<Option> getAllOptionsForTariff() {
-        return null;
+    public List<Option> getAllOptionsForTariff(String tariffName) throws CustomDAOException{
+        try{
+            Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.name=:tariff_name").setParameter("tariff_name", tariffName);
+            return (List<Option>)query.getResultList();
+        }
+        catch (PersistenceException ex)
+        {
+            throw new CustomDAOException("Options for tariff " + tariffName + " not got", ex);
+        }
+
     }
 }

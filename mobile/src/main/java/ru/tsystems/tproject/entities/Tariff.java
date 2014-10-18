@@ -62,6 +62,6 @@ public class Tariff {
         this.possibleOptions.add(option);
     }
     public String toString(){
-        return String.format("The tariff name is %s, its price is %s.", this.getName(), this.getPrice());
+        return String.format("Tariff{name: %s, price: %s}", this.getName(), this.getPrice());
     }
 }
