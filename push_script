@@ -5,13 +5,23 @@ read answer;
 if [ "$answer" = y ]
 then
 mysqldump -uroot -proot tproject > sql/dumps/tproject_`date +%Y.%m.%d_%H_%M`.sql
+echo "****************************"
 echo "Дамп базы tproject создан!"
-else echo "Дамп базы сделан не будет"
+echo "****************************"
+else echo "****************************" 
+echo "Дамп базы сделан не будет"
+echo "****************************"
 fi
 git add .
+echo "****************************"
 echo "Файлы добавлены в коммит"
+echo "****************************"
 git commit -a -m \"$commitname\"
+echo "****************************"
 echo "Файлы закоммичены"
+echo "****************************"
 git push origin master
+echo "****************************"
 echo "git push выполнен!"
+echo "****************************"
 
