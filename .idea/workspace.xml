@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6058fbd4-3fea-4ecb-a68f-b98cd8946c58" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="t-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OptionDAOImplementation.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OptionDAOImplementation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/OptionDAOImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43021032" vertical-offset="900" max-vertical-offset="1455">
+            <state vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1455">
               <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,7 +47,7 @@
       <file leaf-file-name="ContractDAOImplementation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/ContractDAOImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1185">
               <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,9 +62,35 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/TariffDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAOImplementation.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34131736" vertical-offset="894" max-vertical-offset="1395">
+              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#533#534#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,26 +110,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tariff.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="810">
-              <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Role.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Option.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Option.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,16 +120,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleDAOImplementation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/RoleDAOImplementation.java">
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1230">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#550#551#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+              <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,8 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ui/src/main/webapp/form.html" />
-        <option value="$PROJECT_DIR$/ui/src/main/webapp/login_form.html" />
         <option value="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file1.css" />
         <option value="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file4.css" />
         <option value="$PROJECT_DIR$/ui/src/main/webapp/css/cp_file5.css" />
@@ -205,7 +207,6 @@
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/RoleDAO.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Option.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Role.java" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/login.html" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/RoleDAOImplementation.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/ContractDAO.java" />
@@ -214,6 +215,9 @@
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/TariffDAO.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/TariffDAOImplementation.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java" />
       </list>
     </option>
   </component>
@@ -886,21 +890,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file6.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3585" max-vertical-offset="3705">
-          <caret line="239" column="25" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_client/cp_client_main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3948" max-vertical-offset="5550">
-          <caret line="274" column="17" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/css/cp_file1.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="62625">
@@ -1143,14 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="1605">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/RoleDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
@@ -1203,36 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Contract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/ContractDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="21" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/TariffDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="810">
@@ -1261,18 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/ContractDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1185">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/TariffDAOImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="1260">
@@ -1285,14 +1224,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/TariffDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/ContractDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="21" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Contract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/ContractDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1185">
+          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/OptionDAOImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43021032" vertical-offset="900" max-vertical-offset="1455">
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1455">
           <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#556#557#0" expanded="true" />
             <element signature="e#606#607#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34131736" vertical-offset="894" max-vertical-offset="1395">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
           </folding>
         </state>
       </provider>
