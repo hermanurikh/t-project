@@ -17,7 +17,7 @@ public interface UserDAO {
 
     public void delete(User user) throws CustomDAOException;
 
-    public User getUserByNumber(int number) throws CustomDAOException;
+    public User getUserByNumber(long number) throws CustomDAOException;
 
     public List<User> getAllUsers() throws CustomDAOException;
 }

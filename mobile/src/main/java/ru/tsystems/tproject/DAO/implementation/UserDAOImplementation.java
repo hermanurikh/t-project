@@ -72,7 +72,7 @@ public class UserDAOImplementation implements UserDAO {
     }
 
     @Override
-    public User getUserByNumber(int number) throws CustomDAOException {
+    public User getUserByNumber(long number) throws CustomDAOException {
         try {
             Query query = entityManager.createQuery("select u from User u where u.number=:number").setParameter("number", number);
             return (User) query.getSingleResult();
