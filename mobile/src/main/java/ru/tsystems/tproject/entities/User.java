@@ -29,7 +29,7 @@ public class User {
     @ManyToOne
     @JoinColumn (name = "role")
     private Role role;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "client")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "user")
     private List<Contract> contracts = new ArrayList<Contract>();
 
     public User() {

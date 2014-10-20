@@ -23,17 +23,21 @@ DROP TABLE IF EXISTS `CONTRACTS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONTRACTS` (
-  `id_CONTRACTS` int(11) NOT NULL AUTO_INCREMENT,
-  `number_CONTRACTS` int(11) NOT NULL,
-  `clientID_CONTRACTS` int(11) NOT NULL,
-  `tariffID_CONTRACTS` int(11) NOT NULL,
-  `isBlocked_CONTRACTS` binary(1) NOT NULL,
-  `isBlockedByEmp_CONTRACTS` binary(1) NOT NULL,
-  `blockedEmpId_CONTRACTS` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_CONTRACTS`),
-  UNIQUE KEY `id_CONTRACTS_UNIQUE` (`id_CONTRACTS`),
-  UNIQUE KEY `number_CONTRACTS_UNIQUE` (`number_CONTRACTS`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `isBlocked` bit(1) NOT NULL,
+  `number` bigint(20) NOT NULL,
+  `blockedEmp_id` int(11) DEFAULT NULL,
+  `tariff_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_29ixwwkddmsdo40p3cryh3uqd` (`number`),
+  KEY `FK_s9ag13s8fdk9qpe1dgg2wd5hg` (`blockedEmp_id`),
+  KEY `FK_pg4ahlwhmb4djol48hjnsreup` (`tariff_id`),
+  KEY `FK_igsvr2dna4sjv3od8q3syt5pm` (`user_id`),
+  CONSTRAINT `FK_igsvr2dna4sjv3od8q3syt5pm` FOREIGN KEY (`user_id`) REFERENCES `USERS` (`id`),
+  CONSTRAINT `FK_pg4ahlwhmb4djol48hjnsreup` FOREIGN KEY (`tariff_id`) REFERENCES `TARIFFS` (`id`),
+  CONSTRAINT `FK_s9ag13s8fdk9qpe1dgg2wd5hg` FOREIGN KEY (`blockedEmp_id`) REFERENCES `USERS` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,12 +57,13 @@ DROP TABLE IF EXISTS `CONTRACT_OPTION`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONTRACT_OPTION` (
-  `id_CONTRACT_OPTION` int(11) NOT NULL AUTO_INCREMENT,
-  `contractID_CONTRACT_OPTION` int(11) NOT NULL,
-  `optionID_CONTRACT_OPTION` int(11) NOT NULL,
-  PRIMARY KEY (`id_CONTRACT_OPTION`),
-  UNIQUE KEY `id_CONTRACT_OPTION_UNIQUE` (`id_CONTRACT_OPTION`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `contract_id` int(11) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  KEY `FK_eu802eyu4bwvase921pu25dtp` (`option_id`),
+  KEY `FK_tfc36ah6607isil0lli9nug25` (`contract_id`),
+  CONSTRAINT `FK_tfc36ah6607isil0lli9nug25` FOREIGN KEY (`contract_id`) REFERENCES `CONTRACTS` (`id`),
+  CONSTRAINT `FK_eu802eyu4bwvase921pu25dtp` FOREIGN KEY (`option_id`) REFERENCES `OPTIONS` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,14 +83,12 @@ DROP TABLE IF EXISTS `OPTIONS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OPTIONS` (
-  `id_OPTIONS` int(11) NOT NULL AUTO_INCREMENT,
-  `name_OPTIONS` varchar(45) NOT NULL,
-  `price_OPTIONS` int(11) DEFAULT NULL,
-  `initialPrice_OPTIONS` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_OPTIONS`),
-  UNIQUE KEY `id_OPTIONS_UNIQUE` (`id_OPTIONS`),
-  UNIQUE KEY `name_OPTIONS_UNIQUE` (`name_OPTIONS`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `initialPrice` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +97,6 @@ CREATE TABLE `OPTIONS` (
 
 LOCK TABLES `OPTIONS` WRITE;
 /*!40000 ALTER TABLE `OPTIONS` DISABLE KEYS */;
-INSERT INTO `OPTIONS` VALUES (2,'40 МБ\\/сек скорость интернета',1000,NULL),(3,'Мобильный интернет',100,50),(1,'20 МБ\\/сек скорость интернета',500,NULL);
 /*!40000 ALTER TABLE `OPTIONS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,12 +108,13 @@ DROP TABLE IF EXISTS `OPTIONS_INCOMPATIBLE`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OPTIONS_INCOMPATIBLE` (
-  `id_OPTIONS_INCOMPATIBLE` int(11) NOT NULL AUTO_INCREMENT,
-  `optionOneID_OPTIONS_INCOMPATIBLE` int(11) NOT NULL,
-  `optionTwoID_OPTIONS_INCOMPATIBLE` int(11) NOT NULL,
-  PRIMARY KEY (`id_OPTIONS_INCOMPATIBLE`),
-  UNIQUE KEY `id_OPTIONS_INCOMPATIBLE_UNIQUE` (`id_OPTIONS_INCOMPATIBLE`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `optionOne_id` int(11) NOT NULL,
+  `optionTwo_id` int(11) NOT NULL,
+  KEY `FK_mkqsk8px3b5ys5x8chij5frx5` (`optionTwo_id`),
+  KEY `FK_fmcnsi80qucy0hw7rfpu4i0ub` (`optionOne_id`),
+  CONSTRAINT `FK_fmcnsi80qucy0hw7rfpu4i0ub` FOREIGN KEY (`optionOne_id`) REFERENCES `OPTIONS` (`id`),
+  CONSTRAINT `FK_mkqsk8px3b5ys5x8chij5frx5` FOREIGN KEY (`optionTwo_id`) REFERENCES `OPTIONS` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,12 +134,13 @@ DROP TABLE IF EXISTS `OPTIONS_TOGETHER`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `OPTIONS_TOGETHER` (
-  `id_OPTIONS_TOGETHER` int(11) NOT NULL AUTO_INCREMENT,
-  `optionOneID_OPTIONS_TOGETHER` int(11) NOT NULL,
-  `optionTwoID_OPTIONS_TOGETHER` int(11) NOT NULL,
-  PRIMARY KEY (`id_OPTIONS_TOGETHER`),
-  UNIQUE KEY `id_OPTIONS_TOGETHER_UNIQUE` (`id_OPTIONS_TOGETHER`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `optionOne_id` int(11) NOT NULL,
+  `optionTwo_id` int(11) NOT NULL,
+  KEY `FK_ji2225653rxx49p3n0y3sm5of` (`optionTwo_id`),
+  KEY `FK_pn0nwy61mxhfmatlyuy1alpqq` (`optionOne_id`),
+  CONSTRAINT `FK_pn0nwy61mxhfmatlyuy1alpqq` FOREIGN KEY (`optionOne_id`) REFERENCES `OPTIONS` (`id`),
+  CONSTRAINT `FK_ji2225653rxx49p3n0y3sm5of` FOREIGN KEY (`optionTwo_id`) REFERENCES `OPTIONS` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,11 +160,10 @@ DROP TABLE IF EXISTS `ROLES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ROLES` (
-  `id_ROLES` int(11) NOT NULL,
-  `name_ROLES` varchar(45) CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id_ROLES`),
-  UNIQUE KEY `id_ROLES_UNIQUE` (`id_ROLES`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +172,7 @@ CREATE TABLE `ROLES` (
 
 LOCK TABLES `ROLES` WRITE;
 /*!40000 ALTER TABLE `ROLES` DISABLE KEYS */;
-INSERT INTO `ROLES` VALUES (1,'Customer'),(2,'Employee');
+INSERT INTO `ROLES` VALUES (1,'Client');
 /*!40000 ALTER TABLE `ROLES` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,13 +184,11 @@ DROP TABLE IF EXISTS `TARIFFS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TARIFFS` (
-  `id_TARIFFS` int(11) NOT NULL AUTO_INCREMENT,
-  `name_TARIFFS` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `price_TARIFFS` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_TARIFFS`),
-  UNIQUE KEY `id_TARIFFS_UNIQUE` (`id_TARIFFS`),
-  UNIQUE KEY `name_TARIFFS_UNIQUE` (`name_TARIFFS`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,12 +208,13 @@ DROP TABLE IF EXISTS `TARIFF_RULES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TARIFF_RULES` (
-  `id_TARIFF_RULES` int(11) NOT NULL AUTO_INCREMENT,
-  `idTariff_TARIFF_RULES` int(11) NOT NULL,
-  `idOption_TARIFF_RULES` int(11) NOT NULL,
-  PRIMARY KEY (`id_TARIFF_RULES`),
-  UNIQUE KEY `id_TARIFF_RULES_UNIQUE` (`id_TARIFF_RULES`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `tariff_id` int(11) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  KEY `FK_4y4garjxfs5gk4x8murvkw19r` (`option_id`),
+  KEY `FK_ej03enpm76hyyf2vjdeixwe9s` (`tariff_id`),
+  CONSTRAINT `FK_ej03enpm76hyyf2vjdeixwe9s` FOREIGN KEY (`tariff_id`) REFERENCES `TARIFFS` (`id`),
+  CONSTRAINT `FK_4y4garjxfs5gk4x8murvkw19r` FOREIGN KEY (`option_id`) REFERENCES `OPTIONS` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,20 +234,21 @@ DROP TABLE IF EXISTS `USERS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `USERS` (
-  `id_USERS` int(11) NOT NULL AUTO_INCREMENT,
-  `name_USERS` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `surname_USERS` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `birthday_USERS` date DEFAULT NULL,
-  `pasport_USERS` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  `address_USERS` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  `e-mail_USERS` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  `login_USERS` varchar(45) CHARACTER SET latin1 NOT NULL,
-  `password_USERS` varchar(16) CHARACTER SET latin1 NOT NULL,
-  `role_USERS` enum('1','2') CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id_USERS`,`login_USERS`),
-  UNIQUE KEY `id_USERS_UNIQUE` (`id_USERS`),
-  UNIQUE KEY `login_USERS_UNIQUE` (`login_USERS`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  `balance` int(11) NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `login` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `passport` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `role` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_e7tg79qhfyp29bvrrb77rs1w7` (`role`),
+  CONSTRAINT `FK_e7tg79qhfyp29bvrrb77rs1w7` FOREIGN KEY (`role`) REFERENCES `ROLES` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +257,6 @@ CREATE TABLE `USERS` (
 
 LOCK TABLES `USERS` WRITE;
 /*!40000 ALTER TABLE `USERS` DISABLE KEYS */;
-INSERT INTO `USERS` VALUES (1,'German','Urikh','1992-04-14','40 05 961539','SPB','herman.urikh@aengel.ru','germanurikh','38de278aeff53d95','2');
 /*!40000 ALTER TABLE `USERS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -267,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-14 16:51:25
+-- Dump completed on 2014-10-20  9:55:32
