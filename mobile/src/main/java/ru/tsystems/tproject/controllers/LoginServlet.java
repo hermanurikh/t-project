@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         eraseCookie(request, response);
         if (LoginDispatcher.dispatch())
-            response.sendRedirect("../cp_client/cp_client_main.jsp");
+            response.sendRedirect("../cp_client/cp_client_tariff.html");
         //else rd = request.getRequestDispatcher("../login.html");
         //rd.forward(request, response);
         else response.sendRedirect("../login.html");
