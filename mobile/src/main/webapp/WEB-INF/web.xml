@@ -4,6 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <display-name>LoginServlet</display-name>
@@ -12,6 +13,17 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/servlets/LoginServlet</url-pattern>
+        <url-pattern>/controllers/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>NewOptionServlet</servlet-name>
+        <display-name>NewOptionServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewOptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOptionServlet</servlet-name>
+        <url-pattern>/controllers/NewOptionServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

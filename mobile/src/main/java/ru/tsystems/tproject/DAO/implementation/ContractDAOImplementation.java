@@ -12,7 +12,7 @@ import java.util.List;
  * Created by german on 18.10.14.
  */
 public class ContractDAOImplementation implements ContractDAO {
-    EntityManager entityManager;
+    private EntityManager entityManager;
     public ContractDAOImplementation(EntityManager entityManager)
     {
         this.entityManager = entityManager;

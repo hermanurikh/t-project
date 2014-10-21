@@ -13,7 +13,7 @@ import java.util.List;
  * Created by german on 18.10.14.
  */
 public class TariffDAOImplementation implements TariffDAO {
-    EntityManager entityManager;
+    private EntityManager entityManager;
     public  TariffDAOImplementation(EntityManager entityManager)
     {
         this.entityManager = entityManager;
