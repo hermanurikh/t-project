@@ -11,12 +11,10 @@ import ru.tsystems.tproject.services.implementation.RoleServiceImplementation;
 public class HelloWorld {
     public static void main(String[] args) throws CustomDAOException{
         RoleService roleService = new RoleServiceImplementation();
-        roleService.createRole(new Role("User"));
-        System.out.println(roleService.getAllRoles());
         Role role = roleService.getRoleById(1);
-        role.setName("Client");
-        roleService.updateRole(role);
+        roleService.deleteRole(role);
         System.out.println(roleService.getAllRoles());
+        ;
 
 
     }

@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file7.css"/>
     <script type="text/javascript" src="../scripts/jquery.js"></script>
     <script type="text/javascript" src="../scripts/select_domain-button.js"></script>
     <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
@@ -144,76 +143,77 @@
                     <table class="element__table element-main-table">
                         <tr>
                             <td class="element__block select_block">
-                                <center><div id="select_domain" class="ui-helper-inline" aria-disabled="false" tabindex="0">
-                                    <form id = "select_domain-select" action = "#" method = "post">
-                                        <p> <select class="ui-media">
-                                            <option class="ui-media-body ui-overflow-wrap" value="911 771-00-04">771-00-04</option>
-                                            <option class="ui-media-body ui-overflow-wrap" value="904 606-62-05">606-62-05</option>
+                                <div id="select_domain" class="ui-helper-inline" aria-disabled="false" tabindex="0">
+                                    <div id="select_domain-select" role="combobox" aria-expanded="false" aria-owns="select_domain-menu" aria-autocomplete="select_domain-list" aria-haspopup="true" class="ui-select ui-widget ui-state-default ui-corner-all ui-media" style="width: 300px;">
+                                        <div class="ui-select-text ui-media">
 
-                                        </select></p>
+                                            <div class="ui-media">
+                                                <div class="ui-media-body ui-overflow-wrap">(921) 925-82-17<i class="ui-overflow"></i></div>
+                                            </div>
+                                        </div>
+                                        <button id="select_domain-button" class="ui-select-button ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title=""><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-text"></span></button>
+                                    </div>
+                                </div>
+                            </td>
 
-                                    </div></center>
-                        </td>
-
-                        <td class="element__vline">&nbsp;</td>
-                        <td class="element__vline-right">
-                            <div class="element__strelka"></div>
-                        </td>
+                            <td class="element__vline">&nbsp;</td>
+                            <td class="element__vline-right">
+                                <div class="element__strelka"></div>
+                            </td>
 
 
-                        <td class="elsement__block">
-                            <table class="element__table">
-                                <tr  id="mb_create_new" class="link-block" onclick="mb_actions.create()">
+                            <td class="elsement__block">
+                                <table class="element__table">
+                                    <tr  id="mb_create_new" class="link-block" onclick="mb_actions.create()">
 
-                                    <td class="element__simple">
-                                        <center><button id="custom_button_1" class="link ui-select-button ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" type="submit">Выбрать</button></center>
-                                        <!--class="link ui-select-button ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only"-->
-                                        <center><small>После выбора Вы сможете произвести изменения</small></center>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                            </form>
-                    </tr>
-                </table>
+                                        <td class="element__simple">
+                                            <center><span class="link">Выбрать</span></center>
+
+                                            <small>После выбора Вы сможете произвести изменения</small>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info__body info__body_simple quota" style="display:none;">
+                    <table>
+                        <tbody>
+
+                        <tr>
+                            <td class='quota-name'><span class="ui-helper-inline">Цена:</span></td>
+                            <td><span class="ui-helper-inline quota__value">240 руб./мес.</span></td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan='2'>
+                                <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="2" data-limit="49"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='quota-name'><span class="ui-helper-inline">Подключенные опции:</span></td>
+                            <td><span class="ui-helper-inline quota__value"></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'>
+                                <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="5" data-limit="100"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a id="change_tarif" href="/tariff/" class="ui-button ui-button-primary ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Изменить тариф</span></a>
+
+
+
+                </div>
             </div>
-
-            <div class="info__body info__body_simple quota" style="display:none;">
-                <table>
-                    <tbody>
-
-                    <tr>
-                        <td class='quota-name'><span class="ui-helper-inline">Цена:</span></td>
-                        <td><span class="ui-helper-inline quota__value">240 руб./мес.</span></td>
-                    </tr>
-
-
-                    <tr>
-                        <td colspan='2'>
-                            <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="2" data-limit="49"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='quota-name'><span class="ui-helper-inline">Подключенные опции:</span></td>
-                        <td><span class="ui-helper-inline quota__value"></span></td>
-                    </tr>
-                    <tr>
-                        <td colspan='2'>
-                            <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="5" data-limit="100"></div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a id="change_tarif" href="/tariff/" class="ui-button ui-button-primary ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Изменить тариф</span></a>
-
-
-
-            </div>
+            <div class="clear"></div>
+            <div id="test"></div>
         </div>
-        <div class="clear"></div>
-        <div id="test"></div>
-    </div>
-</td></tr>
+    </td></tr>
 </table>
 </div>
 
