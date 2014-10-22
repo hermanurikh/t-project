@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.controllers;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 public class DeleteOptionServlet extends HttpServlet {
     private static List<Option> optionsList;
+    private static Logger logger = Logger.getLogger(DeleteOptionServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

@@ -211,7 +211,7 @@
                             <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
-                                <a href="#"><span>Удалить</span><br> </a>
+                                <a href="../controllers/DeleteOptionServlet?optionId=${option.id}"><span>Удалить</span><br> </a>
                                 <a href="#"><span>Изменить</span> </a>
                             </div>
                             </td>

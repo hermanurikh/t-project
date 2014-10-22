@@ -1,0 +1,2340 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" >
+    <script lang="jscript">window.lang = {"please_wait":"please_wait","mb_close":"mb_close","mb_useit":"mb_useit","mb_install":"mb_install","mb_cancel":"mb_cancel","mb_request":"mb_request","filedir_name":"filedir_name","size":"size","list_fuel":"list_fuel","need_actx":"need_actx","need_update_browser":"need_update_browser","on_page":"on_page","all":"all","to_first_page":"to_first_page","to_last_page":"to_last_page","gb":"gb","mb":"mb","kb":"kb","byte":"byte","citate":"citate","from":"from","time":"time","action":"action","rating":"rating","attachs":"attachs","to_citate":"to_citate","service_not_selected":"service_not_selected","to_find":"to_find","add":"add","cp_start":"cp_start","rubl":"rubl","rubl1":"rubl1","rubl2":"rubl2","product":"product","product1":"product1","product2":"product2","cms_password":"cms_password","account_connect":"account_connect","not_empty_login":"not_empty_login","not_empty_pass":"not_empty_pass","max_acc_count":"max_acc_count","log_pass_exists":"log_pass_exists","acc_connected":"acc_connected","main_acc_not_disable":"main_acc_not_disable","really_acc_disable":"really_acc_disable","back":"back","forward":"forward"};</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Хостинг TimeWeb: Панель управления аккаунтом.</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <script>window.page_data = {};</script>
+    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
+    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/mailman.json?7136dcc1e7"></script>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
+    <script type="text/javascript" src="/js/locale.js?e739290ec4"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.3.min.js?24bd97b1de"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js?84d0a0bc4f"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js?25d1504dfd"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js?2372906e54"></script>
+    <script type="text/javascript" src="/js/filters.js?6b6f65d0c5"></script>
+    <script type="text/javascript" src="/js/dialogs2.js?93d6e20d76"></script>
+    <script type="text/javascript" src="/js/basepage.js?9bec998850"></script>
+    <script type="text/javascript" src="/js/preloader.js?ff1850aa06"></script>
+    <script type="text/javascript" src="/public/external/timestrap/js/timestrap-ui-cp.js?d41d8cd98f"></script>
+    <script type="text/javascript" src="/js/timestrap-cp.js?a82060dc90"></script>
+    <script type="text/javascript" src="/js/menus2.js?1fdd70fe60"></script>
+    <script type="text/javascript" src="/js/dialogs2.js?93d6e20d76"></script>
+</head>
+<script>window.logins=[{"login":"gurikh","s":"ee1592ce007a15378cb445b8e71850f1","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
+<div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
+<div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
+
+<script>window.customer = {"free_activated":"N","action_status":"{\"tariff\":\"0\"}","p_latin":"staff","test_vds_used":"N","sms_activated":"Y","country":"ru"};</script>
+<script>
+window.browser = (navigator.appName=="Microsoft Internet Explorer")?((navigator.appVersion.indexOf("MSIE 6.0")==-1)?"ie7":"ie6"):((navigator.appName=="Netscape")?((navigator.appVersion.indexOf("Safari")==-1)?"firefox":"safari"):"opera")
+function in_array(needle, haystack){ for (var h in haystack) if (haystack[h] == needle) return true; return false; };
+function array_concat(a, b){ var result = []; for (var a1 in a)  result.push(a[a1]); for (var b1 in b) result.push(b[b1]); return result;};
+window.encode_ajax="off";
+</script>
+<script>
+this.ajax_check_messages = function(callback){ return do_call("ajax_check_messages", [], callback);};
+this.ajax_preloader_off = function(callback){ return do_call("ajax_preloader_off", [], callback);};
+this.ajax_add_account = function(v0, v1, callback){ return do_call("ajax_add_account", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_unlink_account = function(v0, callback){ return do_call("ajax_unlink_account", ["v0=" + v0], callback);};
+this.backup_mailbox = function(v0, v1, callback){ return do_call("backup_mailbox", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_create_mailbox = function(v0, v1, v2, v3, callback){ return do_call("ajax_create_mailbox", ["v0=" + v0, "v1=" + v1, "v2=" + v2, "v3=" + v3], callback);};
+this.ajax_change_password = function(v0, v1, callback){ return do_call("ajax_change_password", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_drop_mailbox = function(v0, callback){ return do_call("ajax_drop_mailbox", ["v0=" + v0], callback);};
+this.ajax_drop_mailbox_api = function(v0, callback){ return do_call("ajax_drop_mailbox_api", ["v0=" + v0], callback);};
+this.ajax_set_dommail = function(v0, callback){ return do_call("ajax_set_dommail", ["v0=" + v0], callback);};
+this.ajax_mailbox_list = function(callback){ return do_call("ajax_mailbox_list", [], callback);};
+this.ajax_mailbox_list_api = function(v0, callback){ return do_call("ajax_mailbox_list_api", ["v0=" + v0], callback);};
+this.ajax_load_mailboxes = function(v0, callback){ return do_call("ajax_load_mailboxes", ["v0=" + v0], callback);};
+this.ajax_load_domain_mailboxes = function(v0, v1, callback){ return do_call("ajax_load_domain_mailboxes", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_load_mailboxes_number = function(callback){ return do_call("ajax_load_mailboxes_number", [], callback);};
+this.ajax_get_used_space = function(v0, callback){ return do_call("ajax_get_used_space", ["v0=" + v0], callback);};
+this.ajax_load_mailbox_information = function(v0, callback){ return do_call("ajax_load_mailbox_information", ["v0=" + v0], callback);};
+this.ajax_activate_outgoing = function(v0, callback){ return do_call("ajax_activate_outgoing", ["v0=" + v0], callback);};
+this.ajax_deactivate_outgoing = function(v0, callback){ return do_call("ajax_deactivate_outgoing", ["v0=" + v0], callback);};
+this.ajax_save_copy_to = function(v0, v1, v2, callback){ return do_call("ajax_save_copy_to", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
+this.ajax_filter_status = function(v0, v1, callback){ return do_call("ajax_filter_status", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_autoreply_status = function(v0, v1, callback){ return do_call("ajax_autoreply_status", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_forward_status = function(v0, v1, callback){ return do_call("ajax_forward_status", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_forward_spam_status = function(v0, callback){ return do_call("ajax_forward_spam_status", ["v0=" + v0], callback);};
+this.ajax_save_letters_status = function(v0, v1, callback){ return do_call("ajax_save_letters_status", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_filter_level = function(v0, v1, callback){ return do_call("ajax_filter_level", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_change_filter_action = function(v0, v1, callback){ return do_call("ajax_change_filter_action", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_change_spamlabel_level = function(v0, v1, callback){ return do_call("ajax_change_spamlabel_level", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_add_wl = function(v0, v1, callback){ return do_call("ajax_add_wl", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_add_resend = function(v0, v1, callback){ return do_call("ajax_add_resend", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_del_resend = function(v0, v1, callback){ return do_call("ajax_del_resend", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_del_wl = function(v0, v1, callback){ return do_call("ajax_del_wl", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_save_mailbox_desc = function(v0, v1, callback){ return do_call("ajax_save_mailbox_desc", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_set_spambox = function(v0, v1, callback){ return do_call("ajax_set_spambox", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_set_autoreply = function(v0, v1, v2, callback){ return do_call("ajax_set_autoreply", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
+this.ajax_mail_limit = function(callback){ return do_call("ajax_mail_limit", [], callback);};
+this.ajax_save_config = function(v0, v1, v2, v3, v4, callback){ return do_call("ajax_save_config", ["v0=" + v0, "v1=" + v1, "v2=" + v2, "v3=" + v3, "v4=" + v4], callback);};
+this.ajax_check_password = function(v0, v1, v2, callback){ return do_call("ajax_check_password", ["v0=" + v0, "v1=" + v1, "v2=" + v2], callback);};
+this.ajax_drop_mailboxes = function(v0, callback){ return do_call("ajax_drop_mailboxes", ["v0=" + v0], callback);};
+this.ajax_turn_filter = function(v0, v1, callback){ return do_call("ajax_turn_filter", ["v0=" + v0, "v1=" + v1], callback);};
+this.ajax_change_domain = function(v0, callback){ return do_call("ajax_change_domain", ["v0=" + v0], callback);};
+</script>
+
+<div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
+    <tr><td>
+        <style>
+            .default .left {background:url("/images/tabs/tab-normal-left.png") no-repeat;
+            //padding-left:6px;
+            }
+            .default .center {background:url("/images/tabs/tab-normal-center.png") repeat-x; text-shadow: #E0E5ED 1px 1px 0.9px;}
+            .default .right {background:url("/images/tabs/tab-normal-right.png") no-repeat;
+            //padding-right:6px;
+            }
+            .active .left {background:url("/images/tabs/tab-active-left.png") no-repeat; border-bottom: 1px solid #fff;
+            //padding-left:6px;
+            }
+            .active .center {background:url("/images/tabs/tab-active-center.png") repeat-x; border-bottom: 1px solid #fff;}
+            .active #text {padding-top:2px;}
+            .active #btn {padding-top:3px !important;}
+            .active .right {background:url("/images/tabs/tab-active-right.png") no-repeat; border-bottom: 1px solid #fff;
+            //padding-right:6px;
+            }
+            .ctrl .left {background:url("/images/tabs/ctrl-tab-left.png") 0 1px no-repeat;
+            //padding-left:6px;
+            }
+            .ctrl .center {background:url("/images/tabs/ctrl-tab-center.png") 0 1px repeat-x;}
+            .ctrl .right {background:url("/images/tabs/ctrl-tab-right.png") 0 1px no-repeat;
+            //padding-right:6px;
+            }
+            .default #hidder {background: url("/images/tabs/hide-tab-normal.png") 100% 100% no-repeat;}
+            .active #hidder {background: url("/images/tabs/hide-tab-active.png") 100% 100% no-repeat;}
+        </style>
+        <img src='/images/ajax-loader.gif' style='display:none'>
+
+        <div class="main-header">
+            <div class="inner-wrap">
+                <div class="logotype">
+                    <a  title="Вернуться на главную страницу панели" href="/" class="logo link link-unstyled"><img alt="Вернуться на главную страницу панели" src="/images/tabs/logotype.png" style="border: 0;" complete="complete"/></a>
+                </div>
+                <div class="nav-wrap">
+                    <ul class="nav">
+                        <li><a href="/news/">Новости</a></li><li><a href="/support/#/list">Служба поддержки</a></li><li class="last-child"><a href="/idea/">Есть идея</a></li>
+                    </ul>
+                    <!-- <div class="feedback-block">
+                      <div>
+                        <table cellpadding="0" cellspacing="0"><tbody><tr>
+                        <td class="sep"><a id="support_link" class="link link-unstyled mess ui-icon-message ui-helper-inline" href="/support"><span class='mes link link-logout'>Сообщений нет</span></a></td>
+                        <td ><a id="support_link_create" class="help ui-icon-ticket-create support-link-help ui-helper-inline link link-unstyled" href="/support#create_new_ticket"><span class="link link-primary">Обратная связь</a></a></td>
+
+                        </tr></tbody></table>
+                      </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="right">
+                <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script><div class="account-selector">
+                <div class="main">
+                    <div class="info">
+                        <a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>
+                        <div class="username">gurikh<span class="shad">&nbsp;</span></div>
+                        <div class="user-balance">1 р.</div>
+                    </div>
+                    <div class="slide-down">
+                        <div>
+                            <div class="js-add-account new-account">
+                                <div class="avatar thumbnail-small"></div>
+                                <span class="no-link">Привязать аккаунт</span>
+                            </div>
+                            <ul></ul>
+                            <div class="buttons-wrap">
+                                <a href="/info/" class="account-add link">
+                                    <span>Профиль аккаунта</span>
+                                </a>
+                                <a href="/logout/" class="exit link">
+                                    <span>Выход</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div
+                        ><div class="triangle"><div></div>
+            </div>
+            </div>
+                <div style='display:none;'>
+                    <div id='template_AccountAddDialog'>
+                        <div class='form-horizontal npp_account-dialog_middle'>
+                            <p>
+                                Вы можете подключить до 10 учетных записей (аккаунтов) к текущему аккаунту. Для подключения учетной записи вам необходимо указать имя пользователя и пароль.
+                            </p>
+                            <p>
+                                Подключение сохраняется до отключения или смены пароля на подключенном аккаунте.
+                            </p>
+                            <div>
+                                <div class='control-group'>
+                                    <label class='control-label'>Имя пользователя:</label>
+                                    <div class='controls jq-validate-container error'>
+                                        <input type='text' value='' class='average-input jq-validate js-add-account-login' />
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label'>Пароль:</label>
+                                    <div class='controls jq-validate-container error'>
+                                        <input type='password' value='' class='average-input jq-validate js-add-account-pass' />
+                                    </div>
+                                </div>
+                                <div class='form-actions'>
+                                    <button class='js-add-account-button'>Подключить</button>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+    </td></tr></table></div></div></div>
+<div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
+    <div id="np_menu_id"  class="wrap-for-hover">
+
+        <a href="/domains/" class="main-menu-item">
+            <i class="np_icon domains"></i>
+            <span class="href_line">Домены и поддомены</span>
+        </a>
+
+        <a href="/sites/" class="main-menu-item">
+            <i class="np_icon sites"></i>
+            <span class="href_line">Сайты</span>
+        </a>
+
+        <a href="/cms/" class="main-menu-item">
+            <i class="np_icon cms"></i>
+            <span class="href_line">Каталог CMS</span>
+        </a>
+
+        <a href="/fileman/" class="main-menu-item">
+            <i class="np_icon fileman"></i>
+            <span class="href_line">Файловый менеджер</span>
+        </a>
+
+        <a href="/mysql/" class="main-menu-item">
+            <i class="np_icon mysql"></i>
+            <span class="href_line">Базы данных MySQL</span>
+        </a>
+
+        <a class="np_menu-div_selected" href="/mailman/" class="main-menu-item">
+            <i class="np_icon mailman"></i>
+            <span class="href_line">Почтовый менеджер</span>
+        </a>
+
+        <a href="/managers/" class="main-menu-item">
+            <i class="np_icon managers"></i>
+            <span class="href_line">Пользователи ПУ/FTP</span>
+        </a>
+
+        <a href="/backup/" class="main-menu-item">
+            <i class="np_icon backup"></i>
+            <span class="href_line">Резервные копии</span>
+        </a>
+
+        <a href="/crontab/" class="main-menu-item">
+            <i class="np_icon crontab"></i>
+            <span class="href_line">Crontab</span>
+        </a>
+
+        <a href="/jabber/" class="main-menu-item">
+            <i class="np_icon jabber"></i>
+            <span class="href_line">Jabber сервер</span>
+        </a>
+
+        <a href="/security/" class="main-menu-item">
+            <i class="np_icon security"></i>
+            <span class="href_line">Безопасность</span>
+        </a>
+
+        <a href="/logmanager/" class="main-menu-item">
+            <i class="np_icon logmanager"></i>
+            <span class="href_line">Логи</span>
+        </a>
+
+        <a href="/services/" class="main-menu-item">
+            <i class="np_icon services"></i>
+            <span class="href_line">Дополнительные услуги</span>
+        </a>
+
+        <div class="np_menu-line"></div>
+        <a href="/tariff/" class="main-menu-item">
+            <i class="np_icon tariff"></i>
+            <span class="href_line">Тариф</span>
+        </a>
+
+        <a href="/balance/" class="main-menu-item">
+            <i class="np_icon balance"></i>
+            <span class="href_line">Финансы</span>
+        </a>
+
+        <a href="/documents/" class="main-menu-item">
+            <i class="np_icon documents"></i>
+            <span class="href_line">Документы</span>
+        </a>
+
+        <a href="/sms/" class="main-menu-item">
+            <i class="np_icon sms"></i>
+            <span class="href_line">Уведомления</span>
+        </a>
+
+        <a href="/bonuses/" class="main-menu-item">
+            <i class="np_icon bonuses"></i>
+            <span class="href_line">Бонусы</span>
+        </a>
+
+        <div class="np_menu-line"></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="https://cp.timeweb.ru?save"><i class="icon-back-arrow"></i><span>Вернуться к старой панели</span></a></div>
+        &nbsp;</div></td><!--np_menu-->
+<td class="np_content">
+<script src='/js/wins.js'></script>
+<script type="text/javascript" src='/js/punycode.js'></script>
+<script type="text/javascript" src='/js/underscore-min.js'></script>
+<script src="/js/path.js"></script>
+<div class='primary_div npp_mailman'>
+<script>
+
+config = {
+	imap_server : 'imap.timeweb.ru',
+	mailbox_length : 60,
+	mailbox_login_lenght : 30,
+	password_length : 32,
+	comment_length : 60,
+	current_domain : '0a.by',
+	current_domain_see : punycode.ToUnicode('0a.by'),
+	mailbox_keeper : JSON.parse('[]'),
+};
+
+mailbox_keeper = {
+	list : config.mailbox_keeper,
+	set_password : function(email, password){
+		if(this.list[email] == undefined){
+			this.list[email] = {};
+		}
+		this.list[email].password = password;
+	},
+
+	get_password : function(email){
+		if(this.list[email] == undefined)
+			return undefined;
+		else{
+			return (this.list[email].password == undefined ? undefined : this.list[email].password);
+		}
+	},
+
+	isset_password : function(email){
+		if(this.list[email] == undefined){
+			return false;
+		}else{
+			return (this.list[email].password == undefined ? false : true);
+		}
+	}
+};
+
+
+
+domain_controller = {
+	//current_domain : '0a.by',
+	domains_list : eval('[[{"name":"0a.by","caption":"0a.by","dommail":""},{"name":"aengel.ru","caption":"aengel.ru","dommail":"anastasiya@aengel.ru"},{"name":"co0.ru","caption":"co0.ru","dommail":""},{"name":"ih8.su","caption":"ih8.su","dommail":""},{"name":"meluz.ga","caption":"meluz.ga","dommail":""},{"name":"oyyy.ru","caption":"oyyy.ru","dommail":""},{"name":"qwebotik.webtm.ru","caption":"qwebotik.webtm.ru","dommail":""},{"name":"qweqwe.webtm.ru","caption":"qweqwe.webtm.ru","dommail":""},{"name":"testingmail.webtm.ru","caption":"testingmail.webtm.ru","dommail":""},{"name":"wtfuck.ru","caption":"wtfuck.ru","dommail":""}]]')[0],
+	init : function(){
+		this.flag_init = true;
+
+		this.domain_select = $('#select_domain').select({
+		  'width' : $('#select_domain').width(),
+		  'elements' : this.domains_list,
+		  'selected' : config.current_domain,
+		  'emptyText' : 'не создано ни одного домена',
+		  'select' : function(){
+			this._change_domain();
+		  }.bind(this)
+		});
+
+		if(this.domains_list.length == 0){
+			this.domain_select.select('disable');
+			$('#mb_create_new').attr('onclick','');
+			$('#mb_create_new').addClass('disabled');
+
+			$('.element__table').addClass('element__disabled');
+			$('#nodomens').show();
+			$('#mailboxlist_caption').hide();
+			$('#mailboxlist').remove();
+		}else{
+			$('#mailboxlist_caption').show();
+			mailbox_table.init();
+
+			hot_actions.init();
+		}
+
+		setTimeout(function(){
+			this.flag_init = false;
+		}.bind(this), 3)
+	},
+
+	_change_domain : function(){
+		if(this.flag_init){
+			return;
+		}
+		/*
+		* совпадение доменов
+		*/
+		if(this.domain_select.select('value') == config.current_domain){
+			return;
+		}
+
+		$.cookie("mailman.page", "0");
+		setTimeout(function(){
+			var fqdn = this.domain_select.select('value');
+			show_wait();
+			ajax_change_domain(fqdn, function(resp){
+				var data = JSON.parse(resp.responseText);
+				var msg = data.msg;
+				config.imap_server = msg.imap_server;
+				config.mailbox_keeper = msg.mailbox_keeper;
+				config.current_domain = fqdn;
+				config.current_domain_see = punycode.ToUnicode(fqdn);
+
+				mailbox_table.reload();
+			});
+		}.bind(this), 3);
+	}
+};
+
+function validateEmail(email) {
+	//var re =
+	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var re =
+	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Zа-яА-ЯёЁ\-0-9]+\.)+[a-zA-Zа-яА-ЯёЁ]{2,}))$/;
+	return re.test(email);
+}
+
+function in_array(value, array) {
+	for(var i = 0; i < array.length; i++){
+		if(array[i] == value) return true;
+	}
+	return false;
+}
+
+
+EnterMailboxDialog = newClass(MethodsDialogs, {
+	constructor: function(email){
+		this.email = mb_actions.to_unicode(email);
+
+		var random = Math.round(new Date().getTime() / 1000)+'_'+(Math.floor(Math.random() * 100));
+
+		this.dialog_init({
+		  'id_dialog' : 'enter_mailbox_dialog'+random,
+		  'tmpl' : 'EnterMailboxDialog'
+		});
+
+		this.dialog = $('#'+this.id_dialog).extDialog({
+		  func : function(){
+			this.tmpl_add_html();
+		  }.bind(this),
+		  width : '400px',
+		  title: 'Вход в почту',
+		  draggable: true
+		});
+
+		//логин
+		this.mailbox = $('#mailbox', this.dialog);
+
+		//пароль
+		this.password = $('#password', this.dialog)
+			.data('flag_ajax_error', false)
+			.keyup(function(e){
+			  if(e.keyCode == 13)
+				this.enter_button.click();
+			  this.check_default();
+			}.bind(this))
+			.validate({
+				'jsFunctions' : [{
+					'function' : function(value){
+						if(this.password.data('flag_ajax_error') == true)
+							return {valid : false, message : 'Пароль для ящика некорректен. Пожалуйста, повторите ввод пароля.'};
+						else
+							return {valid : true};
+					}.bind(this)
+				}]
+			});
+
+		//запомнить
+		this.flag_save = $('#flag_save', this.dialog);
+
+		//войти
+		this.enter_button = $('#enter_button', this.dialog).button();
+		this.enter_button.click(function(){
+			this.enter_webmail();
+		}.bind(this));
+
+		this.default_data = {
+			flag_save : true,
+			password : ''
+		};
+
+		this.set_default_val();
+	},
+
+	set_default_val : function(){
+		var def = this.default_data;
+		this.mailbox.html(this.email);
+		this.password.val('');
+		this.flag_save.prop('checked', def.flag_save);
+		this.enter_button.button('disable');
+		this.password.focus();
+	},
+
+	enter_webmail : function(){
+		if(!validateEmail(this.email)){
+			alert('Почтовый ящик некорректен');
+			return;
+		}
+
+		this.enter_button.button('disable');
+
+		mailbox_punycode = mb_actions.to_punycode(this.email);
+
+		ajax_check_password(
+			mailbox_punycode,
+			this.password.val(),
+			this.flag_save.prop('checked'),
+			function(req){
+				if (req.responseText == 'correct'){
+					if (this.flag_save.prop('checked'))
+						mailbox_keeper.set_password(mailbox_punycode, this.password.val());
+					mb_actions.send_webmail_form(mailbox_punycode, this.password.val());
+					this.close();
+				}else{
+					this.password
+						.val('')
+						.data('flag_ajax_error', true)
+						.focus();
+					this.password.isValid();
+					setTimeout(function(){
+						this.password.data('flag_ajax_error', false);
+					}.bind(this),10);
+					this.check_default();
+				}
+			}.bind(this)
+		);
+	},
+
+	check_default : function(){
+		var flag_save = true;
+
+		if(this.password.val() == "")
+			flag_save = false;
+
+		this.enter_button.button((flag_save ? 'enable' : 'disable'));
+	},
+
+	open : function(){
+		this.dialog.extDialog('open');
+		this.password.val('').focus();
+		this.check_default();
+	}
+});
+
+
+
+var mb_actions = {
+	enter_dialog_list : [],
+	settings_dialog_list : [],
+
+	enter : function(email){
+		if(mailbox_keeper.isset_password(email)){
+			ajax_check_password(email, mailbox_keeper.get_password(email), false,
+				function(req){
+					if (req.responseText == 'correct'){
+						this.send_webmail_form(email,  mailbox_keeper.get_password(email));
+					}
+					else {
+						this._enter_dialog(email);
+					}
+				}.bind(this)
+			);
+		}else{
+			this._enter_dialog(email);
+		}
+	},
+
+	_enter_dialog : function(email){
+		if(this.enter_dialog_list[email] == undefined)
+			this.enter_dialog_list[email] = new EnterMailboxDialog(email);
+		else
+			this.enter_dialog_list[email].open_close();
+	},
+
+
+
+	create : function(){
+		if (this.create_dialog == undefined){
+			this.create_dialog = new CreateMailboxDialog();
+		}
+		else{
+			this.create_dialog.open_close();
+		}
+	},
+
+	settings : function(email){
+		if(this.settings_dialog_list[email] == undefined)
+			this.settings_dialog_list[email] = new MailboxSettingsDialog(email);
+		else
+			this.settings_dialog_list[email].open_close();
+	},
+
+	drop : function(list){
+		var list_show = [];
+		var list_delete = [];
+		for (var i in list){
+			list_show.push(list[i].data.mailbox_unicode);
+			list_delete.push(list[i].data.mailbox);
+		}
+		var text = delete_question({
+			list : list_show,
+			plural_forms : [_t('почтовый ящик'), _t('почтовых ящика'), _t('почтовых ящиков')]
+		});
+
+		if (confirm(text)){
+			ajax_drop_mailboxes(list_delete.join(","), function(req){
+				mailbox_table.reload();
+			});
+		}
+	},
+
+	filtration : function(list, status){
+		var list_show = [];
+		var list_filtration = [];
+
+		for (var i in list){
+			list_show.push(list[i].data.mailbox_unicode);
+			list_filtration.push(list[i].data.mailbox);
+		}
+
+		// var onoff = {true : "включить", "N": "отключить"};
+		var text = delete_question({
+			list : list_show,
+			text : sprintf(_t('Вы действительно хотите %s фильтрацию'), (status ? _t('включить') : _t('отключить'))),
+			plural_forms : [_t('почтовых ящиков'), _t('почтовых ящиков')]
+		});
+		// var onoff = {"Y": "включить", "N": "отключить"};
+
+		if (confirm(text)){
+			show_wait();
+			ajax_turn_filter(list_filtration.join(","), (status ? 'Y' : 'N'), function(req){
+				mailbox_table.reload();
+			})
+		}
+	},
+
+	send_webmail_form : function(email, password){
+		var wf = $("<form action='https://webmail.timeweb.ru/src/redirect.php' method=POST target=_blank/>")
+			.append("<input type=hidden name=_action value=login>")
+			.append("<input type=hidden name=_host value='"+config.imap_server+"'>")
+			.append("<input type=hidden name=js_autodetect_results value=0>")
+			.append("<input type=hidden name=just_logged_in value=1>")
+			.append("<input type=hidden name=login_username value='"+email+"'>")
+			.append("<input type=hidden name=secretkey value='"+password+"'>")
+			.appendTo(document.body)
+			.submit()
+			.remove();
+	},
+
+	to_unicode : function(email){
+		if(/@/.test(email) && /\./.test(email)){
+			var mas = email.split('@');
+			return mas[0]+'@'+punycode.ToUnicode(mas[1]);
+		}
+		return email;
+	},
+
+	to_punycode : function(email){
+
+		if(/@/.test(email) && /\./.test(email)){
+			var mas = email.split('@');
+			return mas[0]+'@'+punycode.ToASCII(mas[1]);
+		}
+		return email;
+	}
+};
+
+
+
+CreateMailboxDialog = newClass(MethodsDialogs, {
+	constructor: function(){
+		this.dialog_init({
+		  'id_dialog' : 'create_mailbox_dialog',
+		  'tmpl' : 'CreateMailboxDialog'
+		});
+
+		this.dialog = $('#'+this.id_dialog).extDialog({
+			func : function(){
+				this.tmpl_add_html();
+			}.bind(this),
+			width : '640px',
+			title: 'Новый почтовый ящик',
+			draggable: true,
+			beforeClose: function( event, ui ) {
+				this.set_default_val();
+			}.bind(this)
+		});
+
+		//логин
+		this.username = $('#username', this.dialog)
+			.data('flag_ajax_error', false)
+			.attr('MAXLENGTH', config.mailbox_login_lenght)
+			.keyup(function(e){
+				if(e.keyCode == 13)
+					this.create.click();
+				this.check_data_disabled();
+			}.bind(this))
+			.validate_init({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(this.username.validate_activated() == false)
+								return {valid : true};
+							var message = "";
+							var username = this.username.val();
+							if (username == "")
+								message = "Пожалуйста, заполните имя почтового ящика";
+							if ((message == "") && (!username.match(/^[a-zA-Z0-9\-\.\_]+$/)))
+								message = "Имя почтового ящика может содержать только символы латинского алфавита, цифры и символы \"-\" (тире), \".\" (точка), \"_\" (подчёркивание)";
+							if ((message == "") && (username.length > config.mailbox_login_length))
+								message = "Длина имени почтового ящика не должна превышать " + config.mailbox_length + " символов";
+							if((this.username.val()+'@'+config.current_domain).length > config.mailbox_length){
+								message = 'Длина почтового ящика не должна превышать 60 символов';
+							}
+
+							if(this.username.data('flag_ajax_error') == true)
+								message = 'Указанный ящик уже существует. Выберите другое имя';
+
+							if(message != ""){
+								return {valid : false, message : message};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//пароль
+		this.password = $('#password', this.dialog)
+			.keyup(function(e){
+				if(e.keyCode == 13)
+					this.create.click();
+				this.check_data_disabled();
+			}.bind(this))
+			.passfield()
+			.validate_init({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(this.password.validate_activated() == false)
+								return {valid : true};
+
+							var message = "";
+							var password = this.password.passfield('value');
+							if (password == "")
+								message = "Пожалуйста, укажите пароль для почтового ящика";
+							if ((message == "") && (password.length > config.password_length))
+								message = "Длина пароля не должна превышать " + config.password_length + " символов";
+							if((message == "") &&  password.search(/[^a-z0-9_@\-\!\$\*\)\(\,\.\#]/gi) >= 0)
+								message = "Пароль может состоять из латиницы, цифр, а также следующих символов: '_', '-', '@', '!', '$', '*', '(', ')', ',', '.', '#'.";
+							if (message != ""){
+								return {valid : false, message : message};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//генератор
+		this.wand = $('#gen_pass', this.dialog).click(function(){
+			this.password.passfield('generate');
+			setTimeout(function(){
+				this.check_data_disabled();
+			}.bind(this), 3);
+		}.bind(this));
+
+		//комметарий
+		this.comment = $('#comment', this.dialog)
+			.attr('MAXLENGTH', config.comment_length);
+		this.comment.
+			keyup(function(e){
+				if(e.keyCode == 13)
+					this.create.click();
+			}.bind(this))
+			.validate({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							var message = '';
+							var comment = this.comment.val();
+							if (comment.length > config.comment_length)
+								message = "Длина комментария не должна превышать " + config.comment_length + " символов";
+							if(message != ""){
+								return {valid : false, message : message};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//фильтрация
+		this.filtration = $('#filtration', this.dialog).switcher();
+
+
+		//кнопка сохранения
+		this.create = $('#create', this.dialog).button();
+		this.create.click(function(){
+			this.save_mailbox();
+		}.bind(this));
+
+		this.set_default_val();
+	},
+
+	set_default_val : function(){
+		$('#domain', this.dialog).html('@'+config.current_domain_see);
+
+		this.username
+			.data('flag_ajax_error', false)
+			.val('')
+			.validate_default()
+			.focus();
+
+		this.password
+			.passfield('value', '')
+			.validate_default();
+
+		this.comment
+			.val('')
+			.validate_default();
+
+		this.filtration.switcher('option', 'checked', true);
+		this.create.button('disable');
+	},
+
+
+	save_mailbox : function(){
+		if(!this.username.isValid() || !this.password.isValid() || !this.comment.isValid())
+			return;
+
+
+		this.create.prop("disabled", true);
+		show_wait()
+
+		ajax_create_mailbox(
+			this.username.val(),
+			this.password.passfield('value'),
+			this.filtration.switcher('value'),
+			Base64.encode(Base64.encode(this.comment.val())),
+			function(req){
+				this.create.prop("disabled", false);
+
+				if (req.responseText == "exists"){
+					hide_wait();
+					this.username.data('flag_ajax_error', true);
+					this.username.isValid();//показываем ошибку
+					this.username.focus();
+					setTimeout(function(){
+						this.username.data('flag_ajax_error', false);
+					}.bind(this), 100);
+					return;
+				}
+				if (req.responseText == "error"){
+					hide_wait();
+					alert("При создании почтового ящика произошла ошибка. Пожалуйста, обратитесь в нашу службу технической поддержки.");
+					return;
+				}
+
+				this.set_default_val();
+				this.close();
+
+				mailbox_table.reload();
+			}.bind(this)
+		);
+	},
+
+	check_data_disabled : function(){
+		var flag_save = true;
+
+		var username = this.username.val();
+		if (username == "")
+			flag_save = false;
+
+		var password = this.password.passfield('value');
+		if (password == "")
+			flag_save = false;
+
+		this.create.button((flag_save ? 'enable' : 'disable'));
+	},
+
+	open : function(){
+		this.dialog.extDialog('open');
+		this.set_default_val();
+	},
+});
+
+MailboxSettingsDialog = newClass(MethodsDialogs, {
+	flag_first_open : true,
+	constructor : function(mailbox){
+		show_wait();
+
+		this.source_val = "[исходная тема письма]";
+
+		this.mailbox = mailbox;
+
+		var random = Math.round(new Date().getTime() / 1000)+'_'+(Math.floor(Math.random() * 100));
+		this.dialog_init({
+		  'id_dialog' : 'mailbox_settings_dialog_'+random,
+		  'tmpl' : 'MailboxSettingsDialog'
+		});
+		this.dialog = $('#'+this.id_dialog).extDialog({
+			func : function(){
+				this.tmpl_add_html();
+			}.bind(this),
+			width : '640px',
+			title: 'Настройки: <span>'+mb_actions.to_unicode(this.mailbox)+'</span>',
+			draggable: true,
+			// beforeClose: function( event, ui ) {
+			// 	this.main__set_default();
+			// 	this.filter__set_default();
+			// 	this.sendings__set_default();
+			// 	this.outgoing__set_default();
+			// }.bind(this),
+			open : function(event, ui){
+				if(this.flag_first_open == false){
+					show_wait();
+					this.load_mailbox();
+				}
+				this.flag_first_open = false;
+			}.bind(this)
+		});
+		setTimeout(function(){
+			this.tabs = $('#tabs', this.dialog).tabs();
+		}.bind(this),10);
+
+
+		this.save_button = $('#save_button', this.dialog).button().click(function(){
+			this._save();
+		}.bind(this));
+
+		this.main__init();
+		this.filter__init();
+		this.sendings__init();
+		this.outgoing__init();
+
+
+		this.load_mailbox();
+	},
+
+	main__init : function(){
+		//пароль
+		this.password = $('#password', this.dialog).keyup(function(e){
+			this.main__check_default(e.keyCode);
+		}.bind(this))
+			.passfield()
+			.validate_init({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(this.password.validate_activated() == false)
+								return {valid : true};
+
+							var message = "";
+							var password = this.password.passfield('value');
+							if ((message == "") && (password.length > config.password_length))
+								message = "Длина пароля не должна превышать " + config.password_length + " символов";
+							if((message == "") &&  password.search(/[^a-z0-9_@\-\!\$\*\)\(\,\.\#]/gi) >= 0)
+								message = "Пароль может состоять из латиницы, цифр, а также следующих символов: '_', '-', '@', '!', '$', '*', '(', ')', ',', '.', '#'.";
+
+							if(password == "")
+								return {valid : true};
+							if (message != ""){
+								return {valid : false, message : message};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//генератор
+		this.pass_gen = $('#pass_gen', this.dialog);
+		this.pass_gen.click(function(){
+			this.password.passfield('generate');
+			setTimeout(function(){
+				this.main__check_default();
+			}.bind(this), 10);
+		}.bind(this));
+
+		//комментарий
+		this.comment = $('#comment', this.dialog);
+		this.comment.keyup(function(e){
+			this.main__check_default(e.keyCode);
+		}.bind(this));
+
+		//автоответчик
+		this.autoreply_checkbox = $('#autoreply_checkbox', this.dialog).switcher().change(function(){
+			setTimeout(function(){
+				this.main__check_autoreply_checkbox();
+				this.main__check_default();
+			}.bind(this), 10);
+		}.bind(this));
+
+		//тема
+		this.subject = $('#subject', this.dialog);
+		this.subject.keyup(function(e){
+			this.main__check_default(e.keyCode);
+		}.bind(this));
+
+		//ответ
+		this.autoreply_text = $('#autoreply_text', this.dialog);
+		this.autoreply_text.keyup(function(e){
+			if(e.keyCode == 13 && e.ctrlKey)
+				this.save_button.click();
+			this.main__check_default();
+		}.bind(this));
+	},
+
+	load_mailbox : function(){
+		ajax_load_mailbox_information(this.mailbox, function(req){
+			info = eval(req.responseText)[0];
+			this.loading = true;
+
+			this.save_flags = {
+				main : false,
+				filter : false,
+				sendings : false,
+				outgoing : false
+			}
+
+			//main-------------------------------------------------------------
+			this.default_main = {
+				autoreply_checkbox : (info.autoreply_status == "Y"),
+				comment : info.mailbox_desc,
+				subject : info.subject.replace(/subject/g, this.source_val),
+				autoreply_text : info.message,
+				passwor : ''
+			};
+			if(this.default_main.subject == '' && this.default_main.autoreply_text == ''){
+				this.default_main.subject = _t('Автоматический ответ: [исходная тема письма]');
+				this.default_main.autoreply_text = _t('Здравствуйте.\nВаше письмо успешно доставлено.\n \n-- \nС уважением, ...');
+			}
+			this.main__set_default();
+			//main end---------------------------------------------------------
+
+			//filter ---------------------------------------------------------------
+			this.default_filter = {
+				filter_checkbox : (info.filter_status == "Y"),
+				filter_action : info.filter_action,
+				spambox : info.spambox,
+				list_wl : info.list_wl
+			}
+
+			this.filter__set_default();
+			//filter end------------------------------------------------------------
+
+			//sendings---------------------------------------------------------
+			this.default_sendings = {
+				forwarding : (info.forward_status == "Y"),
+				save_letters_checkbox : (info.forward == "N"),
+				list_mailbox : info.list_sendings
+			};
+			this.sendings__set_default();
+			//sendings end-----------------------------------------------------
+
+			//outgoing-------------------------------------------------------
+			this.defalut_send_copy = false;
+			this.default_copy_to = '';
+			if (info.outgoing != ""){
+				if (info.outgoing.length > 0){
+					this.default_copy_to = info.outgoing[0].address;
+					this.defalut_send_copy = (info.outgoing[0].active == "Y");
+				}
+			}
+			this.outgoing__set_default();
+			//outgoing end----------------------------------------------------
+
+			this.loading = false;
+			hide_wait();
+		}.bind(this));
+	},
+
+	main__set_default : function(){
+		var def = this.default_main;
+
+		//пароль
+		this.password.passfield('value', '');
+		this.password.validate_default();
+
+		//комментарий
+		if(def.comment != ''){
+			this.comment.val($.fn.unescape(def.comment));
+		}
+
+		//iphone checkbox
+		this.autoreply_checkbox.switcher('option', 'checked', def.autoreply_checkbox);
+		var flag_disabled = (def.autoreply_checkbox == true ? false : true);
+
+		//тема
+		this.subject.val(def.subject);
+		this.subject.prop('disabled', flag_disabled);
+
+		//ответ
+		this.autoreply_text.val(def.autoreply_text);
+		this.autoreply_text.prop('disabled', flag_disabled);
+
+		this.main__check_default();
+	},
+
+	main__check_autoreply_checkbox : function(){
+		var flag_disabled = this.autoreply_checkbox.switcher('value') ? false : true;
+		this.subject.prop('disabled', flag_disabled);
+		this.autoreply_text.prop('disabled', flag_disabled);
+	},
+
+	main__check_default : function(keyCode){
+		if(keyCode == 13)
+			this.save_button.click();
+
+		var flag_save = false;
+
+		//пароль
+		var str_password = this.password.passfield('value');
+		if(str_password.length)
+			flag_save = true;
+
+		if(this.autoreply_checkbox.switcher('value') != this.default_main.autoreply_checkbox)
+			flag_save = true;
+
+		//комментарий
+		if(this.comment.val() != $.fn.unescape(this.default_main.comment))
+			flag_save = true;
+
+		//тема
+		if(this.subject.val() != this.default_main.subject)
+			flag_save = true;
+
+		//ответ
+		if(this.autoreply_text.val() != this.default_main.autoreply_text)
+			flag_save = true;
+
+		this._save__check_default('main', flag_save);
+	},
+
+	main__get_save : function(){
+		var r = new RegExp(this.source_val.replace(/\[/, "\\[").replace(/\]/, "\\]"), "g")
+		var save = {
+			comment :  Base64.encode(Base64.encode(this.comment.val())),
+			autoreply_checkbox : (this.autoreply_checkbox.switcher('value') ? "Y" : "N"),
+			subject :  Base64.encode(Base64.encode(this.subject.val().replace(r, "subject"))),
+			autoreply_text : Base64.encode(Base64.encode(this.autoreply_text.val()))
+		}
+
+		var password = this.password.passfield('value');
+		if(password.length){
+			if(this.password.isValid())
+				save.password = password;
+			else
+				save.error = true;
+		}
+
+		return save;
+	},
+
+	filter__init : function(){
+		//filter------------------------------------------------------------------------------------------------------------------------------
+		//фильтр iphone
+		this.filter_checkbox = $('#filter_checkbox', this.dialog).change(function(){
+			setTimeout(function(){
+				this.filter__check_filter_checkbox();
+				this.filter__check();
+			}.bind(this), 10);
+		}.bind(this)).switcher();
+
+		//спам select
+		this.filter_action = $('#filter_action', this.dialog).select({
+			width : '400px',
+			elements : [
+				{name : 'directory', caption : 'Переместить в папку &laquo;Спам&raquo;'},
+				{name : 'forward', caption : 'Переслать на другой ящик'},
+				{name : 'drop', caption : 'Удалить письмо'},
+				{name : 'label', caption : 'Пометить письмо'}
+			],
+			escape : false,
+			select : function(e, item){
+				var action = item.value;
+				if(action == 'forward')
+					$('#spambox_container', this.dialog).show();
+				else
+					$('#spambox_container', this.dialog).hide();
+				setTimeout(function(){
+					this.filter__check();
+				}.bind(this),10);
+			}.bind(this)
+		});
+
+		//ящик для спама
+		this.spambox = $('#spambox', this.dialog)
+			.keyup(function(e){
+				if(e.keyCode == 13)
+					this._save();
+				this.filter__check();
+			}.bind(this))
+			.validate_init({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(this.spambox.validate_activated() == false)
+								return {valid : true};
+
+							if(validateEmail(value)==false){
+								return {valid : false, message : 'Почтовый ящик некорректен'};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//input добалвения в список
+		this.add_wl = $('#add_wl', this.dialog)
+			.keyup(function(e){
+				if(e.keyCode == 13 && this.add_wl.val() != ''){
+					this.add_wl_button.click();
+				}
+				var flag_disabled = (this.add_wl.val() == '' ? 'disable' : 'enable');
+				this.add_wl_button.button(flag_disabled);
+			}.bind(this))
+			.validate({
+				validationEvents : [],//используется только при сохранении
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(validateEmail(value)==false){
+								return {valid : false, message : 'Почтовый ящик некорректен'};
+							}else{
+								//add in list
+								var flag_add = this.list_wls.list('addItem', value);
+								if(flag_add == false){
+									return {valid : false, message : 'Почтовый ящик уже в списке'};
+								}else{
+									return {valid : true};
+								}
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//список ящиков
+		this.list_wls = $('#list_wl', this.dialog).list({
+			selectable: true,
+			select : function(e, items){
+				var flag_disable = this.list_wls.list('value').length > 0 ? 'enable' : 'disable';
+				this.delete_wl_button.button(flag_disable);
+			}.bind(this)
+		});
+
+		//добавление ного адреса
+		this.add_wl_button = $('#add_wl_button', this.dialog).button().click(function(){
+			if(this.add_wl.isValid()){
+				this.add_wl.val('');
+				this.add_wl_button.button('disable');
+				this.filter__check();
+			}
+		}.bind(this));
+
+		//удаление адреса
+		this.delete_wl_button = $('#delete_wl_button', this.dialog).click(function(){
+			var list = this.list_wls.list('value');
+			this.list_wls.list('removeItem', list);
+			this.delete_wl_button.button('disable');
+			this.filter__check();
+		}.bind(this)).button();
+		//filter end--------------------------------------------------------------------------------------------------------------------------
+	},
+
+	filter__check_filter_checkbox : function(){
+		var flag_disabled = (this.filter_checkbox.switcher('value') == true ? false : true);
+		var flag_disabled_n = (flag_disabled == true ? 'disable' : 'enable');
+
+		//спам select
+		this.filter_action.select(flag_disabled_n);
+
+		//ящик для спама
+		this.spambox.prop('disabled',flag_disabled);
+
+		//добавление ящика в список
+		this.add_wl.prop('disabled',flag_disabled);
+
+		//кнопка добавить
+		var flag_disabled_add_button = flag_disabled_n;
+		if(flag_disabled == false)
+			flag_disabled_add_button = (this.add_wl.val() == '' ? 'disable' : 'enable');
+		this.add_wl_button.button(flag_disabled_add_button);
+
+		//кнопка удалить
+		var flag_disabled_delete_button = flag_disabled_n;
+		if(flag_disabled == false)
+			flag_disabled_delete_button = this.list_wls.list('value').length > 0 ? 'enable' : 'disable';
+		this.delete_wl_button.button(flag_disabled_delete_button);
+
+		//список ящиков
+		this.list_wls.list(flag_disabled_n);
+	},
+
+	filter__set_default : function(){
+		var def = this.default_filter;
+		var flag_disabled = (def.filter_checkbox == true ? false : true);
+		var flag_disabled_n = (flag_disabled == true ? 'disable' : 'enable');
+
+		//спам select
+		this.filter_action.select('enable');
+		this.filter_action.select('value', def.filter_action);
+		this.filter_action.select(flag_disabled_n);
+
+		//iphone checkbox
+		this.filter_checkbox.switcher('value', def.filter_checkbox);
+
+		//ящик для спама
+		this.spambox
+			.val(def.spambox)
+			.prop('disabled', flag_disabled)
+			.clearErrors();
+
+		//input добавления ящика
+		this.add_wl
+			.val('')
+			.prop('disabled', flag_disabled)
+			.validate_default();
+
+		//кнопка добавления ящика
+		this.add_wl_button.button('disable');
+
+		//кнопка удаления ящика
+		this.delete_wl_button.prop('disable');
+
+		//таблица
+		this.list_wls.list('option', 'elements', def.list_wl);
+		this.list_wls.list(flag_disabled_n);
+
+		this.filter__check();
+	},
+
+	filter__check : function(){
+		if(this.loading != false)
+			return;
+
+		flag_save = false;
+
+		if(this.filter_checkbox.switcher('value') != this.default_filter.filter_checkbox)
+			flag_save = true;
+
+		if(this.filter_action.select('value') != this.default_filter.filter_action)
+			flag_save = true;
+
+		if(this.spambox.val() != this.default_filter.spambox)
+			flag_save = true;
+
+		var new_list = this.list_wls.list('option', 'elements');
+		var old_list = this.default_filter.list_wl;
+		if( new_list.length != old_list.length || _.intersection(new_list, old_list).length != new_list.length)
+			flag_save = true;
+
+		this._save__check_default('filter', flag_save);
+	},
+
+	filter__save : function(){
+		if(this.filter_action.select('value') == 'forward' && !this.spambox.isValid() && this.filter_checkbox.switcher('value') == true){
+			this.spambox.focus();
+			return;
+		}
+		var list_wls = this.list_wls.list('option', 'elements');
+
+		var save = {
+			filter_checkbox : (this.filter_checkbox.switcher('value') ? 'Y': 'N'),
+			filter_action : this.filter_action.select('value'),
+			spambox : this.spambox.val(),
+			list_wl : list_wls
+		}
+		var params = JSON.stringify(save);
+
+		show_wait();
+		ajax_save_filter(this.mailbox, params, function(req){
+			this.default_filter = {
+				filter_checkbox : this.filter_checkbox.switcher('value') ,
+				filter_action : this.filter_action.select('value'),
+				spambox : this.spambox.val(),
+				list_wl : list_wls
+			}
+			this.filter__set_default();
+
+			mailbox_table.reload();//перезагрузка таблицы
+			this.close();
+			hide_wait();
+		}.bind(this));
+	},
+
+	filter__get_save : function(){
+		var list_wls = this.list_wls.list('option', 'elements');
+		var save = {
+			filter_checkbox : (this.filter_checkbox.switcher('value') ? 'Y': 'N'),
+			list_wl : list_wls
+		}
+
+		if(this.filter_action.select('value') == 'forward' && !this.spambox.isValid() && this.filter_checkbox.switcher('value') == true){
+			save.error = true;
+			save.filter_action = this.default_filter.filter_action;
+			save.spambox = this.default_filter.spambox;
+		}else{
+			save.filter_action = this.filter_action.select('value');
+			save.spambox = this.spambox.val();
+		}
+
+		return save;
+	},
+
+	sendings__init : function(){
+		//sendings----------------------------------------------------------------------------------------------------------------
+
+		//кнопка вкл. выкл.
+		this.forwarding = $('#forwarding', this.dialog).change(function(){
+			setTimeout(function(){
+				this.sendings__check();
+				this.sendings__check_forwarding();
+			}.bind(this), 10);
+		}.bind(this)).switcher();
+
+		//оставлять письма в ящике
+		this.save_letters_checkbox = $('#save_letters_checkbox', this.dialog).click(function(){
+			this.sendings__check();
+		}.bind(this));
+
+		//список ящиков
+		this.list_mailboxes = $('#list_mailbox', this.dialog).list({
+			selectable: true,
+			select : function(){
+				var flag_disable = this.list_mailboxes.list('value').length > 0 ? 'enable' : 'disable';
+				this.delete_mailbox_button.button(flag_disable);
+			}.bind(this)
+		});
+
+		//изменение новго адреса
+		this.add_mailbox = $('#add_mailbox', this.dialog);
+		this.add_mailbox
+			.keyup(function(e){
+				if(e.keyCode == 13){
+					this.add_mailbox_button.click();
+				}
+				var flag_disabled = (this.add_mailbox.val() == '' ? 'disable' : 'enable');
+				this.add_mailbox_button.button(flag_disabled);
+			}.bind(this))
+			.validate({
+				validationEvents : [],//используется только при сохранении
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(validateEmail(value)==false){
+								return {valid : false, message : 'Почтовый ящик некорректен'};
+							}else{
+								//add in list
+								var flag_add = this.list_mailboxes.list('addItem', value);
+								if(flag_add == false){
+									return {valid : false, message : 'Почтовый ящик уже в списке'};
+								}else{
+									return {valid : true};
+								}
+							}
+						}.bind(this)
+					}
+				]
+			});
+
+		//добавление ного адреса
+		this.add_mailbox_button = $('#add_mailbox_button', this.dialog).click(function(){
+			if(this.add_mailbox.isValid()){
+				this.add_mailbox.val('');
+				this.add_mailbox_button.button('disable');
+				this.sendings__check();
+			}
+		}.bind(this)).button();
+
+		//удаление адреса
+		this.delete_mailbox_button = $('#delete_mailbox_button', this.dialog).click(function(){
+			var list = this.list_mailboxes.list('value');
+			this.list_mailboxes.list('removeItem', list);
+
+			this.delete_mailbox_button.button('disable');
+			this.sendings__check();
+		}.bind(this)).button();
+
+		// //sendings end------------------------------------------------------------------------------------------------------------------------
+
+	},
+
+	sendings__set_default : function(){
+		var def = this.default_sendings;
+
+		var flag_disabled = (def.forwarding == true ? false : true);
+		var flag_disabled_n = (flag_disabled == true ? 'disable' : 'enable');
+
+		//iphone checkbox
+		this.forwarding.switcher('value', def.forwarding);
+
+		//оставлять письма в ящике
+		this.save_letters_checkbox
+			.prop('checked', def.save_letters_checkbox)
+			.prop('disabled', flag_disabled);
+
+		//input добавления ящика
+		this.add_mailbox
+			.val('')
+			.prop('disabled', flag_disabled)
+			.clearErrors();
+
+		//кнопка добавления ящика
+		this.add_mailbox_button.button(flag_disabled_n);
+
+		//таблица
+		this.list_mailboxes.list('option', 'elements', def.list_mailbox);
+		this.list_mailboxes.list(flag_disabled_n);
+
+		//кнопка удаления ящика
+		this.delete_mailbox_button.button(flag_disabled_n);
+
+		this.sendings__check();
+	},
+
+	sendings__check : function(){
+		if(this.loading != false)
+			return;
+
+		flag_save = false;
+
+		if(this.forwarding.switcher('value') != this.default_sendings.forwarding)
+			flag_save = true;
+
+		if(this.save_letters_checkbox.prop('checked') != this.default_sendings.save_letters_checkbox)
+			flag_save = true;
+
+		var new_list = this.list_mailboxes.list('option', 'elements');
+		var old_list = this.default_sendings.list_mailbox;
+		if( new_list.length != old_list.length || _.intersection(new_list, old_list).length != new_list.length)
+			flag_save = true;
+
+		this._save__check_default('sendings', flag_save);
+	},
+
+	sendings__check_forwarding : function(){
+		if(this.loading != false)
+			return;
+
+		var flag_disabled = (this.forwarding.switcher('value') == true ? false : true);
+		var flag_disabled_n = (flag_disabled == true ? 'disable' : 'enable');
+
+		this.save_letters_checkbox.prop('disabled', flag_disabled);
+
+		//input новый адрес
+		this.add_mailbox.prop('disabled',flag_disabled);
+
+		//кнопка добавить
+		var flag_disabled_add_button = flag_disabled_n;
+		if(flag_disabled == false)
+			flag_disabled_add_button = (this.add_mailbox.val() == '' ? 'disable' : 'enable');
+		this.add_mailbox_button.button(flag_disabled_add_button);
+
+		//кнопка удалить
+		var flag_disabled_delete_button = flag_disabled_n;
+		if(flag_disabled == false){
+			flag_disabled_delete_button = (this.list_mailboxes.list('value').length != 0 ? 'enable' : 'disable');
+		}
+		this.delete_mailbox_button.button(flag_disabled_delete_button);
+
+		//список ящиков
+		this.list_mailboxes.list(flag_disabled_n);
+	},
+
+	sendings__get_save : function(){
+		var mail_list = this.list_mailboxes.list('option', 'elements');
+
+		var save = {
+			forwarding : (this.forwarding.switcher('value') ? 'Y' : 'N'),
+			save_letters : (this.save_letters_checkbox.prop('checked') ? 'Y' : 'N'),
+			mail_list : mail_list
+		}
+		return save;
+	},
+
+
+	outgoing__init : function(){
+		this.send_copy = $('#send_copy', this.dialog).switcher().change(function(){
+
+			this.outgoing__check_default();
+			if(this.send_copy.switcher('value')){
+				this.copy_to.focus();
+			}
+			else{
+				this.copy_to.clearErrors();
+			}
+		}.bind(this));
+
+		this.copy_to = $('#copy_to', this.dialog)
+			.keyup(function(e){
+				if(e.keyCode == 13){
+					this.save_button.click();
+				}
+				this.outgoing__check_default();
+			}.bind(this))
+			.validate_init({
+				'jsFunctions' : [
+					{
+						'function' : function(value){
+							if(validateEmail(value)==false){
+								return {valid : false, message : 'Почтовый ящик некорректен'};
+							}else{
+								return {valid : true};
+							}
+						}.bind(this)
+					}
+				]
+			});
+	},
+
+	outgoing__set_default : function(){
+		var disabled_input  = this.defalut_send_copy ? false : true;
+		this.send_copy.switcher('value', this.defalut_send_copy);
+		this.copy_to
+			.val(this.default_copy_to)
+			.prop('disabled', disabled_input)
+			.validate_default();
+		this.outgoing__check_default();
+	},
+
+	outgoing__check_default : function(){
+		var disabled_save = true;
+		if(this.send_copy.switcher('value') == this.defalut_send_copy && this.copy_to.val() == this.default_copy_to){
+			disabled_save = false;
+		}
+		this._save__check_default('outgoing', disabled_save);
+
+		var disabled_input  = this.send_copy.switcher('value') ? false : true;
+		this.copy_to.prop('disabled', disabled_input);
+	},
+	outgoing__get_save : function(){
+		var flag_activate = this.send_copy.switcher('value') ? 'Y' : 'N';
+
+		var save = {};
+		save.flag_activate = flag_activate;
+
+
+		save.copy_to = this.copy_to.val();
+		if(flag_activate == 'N' && validateEmail(save.copy_to) == false){
+			save.copy_to = '';
+		}
+
+		if(flag_activate == 'Y' && !this.copy_to.isValid()){
+			this.copy_to.focus();
+			save.error = true;
+		}
+		return save;
+	},
+
+	_save__check_default : function(flag_name, flag_enable){
+		this.save_flags[flag_name] = flag_enable;
+		var flag_save = (_.contains(this.save_flags, true) ? 'enable' : 'disable');
+		this.save_button.button(flag_save);
+	},
+
+	_save : function(){
+		var save = {
+			main : this.main__get_save(),
+			filter : this.filter__get_save(),
+			sendings : this.sendings__get_save(),
+			outgoing : this.outgoing__get_save()
+		}
+
+		current_data = save[this.current_tab()];
+		if(current_data.error == true)
+			return;
+
+		show_wait();
+		ajax_save_config(this.mailbox,
+			JSON.stringify(save.main),
+			JSON.stringify(save.filter),
+			JSON.stringify(save.sendings),
+			JSON.stringify(save.outgoing),
+			function(req){
+				this.close();
+				mailbox_table.reload()
+			}.bind(this));
+
+
+	},
+
+	current_tab : function(){
+		var list_tabs = ['main', 'filter', 'sendings', 'outgoing'];
+		var id = this.tabs.tabs('option', 'active');
+		return list_tabs[id];
+	}
+
+
+
+});
+
+window.frames.scrollbarsvisible = 'yes';
+
+mailbox_table = {
+	default_data : {"imap":"imap.timeweb.ru","domain":"0a.by","catalog":[]},
+	default_count : 0,
+
+	init : function(){
+		this.table = $('#new_mailboxlist').table({
+			header : {
+				mailbox : "Почтовый ящик",
+				newletters : "Размер",
+				actions : ""
+			},
+			sizes : ["", "35px", "150px"],
+			empty_cell_text : "Пока вы не добавили ни одного почтового ящика",
+			hideid : true,
+			alwayspager : true,
+			eachlinewidth : true,
+			limit : 15,
+			hover  : true,
+			savelimitcookie : "mailman.limit",
+			savepagecookie : "mailman.page",
+			showfuel : false,
+			showchangelimit : true,
+			striped :true,
+			navigation : true,
+			loadfunc : function(params, cb){
+				this._load_data(params, cb);
+			}.bind(this),
+			getcountfunc : function(cb){
+				this._load_count(cb);
+			}.bind(this),
+			initactions : true,
+			maxpages: 11,
+			actions: [
+				{
+					name : "drop",
+					html : '\n\
+					<span class="ui-link-btn" title="Удалить">\n\
+						<i class="ui-link-btn-icon ui-link-btn-icon-delete ui-helper-icon-inline"></i>\n\
+						<span class="js-numeration link">Удалить</span>\n\
+					</span>\n\
+					',
+					action : function(list){
+						mb_actions.drop(list);
+					},
+				},{
+					name : "filtration",
+					html : '\n\
+					<span id="filter_mailbox" class="ui-link-btn" title="Фильтрация">\n\
+						<i class="js-icon ui-link-btn-icon ui-helper-icon-inline"></i>\n\
+						<span class="js-text link">Фильтрация</span>\n\
+					</span>\n\
+					',
+					action : function(list){
+						var flag_filtration = this._filtration_nnado(list);
+						mb_actions.filtration(list, flag_filtration);
+					}.bind(this),
+			}],
+		});
+
+		/*
+		* изменяем кнопку фильтрации
+		*/
+		this.table.on('click', 'input[name=cb], input#main_checkbox', function(){
+			var list = this.table.table("get_checked");
+			var flag_filtration = this._filtration_nnado(list);
+
+			var text = (flag_filtration ? _t('Защитить от спама') : _t('Снять защиту'));
+			text += ' ('+list.length+')';
+
+			var add = 'ui-link-btn-icon-filter'+(flag_filtration ? '' : '-off');
+			var del = 'ui-link-btn-icon-filter'+(flag_filtration ? '-off' : '');
+
+
+
+			$('#table-actions .js-text', this.table).text(text);
+			$('#table-actions .js-icon', this.table)
+				.removeClass(del)
+				.addClass(add);
+        }.bind(this));
+
+		/*
+		* удаление одного ящика
+		*/
+		this.table.on('click', '.js-drop-one', function(e){
+			var perant = $(e.currentTarget).closest('td');
+			var data = JSON.parse($('.js-data', perant).val());
+			mb_actions.drop([{
+				'data' : data
+			}]);
+		});
+
+	},
+
+	_filtration_nnado : function(list){
+		var item;
+		for(var key in list){
+			item = list[key];
+			if(!item.data.flag_filtration){
+				return true;
+			}
+		}
+		return false;
+	},
+
+	reload : function(){
+		this.table.table('load_body');
+	},
+
+	_load_data : function(params, cb){
+		show_wait();
+
+		if(this.default_data != undefined){
+			this._set_data(cb, this.default_data);
+			delete this.default_data;
+		}else{
+			show_wait();
+			ajax_load_mailboxes(params, function(req){
+				var data = JSON.parse(req.responseText);
+				this._set_data(cb, data);
+				hide_wait();
+			}.bind(this));
+		}
+	},
+
+	_load_count : function(cb){
+		if(this.default_count != undefined){
+			cb(this.default_count);
+			delete this.default_count;
+		}else{
+			ajax_load_mailboxes_number(function(req){
+				cb(eval(req.responseText));
+			});
+		}
+	},
+
+	_set_data : function(cb, data){
+		window.current_domain = data.domain;
+		config.imap_server = data.imap;
+		var mailboxes = data.catalog;
+
+		var result = [];
+		_.each(mailboxes, function(item, i){
+
+			var m = String(mailboxes[i]).split("|")
+
+			var mb = m[0] + "@" + punycode.ToUnicode(config.current_domain)
+			var spam_filter = "";
+			if (m[4] == "Y")
+				spam_filter = "<i title='Фильтрация спама включена' class='ui-icon-sm ui-icon-filter ui-helper-icon-inline'></i>";
+
+			var def = (m[8] ? '<br/><span class="small-text muted-text">'+m[8]+'</span>' : '');
+			var	mailbox = '\n\
+				<div class="ui-overflow-wrap" title="Перейти в WebMail" onclick="mb_actions.enter(\''+m[0]+'@'+config.current_domain+'\');"><span class="link">\n\
+					'+mb+'</span><div class="ui-overflow"></div>\
+				</div>\n\
+				'+spam_filter+'\n\
+				'+def+'\n\
+			';
+
+			var used_space = m[10]/1024/1024;
+			var used_str = "";
+			if (used_space<1024) {
+				used_str = Math.round(used_space)+"&nbsp;Мб";
+			}
+			else {
+				used_str = (used_space/1024).toFixed(1)+"&nbsp;Гб";
+			}
+
+			var data = {
+				mailbox : m[0]+"@"+config.current_domain,
+				mailbox_unicode : mb_actions.to_unicode(m[0]+"@"+config.current_domain),
+				flag_filtration : (m[4] == 'Y' ? true : false)
+			}
+			var data_str = JSON.stringify(data);
+
+			result.push({
+				"id": m[0],
+				"mailbox": mailbox,
+				"newletters": "<div id='" +String(m[0]).replace(/\./g, "___")+ "_number' align='right'>"+used_str+"</div>",
+				"actions":
+					"<input class='js-data' type='hidden' value='"+data_str+"'>"+
+					"<i class='js-drop-one ui-link-btn-icon ui-link-btn-icon-delete tr-hidden' title='Удалить'></i>"+
+					"<i class='ui-link-btn-icon  ui-link-btn-icon-config tr-hidden' title='Настройки' onclick='mb_actions.settings(\""+m[0] + "@" + window.current_domain+"\")' title='Настройки ящика'></i>",
+				"data" : data
+			});
+		});
+		cb(result)
+		hide_wait();
+	},
+};
+
+function update_mail_limit(){
+	ajax_mail_limit(function(req){
+		var mail_limit = JSON.parse(req.responseText);
+		$('#all_mail_limit').html(mail_limit.used);
+		$('#all_mail_used').html(mail_limit.limit);
+
+		if(Math.round(mail_limit.used/(mail_limit.limit/100)) > 95){
+			$('#all_mail').addClass('link-important');
+		}
+		$("#all-mail-used-progress").progressbar({value : mail_limit.used/(mail_limit.limit/100)});
+	});
+}
+
+
+$(document).ready(function() {
+	update_mail_limit();
+	templates.init();
+
+	domain_controller.init();
+});
+
+</script>
+
+
+<fieldset class="primary_div_fieldset">
+
+<div class="main_caption">
+    <div class="quota-min">
+
+        <span class="quota-min__caption">Почтовая квота:</span><span class="quota-min__data">
+				<a class="link" id="all_mail"  href="/mail_limit"><span id="all_mail_limit"></span> из <span id="all_mail_used"></span> Гб</a>
+			</span>
+        <div class="quota-min__progressbar">
+            <div id="all-mail-used-progress" class="ui-progressbar"></div>
+        </div>
+
+    </div>
+
+    Почтовый менеджер
+    <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('test')"></i>
+
+</div>
+<!--В этом разделе Вы можете создавать, удалять, настраивать почтовые ящики. Для получения информации по настройке Вашего почтового клиента, откройте "Настройка почтовых программ для работы с электронной почтой"-->
+<div class="element">
+    <table class="element__table element-main-table">
+        <tr>
+            <td class="element__block select_block">
+                <div id="select_domain"></div>
+            </td>
+
+            <td class="element__vline">&nbsp;</td>
+            <td class="element__vline-right">
+                <div class="element__strelka"></div>
+            </td>
+
+
+            <td class="elsement__block">
+                <table class="element__table">
+                    <tr  id="mb_create_new" class="link-block" onclick="mb_actions.create()">
+                        <td class="element__td-img">
+                            <img src="/images/np/mailman-add.png"/>
+                        </td>
+                        <td class="element__simple">
+                            <span class="link">Добавить почтовый ящик</span>
+                            <br/>
+                            <small>Количество ящиков не ограничено</samll>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<h2 id="mailboxlist_caption">Список почтовых ящиков</h2>
+
+<div id="new_mailboxlist">
+</div>
+
+<div id="nodomens" class="np_text" style="display:none;">
+    Для того чтобы начать работать с почтной необходимо создать или привязать хотябы один домен.<br/> Чтобы создать домен, перейдите в раздел <a class="link" href="/domains">«Управление доменами»</a>
+</div>
+
+
+
+
+
+
+
+<div style="display:none;">
+<div id="template_CreateMailboxDialog">
+
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Логин:</label>
+            <div class="controls jq-validate-container">
+                <div class="help-inline">
+                    <input class="average-input" id="username" type="text"/>
+                </div>
+                <div class="help-inline">
+                    <div class="ui-overflow-wrap npp_mailman-long_mail">
+                        <span id="domain"></span>
+                        <div class="ui-overflow"></div>
+                    </div>
+                </div>
+                <div class="help-block small-text muted-text">Используйте латинские буквы и цифры</div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Пароль:</label>
+            <div class="controls jq-validate-container">
+                <div class="help-inline">
+                    <input type="text" style="width: 167px" id="password"/>
+                </div>
+                <div class="help-inline">
+                    <span class="no-link no-link-inverse"  id="gen_pass">Сгенерировать пароль</span>
+                </div>
+                <div class="help-inline">
+                    <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('mailbox_create_username');"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <h3>Настройки ящика</h3>
+        <div class="control-group">
+            <label class="control-label">Комментарий:</label>
+            <div class="controls jq-validate-container">
+                <input id="comment" class="long-input"  type="text"/>
+                <div class="help-block small-text muted-text">Например, можно указать фамилию владельца</div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="simple-label">Защита от спама:</label>
+            <div class="controls">
+                <div class="help-inline">
+                    <input id="filtration" type="checkbox"/>
+                </div>
+                <div class="help-inline">
+                    <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('mailbox_create_filter')" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn" id="create">Создать ящик</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="template_EnterMailboxDialog">
+    <div class="form-horizontal">
+
+        <div class="control-group">
+            <label class="text-label">Логин:</label>
+            <div class="controls form_input_middle">
+                <div class="ui-overflow-wrap npp_mailman-small_email">
+                    <span id="mailbox"></span>
+                    <div class="ui-overflow"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label label_middle">Пароль:</label>
+            <div class="controls jq-validate-container form_input_middle">
+                <input id="password" class="average-input" type="password"/>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+
+            <div class="controls form_input_middle">
+                <label class="checkbox">
+                    <input id="flag_save" type="checkbox"/>Запомнить
+                </label>
+            </div>
+        </div>
+
+
+        <div class="form-actions form_btn_middle">
+            <button class="btn" id="enter_button">Войти</button>
+        </div>
+    </div>
+</div>
+
+<div id="template_MailboxSettingsDialog">
+<div id="tabs">
+    <ul>
+        <li><a href="#tab-main">Общие настройки</a></li><li><a href="#tab-filter">Фильтрация спама</a></li><li><a href="#tab-sendings">Настройка рассылки</a></li><li><a href="#tab-outgoing">Контроль исходящих</a></li>
+    </ul>
+
+    <div id="tab-main">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">Пароль:</label>
+                <div class="controls jq-validate-container">
+                    <input type="text" style="width: 215px" id="password"/>
+                    <div class="help-inline">
+                        <span class="no-link no-link-inverse"  id="pass_gen">Сгенерировать пароль</span>
+                    </div>
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('mailbox_create_username');"></i>
+                    </div>
+                    <div class="help-block small-text muted-text">Заполните, если хотите сменить пароль</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Комментарий:</label>
+                <div class="controls">
+                    <input id="comment" class="npp_mailman-settings_input"  type="text"/>
+                    <div class="help-block small-text muted-text">Например, можно указать фамилию владельца</div>
+                </div>
+            </div>
+
+            <h3>Автоответчик на входящие письма</h3>
+
+            <div class="control-group">
+                <label class="simple-label">Автоответчик:</label>
+                <div class="controls">
+                    <input id="autoreply_checkbox" type="checkbox"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Тема:</label>
+                <div class="controls">
+                    <input id="subject" class="npp_mailman-settings_input"  type="text" value=""/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Ответ:</label>
+                <div class="controls">
+                    <textarea id="autoreply_text" class="npp_mailman-settings_textarea"></textarea>
+                </div>
+            </div>
+
+            <!-- <div class="form-actions">
+              <button class="btn" id="save_main">Сохранить изменения</button>
+            </div> -->
+        </div>
+    </div><!--tab-main-->
+
+
+    <div id="tab-filter">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="simple-label">Защита от спама:</label>
+                <div class="controls">
+                    <div class="help-inline">
+                        <input id="filter_checkbox" type="checkbox"/>
+                    </div>
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('filter_level');"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Спам:</label>
+                <div class="controls">
+                    <!-- <div class="help-inline"> -->
+                    <div id="filter_action"></div>
+                    <!-- </div> -->
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('filter_action');"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group" id="spambox_container">
+                <label class="control-label">&nbsp;</label>
+                <div class="controls jq-validate-container">
+                    <input id="spambox" class="npp_mailman-settings_input"  type="text" value=""/>
+                </div>
+            </div>
+
+            <h3>Белый список почтовых адресов</h3>
+
+            <div class="control-group">
+                <label class="control-label">Новый адрес:</label>
+                <div class="controls jq-validate-container">
+                    <input id="add_wl" style="width:304px;" type="text" value=""/>
+                    <button class="btn npp_mailman-add_button" id="add_wl_button">Добавить</button>
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('whitelist');"></i>
+                    </div>
+                    <div class="help-block small-text muted-text">Указанный адрес не будет попадать в спам</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Список ящиков:</label>
+                <div class="controls">
+                    <div class="help-inline">
+                        <div id="list_wl" class="npp_mailman-lists"></div>
+                    </div>
+                    <button class="btn npp_mailman-add_button ui-helper-align-text-top" id="delete_wl_button">Удалить</button>
+                </div>
+            </div>
+
+            <!-- <div class="form-actions">
+              <button class="btn" id="save_filter">Сохранить изменения</button>
+            </div> -->
+        </div>
+    </div><!--tab-filter-->
+
+
+    <div id="tab-sendings">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="simple-label">Рассылка:</label>
+                <div class="controls">
+                    <input id="forwarding" type="checkbox"/>
+                </div>
+                <div class="controls">
+                    <label class="checkbox npp_mailman-label">
+                        <input id="save_letters_checkbox" type="checkbox"/>Оставлять письма в ящике
+                    </label>
+                </div>
+            </div>
+
+            <h3>Список адресов, включенных в рассылку</h3>
+
+            <div class="control-group">
+                <label class="control-label">Новый адрес:</label>
+                <div class="controls jq-validate-container">
+                    <input id="add_mailbox" style="width:304px;" type="text" value=""/>
+                    <button class="btn npp_mailman-add_button" id="add_mailbox_button">Добавить</button>
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('save_letters');"></i>
+                    </div>
+                    <div class="help-block small-text muted-text">Указанный адрес будет добавлен в рассылку</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Список ящиков:</label>
+                <div class="controls">
+                    <div class="help-inline">
+                        <div id="list_mailbox" class="npp_mailman-lists"></div>
+                    </div>
+                    <button class="btn npp_mailman-add_button ui-helper-align-text-top" id="delete_mailbox_button">Удалить</button>
+                </div>
+            </div>
+
+            <!-- <div class="form-actions">
+              <button class="btn" id="save_sendings">Сохранить изменения</button>
+            </div> -->
+        </div>
+    </div><!--tab-sendings-->
+
+
+    <div id="tab-outgoing">
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="simple-label">Контроль:</label>
+                <div class="controls">
+                    <input id="send_copy" type="checkbox"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Адрес почты:</label>
+                <div class="controls jq-validate-container">
+                    <input id="copy_to" class="npp_mailman-settings_input" type="text" value=""/>
+                    <div class="help-inline">
+                        <i class="ui-link-btn-icon ui-link-btn-icon-info" onclick="show_help_topic('outgoing_copy');"></i>
+                    </div>
+                    <div class="help-block small-text muted-text">На указанный адрес будут отправлены все исходящие письма</div>
+                </div>
+            </div>
+
+            <!-- <div class="form-actions">
+              <button class="btn" id="save_copy_to">Сохранить изменения</button>
+            </div> -->
+        </div>
+    </div><!--tab-outgoing-->
+</div><!--#tabs-->
+
+<div class="form-horizontal npp_mailman-config_dialog">
+    <div class="form-actions">
+        <button class="btn" id="save_button">Сохранить изменения</button>
+    </div>
+</div>
+</div>
+</div>
+
+<body>
+</td></tr>
+</table>
+</div>
+
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-31254085-3', 'timeweb.ru');
+        ga('send', 'pageview');
+      </script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+                    (function (d, w, c) {
+                        (w[c] = w[c] || []).push(function() {
+                            try {
+                                w.yaCounter22579897 = new Ya.Metrika({id:22579897
+                                        });
+                            } catch(e) { }
+                        });
+
+                        var n = d.getElementsByTagName("script")[0],
+                            s = d.createElement("script"),
+                            f = function () { n.parentNode.insertBefore(s, n); };
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+                        if (w.opera == "[object Opera]") {
+                            d.addEventListener("DOMContentLoaded", f, false);
+                        } else { f(); }
+                    })(document, window, "yandex_metrika_callbacks");
+                    </script>
+<noscript><div><img src="//mc.yandex.ru/watch/22579897" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="/js/awstats_misc_tracker.js"></script><noscript><img src="/js/awstats_misc_tracker.js.php?nojs=y" height=20 width=0 border=0></noscript>
+</body>
+</html>

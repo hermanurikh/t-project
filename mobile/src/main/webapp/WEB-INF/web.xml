@@ -39,7 +39,7 @@
     </servlet-mapping>
 
     <servlet>
-<<<<<<< HEAD
+
         <servlet-name>DeleteOptionServlet</servlet-name>
         <display-name>DeleteOptionServlet</display-name>
         <description></description>
@@ -50,7 +50,7 @@
         <url-pattern>/controllers/DeleteOptionServlet</url-pattern>
     </servlet-mapping>
 
-=======
+    <servlet>
         <servlet-name>UsersServlet</servlet-name>
         <display-name>UsersServlet</display-name>
         <description></description>
@@ -95,6 +95,4 @@
         <url-pattern>/controllers/NewTariffServlet</url-pattern>
     </servlet-mapping>
 
-
->>>>>>> f031c2a043f0d41af9ce1ce69e02e2802ee365c2
 </web-app>

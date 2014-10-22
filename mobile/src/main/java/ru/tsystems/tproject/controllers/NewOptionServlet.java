@@ -1,7 +1,6 @@
 package ru.tsystems.tproject.controllers;
 
 import ru.tsystems.tproject.entities.Option;
-import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 

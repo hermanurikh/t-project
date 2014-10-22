@@ -22,12 +22,7 @@ import java.util.List;
  */
 public class AllOptionsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(AllOptionsServlet.class);
-<<<<<<< HEAD
     static List<Option> optionsList = new ArrayList<>();
-=======
-
->>>>>>> f031c2a043f0d41af9ce1ce69e02e2802ee365c2
-
     public void doGet(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException
