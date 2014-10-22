@@ -61,6 +61,14 @@ public class Tariff {
 
     public void removePossibleOptions() { this.possibleOptions.clear(); }
 
+    /**
+     * This method removes an option from the list of possible options.
+     * @param option
+     */
+    public void removeOptionForTariff(Option option) {
+        this.possibleOptions.remove(option);
+    }
+
     public void addPossibleOption(Option option) {
         this.possibleOptions.add(option);
     }

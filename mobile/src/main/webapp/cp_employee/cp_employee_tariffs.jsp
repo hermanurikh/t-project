@@ -210,7 +210,7 @@
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
                                 <a href="../controllers/TariffChangeServlet?id=${tariff.id}"><span>Изменить</span><br> </a>
-                                <a href="#"><span>Удалить</span> </a>
+                                <a href="../controllers/TariffDeleteServlet?id=${tariff.id}"><span>Удалить</span> </a>
                             </div>
                             </td>
                         </tr>

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by german on 10/21/14.
+ * This servlet is a servlet that shows all the tariffs on cp_employee_tariffs.jsp page.
  */
 public class TariffsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(TariffsServlet.class);

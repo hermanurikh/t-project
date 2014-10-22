@@ -34,6 +34,8 @@ public class TariffDataChangeServlet extends HttpServlet {
                 int optionId = Integer.parseInt(x);
                 tariff.addPossibleOption(optionService.getOptionById(optionId));
             }
+            tariff.setName(name);
+            tariff.setPrice(price);
             tariffService.updateTariff(tariff);
             response.sendRedirect("../cp_employee/success.html");
         }

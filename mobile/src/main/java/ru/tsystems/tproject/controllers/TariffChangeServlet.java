@@ -18,9 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by german on 22.10.14.
- */
+
 
 /**
  * This servlet is responsible for the info got by cp_employee_change_tariff.jsp, it shows the current info about the tariff.

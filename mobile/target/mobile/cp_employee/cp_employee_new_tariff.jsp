@@ -170,7 +170,7 @@
                                     <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
                                 </tr>
 
-                                <!--начало элемента таблицы
+                                <!--начало элемента таблицы-->
                                 <c:forEach var="option" items="${optionsList}">
                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 

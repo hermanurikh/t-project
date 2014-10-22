@@ -156,7 +156,7 @@
                              <label class="js-caption control-label">Id тарифа:</label>
                               <div class="js-td controls jq-validate-container">
 
-                               <input type="text" name="price" value=${id}>
+                               <input type="text" name="id" value=${id}>
                                 </div>
                         </div>
 
