@@ -4,6 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <display-name>LoginServlet</display-name>
@@ -12,6 +13,74 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/servlets/LoginServlet</url-pattern>
+        <url-pattern>/controllers/LoginServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewOptionServlet</servlet-name>
+        <display-name>NewOptionServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewOptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOptionServlet</servlet-name>
+        <url-pattern>/controllers/NewOptionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AllOptionsServlet</servlet-name>
+        <display-name>AllOptionsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.AllOptionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllOptionsServlet</servlet-name>
+        <url-pattern>/controllers/AllOptionsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsersServlet</servlet-name>
+        <display-name>UsersServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/controllers/UsersServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewUserServlet</servlet-name>
+        <display-name>NewUserServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewUserServlet</servlet-name>
+        <url-pattern>/controllers/NewUserServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>TariffsServlet</servlet-name>
+        <display-name>TariffsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.TariffsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TariffsServlet</servlet-name>
+        <url-pattern>/controllers/TariffsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewTariffServlet</servlet-name>
+        <display-name>NewTariffServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewTariffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewTariffServlet</servlet-name>
+        <url-pattern>/controllers/NewTariffServlet</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html;charset=utf-8" %>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" >
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -9,12 +8,14 @@
     <script>window.page_data = {};</script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/select_domain-button.js"></script>
     <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
     <script type="text/javascript" src="/js/locale.js?e739290ec4"></script>
     <script type="text/javascript" src="/js/jquery-1.8.3.min.js?24bd97b1de"></script>
@@ -99,7 +100,7 @@
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="/tariff/" class="main-menu-item">
+        <a href="cp_client_tariff_contract" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тариф</span>
         </a>
@@ -135,15 +136,58 @@
             </div>
             <div class="info info_small fr info-last">
                 <div class="info__header">
-                    <h2>Тариф: Служебный</h2>
+                    <h2>Пожалуйста, выберите контракт, который нужно изменить.</h2>
                 </div>
-                <div class="info__body info__body_simple quota">
+
+                <div class="element">
+                    <table class="element__table element-main-table">
+                        <tr>
+                            <td class="element__block select_block">
+                                <div id="select_domain" class="ui-helper-inline" aria-disabled="false" tabindex="0">
+                                    <div id="select_domain-select" role="combobox" aria-expanded="false" aria-owns="select_domain-menu" aria-autocomplete="select_domain-list" aria-haspopup="true" class="ui-select ui-widget ui-state-default ui-corner-all ui-media" style="width: 300px;">
+                                        <div class="ui-select-text ui-media">
+
+                                            <div class="ui-media">
+                                                <div class="ui-media-body ui-overflow-wrap">(921) 925-82-17<i class="ui-overflow"></i></div>
+                                            </div>
+                                        </div>
+                                        <button id="select_domain-button" class="ui-select-button ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title=""><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-text"></span></button>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="element__vline">&nbsp;</td>
+                            <td class="element__vline-right">
+                                <div class="element__strelka"></div>
+                            </td>
+
+
+                            <td class="elsement__block">
+                                <table class="element__table">
+                                    <tr  id="mb_create_new" class="link-block" onclick="mb_actions.create()">
+
+                                        <td class="element__simple">
+                                            <center><span class="link">Выбрать</span></center>
+
+                                            <small>После выбора Вы сможете произвести изменения</small>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info__body info__body_simple quota" style="display:none;">
                     <table>
                         <tbody>
+
                         <tr>
                             <td class='quota-name'><span class="ui-helper-inline">Цена:</span></td>
                             <td><span class="ui-helper-inline quota__value">240 руб./мес.</span></td>
                         </tr>
+
+
                         <tr>
                             <td colspan='2'>
                                 <div class="quota__line" id="quota_PLAN_ITEM_LIMIT_TEXT" data-value="2" data-limit="49"></div>
@@ -161,6 +205,9 @@
                         </tbody>
                     </table>
                     <a id="change_tarif" href="/tariff/" class="ui-button ui-button-primary ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Изменить тариф</span></a>
+
+
+
                 </div>
             </div>
             <div class="clear"></div>
@@ -169,5 +216,27 @@
     </td></tr>
 </table>
 </div>
+
+
+<ul id="select_domain-menu" class="ui-select-menu ui-front ui-corner-bottom ui-widget-shadow ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" tabindex="0" aria-disabled="false" style="width: 302px; top: 183px; left: 386px;">
+    <li class="ui-menu-item ui-menu-item-first ui-corner-tl ui-state-even" role="presentation">
+        <a class="ui-menu-item-caption" id="ui-id-1" tabindex="-1" role="option">
+            <div class="ui-menu-item-text ui-overflow-wrap">(921) 925-82-17<i class="ui-overflow"></i></div>
+        </a>
+    </li>
+    <li class="ui-menu-item ui-state-odd" role="presentation">
+        <a class="ui-menu-item-caption" id="ui-id-2" tabindex="-1" role="option">
+            <div class="ui-menu-item-text ui-overflow-wrap">(981) 771-00-04<i class="ui-overflow"></i></div>
+        </a>
+    </li>
+    <li class="ui-menu-item ui-state-even" role="presentation">
+        <a class="ui-menu-item-caption" id="ui-id-3" tabindex="-1" role="option">
+            <div class="ui-menu-item-text ui-overflow-wrap">(921) 936-34-19<i class="ui-overflow"></i></div>
+        </a>
+    </li>
+</ul>
+
+
+
 </body>
 </html>
