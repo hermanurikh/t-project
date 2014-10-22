@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.controllers;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * Created by german on 21.10.14.
  */
 public class NewOptionServlet extends HttpServlet {
+    private static Logger logger = Logger.getLogger(NewOptionServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OptionService optionService = new OptionServiceImplementation();
         RequestDispatcher rd = null;

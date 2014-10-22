@@ -179,7 +179,7 @@
 
                                 <div class="info-wrap">
                                     <div>
-                                        <a href="cp_employee_new_tariff.html"><span>Создание нового тарифа</span></a>
+                                        <a href="../controllers/AllOptionsForNewTariffServlet"><span>Создание нового тарифа</span></a>
                                     </div>
 
                                 </div>

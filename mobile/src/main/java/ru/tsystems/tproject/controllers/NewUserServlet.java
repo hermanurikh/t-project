@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.controllers;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.RoleService;
 import ru.tsystems.tproject.services.API.UserService;
@@ -20,6 +21,7 @@ import java.util.Date;
  */
 public class NewUserServlet extends HttpServlet {
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private static Logger logger = Logger.getLogger(NewUserServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImplementation();
         RoleService roleService = new RoleServiceImplementation();

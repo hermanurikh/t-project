@@ -38,6 +38,17 @@
         <url-pattern>/controllers/AllOptionsServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>AllOptionsForNewTariffServlet</servlet-name>
+        <display-name>AllOptionsForNewTariffServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.AllOptionsForNewTariffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllOptionsForNewTariffServlet</servlet-name>
+        <url-pattern>/controllers/AllOptionsForNewTariffServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
 
         <servlet-name>DeleteOptionServlet</servlet-name>
