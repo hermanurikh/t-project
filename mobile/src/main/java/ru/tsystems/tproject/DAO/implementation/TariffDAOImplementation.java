@@ -68,11 +68,11 @@ public class TariffDAOImplementation implements TariffDAO {
     @Override
     public List<Tariff> getAllTariffs() throws CustomDAOException {
         try {
-            return entityManager.createQuery("Tariff.getAllTariffs", Tariff.class).getResultList();
+            return entityManager.createNamedQuery("Tariff.getAllTariffs", Tariff.class).getResultList();
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("All tariffs not got" + ex);
+            throw new CustomDAOException("All tariffs not got", ex);
         }
     }
 }

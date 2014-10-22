@@ -39,6 +39,7 @@
     </servlet-mapping>
 
     <servlet>
+<<<<<<< HEAD
         <servlet-name>DeleteOptionServlet</servlet-name>
         <display-name>DeleteOptionServlet</display-name>
         <description></description>
@@ -49,4 +50,51 @@
         <url-pattern>/controllers/DeleteOptionServlet</url-pattern>
     </servlet-mapping>
 
+=======
+        <servlet-name>UsersServlet</servlet-name>
+        <display-name>UsersServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/controllers/UsersServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewUserServlet</servlet-name>
+        <display-name>NewUserServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewUserServlet</servlet-name>
+        <url-pattern>/controllers/NewUserServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>TariffsServlet</servlet-name>
+        <display-name>TariffsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.TariffsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TariffsServlet</servlet-name>
+        <url-pattern>/controllers/TariffsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewTariffServlet</servlet-name>
+        <display-name>NewTariffServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.NewTariffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewTariffServlet</servlet-name>
+        <url-pattern>/controllers/NewTariffServlet</url-pattern>
+    </servlet-mapping>
+
+
+>>>>>>> f031c2a043f0d41af9ce1ce69e02e2802ee365c2
 </web-app>

@@ -3,6 +3,7 @@ import org.apache.log4j.Logger;
 
 
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
@@ -21,7 +22,11 @@ import java.util.List;
  */
 public class AllOptionsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(AllOptionsServlet.class);
+<<<<<<< HEAD
     static List<Option> optionsList = new ArrayList<>();
+=======
+
+>>>>>>> f031c2a043f0d41af9ce1ce69e02e2802ee365c2
 
     public void doGet(HttpServletRequest request,
                        HttpServletResponse response)
@@ -30,7 +35,7 @@ public class AllOptionsServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             OptionService optionService = new OptionServiceImplementation();
-            optionsList = optionService.getAllOptions();
+            List<Option> optionsList = optionService.getAllOptions();
             request.getSession().setAttribute("optionsList", optionsList);
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
             rd.forward(request, response);*/

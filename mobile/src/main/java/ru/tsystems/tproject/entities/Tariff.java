@@ -8,7 +8,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "TARIFFS")
-@NamedQuery(name = "Tariff.getAllTariffs", query = "SELECT t FROM Tariff t")
+@NamedQuery(name = "Tariff.getAllTariffs", query = "SELECT tar FROM Tariff tar")
 public class Tariff {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

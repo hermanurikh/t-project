@@ -130,7 +130,7 @@
             <span class="href_line">Новый контракт</span>
         </a>
 
-        <a href="/managers/" class="main-menu-item">
+        <a href="../controllers/UsersServlet" class="main-menu-item">
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
@@ -139,7 +139,7 @@
             <span class="href_line">Поиск пользователя</span>
         </a>
 
-        <a href="/tariff/" class="main-menu-item">
+        <a href="../controllers/TariffsServlet" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тарифы</span>
         </a>
@@ -196,19 +196,19 @@
                         <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                         <tr class="ui-table-header">
 
-                            <th class="header_s" style="width:;" id="table_header_database">Опция</th>
-                            <th class="header_s" style="width:180px;" id="table_header_type">Цена</th>
-                            <th class="header_s" style="width:180px;" id="table_header_point_access">Цена подключения</th>
-                            <th class="header_s" style="width:180px;" id="table_header_point">Действия</th>
+                            <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                            <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                            <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                            <th class="header_s" style="width:100px;" id="table_header_point">Действия</th>
                         </tr>
 
                         <!--начало элемента таблицы-->
                         <c:forEach var="option" items="${optionsList}">
                         <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                            <td class="simplecell" name="tcell" style="vertical-align: top;"><span>${option.name}</span><br></td>
-                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 180px;"><span>${option.price}</span></td>
-                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 160px;"><span>${option.initialPrice}</span></td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
                                 <a href="../controllers/DeleteOptionServlet?optionId=${option.id}"><span>Удалить</span><br> </a>

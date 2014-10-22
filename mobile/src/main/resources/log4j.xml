@@ -2,6 +2,7 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration>
 
+<<<<<<< HEAD
     <appender name="LOG-FILE-APPENDER" class="org.apache.log4j.FileAppender">
         <param name="file" value="all.log"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -14,6 +15,66 @@
     <root>
         <priority value="ALL"/>
         <appender-ref ref="LOG-FILE-APPENDER"/>
+=======
+
+
+    <appender name="LOG-FILE-APPENDER1" class="org.apache.log4j.FileAppender">
+        <param name="file" value="all.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ALL"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+
+    <appender name="LOG-FILE-APPENDER2" class="org.apache.log4j.FileAppender">
+        <param name="file" value="debug.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="TRACE"/>
+            <param name="LevelMax" value="DEBUG"/>
+        </filter>
+    </appender>
+
+
+
+
+    <appender name="LOG-FILE-APPENDER3" class="org.apache.log4j.FileAppender">
+        <param name="file" value="info.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO"/>
+            <param name="LevelMax" value="INFO"/>
+        </filter>
+    </appender>
+    <appender name="LOG-FILE-APPENDER4" class="org.apache.log4j.FileAppender">
+        <param name="file" value="error.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+
+
+
+
+
+    <root>
+        <priority value="ALL"/>
+        <appender-ref ref="LOG-FILE-APPENDER1"/>
+        <appender-ref ref="LOG-FILE-APPENDER2"/>
+        <appender-ref ref="LOG-FILE-APPENDER3"/>
+        <appender-ref ref="LOG-FILE-APPENDER4"/>
+>>>>>>> f031c2a043f0d41af9ce1ce69e02e2802ee365c2
     </root>
 
 </log4j:configuration>
