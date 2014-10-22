@@ -104,11 +104,11 @@ public class OptionServiceImplementation implements OptionService {
     }
 
     @Override
-    public List<Option> getAllOptionsForTariff(String tariffName) throws CustomDAOException {
+    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         try {
             entityTransaction.begin();
-            List<Option> list = optionDAO.getAllOptionsForTariff(tariffName);
+            List<Option> list = optionDAO.getAllOptionsForTariff(id);
             entityTransaction.commit();
             return list;
         }
@@ -116,7 +116,7 @@ public class OptionServiceImplementation implements OptionService {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new RuntimeException("Unable to get all opions for tariffname " + tariffName, ex);
+            throw new RuntimeException("Unable to get all opions for tariffid " + id, ex);
         }
     }
 }

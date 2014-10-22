@@ -14,5 +14,5 @@ public interface OptionService {
     public void updateOption(Option option) throws CustomDAOException;
     public void deleteOption(Option option) throws CustomDAOException;
     public List<Option> getAllOptions() throws CustomDAOException;
-    public List<Option> getAllOptionsForTariff(String tariffName) throws CustomDAOException;
+    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;
 }

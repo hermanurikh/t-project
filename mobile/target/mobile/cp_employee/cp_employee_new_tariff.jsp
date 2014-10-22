@@ -171,7 +171,7 @@
                                 </tr>
 
                                 <!--начало элемента таблицы
-                                <c:forEach var="option" items="${optionsList}">-->
+                                <c:forEach var="option" items="${optionsList}">
                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
                                         <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" value=${option.id}></td>
@@ -180,22 +180,10 @@
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
 
                                     </tr>
-                                <!--</c:forEach>
+                                </c:forEach>
                                 <!--конец элемента таблицы-->
-
-
-
-
-
-
-                                </tbody>
+                                 </tbody>
                                 </table></div></div>
-
-
-
-
-
-
 
 
                         <div class="js-row control-group">

@@ -209,7 +209,7 @@
                             <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
-                                <a href="#"><span>Подробней</span><br> </a>
+                                <a href="../controllers/TariffChangeServlet?id=${tariff.id}"><span>Изменить</span><br> </a>
                                 <a href="#"><span>Удалить</span> </a>
                             </div>
                             </td>

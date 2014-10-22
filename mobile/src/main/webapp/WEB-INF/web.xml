@@ -106,4 +106,26 @@
         <url-pattern>/controllers/NewTariffServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TariffChangeServlet</servlet-name>
+        <display-name>TariffChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.TariffChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TariffChangeServlet</servlet-name>
+        <url-pattern>/controllers/TariffChangeServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TariffDataChangeServlet</servlet-name>
+        <display-name>TariffDataChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.TariffDataChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TariffDataChangeServlet</servlet-name>
+        <url-pattern>/controllers/TariffDataChangeServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

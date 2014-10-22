@@ -77,14 +77,14 @@ public class OptionDAOImplementation implements OptionDAO {
     }
 
     @Override
-    public List<Option> getAllOptionsForTariff(String tariffName) throws CustomDAOException{
+    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException{
         try{
-            Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.name=:tariff_name").setParameter("tariff_name", tariffName);
+            Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id);
             return (List<Option>)query.getResultList();
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Options for tariff " + tariffName + " not got", ex);
+            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
         }
 
     }

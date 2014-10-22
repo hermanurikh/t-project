@@ -9,10 +9,6 @@
         </layout>
     </appender>
 
-
-
-
-
     <root>
         <priority value="ERROR"/>
         <appender-ref ref="LOG-FILE-APPENDER"/>
