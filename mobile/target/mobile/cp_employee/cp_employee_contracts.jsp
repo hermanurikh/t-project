@@ -157,7 +157,7 @@
                             <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
                                 <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${contract.number}</span><br></td>
-                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${contract.user.name}</span></td>
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${contract.user.login}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${contract.tariff.name}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top;">
                                     <div class="href_icon">

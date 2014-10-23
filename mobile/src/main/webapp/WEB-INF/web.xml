@@ -182,6 +182,26 @@
         <servlet-name>EmployeeAllContractsServlet</servlet-name>
         <url-pattern>/controllers/EmployeeAllContractsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeUserChangeServlet</servlet-name>
+        <display-name>EmployeeUserChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeUserChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeUserChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeUserChangeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeUserDataChangeServlet</servlet-name>
+        <display-name>EmployeeUserDataChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeUserDataChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeUserDataChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeUserDataChangeServlet</url-pattern>
+    </servlet-mapping>
 
 
 
