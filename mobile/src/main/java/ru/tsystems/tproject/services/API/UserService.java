@@ -16,5 +16,6 @@ public interface UserService {
     public void deleteUser(User user) throws CustomDAOException;
     public List<User> getAllUsers() throws CustomDAOException;
     public User getUserByNumber(long number) throws CustomDAOException;
+    public User getUserByLogin(String login) throws CustomDAOException;
 
 }

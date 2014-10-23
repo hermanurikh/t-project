@@ -17,7 +17,7 @@ import java.util.List;
  *
  */
 public class EmployeeContractServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(TariffsServlet.class);
+    private static Logger logger = Logger.getLogger(EmployeeContractServlet.class);
 
 
     public void doGet(HttpServletRequest request,
@@ -34,8 +34,9 @@ public class EmployeeContractServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
             logger.error(ex);
+            response.sendRedirect("../cp_employee/exception.html");
+
         }
     }
 }

@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by german on 21.10.14.
+ * This servlet creates a new option with redirecting to success.html or exception.html page afterwards.
  */
 public class NewOptionServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(NewOptionServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OptionService optionService = new OptionServiceImplementation();
-        RequestDispatcher rd = null;
+
 
         try {
             String name = request.getParameter("name");
@@ -31,6 +31,7 @@ public class NewOptionServlet extends HttpServlet {
         }
         catch (Exception ex) {
             response.sendRedirect("../cp_employee/exception.html");
+            logger.error(ex);
         }
 
 

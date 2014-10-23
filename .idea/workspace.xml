@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18a0d522-0a20-4e9f-810f-cdffc6bc7311" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/mobile.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t-project.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractServlet.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewOptionServlet.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewOptionServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/UserService.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/implementation/UserServiceImplementation.java" afterPath="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/implementation/UserServiceImplementation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_main.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_option.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_option.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_tariff.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_tariff.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_user.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_user.html" />
@@ -13,7 +19,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_tariffs.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_tariffs.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_users.jsp" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_users.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/exception.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/exception.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/success.html" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/success.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -42,8 +47,8 @@
       <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1633" max-vertical-offset="2445">
-              <caret line="148" column="60" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2226" max-vertical-offset="2940">
+              <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -53,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_tariff.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="3315">
-              <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+              <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -62,18 +67,8 @@
       <file leaf-file-name="cp_employee_new_user.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.625" vertical-offset="1215" max-vertical-offset="4185">
-              <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cp_employee_new_contract.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68370163" vertical-offset="1800" max-vertical-offset="3090">
-              <caret line="153" column="138" selection-start-line="153" selection-start-column="138" selection-end-line="153" selection-end-column="138" />
+            <state vertical-scroll-proportion="-12.5" vertical-offset="1215" max-vertical-offset="4185">
+              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -82,8 +77,28 @@
       <file leaf-file-name="cp_employee_options.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_options.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="3105">
-              <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="3105">
+              <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cp_employee_contracts.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_contracts.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36940297" vertical-offset="2127" max-vertical-offset="3000">
+              <caret line="155" column="67" selection-start-line="155" selection-start-column="67" selection-end-line="155" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1605">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -93,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_tariffs.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="3705">
-              <caret line="127" column="55" selection-start-line="127" selection-start-column="55" selection-end-line="127" selection-end-column="55" />
+              <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -102,8 +117,8 @@
       <file leaf-file-name="cp_employee_users.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_users.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="3345">
-              <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2985">
+              <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -112,8 +127,8 @@
       <file leaf-file-name="exception.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/exception.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="810" max-vertical-offset="1740">
-              <caret line="62" column="55" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
+            <state vertical-scroll-proportion="-6.875" vertical-offset="810" max-vertical-offset="1740">
+              <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -122,18 +137,8 @@
       <file leaf-file-name="success.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/success.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375" vertical-offset="1125" max-vertical-offset="2445">
-              <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cp_employee_new_option.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_option.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.75" vertical-offset="1530" max-vertical-offset="3810">
-              <caret line="124" column="55" selection-start-line="124" selection-start-column="55" selection-end-line="124" selection-end-column="55" />
+            <state vertical-scroll-proportion="-16.25" vertical-offset="1125" max-vertical-offset="2445">
+              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -159,7 +164,6 @@
         <option value="$PROJECT_DIR$/mobile/src/main/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewTariffServlet.java" />
         <option value="$PROJECT_DIR$/err.log" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffsServlet.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffDataChangeServlet.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffDeleteServlet.java" />
@@ -167,9 +171,20 @@
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/DeleteOptionServlet.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffChangeServlet.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewOptionServlet.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/implementation/UserServiceImplementation.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/UserService.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractOptionsServlet.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractCreateServlet.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractServlet.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeAllContractsServlet.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_main.html" />
+        <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp" />
+        <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract_options.jsp" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_option.html" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_tariff.jsp" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_user.html" />
@@ -179,7 +194,7 @@
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/exception.html" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/success.html" />
         <option value="$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp" />
+        <option value="$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_contracts.jsp" />
       </list>
     </option>
   </component>
@@ -326,14 +341,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cp_employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -354,6 +361,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,6 +403,192 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DAO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="t-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DAO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,6 +638,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -622,17 +828,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29018182" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23364486" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23267327" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -661,102 +867,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1860" max-vertical-offset="2055">
-          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3540">
-          <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="149" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffChangeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="765">
-          <caret line="34" column="95" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Option.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1500">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/implementation/OptionServiceImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="1920">
-          <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/OptionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="360">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/OptionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="375">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/OptionDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1455">
-          <caret line="81" column="125" selection-start-line="81" selection-start-column="125" selection-end-line="81" selection-end-column="125" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_tariffs.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="3705">
-          <caret line="211" column="90" selection-start-line="211" selection-start-column="90" selection-end-line="211" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffDataChangeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="810">
-          <caret line="36" column="62" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="3495">
-          <caret line="147" column="90" selection-start-line="147" selection-start-column="90" selection-end-line="147" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Tariff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1140">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="495">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -764,6 +879,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="615">
           <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,6 +910,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="480">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -848,38 +965,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewTariffServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="750">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/AllOptionsForNewTariffServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/err.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffDataChangeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="690">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -939,6 +1028,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/implementation/UserDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1440">
+          <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/DAO/API/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/implementation/UserServiceImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="2190">
+          <caret line="140" column="35" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffDataChangeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="690">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/TariffChangeServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="720">
@@ -947,36 +1076,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractServlet.java">
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewOptionServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <caret line="31" column="78" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="33" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/NewTariffServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="750">
+          <caret line="41" column="80" selection-start-line="40" selection-start-column="16" selection-end-line="41" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractOptionsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="21" column="82" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/Contract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractCreateServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1170">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/services/API/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="585">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeContractServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="720">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="37" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/EmployeeAllContractsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/controllers/AllOptionsForNewTariffServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_change_tariff.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="966" max-vertical-offset="3555">
-          <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="3555">
+          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="88" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="1665" max-vertical-offset="4320">
-          <caret line="124" column="55" selection-start-line="124" selection-start-column="55" selection-end-line="124" selection-end-column="55" />
+        <state vertical-scroll-proportion="-10.0" vertical-offset="1665" max-vertical-offset="4320">
+          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="3090">
+          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract_options.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="3120">
+          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_option.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75" vertical-offset="1530" max-vertical-offset="3810">
-          <caret line="124" column="55" selection-start-line="124" selection-start-column="55" selection-end-line="124" selection-end-column="55" />
+        <state vertical-scroll-proportion="-11.875" vertical-offset="1620" max-vertical-offset="3810">
+          <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -984,23 +1199,15 @@
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_tariff.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="3315">
-          <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="1215" max-vertical-offset="4185">
-          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_options.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="3105">
-          <caret line="85" column="55" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
+        <state vertical-scroll-proportion="-12.5" vertical-offset="1215" max-vertical-offset="4185">
+          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1008,47 +1215,63 @@
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_tariffs.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="3705">
-          <caret line="127" column="55" selection-start-line="127" selection-start-column="55" selection-end-line="127" selection-end-column="55" />
+          <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_users.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="3345">
-          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2985">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/exception.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="810" max-vertical-offset="1740">
-          <caret line="62" column="55" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
+        <state vertical-scroll-proportion="-6.875" vertical-offset="810" max-vertical-offset="1740">
+          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375" vertical-offset="1125" max-vertical-offset="2445">
-          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+        <state vertical-scroll-proportion="-16.25" vertical-offset="1125" max-vertical-offset="2445">
+          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_options.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="3105">
+          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1633" max-vertical-offset="2445">
-          <caret line="148" column="60" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2226" max-vertical-offset="2940">
+          <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_new_contract.jsp">
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/ru/tsystems/tproject/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68370163" vertical-offset="1800" max-vertical-offset="3090">
-          <caret line="153" column="138" selection-start-line="153" selection-start-column="138" selection-end-line="153" selection-end-column="138" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1605">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/webapp/cp_employee/cp_employee_contracts.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36940297" vertical-offset="2127" max-vertical-offset="3000">
+          <caret line="155" column="67" selection-start-line="155" selection-start-column="67" selection-end-line="155" selection-end-column="67" />
           <folding />
         </state>
       </provider>

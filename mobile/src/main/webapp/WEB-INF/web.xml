@@ -150,6 +150,39 @@
         <url-pattern>/controllers/EmployeeContractServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EmployeeContractOptionsServlet</servlet-name>
+        <display-name>EmployeeContractOptionsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeContractOptionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeContractOptionsServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeContractOptionsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeContractCreateServlet</servlet-name>
+        <display-name>EmployeeContractCreateServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeContractCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeContractCreateServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeContractCreateServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeAllContractsServlet</servlet-name>
+        <display-name>EmployeeAllContractsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeAllContractsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeAllContractsServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeAllContractsServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 

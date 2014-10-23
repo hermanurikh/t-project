@@ -19,5 +19,7 @@ public interface UserDAO {
 
     public User getUserByNumber(long number) throws CustomDAOException;
 
+    public User getUserByLogin(String login) throws CustomDAOException;
+
     public List<User> getAllUsers() throws CustomDAOException;
 }

@@ -83,10 +83,10 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/EmployeeContractServlet" class="main-menu-item">
-            <i class="np_icon logmanager"></i>
-            <span class="href_line">Новый контракт</span>
-        </a>
+        <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
+                    <i class="np_icon logmanager"></i>
+                    <span class="href_line">Контракты</span>
+                </a>
 
         <a href="../controllers/UsersServlet" class="main-menu-item">
             <i class="np_icon managers"></i>
@@ -122,7 +122,7 @@
 
 
 
-            <form action="../controllers/NewContractServlet" method="POST" accept-charset="CP1252">
+            <form action="../controllers/EmployeeContractOptionsServlet" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Создание нового контракта</h2><div>
                     <div class="js-table form-horizontal support-issue-form">

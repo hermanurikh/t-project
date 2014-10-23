@@ -126,4 +126,24 @@ public class UserServiceImplementation implements UserService {
             throw new CustomDAOException("Unable to get user with number: " + number, ex);
         }
     }
+
+
+    @Override
+    public User getUserByLogin(String login) throws CustomDAOException {
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try {
+            entityTransaction.begin();
+            User user = userDAO.getUserByLogin(login);
+            entityTransaction.commit();
+            if (user == null) throw new CustomDAOException("User with login " + login + " not found");
+            else return user;
+        }
+        catch (RuntimeException ex)
+        {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            throw new CustomDAOException("Unable to get user with login: " + login, ex);
+        }
+    }
 }

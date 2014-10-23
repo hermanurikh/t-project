@@ -83,5 +83,17 @@ public class UserDAOImplementation implements UserDAO {
 
     }
 
+    @Override
+    public User getUserByLogin(String login) throws CustomDAOException {
+        try {
+            Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);
+            return (User) query.getSingleResult();
+        }
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("User with login " + login + " not found", ex);
+        }
+
+    }
+
 
 }
