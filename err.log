@@ -16,3 +16,4 @@
 2014-10-22 17:42:47,366 [ERROR] ru.tsystems.tproject.controllers.TariffChangeServlet 4 at ru.tsystems.tproject.controllers.TariffChangeServlet.doGet(TariffChangeServlet.java:45)
 2014-10-22 17:47:55,167 [ERROR] ru.tsystems.tproject.controllers.TariffChangeServlet 500 at ru.tsystems.tproject.controllers.TariffChangeServlet.doGet(TariffChangeServlet.java:43)
 2014-10-22 17:47:55,171 [ERROR] ru.tsystems.tproject.controllers.TariffChangeServlet 3 at ru.tsystems.tproject.controllers.TariffChangeServlet.doGet(TariffChangeServlet.java:44)
+2014-10-23 15:31:00,789 [ERROR] ru.tsystems.tproject.controllers.EmployeeContractCreateServlet java.lang.NumberFormatException: For input string: "" at ru.tsystems.tproject.controllers.EmployeeContractCreateServlet.doPost(EmployeeContractCreateServlet.java:59)

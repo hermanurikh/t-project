@@ -34,6 +34,7 @@ public class AllOptionsServlet extends HttpServlet {
             request.getSession().setAttribute("optionsList", optionsList);
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
             rd.forward(request, response);*/
+
             response.sendRedirect("../cp_employee/cp_employee_options.jsp");
         }
         catch (Exception ex) {

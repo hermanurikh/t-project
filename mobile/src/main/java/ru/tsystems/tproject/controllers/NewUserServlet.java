@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by german on 10/21/14.
+ * This servlet is responsible for creating a new user, redirecting to success/error page. The params are got from the session.
  */
 public class NewUserServlet extends HttpServlet {
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -42,6 +42,7 @@ public class NewUserServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/success.html");
         }
         catch (Exception ex) {
+            logger.error(ex);
             response.sendRedirect("../cp_employee/exception.html");
         }
 

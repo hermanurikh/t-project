@@ -57,10 +57,6 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         }
         catch (Exception ex) {
             logger.error(ex);
-            logger.error(number);
-            logger.error(userId);
-            logger.error(tariffId);
-            logger.error(optionId);
             response.sendRedirect("../cp_employee/exception.html");
 
         }
