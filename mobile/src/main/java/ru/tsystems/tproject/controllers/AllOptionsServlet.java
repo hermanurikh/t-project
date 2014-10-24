@@ -38,7 +38,9 @@ public class AllOptionsServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/cp_employee_options.jsp");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
+            logger.error(ex);
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
 
         }
     }

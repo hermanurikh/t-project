@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * This servlet creates a new option with redirecting to success.html or exception.html page afterwards.
+ * This servlet creates a new option with redirecting to success.html or exception.jsp page afterwards.
  * It has a check whether the list of options_together and options_incompatible contain the same object.
  */
 public class NewOptionServlet extends HttpServlet {
@@ -37,12 +37,12 @@ public class NewOptionServlet extends HttpServlet {
             }
             for (Option x : option.getOptionsTogether()) { // a check for the same option in two lists
                 if (option.getOptionsIncompatible().contains(x)) {
-                    response.sendRedirect("../cp_employee/exception.html");
+                    response.sendRedirect("../cp_employee/exception.jsp");
                 }
             }
             for (Option x : option.getOptionsIncompatible()) { // a check for the same option in two lists
                 if (option.getOptionsTogether().contains(x)) {
-                    response.sendRedirect("../cp_employee/exception.html");
+                    response.sendRedirect("../cp_employee/exception.jsp");
                 }
             }
 
@@ -50,8 +50,9 @@ public class NewOptionServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/success.html");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
             logger.error(ex);
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
 
 

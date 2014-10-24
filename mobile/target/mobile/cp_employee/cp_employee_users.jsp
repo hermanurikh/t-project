@@ -25,7 +25,11 @@
 <div id="vds-overlay" style="display: none;"></div>
 
 
-
+<script type="text/javascript">
+    function redirect() {
+    location.href = "cp_employee_main.html";
+    }
+</script>
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -34,7 +38,7 @@
 
         <div class="main-header">
             <div class="inner-wrap">
-                <div class="logotype">
+                <div class="logotype"  onclick="redirect()">
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
@@ -161,6 +165,7 @@
                                 <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${user.name}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top;">
                                     <div class="href_icon">
+                                        <a href="#"><span>Создать контракт</span><br> </a>
                                         <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Изменить</span><br> </a>
                                         <a href="#"><span>Удалить</span> </a>
                                     </div>

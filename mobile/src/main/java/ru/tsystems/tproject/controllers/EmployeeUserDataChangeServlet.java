@@ -51,7 +51,8 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/success.html");
         } catch (Exception ex) {
             logger.error(ex);
-            response.sendRedirect("../cp_employee/exception.html");
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
     }
 }

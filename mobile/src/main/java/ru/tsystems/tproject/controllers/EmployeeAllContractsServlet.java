@@ -16,7 +16,7 @@ import java.util.List;
  * This servlet shows all contracts on the cp_employee_contracts.jsp page
  */
 public class EmployeeAllContractsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractServlet.class);
+    private static Logger logger = Logger.getLogger(EmployeeAllContractsServlet.class);
     private ContractService contractService = new ContractServiceImplementation();
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -26,7 +26,8 @@ public class EmployeeAllContractsServlet extends HttpServlet {
         }
         catch (Exception ex) {
             logger.error(ex);
-            response.sendRedirect("../cp_employee/exception.html");
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
 
 

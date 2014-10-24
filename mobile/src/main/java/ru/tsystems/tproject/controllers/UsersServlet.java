@@ -32,12 +32,12 @@ public class UsersServlet extends HttpServlet {
             UserService userService = new UserServiceImplementation();
             List<User> usersList = userService.getAllUsers();
             request.getSession().setAttribute("usersList", usersList);
-            /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
-            rd.forward(request, response);*/
             response.sendRedirect("../cp_employee/cp_employee_users.jsp");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
+            logger.error(ex);
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
     }
 }

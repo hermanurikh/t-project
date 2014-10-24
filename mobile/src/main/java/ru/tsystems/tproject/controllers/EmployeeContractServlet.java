@@ -35,7 +35,8 @@ public class EmployeeContractServlet extends HttpServlet {
         }
         catch (Exception ex) {
             logger.error(ex);
-            response.sendRedirect("../cp_employee/exception.html");
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
 
         }
     }

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by german on 22.10.14.
  */
 public class AllOptionsForNewTariffServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(AllOptionsServlet.class);
+    private static Logger logger = Logger.getLogger(AllOptionsForNewTariffServlet.class);
     static List<Option> optionsList = new ArrayList<>();
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
@@ -33,7 +33,9 @@ public class AllOptionsForNewTariffServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/cp_employee_new_tariff.jsp");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
+            logger.error(ex);
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
 
         }
     }

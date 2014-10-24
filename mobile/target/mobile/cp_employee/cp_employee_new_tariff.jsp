@@ -33,7 +33,11 @@
 </div>
 
 
-
+<script type="text/javascript">
+    function redirect() {
+    location.href = "cp_employee_main.html";
+    }
+</script>
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -42,7 +46,7 @@
 
         <div class="main-header">
             <div class="inner-wrap">
-                <div class="logotype">
+                <div class="logotype"  onclick="redirect()">
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">

@@ -27,32 +27,22 @@ public class NewUserServlet extends HttpServlet {
         RoleService roleService = new RoleServiceImplementation();
         try {
             String name = request.getParameter("name");
-            logger.error(name);
             String surname =  request.getParameter("surname");
-            logger.error(surname);
             Date birthday = dateFormat.parse(request.getParameter("birthday"));
-            logger.error(birthday);
             String passport = request.getParameter("passport");
-            logger.error(passport);
             String address = request.getParameter("address");
-            logger.error(address);
             String email = request.getParameter("email");
-            logger.error(email);
             String login = request.getParameter("login");
-            logger.error(login);
             int balance = Integer.parseInt(request.getParameter("balance"));
-            logger.error(balance);
             String password = request.getParameter("password"); // добавить конвертер в MD5!
-            logger.error(password);
             int role = Integer.parseInt(request.getParameter("cb"));
-            logger.error(role);
             userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
-            logger.error("user created");
             response.sendRedirect("../cp_employee/success.html");
         }
         catch (Exception ex) {
             logger.error(ex);
-            response.sendRedirect("../cp_employee/exception.html");
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
 
 

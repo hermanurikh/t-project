@@ -16,7 +16,7 @@ import java.util.List;
  * This servlet deletes a tariff and redirects to the page of all tariffs.
  */
 public class TariffDeleteServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(TariffsServlet.class);
+    private static Logger logger = Logger.getLogger(TariffDeleteServlet.class);
 
 
     public void doGet(HttpServletRequest request,
@@ -36,8 +36,9 @@ public class TariffDeleteServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/cp_employee_tariffs.jsp");
         }
         catch (Exception ex) {
-            response.sendRedirect("../cp_employee/exception.html");
             logger.error(ex);
+            request.getSession().setAttribute("exception", ex);
+            response.sendRedirect("../cp_employee/exception.jsp");
         }
     }
 }
