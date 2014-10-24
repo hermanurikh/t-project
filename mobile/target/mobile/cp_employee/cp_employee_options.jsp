@@ -137,7 +137,7 @@
 
                                 <div class="info-wrap">
                                     <div>
-                                        <a href="cp_employee_new_option.html"><span>Создание новой опции</span></a>
+                                        <a href="../controllers/EmployeeOptionCreateServlet"><span>Создание новой опции</span></a>
                                     </div>
 
                                 </div>

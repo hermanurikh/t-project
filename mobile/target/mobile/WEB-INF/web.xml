@@ -202,6 +202,17 @@
         <servlet-name>EmployeeUserDataChangeServlet</servlet-name>
         <url-pattern>/controllers/EmployeeUserDataChangeServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeOptionCreateServlet</servlet-name>
+        <display-name>EmployeeOptionCreateServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeOptionCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeOptionCreateServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeOptionCreateServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 

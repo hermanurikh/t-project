@@ -19,7 +19,7 @@ import java.util.Date;
  * This servlet changes the user's data from the page cp_employee_user_data_change.jsp
  */
 public class EmployeeUserDataChangeServlet extends HttpServlet {
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static Logger logger = Logger.getLogger(EmployeeUserDataChangeServlet.class);
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -18,22 +18,6 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
-    <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
-    <script type="text/javascript" src="/js/locale.js?e739290ec4"></script>
-    <script type="text/javascript" src="/js/jquery-1.8.3.min.js?24bd97b1de"></script>
-    <script type="text/javascript" src="/js/jquery.cookie.js?84d0a0bc4f"></script>
-    <script type="text/javascript" src="/js/jquery.validate.js?25d1504dfd"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js?2372906e54"></script>
-    <script type="text/javascript" src="/js/filters.js?6b6f65d0c5"></script>
-    <script type="text/javascript" src="/js/dialogs2.js?93d6e20d76"></script>
-    <script type="text/javascript" src="/js/basepage.js?9bec998850"></script>
-    <script type="text/javascript" src="/js/preloader.js?ff1850aa06"></script>
-    <script type="text/javascript" src="/public/external/timestrap/js/timestrap-ui-cp.js?d41d8cd98f"></script>
-    <script type="text/javascript" src="/js/timestrap-cp.js?a82060dc90"></script>
-    <script type="text/javascript" src="/js/menus2.js?1fdd70fe60"></script>
-    <script type="text/javascript" src="/js/main_page.js?ff84094920"></script>
-    <script type="text/javascript" src="/js/jstable.js?51c263d43e"></script>
-    <script type="text/javascript" src="/js/new_panel.js?4345501cbd"></script>
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
@@ -171,9 +155,9 @@
                 </div>
 
                     <div class="js-row control-group">
-                        <label class="js-caption control-label">Дата рождения в формате дд.мм.гггг:</label>
+                        <label class="js-caption control-label">Дата рождения:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="birthday" value=${birthday}>
+                            <input type="date" class="js-input big-input" name="birthday" value=${birthday}>
                         </div>
                     </div>
 
@@ -207,7 +191,7 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">E-mail:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="email" value=${email}>
+                            <input type="email" class="js-input big-input" name="email" value=${email}>
                         </div>
                     </div>
 
@@ -221,7 +205,7 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Пароль:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="password">
+                            <input type="password" class="js-input big-input" name="password">
                         </div>
                     </div>
 

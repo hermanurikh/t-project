@@ -168,9 +168,9 @@
                 </div>
 
                     <div class="js-row control-group">
-                        <label class="js-caption control-label">Дата рождения в формате дд.мм.гггг:</label>
+                        <label class="js-caption control-label">Дата рождения:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="birthday">
+                            <input type="date" class="js-input big-input" name="birthday">
                         </div>
                     </div>
 
@@ -191,7 +191,7 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">E-mail:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="email">
+                            <input type="email" class="js-input big-input" name="email">
                         </div>
                     </div>
 
@@ -212,16 +212,28 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Пароль:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="password">
+                            <input type="password" class="js-input big-input" name="password">
                         </div>
                     </div>
 
-                    <div class="js-row control-group">
-                        <label class="js-caption control-label">Роль пользователя: 1, если обычный клиент, и 2, если администратор:</label>
-                        <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="role">
-                        </div>
-                    </div>
+                    <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
+                    <tr class="ui-table-header">
+
+                        <th class="header_s_checkbox" width="12" align="center">Роль:<!--<input id="main_checkbox" type="radio">--></th>
+                        <th class="header_s" style="width:150px;" id="table_header_database"></th>
+                    </tr>
+                    <!--начало элемента таблицы-->
+                        <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+                            <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" name="cb" value="1"></td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>Клиент</span><br></td>
+                        </tr>
+                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+                        <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" name="cb" value="2"></td>
+                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>Администратор</span><br></td>
+                    </tr>
+                    <!--конец элемента таблицы-->
+                    </tbody>
+                    </table>
 
 
                     <div class="js-row control-group">

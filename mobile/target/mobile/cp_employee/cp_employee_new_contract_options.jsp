@@ -132,7 +132,7 @@
                             <div class="js-td controls jq-validate-container">
 
 
-                                <input type="text" class="js-input big-input" name="number" value=${contractNumber}>
+                                <input type="number" class="js-input big-input" name="number" value=${contractNumber}>
                             </div>
                         </div>
                         <div class="js-row control-group" style="display:none;">

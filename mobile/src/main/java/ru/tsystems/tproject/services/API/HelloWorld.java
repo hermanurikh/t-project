@@ -17,28 +17,24 @@ import java.util.List;
  * Created by german on 19.10.14.
  */
 public class HelloWorld {
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static Logger logger = Logger.getLogger(HelloWorld.class);
     public static void main(String[] args) throws Exception{
-        TariffService tariffService = new TariffServiceImplementation();
-        OptionService optionService = new OptionServiceImplementation();
-        ContractService contractService = new ContractServiceImplementation();
         UserService userService = new UserServiceImplementation();
+        RoleService roleService = new RoleServiceImplementation();
+        Date success = dateFormat.parse("2014-10-19");
 
-
-        String[] array = new String[2]; //checkbox of options
-        array[0] = "6";
-        array[1] = "7";
-        long number = Long.parseLong("9817710004");
-        int userId = Integer.parseInt("1");
-        int tariffId = Integer.parseInt("8");
-        Contract contract = new Contract(number, userService.getUserById(userId), tariffService.getTariffById(tariffId));
-        int optionId = 0;
-        for (String x : array) {
-            optionId = Integer.parseInt(x);
-            contract.addOption(optionService.getOptionById(optionId));
-        }
-        contractService.createContract(contract);
-        System.out.println("success");
+        String name = "Александр";
+        String surname =  "Санников";
+        Date birthday = success;
+        String passport = "паспорт";
+        String address = "адрес";
+        String email = "email@lol.ru";
+        String login = "alex";
+        int balance = 1000;
+        String password = "qwertydjan";
+        int role = 1;
+        userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
+        System.out.println("user created");
     }
 }
