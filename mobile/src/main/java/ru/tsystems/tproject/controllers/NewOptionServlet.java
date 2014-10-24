@@ -37,12 +37,12 @@ public class NewOptionServlet extends HttpServlet {
             }
             for (Option x : option.getOptionsTogether()) { // a check for the same option in two lists
                 if (option.getOptionsIncompatible().contains(x)) {
-                    response.sendRedirect("../cp_employee/exception.jsp");
+                    throw new Exception("The options were incompatible!");
                 }
             }
             for (Option x : option.getOptionsIncompatible()) { // a check for the same option in two lists
                 if (option.getOptionsTogether().contains(x)) {
-                    response.sendRedirect("../cp_employee/exception.jsp");
+                    throw new Exception("The options were incompatible!");
                 }
             }
 

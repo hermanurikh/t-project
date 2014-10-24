@@ -34,7 +34,7 @@ public class NewUserServlet extends HttpServlet {
             String email = request.getParameter("email");
             String login = request.getParameter("login");
             int balance = Integer.parseInt(request.getParameter("balance"));
-            String password = request.getParameter("password"); // добавить конвертер в MD5!
+            String password = Converter.getMD5(request.getParameter("password")); // добавить конвертер в MD5!
             int role = Integer.parseInt(request.getParameter("cb"));
             userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
             response.sendRedirect("../cp_employee/success.html");

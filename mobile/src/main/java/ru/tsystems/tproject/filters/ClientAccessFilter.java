@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.filters;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
@@ -13,6 +14,8 @@ import java.io.IOException;
  * Created by german on 24.10.14.
  */
 public class ClientAccessFilter implements Filter {
+
+    private static Logger logger = Logger.getLogger(ClientAccessFilter.class);
     public void destroy() {
     }
 
@@ -31,6 +34,7 @@ public class ClientAccessFilter implements Filter {
                 response.sendRedirect("../cp_client/cp_client_main.html");
             } else filterChain.doFilter(request, response);
         } catch (Exception ex) {
+            logger.error(ex);
             response.sendRedirect("../login.jsp");
         }
     }

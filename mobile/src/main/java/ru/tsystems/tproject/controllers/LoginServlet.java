@@ -23,21 +23,24 @@ public class LoginServlet extends HttpServlet {
         UserService userService = new UserServiceImplementation();
         try {
             String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            User user = userService.getUserByLogin(username);
-            if (user == null) throw new Exception("There is no user with the login " + username);
+            if (username.length() > 100) throw new Exception("Login is too long");
             else {
-                if (user.getPassword().equals(password)) {
-                    if (user.getRole().getId() == 1) {
-                        request.getSession().setAttribute("currentUserUID", user.getId());
-                        response.sendRedirect("../cp_client/cp_client_tariff.html");
-                    } else if (user.getRole().getId() == 2) {
-                        request.getSession().setAttribute("currentUserUID", user.getId());
-                        response.sendRedirect("../cp_employee/cp_employee_main.html");
-                    } else {
-                        throw new Exception("The role of user is undefined");
-                    }
-                } else throw new Exception("The users passwords do not match");
+                String password = Converter.getMD5(request.getParameter("password"));
+                User user = userService.getUserByLogin(username);
+                if (user == null) throw new Exception("There is no user with the login " + username);
+                else {
+                    if (user.getPassword().equals(password)) {
+                        if (user.getRole().getId() == 1) {
+                            request.getSession().setAttribute("currentUserUID", user.getId());
+                            response.sendRedirect("../cp_client/cp_client_tariff.html");
+                        } else if (user.getRole().getId() == 2) {
+                            request.getSession().setAttribute("currentUserUID", user.getId());
+                            response.sendRedirect("../cp_employee/cp_employee_main.html");
+                        } else {
+                            throw new Exception("The role of user is undefined");
+                        }
+                    } else throw new Exception("The users passwords do not match");
+                }
             }
         }
         catch (Exception exception) {

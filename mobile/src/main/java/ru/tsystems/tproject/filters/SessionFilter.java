@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.filters;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
@@ -15,9 +16,9 @@ import java.io.IOException;
 public class SessionFilter implements Filter {
     public void destroy(){}
     public void init(FilterConfig config){}
-
-    @Override
+    private static Logger logger = Logger.getLogger(SessionFilter.class);
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
         UserService userService = new UserServiceImplementation();
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -28,6 +29,7 @@ public class SessionFilter implements Filter {
             filterChain.doFilter(request, response);
         }
         catch (Exception ex) {
+            logger.error(ex);
             response.sendRedirect("../login.jsp");
         }
     }
