@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by german on 10/21/14.
+ * This servlet shows a list of all users on employee's page.
  */
 public class UsersServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(UsersServlet.class);
@@ -26,6 +26,7 @@ public class UsersServlet extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException
     {
+
         response.setContentType("text/html;charset=utf-8");
         try {
             UserService userService = new UserServiceImplementation();

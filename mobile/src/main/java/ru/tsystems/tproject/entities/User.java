@@ -141,6 +141,6 @@ public class User {
     }
 
     public String toString(){
-        return String.format("User{name: %s, surname: %s, birthday: %s, address: %s, passport: %s, balance: %s, e-mail: %s}", this.getName(), this.getSurname(), this.getBirthday(), this.getAddress(), this.getPassport(), this.getBalance(), this.getEmail());
+        return String.format("User{name: %s, surname: %s, birthday: %s, address: %s, passport: %s, balance: %s, e-mail: %s, password: %s}", this.getName(), this.getSurname(), this.getBirthday(), this.getAddress(), this.getPassport(), this.getBalance(), this.getEmail(), this.getPassword());
     }
 }

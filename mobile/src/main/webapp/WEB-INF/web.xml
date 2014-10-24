@@ -5,6 +5,50 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+
+    <filter>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>ru.tsystems.tproject.filters.SessionFilter</filter-class>
+        <init-param>
+            <param-name>my-param</param-name>
+            <param-value>my-param-value</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>/cp_client/*</url-pattern>
+        <url-pattern>/cp_employee/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>EmployeeAccessFilter</filter-name>
+        <filter-class>ru.tsystems.tproject.filters.EmployeeAccessFilter</filter-class>
+        <init-param>
+            <param-name>my-param</param-name>
+            <param-value>my-param-value</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EmployeeAccessFilter</filter-name>
+        <url-pattern>/cp_client/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ClientAccessFilter</filter-name>
+        <filter-class>ru.tsystems.tproject.filters.ClientAccessFilter</filter-class>
+        <init-param>
+            <param-name>my-param</param-name>
+            <param-value>my-param-value</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>ClientAccessFilter</filter-name>
+        <url-pattern>/cp_employee/*</url-pattern>
+    </filter-mapping>
+
+
+
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <display-name>LoginServlet</display-name>

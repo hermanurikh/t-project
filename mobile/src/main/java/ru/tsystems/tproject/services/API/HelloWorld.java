@@ -22,18 +22,26 @@ public class HelloWorld {
 
     public static void main(String[] args) throws Exception {
         UserService userService = new UserServiceImplementation();
-        RoleService roleService = new RoleServiceImplementation();
-        String number = "9817710004";
-        String login = "hermanurikh";
-        User user;
-
-        if (number == null || number.equals("")) {
-            user = userService.getUserByLogin(login);
-        } else {
-            long userNumber = Long.parseLong(number);
-            user = userService.getUserByNumber(userNumber);
+        String username = "alex";
+        String password = "gu14929.cyber8";
+        User user = userService.getUserByLogin(username);
+        System.out.println("User got: " + user);
+        System.out.println("User's password is " + user.getPassword());
+        if (user == null) throw new Exception("There is no user with the login " + username);
+        else {
+            if (user.getPassword().equals(password)) {
+                if (user.getRole().getId() == 1) {
+                    System.out.println("Все ок, нашли клиента");
+                } else if (user.getRole().getId() == 2) {
+                    System.out.println("Все ок, нашли юзера");
+                } else {
+                    throw new Exception("The role of user is undefined");
+                }
+            } else {
+                System.out.println("{" + password + "}{" + user.getPassword() + "}");
+                throw new Exception("The users passwords do not match");
+            }
         }
-        System.out.println(user);
 
     }
 }
