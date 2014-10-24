@@ -19,22 +19,21 @@ import java.util.List;
 public class HelloWorld {
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static Logger logger = Logger.getLogger(HelloWorld.class);
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
         UserService userService = new UserServiceImplementation();
         RoleService roleService = new RoleServiceImplementation();
-        Date success = dateFormat.parse("2014-10-19");
+        String number = "9817710004";
+        String login = "hermanurikh";
+        User user;
 
-        String name = "Александр";
-        String surname =  "Санников";
-        Date birthday = success;
-        String passport = "паспорт";
-        String address = "адрес";
-        String email = "email@lol.ru";
-        String login = "alex";
-        int balance = 1000;
-        String password = "qwertydjan";
-        int role = 1;
-        userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
-        System.out.println("user created");
+        if (number == null || number.equals("")) {
+            user = userService.getUserByLogin(login);
+        } else {
+            long userNumber = Long.parseLong(number);
+            user = userService.getUserByNumber(userNumber);
+        }
+        System.out.println(user);
+
     }
 }
