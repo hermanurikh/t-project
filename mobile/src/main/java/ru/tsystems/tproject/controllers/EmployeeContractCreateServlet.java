@@ -44,7 +44,7 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         int userId  = 0;
         int tariffId  = 0;
         int optionId  = 0;
-        String[] array;
+        String[] array = null;
         Option option;
         List<Option> optionsTogether = new ArrayList<>();
         List<Option> optionsIncompatible = new ArrayList<>();
@@ -52,17 +52,22 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         List<Exception> exceptionsList = new ArrayList<>();
 
         try {
-            array = request.getParameterValues("cb"); //checkbox of options
             number = Long.parseLong(request.getParameter("number"));
             userId = Integer.parseInt(request.getParameter("userID"));
             tariffId = Integer.parseInt(request.getParameter("tariffID"));
             Contract contract = new Contract(number, userService.getUserById(userId), tariffService.getTariffById(tariffId));
-            optionId = 0;
-            for (String x : array) {
-                optionId = Integer.parseInt(x);
-                option = optionService.getOptionById(optionId);
-                temporaryList.add(option);
+
+            if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
+                array = request.getParameterValues("cb"); //checkbox of options
+                if (null != array && array.length > 0) {
+                    for (String x : array) {
+                        optionId = Integer.parseInt(x);
+                        option = optionService.getOptionById(optionId);
+                        temporaryList.add(option);
+                    }
+                }
             }
+
             if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                 contractService.createContract(contract);
                 response.sendRedirect("../cp_employee/success.html");

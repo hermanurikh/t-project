@@ -33,14 +33,20 @@ public class NewTariffServlet extends HttpServlet {
         OptionService optionService = new OptionServiceImplementation();
 
         try {
-            String[] array = request.getParameterValues("cb"); //checkbox of options
             String name = request.getParameter("name");
             int price =  Integer.parseInt(request.getParameter("price"));
             Tariff tariff = new Tariff(name, price);
-            for (String x : array) {
-                int optionId = Integer.parseInt(x);
-                tariff.addPossibleOption(optionService.getOptionById(optionId));
+            String[] array = null;
+            if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
+                array = request.getParameterValues("cb"); //checkbox of options
+                if (null != array && array.length > 0) {
+                    for (String x : array) {
+                        int optionId = Integer.parseInt(x);
+                        tariff.addPossibleOption(optionService.getOptionById(optionId));
+                    }
+                }
             }
+
             tariffService.createTariff(tariff);
             response.sendRedirect("../cp_employee/success.html");
         }

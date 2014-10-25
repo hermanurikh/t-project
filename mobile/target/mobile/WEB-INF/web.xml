@@ -266,6 +266,37 @@
         <servlet-name>EmployeeFindUserServlet</servlet-name>
         <url-pattern>/controllers/EmployeeFindUserServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeContractChangeServlet</servlet-name>
+        <display-name>EmployeeContractChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeContractChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeContractChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeContractChangeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeContractDeleteServlet</servlet-name>
+        <display-name>EmployeeContractDeleteServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeContractDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeContractDeleteServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeContractDeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeContractFinalChangeServlet</servlet-name>
+        <display-name>EmployeeContractFinalChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeContractFinalChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeContractFinalChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeContractFinalChangeServlet</url-pattern>
+    </servlet-mapping>
 
 
 

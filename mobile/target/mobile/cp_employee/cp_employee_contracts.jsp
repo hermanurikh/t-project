@@ -202,9 +202,9 @@
                                                                         </td>
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                             <div class="href_icon">
-                                                                                <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Изменить</span><br> </a>
-                                                                                <a href="#"><span>Заблокировать</span> </a>
-                                                                                <a href="#"><span>Удалить</span> </a>
+                                                                                <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>
+                                                                                <a href="../controllers/EmployeeContractChangeServlet?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                <a href="../controllers/EmployeeContractDeleteServlet?contractId=${contract.id}"><span>Удалить</span> </a>
                                                                             </div>
                                                                         </td>
 

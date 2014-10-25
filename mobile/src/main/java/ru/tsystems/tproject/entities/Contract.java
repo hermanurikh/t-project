@@ -100,6 +100,8 @@ public class Contract {
         return options;
     }
 
+    public void removeAllOptions() { this.options.clear(); }
+
     public void addOption(Option option) {
         this.options.add(option);
     }
