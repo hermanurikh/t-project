@@ -2,6 +2,7 @@ package ru.tsystems.tproject.filters;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
@@ -24,11 +25,15 @@ public class SessionFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         User user = null;
         try {
-            user = userService.getUserById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("currentUserUID"))));
-            request.getSession().setAttribute("currentUserObject", user);
-            filterChain.doFilter(request, response);
+            user = (User) request.getSession().getAttribute("currentUserU");
+            if (user == null ) {
+                throw new CustomDAOException("the ID is null!");
+            }
+            else {
+                filterChain.doFilter(request, response);
+            }
         }
-        catch (Exception ex) {
+        catch (CustomDAOException ex) {
             logger.error(ex);
             response.sendRedirect("../login.jsp");
         }

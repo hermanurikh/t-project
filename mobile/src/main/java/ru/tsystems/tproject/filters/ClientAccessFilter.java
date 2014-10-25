@@ -29,7 +29,7 @@ public class ClientAccessFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         User user;
         try {
-            user = (User) request.getSession().getAttribute("currentUserObject");
+            user = (User) request.getSession().getAttribute("currentUserU");
             if (user.getRole().getId() == 1) {
                 response.sendRedirect("../cp_client/cp_client_main.html");
             } else filterChain.doFilter(request, response);

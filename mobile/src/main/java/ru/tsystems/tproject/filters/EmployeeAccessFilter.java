@@ -26,7 +26,7 @@ public class EmployeeAccessFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         User user;
         try {
-            user = (User) request.getSession().getAttribute("currentUserObject");
+            user = (User) request.getSession().getAttribute("currentUserU");
             if (user.getRole().getId() == 2) {
             response.sendRedirect("../cp_employee/cp_employee_main.html");
             }

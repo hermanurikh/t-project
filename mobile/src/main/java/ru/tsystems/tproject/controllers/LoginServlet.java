@@ -31,10 +31,10 @@ public class LoginServlet extends HttpServlet {
                 else {
                     if (user.getPassword().equals(password)) {
                         if (user.getRole().getId() == 1) {
-                            request.getSession().setAttribute("currentUserUID", user.getId());
+                            request.getSession().setAttribute("currentUserU", user);
                             response.sendRedirect("../cp_client/cp_client_tariff.html");
                         } else if (user.getRole().getId() == 2) {
-                            request.getSession().setAttribute("currentUserUID", user.getId());
+                            request.getSession().setAttribute("currentUserU", user);
                             response.sendRedirect("../cp_employee/cp_employee_main.html");
                         } else {
                             throw new Exception("The role of user is undefined");

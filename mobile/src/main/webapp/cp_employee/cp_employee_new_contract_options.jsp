@@ -156,7 +156,7 @@
                                 <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                                 <tr class="ui-table-header">
 
-                                    <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox" type="radio">--></th>
+                                    <th class="header_s_checkbox" width="12" align="center"></th>
                                     <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
                                     <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
                                     <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>

@@ -112,7 +112,7 @@
                 <div>
 
                 <span class="small_signature" id="access_ip_info" style="display:"> <br> <br>
-
+                ${exception} <br>
                 ${exception.message}
 
                 </span>
