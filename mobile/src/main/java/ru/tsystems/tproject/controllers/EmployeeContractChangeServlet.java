@@ -32,6 +32,12 @@ public class EmployeeContractChangeServlet extends HttpServlet {
             Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
             request.getSession().setAttribute("number", contract.getNumber());
             request.getSession().setAttribute("login", contract.getUser().getLogin());
+            if (contract.isBlocked()) {
+                request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
+            }
+            else {
+                request.getSession().setAttribute("paramIsBlocked", "выключена");
+            }
             TariffService tariffService = new TariffServiceImplementation();
             List<Tariff> tariffsList = tariffService.getAllTariffs();
             request.getSession().setAttribute("tariffsList", tariffsList);

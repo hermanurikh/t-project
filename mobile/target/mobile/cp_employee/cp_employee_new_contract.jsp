@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+     <script type="text/javascript" src="../scripts/jquery.js"></script>
 
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
@@ -36,6 +37,15 @@
     function redirect() {
     location.href = "cp_employee_main.html";
     }
+</script>
+<script>
+    $(document).ready(function()
+    {
+    if (document.getElementById('isContract').value == "true") {
+    var o = document.getElementById('exceptions');
+    o.style.display = 'block';
+    }
+    });
 </script>
 
 
@@ -143,8 +153,18 @@
                             <label class="js-caption control-label">Логин пользователя:</label>
                             <div class="js-td controls jq-validate-container">
                                 <input type="text" class="js-input big-input" name = "login">
+
                             </div>
                         </div>
+                        <div style="display:none">
+                         <input id="isContract" value=${userExists}>
+                         </div>
+
+                        <div class="js-row control-group" id="exceptions" style="display:none">
+                                                                            <h2 class="js-h">Пользователь с выбранным номером уже существует!</h2><div>
+
+                                                                        </div>
+                                                                        </div>
 
                         <h2 class="js-h">Выберите тариф для контракта </h2><div>
 

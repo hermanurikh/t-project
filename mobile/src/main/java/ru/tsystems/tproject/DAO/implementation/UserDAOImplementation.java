@@ -90,7 +90,7 @@ public class UserDAOImplementation implements UserDAO {
             return (User) query.getSingleResult();
         }
         catch (PersistenceException ex) {
-            throw new CustomDAOException("User with login " + login + " not found", ex);
+            throw new CustomDAOException("User with login " + login + " not found!", ex);
         }
 
     }

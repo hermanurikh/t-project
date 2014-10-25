@@ -174,6 +174,13 @@
                 </div></div>
             </form>
 
+            <div class="icon-wrap">
+                                        <img src="../images/ip-icon.png">
+                                        <a href="../controllers/EmployeeBlockServlet?contractNumber=${number}">Заблокировать</a>
+                                        <br>
+                                        <small>В данный момент блокировка ${paramIsBlocked}.</small>
+                                    </div>
+
             <div class="clear"></div>
 
 

@@ -21,21 +21,8 @@ public class HelloWorld {
     private static Logger logger = Logger.getLogger(HelloWorld.class);
 
     public static void main(String[] args) throws Exception {
-        String[] array = null;
-        String[] cb = null;
-        if (cb != null && cb.length > 0) {
-            array = cb; //checkbox of options
-            if (null != array && array.length > 0) {
-                for (String x : array) {
-                    int optionId = Integer.parseInt(x);
-                    System.out.println("успех");
-
-                }
-            }
-        }
-        System.out.println("успех2");
-
-        }
+        UserService userService = new UserServiceImplementation();
+    }
 
 
 
