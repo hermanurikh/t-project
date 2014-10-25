@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
                             response.sendRedirect("../cp_client/cp_client_main.jsp");
                         } else if (user.getRole().getId() == 2) {
                             request.getSession().setAttribute("currentUserU", user);
-                            response.sendRedirect("../cp_employee/cp_employee_main.html");
+                            response.sendRedirect("../cp_employee/cp_employee_main.jsp");
                         } else {
                             throw new Exception("The role of user is undefined");
                         }

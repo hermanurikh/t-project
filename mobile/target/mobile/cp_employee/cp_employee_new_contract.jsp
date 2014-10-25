@@ -35,7 +35,7 @@
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.html";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
 <script>
@@ -161,7 +161,7 @@
                          </div>
 
                         <div class="js-row control-group" id="exceptions" style="display:none">
-                                                                            <h2 class="js-h">Пользователь с выбранным номером уже существует!</h2><div>
+                                                                            <h2 class="js-h">${exception.message}</h2><div>
 
                                                                         </div>
                                                                         </div>

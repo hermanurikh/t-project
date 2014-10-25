@@ -36,9 +36,11 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
             catch (CustomDAOException ex) {
                 logger.error("User not found, everything correct");
             }
+            Exception exception = null;
              if (user != null) {
-
                     request.getSession().setAttribute("userExists", "true");
+                    exception = new Exception("A contract with this number already exists!");
+                    request.getSession().setAttribute("exception", exception);
                     response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
                 }
              else {
@@ -63,8 +65,9 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
         }
         catch (Exception ex) {
             logger.error(ex);
+            request.getSession().setAttribute("userExists", "true");
             request.getSession().setAttribute("exception", ex);
-            response.sendRedirect("../cp_employee/exception.jsp");
+            response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
         }
 
     }

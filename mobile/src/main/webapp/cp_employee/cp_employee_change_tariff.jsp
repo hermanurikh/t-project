@@ -34,7 +34,7 @@
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.html";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
 

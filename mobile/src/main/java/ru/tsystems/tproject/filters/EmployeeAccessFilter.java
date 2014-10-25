@@ -28,7 +28,7 @@ public class EmployeeAccessFilter implements Filter {
 
             user = (User) request.getSession().getAttribute("currentUserU");
             if (user.getRole().getId() == 2) {
-            response.sendRedirect("../cp_employee/cp_employee_main.html");
+            response.sendRedirect("../cp_employee/cp_employee_main.jsp");
             }
             else filterChain.doFilter(request, response);
 
