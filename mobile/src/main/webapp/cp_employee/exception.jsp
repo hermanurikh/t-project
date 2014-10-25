@@ -43,8 +43,8 @@
                     <div class="main">
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
-                            <div class="username">gurikh<span class="shad">&nbsp;</span></div>
-                            <div class="user-balance">1 р.</div>
+                            <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
+
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">

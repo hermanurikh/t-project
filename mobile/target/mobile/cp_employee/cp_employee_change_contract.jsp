@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
 
 </head>
-<script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
+<body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
 <div id="vds-overlay" style="display: none;"></div>
 <div id="vds-wait" style="display: none;">
@@ -61,8 +61,8 @@
                     <div class="main">
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
-                            <div class="username">gurikh<span class="shad">&nbsp;</span></div>
-                            <div class="user-balance">1 р.</div>
+                            <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
+
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">
@@ -173,6 +173,13 @@
                     </div></div>
                 </div></div>
             </form>
+
+            <div class="icon-wrap">
+                                        <img src="../images/ip-icon.png">
+                                        <a href="../controllers/EmployeeBlockServlet?contractNumber=${number}">Заблокировать</a>
+                                        <br>
+                                        <small>В данный момент блокировка ${paramIsBlocked}.</small>
+                                    </div>
 
             <div class="clear"></div>
 

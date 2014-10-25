@@ -1,7 +1,9 @@
 package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
+import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
+import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 
@@ -13,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by german on 25.10.14.
+ * This servlet blocks/unblocks the client.
  */
 public class EmployeeBlockServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(EmployeeBlockServlet.class);
@@ -23,6 +25,27 @@ public class EmployeeBlockServlet extends HttpServlet {
         ContractService contractService = new ContractServiceImplementation();
         try {
             long number = Long.parseLong(request.getParameter("contractNumber"));
+            Contract contract = contractService.getContractByNumber(number);
+            if (contract.isBlocked()) {
+                contract.setBlocked(false);
+                contract.setEmployee(null);
+                contractService.updateContract(contract);
+                request.getSession().setAttribute("paramIsBlocked", "выключена");
+            }
+            else {
+                contract.setBlocked(true);
+                contract.setEmployee((User)request.getSession().getAttribute("currentUserU"));
+                contractService.updateContract(contract);
+                request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
+            }
+            response.sendRedirect("../cp_employee/cp_employee_change_contract.jsp");
+
+
+        }
+        catch (Exception ex) {
+                logger.error(ex);
+                request.getSession().setAttribute("exception", ex);
+                response.sendRedirect("../cp_employee/exception.jsp");
 
 
         }

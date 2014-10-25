@@ -298,6 +298,17 @@
         <url-pattern>/controllers/EmployeeContractFinalChangeServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EmployeeBlockServlet</servlet-name>
+        <display-name>EmployeeBlockServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeBlockServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeBlockServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeBlockServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 
