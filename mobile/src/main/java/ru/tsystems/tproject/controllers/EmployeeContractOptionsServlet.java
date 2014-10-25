@@ -17,7 +17,9 @@ import java.util.List;
 
 /**
  * This servlet receives the info about the tariff selected for the contract and gives back the possible options to choose from.
+ * We get here an array of options id's to pass it to javascript on the page.
  */
+
 public class EmployeeContractOptionsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(EmployeeContractOptionsServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +36,6 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
             request.getSession().setAttribute("contractNumber", contractNumber);
             request.getSession().setAttribute("userId", userID);
             request.getSession().setAttribute("tariffId", tariffID);
-
             response.sendRedirect("../cp_employee/cp_employee_new_contract_options.jsp");
 
 

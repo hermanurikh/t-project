@@ -2,6 +2,7 @@ package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
+import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by german on 23.10.14.
@@ -25,6 +27,8 @@ public class EmployeeContractCreateServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(EmployeeContractCreateServlet.class);
     /**
      * This method gets an array of option ID's from the request as well as the number of contract. As a result, a contract is created.
+     * It checks whether the options' choice is correct.
+     * We make a temporary list which holds all the selected options, then we check whether it doesn't have conflicts.
      * @param request
      * @param response
      * @throws javax.servlet.ServletException
@@ -40,6 +44,10 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         int tariffId  = 0;
         int optionId  = 0;
         String[] array;
+        Option option;
+        List<Option> optionsTogether;
+        List<Option> optionsIncompatible;
+        List<Option> temporaryList = null;
 
         try {
             array = request.getParameterValues("cb"); //checkbox of options
@@ -50,10 +58,16 @@ public class EmployeeContractCreateServlet extends HttpServlet {
             optionId = 0;
             for (String x : array) {
                 optionId = Integer.parseInt(x);
-                contract.addOption(optionService.getOptionById(optionId));
+                option = optionService.getOptionById(optionId);
+                temporaryList.add(option);
             }
-            contractService.createContract(contract);
-            response.sendRedirect("../cp_employee/success.html");
+            if (temporaryList == null) { // we do not need to check anything if there are no options
+                contractService.createContract(contract);
+                response.sendRedirect("../cp_employee/success.html");
+            }
+            else {
+                
+            }
         }
         catch (Exception ex) {
             logger.error(ex);

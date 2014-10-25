@@ -28,14 +28,11 @@ public class ClientAccessFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         User user;
-        try {
-            user = (User) request.getSession().getAttribute("currentUserU");
-            if (user.getRole().getId() == 1) {
-                response.sendRedirect("../cp_client/cp_client_main.html");
-            } else filterChain.doFilter(request, response);
-        } catch (Exception ex) {
-            logger.error(ex);
-            response.sendRedirect("../login.jsp");
-        }
+        user = (User) request.getSession().getAttribute("currentUserU");
+        if (user.getRole().getId() == 1) {
+             response.sendRedirect("../cp_client/cp_client_main.html");
+        } else filterChain.doFilter(request, response);
+
+
     }
 }

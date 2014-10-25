@@ -38,6 +38,19 @@
     }
 </script>
 
+<script>
+function changeDiv( el ) {
+if (document.getElementById(el).style.display == 'block' ) {
+document.getElementById(el).style.display = 'none';
+}
+else if (document.getElementById(el).style.display == 'none' ) {
+document.getElementById(el).style.display = 'block';
+}
+}
+</script>
+
+
+
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -148,6 +161,7 @@
                         </div>
 
                         <h2 class="js-h">Выберите опции для тарифа</h2><div>
+                        <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>
 
 
 
@@ -164,9 +178,9 @@
 
                                 <!--начало элемента таблицы-->
                                 <c:forEach var="option" items="${optionsList}">
-                                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+                                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick="changeDiv('${option.id}150')">
 
-                                        <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" value=${option.id}></td>
+                                        <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" id=${option.id} value=${option.id}></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
@@ -188,6 +202,99 @@
                     </div></div>
                 </div></div>
             </form>
+
+
+
+
+            <c:forEach var="option" items="${optionsList}">
+            <div class="js-table form-horizontal support-issue-form" id="${option.id}150" style="display:none" onclick="document.getElementById('${option.id}150').style.display='none'">
+                <h2 class="js-h">Необходимые опции</h2><div>
+
+                <div id="list_database3">
+                    <div style="">
+                        <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
+                    <tr class="ui-table-header">
+
+
+                        <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                        <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                        <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                    </tr>
+
+                    <!--начало элемента таблицы-->
+                    <c:forEach var="optionTogether" items="${option.optionsTogether}">
+                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+
+                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${optionTogether.name}</span><br></td>
+                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionTogether.price}</span></td>
+                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionTogether.initialPrice}</span></td>
+                    </tr>
+                    </c:forEach>
+
+                    <!--конец элемента таблицы-->
+                    </tbody>
+                    </table></div></div>
+
+
+                <div class="js-row control-group">
+                    <label class="js-caption control-label"></label>
+
+                </div><div class="js-row control-group">
+                <label class="js-caption control-label"></label>
+
+            </div></div>
+
+                <h2 class="js-h">Несовместимые опции</h2><div>
+
+                <div id="list_database4">
+                    <div style="">
+                        <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
+                        <tr class="ui-table-header">
+
+
+                            <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                            <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                            <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                        </tr>
+
+                        <!--начало элемента таблицы-->
+                        <c:forEach var="optionIncompatible" items="${option.optionsIncompatible}">
+                            <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${optionIncompatible.name}</span><br></td>
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionIncompatible.price}</span></td>
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionIncompatible.initialPrice}</span></td>
+                            </tr>
+                        </c:forEach>
+
+                        <!--конец элемента таблицы-->
+                        </tbody>
+                        </table></div></div>
+
+
+                <div class="js-row control-group">
+                    <label class="js-caption control-label"></label>
+
+                </div><div class="js-row control-group">
+                <label class="js-caption control-label"></label>
+
+            </div></div>
+
+
+
+
+            </div>
+            </c:forEach>
+
+
+
+
+
+
+
+
+
+
 
             <div class="clear"></div>
 

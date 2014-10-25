@@ -25,16 +25,12 @@ public class EmployeeAccessFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         User user;
-        try {
+
             user = (User) request.getSession().getAttribute("currentUserU");
             if (user.getRole().getId() == 2) {
             response.sendRedirect("../cp_employee/cp_employee_main.html");
             }
             else filterChain.doFilter(request, response);
-        }
-        catch (Exception ex) {
-            logger.error(ex);
-            response.sendRedirect("../login.jsp");
-        }
+
     }
 }

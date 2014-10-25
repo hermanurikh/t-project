@@ -2,9 +2,7 @@ package ru.tsystems.tproject.services.API;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.controllers.Converter;
-import ru.tsystems.tproject.entities.Contract;
-import ru.tsystems.tproject.entities.Role;
-import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.entities.*;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.implementation.*;
 
@@ -24,28 +22,36 @@ public class HelloWorld {
 
     public static void main(String[] args) throws Exception {
         UserService userService = new UserServiceImplementation();
+        TariffService tariffService = new TariffServiceImplementation();
 
-            String username = "hermanurikh";
-            if (username.length() > 100) throw new Exception("Login is too long");
-            else {
-                String password = Converter.getMD5("gu14929.cyber8");
-                User user = userService.getUserByLogin(username);
-                if (user == null) throw new Exception("There is no user with the login " + username);
-                else {
-                    if (user.getPassword().equals(password)) {
-                        if (user.getRole().getId() == 1) {
-                            System.out.println("client");
-                        } else if (user.getRole().getId() == 2) {
-                            System.out.println("admin");;
-                        } else {
-                            throw new Exception("The role of user is undefined");
-                        }
-                    } else throw new Exception("The users passwords do not match");
+        String contractNumber = "5468796321";
+        String login = "alex";
+        int userID = userService.getUserByLogin(login).getId();
+        int tariffID = Integer.parseInt("7");
+        Tariff tariff = tariffService.getTariffById(tariffID);
+        List<Option> optionsList = tariff.getPossibleOptions();
+        for (Option x : optionsList) {
+            if (!x.getOptionsTogether().isEmpty()) {
+                List<Integer> togetherList = null;
+                for (Option y : x.getOptionsTogether()) {
+                    togetherList.add(y.getId());
                 }
+                int[] idTogetherList = new int[togetherList.size()];
+                for (int i = 0; i < togetherList.size(); i++)
+                    idTogetherList[i] = togetherList.get(i); // an array of compatible options' ids
+            }
+            if (!x.getOptionsIncompatible().isEmpty()) {
+                List<Integer> incompatibleList = null;
+                for (Option y : x.getOptionsIncompatible()) {
+                    incompatibleList.add(y.getId());
+                }
+                int[] idIncompatibleList = new int[incompatibleList.size()];
+                for (int i = 0; i < incompatibleList.size(); i++)
+                    idIncompatibleList[i] = incompatibleList.get(i); // an array of incompatible options' ids
             }
         }
 
 
-
     }
+}
 

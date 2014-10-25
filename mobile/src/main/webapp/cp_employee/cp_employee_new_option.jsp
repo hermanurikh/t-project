@@ -198,6 +198,7 @@
                             <c:forEach var="option" items="${optionsList}">
                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
+
                                     <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" onchange="recheck (this, '${option.id}600' );" name="cb" id=${option.id}300 value=${option.id}></td>
                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
