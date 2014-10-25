@@ -129,10 +129,6 @@
                                     </td>
                                     <!--np_menu-->
                                     <td class="np_content">
-                                        <script src="/js/underscore-min.js"></script>
-                                        <script src="/js/d3.js"></script>
-                                        <script src="/js/path.js"></script>
-                                        <script src="/js/punycode.js"></script>
 
 
 

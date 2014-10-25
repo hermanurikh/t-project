@@ -72,12 +72,12 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="/documents/" class="main-menu-item">
+        <a href="../controllers/UserAllContractsServlet" class="main-menu-item">
             <i class="np_icon documents"></i>
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="cp_client_tariff_contract.html" class="main-menu-item">
+        <a href="cp_client_balance.jsp" class="main-menu-item">
             <i class="np_icon balance"></i>
             <span class="href_line">Баланс</span>
         </a>

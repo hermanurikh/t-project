@@ -319,6 +319,27 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/controllers/LogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UserAllContractsServlet</servlet-name>
+        <display-name>UserAllContractsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserAllContractsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAllContractsServlet</servlet-name>
+        <url-pattern>/controllers/UserAllContractsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserIncreaseBalanceServlet</servlet-name>
+        <display-name>UserIncreaseBalanceServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserIncreaseBalanceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserIncreaseBalanceServlet</servlet-name>
+        <url-pattern>/controllers/UserIncreaseBalanceServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 
