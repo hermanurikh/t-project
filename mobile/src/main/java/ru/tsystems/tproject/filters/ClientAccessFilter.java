@@ -30,7 +30,7 @@ public class ClientAccessFilter implements Filter {
         User user;
         user = (User) request.getSession().getAttribute("currentUserU");
         if (user.getRole().getId() == 1) {
-             response.sendRedirect("../cp_client/cp_client_main.html");
+             response.sendRedirect("../cp_client/cp_client_main.jsp");
         } else filterChain.doFilter(request, response);
 
 

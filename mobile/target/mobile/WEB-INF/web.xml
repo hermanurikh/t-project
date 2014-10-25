@@ -309,6 +309,17 @@
         <url-pattern>/controllers/EmployeeBlockServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <display-name>LogoutServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/controllers/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 
