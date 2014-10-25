@@ -164,6 +164,18 @@
                             </div>
                         </div>
 
+
+                        <div class="js-row control-group" id="exceptions" style="display:none">
+                            <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2><div>
+                            <c:forEach var="ex" items="${exceptionsList}">
+                            <span class="small_signature">${ex.message}</span> <br>
+                            <span class="small_signature">${ex}</span> <br>
+                            </c:forEach>
+
+
+                        </div>
+
+
                         <h2 class="js-h">Выберите опции для тарифа</h2><div>
                         <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>
 

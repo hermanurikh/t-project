@@ -10,8 +10,7 @@
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <script>window.page_data = {};</script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
@@ -40,13 +39,19 @@
 
 <script>
 function changeDiv( el ) {
-if (document.getElementById(el).style.display == 'block' ) {
-document.getElementById(el).style.display = 'none';
-}
-else if (document.getElementById(el).style.display == 'none' ) {
+if (document.getElementById(el).style.display == 'none' ) {
 document.getElementById(el).style.display = 'block';
 }
 }
+</script>
+<script>
+    $(document).ready(function()
+    {
+    if (document.getElementById('areExceptions').value == "true") {
+    var o = document.getElementById('exceptions');
+    o.style.display = 'block';
+    }
+    });
 </script>
 
 
@@ -68,6 +73,10 @@ document.getElementById(el).style.display = 'block';
                     </ul>
                 </div>
             </div>
+            <div id="isValid" style="display:none">
+                            <input id="areExceptions" value=${areExceptions}>
+
+                        </div>
             <div class="right">
                 <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script>
                 <div class="account-selector dobble">
@@ -159,6 +168,14 @@ document.getElementById(el).style.display = 'block';
                                 <input type="text" class="js-input big-input" name = "tariffID" value=${tariffId}>
                             </div>
                         </div>
+
+                        <div class="js-row control-group" id="exceptions" style="display:none">
+                                                    <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2><div>
+                                                    <c:forEach var="ex" items="${exceptionsList}">
+                                                    <span class="small_signature">${ex.message}</span> <br>
+                                                    </c:forEach>
+                                                </div>
+                                                </div>
 
                         <h2 class="js-h">Выберите опции для тарифа</h2><div>
                         <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>

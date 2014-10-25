@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,9 +46,10 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         int optionId  = 0;
         String[] array;
         Option option;
-        List<Option> optionsTogether;
-        List<Option> optionsIncompatible;
-        List<Option> temporaryList = null;
+        List<Option> optionsTogether = new ArrayList<>();
+        List<Option> optionsIncompatible = new ArrayList<>();
+        List<Option> temporaryList = new ArrayList<>();
+        List<Exception> exceptionsList = new ArrayList<>();
 
         try {
             array = request.getParameterValues("cb"); //checkbox of options
@@ -61,12 +63,42 @@ public class EmployeeContractCreateServlet extends HttpServlet {
                 option = optionService.getOptionById(optionId);
                 temporaryList.add(option);
             }
-            if (temporaryList == null) { // we do not need to check anything if there are no options
+            if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                 contractService.createContract(contract);
                 response.sendRedirect("../cp_employee/success.html");
             }
             else {
-                
+                for (Option x : temporaryList) { // for each option
+                    optionsTogether = x.getOptionsTogether(); // we get a list of necessary options
+                    if (!optionsTogether.isEmpty()) {
+                        for (Option necessary : optionsTogether) { //for each option from the together list we check whether it was checked
+                            if (!temporaryList.contains(necessary)) { //if it wasn't
+                                exceptionsList.add(new Exception("You didn't select the " + necessary.getName() + " option, but it was necessary for the option " + x.getName()));
+                            }
+                        }
+                    }
+                    optionsIncompatible = x.getOptionsIncompatible(); //we get a list of incompatible options
+                    if (!optionsIncompatible.isEmpty()) {
+                        for (Option incompatible : optionsIncompatible) {
+                            if (temporaryList.contains(incompatible)) {
+                                exceptionsList.add(new Exception("You selected the " + incompatible.getName() + " option, but it can't be selected with the option " + x.getName()));
+                            }
+                        }
+                    }
+                }
+                if (exceptionsList.isEmpty()) {
+                    for (Option x : temporaryList) {
+                        contract.addOption(x);
+                    }
+                    contractService.createContract(contract);
+                    request.getSession().setAttribute("areExceptions", "false");
+                    response.sendRedirect("../cp_employee/success.html");
+                }
+                else {
+                    request.getSession().setAttribute("areExceptions", "true");
+                    request.getSession().setAttribute("exceptionsList", exceptionsList);
+                    response.sendRedirect("../cp_employee/cp_employee_new_contract_options.jsp");
+                }
             }
         }
         catch (Exception ex) {
