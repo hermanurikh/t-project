@@ -38,6 +38,7 @@ public class EmployeeContractChangeServlet extends HttpServlet {
             else {
                 request.getSession().setAttribute("paramIsBlocked", "выключена");
             }
+            request.getSession().removeAttribute("exList");
             TariffService tariffService = new TariffServiceImplementation();
             List<Tariff> tariffsList = tariffService.getAllTariffs();
             request.getSession().setAttribute("tariffsList", tariffsList);

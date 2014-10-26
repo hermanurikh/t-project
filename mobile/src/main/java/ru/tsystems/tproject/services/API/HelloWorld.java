@@ -21,9 +21,9 @@ public class HelloWorld {
     private static Logger logger = Logger.getLogger(HelloWorld.class);
 
     public static void main(String[] args) throws Exception {
-    UserService userService = new UserServiceImplementation();
-        User user = userService.getUserByLogin("test");
-        System.out.println(user.getEmail() + ".");
+     String id = "1";
+        System.out.println((id !=null && !id.equals("")));
+
 
     }
 

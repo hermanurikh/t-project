@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * This servlet creates a new option with redirecting to success.html or exception.jsp page afterwards.
+ * This servlet creates a new option with redirecting to success.jsp or exception.jsp page afterwards.
  * It has a check whether the list of options_together and options_incompatible contain the same object.
  */
 public class NewOptionServlet extends HttpServlet {
@@ -24,17 +24,29 @@ public class NewOptionServlet extends HttpServlet {
             String name = request.getParameter("name");
             int price =  Integer.parseInt(request.getParameter("price"));
             int initialPrice = Integer.parseInt(request.getParameter("initialPrice"));
-            String[] optionsTogether = request.getParameterValues("cb");
-            String[] optionsIncompatible = request.getParameterValues("cb2");
             Option option = new Option(name, price, initialPrice);
-            for (String optionTogether : optionsTogether) {
-                int optionId = Integer.parseInt(optionTogether);
-                option.addOptionsTogether(optionService.getOptionById(optionId));
+            String[] optionsTogether = null;
+            String[] optionsIncompatible = null;
+            if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
+                optionsTogether = request.getParameterValues("cb");
+                if (null != optionsTogether && optionsTogether.length > 0) {
+                    for (String optionTogether : optionsTogether) {
+                        int optionId = Integer.parseInt(optionTogether);
+                        option.addOptionsTogether(optionService.getOptionById(optionId));
+                    }
+                }
             }
-            for (String optionIncompatible : optionsIncompatible) {
-                int optionId = Integer.parseInt(optionIncompatible);
-                option.addOptionsIncompatible(optionService.getOptionById(optionId));
+            if (request.getParameterValues("cb2") != null && request.getParameterValues("cb2").length > 0) {
+                optionsIncompatible = request.getParameterValues("cb2");
+                if (null != optionsIncompatible && optionsIncompatible.length > 0) {
+                    for (String optionIncompatible : optionsIncompatible) {
+                        int optionId = Integer.parseInt(optionIncompatible);
+                        option.addOptionsIncompatible(optionService.getOptionById(optionId));
+                    }
+                }
             }
+
+
             for (Option x : option.getOptionsTogether()) { // a check for the same option in two lists
                 if (option.getOptionsIncompatible().contains(x)) {
                     throw new Exception("The options were incompatible!");
@@ -47,7 +59,7 @@ public class NewOptionServlet extends HttpServlet {
             }
 
             optionService.createOption(option);
-            response.sendRedirect("../cp_employee/success.html");
+            response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {
             logger.error(ex);

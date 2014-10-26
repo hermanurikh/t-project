@@ -32,7 +32,7 @@ public class EmployeeFindUserServlet extends HttpServlet {
                 long userNumber = Long.parseLong(number);
                 user = userService.getUserByNumber(userNumber);
             }
-            logger.error(user);
+            request.getSession().setAttribute("found", "true");
             request.getSession().setAttribute("id", user.getId());
             request.setAttribute("id", user.getId());
             requestDispatcher.forward(request, response);
@@ -40,7 +40,7 @@ public class EmployeeFindUserServlet extends HttpServlet {
         catch (Exception ex) {
             logger.error(ex);
             request.getSession().setAttribute("found", "false");
-            response.sendRedirect("../cp_employee/cp_employee_user_find.html");
+            response.sendRedirect("../cp_employee/cp_employee_user_find.jsp");
         }
 
     }

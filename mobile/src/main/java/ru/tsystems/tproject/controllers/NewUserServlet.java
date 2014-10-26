@@ -52,15 +52,19 @@ public class NewUserServlet extends HttpServlet {
             if (request.getParameter("birthday") != null && !(request.getParameter("birthday").equals(""))) {
                 birthday = dateFormat.parse(request.getParameter("birthday"));
             }
+            else { list.add(new Exception("Date can not be null!")); }
             if (request.getParameter("passport") != null && !(request.getParameter("passport").equals(""))) {
                 passport = request.getParameter("passport");
             }
+            else { list.add(new Exception("Passport can not be null!")); }
             if (request.getParameter("address") != null && !(request.getParameter("address").equals(""))) {
                 address = request.getParameter("address");
             }
+            else { list.add(new Exception("Address can not be null!")); }
             if (request.getParameter("email") != null && !(request.getParameter("email").equals(""))) {
                 email = request.getParameter("email");
             }
+            else { list.add(new Exception("Email can not be null!")); }
             if (request.getParameter("login") == null || request.getParameter("login").equals("")) {
                 list.add(new Exception("Login can not be null!"));
             } else {
@@ -69,6 +73,7 @@ public class NewUserServlet extends HttpServlet {
             if (request.getParameter("balance") != null && !(request.getParameter("balance").equals(""))) {
                 balance = Integer.parseInt(request.getParameter("balance"));
             }
+            else { list.add(new Exception("Balance can not be null!")); }
             if (request.getParameter("password") == null || request.getParameter("password").equals("")) {
                 list.add(new Exception("Password can not be null!"));
             } else {
@@ -82,7 +87,7 @@ public class NewUserServlet extends HttpServlet {
 
             if (list.isEmpty()) {
                 userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
-                response.sendRedirect("../cp_employee/success.html");
+                response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
                 request.getSession().setAttribute("exList", list);

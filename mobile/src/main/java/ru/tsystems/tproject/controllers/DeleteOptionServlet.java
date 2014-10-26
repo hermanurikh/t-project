@@ -1,10 +1,13 @@
 package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
+import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
+import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
+import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
 
@@ -18,6 +21,7 @@ import java.util.List;
 /**
  * This servlet deletes an option:
  * at first it is deleted from the list of possible options of each tariff;
+ * then it is deleted from all the contracts, adding 100 roubles per client,
  * then it is deleted from the database.
  */
 public class DeleteOptionServlet extends HttpServlet {
@@ -30,11 +34,30 @@ public class DeleteOptionServlet extends HttpServlet {
         try {
             OptionService optionService = new OptionServiceImplementation();
             TariffService tariffService = new TariffServiceImplementation();
+            ContractService contractService = new ContractServiceImplementation();
             int optionID = Integer.parseInt(request.getParameter("optionId"));
             Option option = optionService.getOptionById(optionID);
+            option.getOptionsTogether().clear();
+            option.getOptionsIncompatible().clear();
+            int balance = 0;
+            List<Option> options = optionService.getAllOptions();
+            for (Option x : options) {
+                if (x.getOptionsTogether().contains(option)) {
+                    x.getOptionsTogether().remove(option);
+                }
+                if (x.getOptionsIncompatible().contains(option)) {
+                    x.getOptionsIncompatible().remove(option);
+                }
+            }
             List<Tariff> tariffs = tariffService.getAllTariffs();
             for (Tariff x : tariffs) {
                 x.removeOptionForTariff(option);
+            }
+            List<Contract> contractList = contractService.getAllContracts();
+            for (Contract x : contractList) {
+                x.removeOption(option);
+                balance = x.getUser().getBalance();
+                x.getUser().setBalance(balance + 100);
             }
             optionService.deleteOption(option);
             optionsList = optionService.getAllOptions();

@@ -48,7 +48,7 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
             user.setPassword(password);
             user.setRole(roleService.getRoleById(role));
             userService.updateUser(user);
-            response.sendRedirect("../cp_employee/success.html");
+            response.sendRedirect("../cp_employee/success.jsp");
         } catch (Exception ex) {
             logger.error(ex);
             request.getSession().setAttribute("exception", ex);

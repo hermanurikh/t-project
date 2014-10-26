@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * This servlet creates a new option with redirecting to success.html or exception.jsp page afterwards.
+ * This servlet creates a new option with redirecting to success.jsp or exception.jsp page afterwards.
  * It has a check whether the list of options_together and options_incompatible contain the same object.
  */
 public class EmployeeFinalOptionChangeServlet extends HttpServlet {
@@ -63,7 +63,7 @@ public class EmployeeFinalOptionChangeServlet extends HttpServlet {
             }
 
             optionService.updateOption(option);
-            response.sendRedirect("../cp_employee/success.html");
+            response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {
             logger.error(ex);

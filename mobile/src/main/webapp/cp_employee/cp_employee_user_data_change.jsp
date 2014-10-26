@@ -9,9 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script>window.page_data = {};</script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
+    <script type="text/javascript" src="../scripts/validateForm.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
@@ -35,6 +34,9 @@
     function redirect() {
     location.href = "cp_employee_main.jsp";
     }
+
+
+
 </script>
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
@@ -94,7 +96,7 @@
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="cp_employee_user_find.html" class="main-menu-item">
+        <a href="cp_employee_user_find.jsp" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
@@ -137,7 +139,7 @@
                 </div>
             </div>
 
-            <form action="../controllers/EmployeeUserDataChangeServlet" method="POST" accept-charset="CP1252">
+            <form name="MyForm" action="../controllers/EmployeeUserDataChangeServlet" method="POST" accept-charset="CP1252" onsubmit="return validateForm()">
             <div class="js-body info__body">
                 <h2 class="js-h">Изменение пользователя</h2><div>
                 <div class="js-table form-horizontal support-issue-form">

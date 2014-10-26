@@ -3,7 +3,9 @@ package ru.tsystems.tproject.controllers;
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.services.API.TariffService;
+import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
+import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +27,17 @@ public class EmployeeContractServlet extends HttpServlet {
             throws ServletException, IOException
     {
         response.setContentType("text/html;charset=utf-8");
+        UserService userService = new UserServiceImplementation();
         try {
+            if (request.getParameter("id") !=null && !request.getParameter("id").equals("")) {
+                int userId = Integer.parseInt(request.getParameter("id"));
+                request.getSession().setAttribute("currentLogin", userService.getUserById(userId).getLogin());
+
+            }
+            request.getSession().removeAttribute("exList");
             TariffService tariffService = new TariffServiceImplementation();
             List<Tariff> tariffsList = tariffService.getAllTariffs();
             request.getSession().setAttribute("tariffsList", tariffsList);
-            /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
-            rd.forward(request, response);*/
             response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
         }
         catch (Exception ex) {

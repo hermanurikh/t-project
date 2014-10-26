@@ -106,7 +106,7 @@
                                                 <i class="np_icon managers"></i>
                                                 <span class="href_line">Пользователи</span>
                                             </a>
-                                            <a href="cp_employee_user_find.html" class="main-menu-item">
+                                            <a href="cp_employee_user_find.jsp" class="main-menu-item">
                                                 <i class="np_icon domains"></i>
                                                 <span class="href_line">Поиск пользователя</span>
                                             </a>
@@ -196,7 +196,7 @@
                                                                         </td>
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                             <div class="href_icon">
-                                                                                <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>
+                                                                                <!--<a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>-->
                                                                                 <a href="../controllers/EmployeeContractChangeServlet?contractId=${contract.id}"><span>Изменить</span> <br></a>
                                                                                 <a href="../controllers/EmployeeContractDeleteServlet?contractId=${contract.id}"><span>Удалить</span> </a>
                                                                             </div>

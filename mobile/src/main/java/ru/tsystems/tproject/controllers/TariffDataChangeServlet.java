@@ -25,19 +25,25 @@ public class TariffDataChangeServlet extends HttpServlet {
         OptionService optionService = new OptionServiceImplementation();
 
         try {
-            String[] array = request.getParameterValues("cb"); //checkbox of options
+            String[] array = null;
+            if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
+                array = request.getParameterValues("cb"); //checkbox of options
+            }
+
             String name = request.getParameter("name");
             int price =  Integer.parseInt(request.getParameter("price"));
             Tariff tariff = tariffService.getTariffById(Integer.parseInt(request.getParameter("id")));
             tariff.removePossibleOptions();
-            for (String x : array) {
-                int optionId = Integer.parseInt(x);
-                tariff.addPossibleOption(optionService.getOptionById(optionId));
+            if (null != array && array.length > 0) {
+                for (String x : array) {
+                    int optionId = Integer.parseInt(x);
+                    tariff.addPossibleOption(optionService.getOptionById(optionId));
+                }
             }
             tariff.setName(name);
             tariff.setPrice(price);
             tariffService.updateTariff(tariff);
-            response.sendRedirect("../cp_employee/success.html");
+            response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {
             logger.error(ex);

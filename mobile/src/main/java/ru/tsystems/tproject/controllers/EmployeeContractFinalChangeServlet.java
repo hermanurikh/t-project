@@ -71,7 +71,7 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
             if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                 contract.removeAllOptions();
                 contractService.updateContract(contract);
-                response.sendRedirect("../cp_employee/success.html");
+                response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
                 for (Option x : temporaryList) { // for each option
@@ -99,7 +99,7 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
                     }
                     contractService.updateContract(contract);
                     request.getSession().setAttribute("areExceptions", "false");
-                    response.sendRedirect("../cp_employee/success.html");
+                    response.sendRedirect("../cp_employee/success.jsp");
                 }
                 else {
                     request.getSession().setAttribute("areExceptions", "true");

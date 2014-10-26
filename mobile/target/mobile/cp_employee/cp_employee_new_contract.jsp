@@ -106,7 +106,7 @@
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="cp_employee_user_find.html" class="main-menu-item">
+        <a href="cp_employee_user_find.jsp" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
@@ -152,7 +152,7 @@
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Логин пользователя:</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="text" class="js-input big-input" name = "login">
+                                <input type="text" class="js-input big-input" name = "login" value=${currentLogin}>
 
                             </div>
                         </div>

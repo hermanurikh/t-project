@@ -34,7 +34,11 @@ public class NewTariffServlet extends HttpServlet {
 
         try {
             String name = request.getParameter("name");
-            int price =  Integer.parseInt(request.getParameter("price"));
+            int price = 0;
+            if (request.getParameter("price") != null && !request.getParameter("price").equals("")) {
+                price = Integer.parseInt(request.getParameter("price"));
+            }
+
             Tariff tariff = new Tariff(name, price);
             String[] array = null;
             if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
@@ -48,7 +52,7 @@ public class NewTariffServlet extends HttpServlet {
             }
 
             tariffService.createTariff(tariff);
-            response.sendRedirect("../cp_employee/success.html");
+            response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {
             logger.error(ex);
