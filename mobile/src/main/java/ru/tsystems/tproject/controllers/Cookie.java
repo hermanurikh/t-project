@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by german on 24.10.14.
+ * A class that clears all the session and cookie data.
  */
 public class Cookie {
     private static UserService userService = new UserServiceImplementation();

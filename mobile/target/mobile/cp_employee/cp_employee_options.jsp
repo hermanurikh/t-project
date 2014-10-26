@@ -172,7 +172,7 @@
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
                                 <a href="../controllers/DeleteOptionServlet?optionId=${option.id}"><span>Удалить</span><br> </a>
-                                <a href="#"><span>Изменить</span> </a>
+                                <a href="../controllers/EmployeeOptionChangeServlet?optionId=${option.id}"><span>Изменить</span> </a>
                             </div>
                             </td>
                         </tr>

@@ -37,6 +37,17 @@ public class UserContractDetailServlet extends HttpServlet {
             }
             request.getSession().setAttribute("optionsList", optionList);
             request.getSession().setAttribute("totalAmount", amount);
+            if (contract.isBlocked()) {
+                if (contract.getEmployee() != null) {
+                    request.getSession().setAttribute("isItBlocked", "ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ");
+                }
+                else {
+                    request.getSession().setAttribute("isItBlocked", "ЗАБЛОКИРОВАН");
+                }
+            }
+            else {
+                request.getSession().setAttribute("isItBlocked", "активен");
+            }
             response.sendRedirect("../cp_client/cp_client_contract_details.jsp");
 
 

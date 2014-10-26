@@ -1,12 +1,15 @@
 package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
+import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
+import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
@@ -26,14 +29,16 @@ public class UserContractOptionsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(UserContractOptionsServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = new UserServiceImplementation();
+        ContractService contractService = new ContractServiceImplementation();
         TariffService tariffService = new TariffServiceImplementation();
         try {
             String contractNumber = request.getParameter("number");
             if (contractNumber == null) contractNumber = String.valueOf(request.getSession().getAttribute("number"));
-
-
-                int userID = ((User)(request.getSession().getAttribute("currentUserU"))).getId();
+            if ((contractService.getContractByNumber(Long.parseLong(String.valueOf(request.getSession().getAttribute("number"))))).isBlocked()) {
+                response.sendRedirect("../cp_client/cp_client_change_contract.jsp"); // если заблокирован, нельзя
+            }
+            else {
+                int userID = ((User) (request.getSession().getAttribute("currentUserU"))).getId();
                 int tariffID = Integer.parseInt(request.getParameter("cb"));
                 Tariff tariff = tariffService.getTariffById(tariffID);
                 List<Option> optionsList = tariff.getPossibleOptions();
@@ -44,6 +49,7 @@ public class UserContractOptionsServlet extends HttpServlet {
                 request.getSession().setAttribute("tariff", tariff);
                 request.getSession().setAttribute("userExists", "false");
                 response.sendRedirect("../cp_client/cp_client_contract_change_options.jsp");
+            }
 
 
 

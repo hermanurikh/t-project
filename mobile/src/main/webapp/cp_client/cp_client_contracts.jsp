@@ -127,7 +127,7 @@
                                                                                 </tr>
 
                                                                                 <!--начало элемента таблицы-->
-                                                                                <c:forEach var="contract" items="${contractsList}">
+                                                                                <c:forEach var="contract" items="${contractsUserList}">
                                                                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
                                                                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 80px"><span>${contract.number}</span>

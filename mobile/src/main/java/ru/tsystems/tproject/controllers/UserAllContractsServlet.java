@@ -26,7 +26,8 @@ public class UserAllContractsServlet extends HttpServlet {
         try {
             User user = (User) request.getSession().getAttribute("currentUserU");
             List<Contract> contractList = user.getContracts();
-            request.getSession().setAttribute("contractsList", contractList);
+            request.getSession().setAttribute("contractsList", null);
+            request.getSession().setAttribute("contractsUserList", contractList);
             response.sendRedirect("../cp_client/cp_client_contracts.jsp");
         }
         catch (Exception ex) {

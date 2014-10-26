@@ -25,9 +25,14 @@ public class UserBlockServlet extends HttpServlet {
             long number = Long.parseLong(request.getParameter("contractNumber"));
             Contract contract = contractService.getContractByNumber(number);
             if (contract.isBlocked()) {
-                contract.setBlocked(false);
-                contractService.updateContract(contract);
-                request.getSession().setAttribute("paramIsBlocked", "выключена");
+                if (contract.getEmployee() == null) {
+                    contract.setBlocked(false);
+                    contractService.updateContract(contract);
+                    request.getSession().setAttribute("paramIsBlocked", "выключена");
+                }
+                else {
+                    request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно снять блокировку или произвести изменения с контрактом. Пожалуйста, обратитесь к администратору");
+                }
             }
             else {
                 contract.setBlocked(true);

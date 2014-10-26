@@ -22,9 +22,10 @@ public class HelloWorld {
 
     public static void main(String[] args) throws Exception {
         UserService userService = new UserServiceImplementation();
-        ContractService contractService = new ContractServiceImplementation();
-        List<Option> list = contractService.getContractById(3).getOptions();
-        System.out.println(list.isEmpty());
+        User user = (User)userService.getUserByLogin("alex");
+        List<Contract> contractList = user.getContracts();
+
+        for (Contract x : contractList) System.out.println(x);
 
 
     }

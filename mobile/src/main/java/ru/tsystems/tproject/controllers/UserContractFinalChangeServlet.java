@@ -54,56 +54,59 @@ public class UserContractFinalChangeServlet extends HttpServlet {
             number = Long.parseLong(String.valueOf(request.getSession().getAttribute("number")));
             tariffId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("tariffId")));
             Contract contract = contractService.getContractByNumber(number);
-            contract.setTariff(tariffService.getTariffById(tariffId));
-            optionId = 0;
-            if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
-                array = request.getParameterValues("cb"); //checkbox of options
-                if (null != array && array.length > 0) {
-                    for (String x : array) {
-                        optionId = Integer.parseInt(x);
-                        option = optionService.getOptionById(optionId);
-                        temporaryList.add(option);
-                    }
-                }
-            }
-
-            if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
-                contract.removeAllOptions();
-                contractService.updateContract(contract);
-                response.sendRedirect("../cp_client/success.jsp");
+            if (contract.isBlocked()) {
+                response.sendRedirect("../cp_client/cp_client_change_contract.jsp"); // если заблокирован, нельзя
             }
             else {
-                for (Option x : temporaryList) { // for each option
-                    optionsTogether = x.getOptionsTogether(); // we get a list of necessary options
-                    if (!optionsTogether.isEmpty()) {
-                        for (Option necessary : optionsTogether) { //for each option from the together list we check whether it was checked
-                            if (!temporaryList.contains(necessary)) { //if it wasn't
-                                exceptionsList.add(new Exception("You didn't select the " + necessary.getName() + " option, but it was necessary for the option " + x.getName()));
-                            }
-                        }
-                    }
-                    optionsIncompatible = x.getOptionsIncompatible(); //we get a list of incompatible options
-                    if (!optionsIncompatible.isEmpty()) {
-                        for (Option incompatible : optionsIncompatible) {
-                            if (temporaryList.contains(incompatible)) {
-                                exceptionsList.add(new Exception("You selected the " + incompatible.getName() + " option, but it can't be selected with the option " + x.getName()));
-                            }
+                contract.setTariff(tariffService.getTariffById(tariffId));
+                optionId = 0;
+                if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
+                    array = request.getParameterValues("cb"); //checkbox of options
+                    if (null != array && array.length > 0) {
+                        for (String x : array) {
+                            optionId = Integer.parseInt(x);
+                            option = optionService.getOptionById(optionId);
+                            temporaryList.add(option);
                         }
                     }
                 }
-                if (exceptionsList.isEmpty()) {
+
+                if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                     contract.removeAllOptions();
-                    for (Option x : temporaryList) {
-                        contract.addOption(x);
-                    }
                     contractService.updateContract(contract);
-                    request.getSession().setAttribute("areExceptions", "false");
                     response.sendRedirect("../cp_client/success.jsp");
-                }
-                else {
-                    request.getSession().setAttribute("areExceptions", "true");
-                    request.getSession().setAttribute("exceptionsList", exceptionsList);
-                    response.sendRedirect("../cp_client/cp_client_contract_change_options.jsp");
+                } else {
+                    for (Option x : temporaryList) { // for each option
+                        optionsTogether = x.getOptionsTogether(); // we get a list of necessary options
+                        if (!optionsTogether.isEmpty()) {
+                            for (Option necessary : optionsTogether) { //for each option from the together list we check whether it was checked
+                                if (!temporaryList.contains(necessary)) { //if it wasn't
+                                    exceptionsList.add(new Exception("You didn't select the " + necessary.getName() + " option, but it was necessary for the option " + x.getName()));
+                                }
+                            }
+                        }
+                        optionsIncompatible = x.getOptionsIncompatible(); //we get a list of incompatible options
+                        if (!optionsIncompatible.isEmpty()) {
+                            for (Option incompatible : optionsIncompatible) {
+                                if (temporaryList.contains(incompatible)) {
+                                    exceptionsList.add(new Exception("You selected the " + incompatible.getName() + " option, but it can't be selected with the option " + x.getName()));
+                                }
+                            }
+                        }
+                    }
+                    if (exceptionsList.isEmpty()) {
+                        contract.removeAllOptions();
+                        for (Option x : temporaryList) {
+                            contract.addOption(x);
+                        }
+                        contractService.updateContract(contract);
+                        request.getSession().setAttribute("areExceptions", "false");
+                        response.sendRedirect("../cp_client/success.jsp");
+                    } else {
+                        request.getSession().setAttribute("areExceptions", "true");
+                        request.getSession().setAttribute("exceptionsList", exceptionsList);
+                        response.sendRedirect("../cp_client/cp_client_contract_change_options.jsp");
+                    }
                 }
             }
         }

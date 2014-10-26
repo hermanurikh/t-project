@@ -43,7 +43,6 @@ public class TariffChangeServlet extends HttpServlet {
             request.getSession().setAttribute("currentOptionsList", currentTariffOptionsList);
             request.getSession().setAttribute("allOptionsList", allOptionsList);
             request.getSession().setAttribute("name", tariff.getName());
-            logger.error(tariff.getName());
             request.getSession().setAttribute("price", tariff.getPrice());
             request.getSession().setAttribute("id", tariff.getId());
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");

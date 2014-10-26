@@ -32,7 +32,12 @@ public class UserContractChangeServlet extends HttpServlet {
             Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
             request.getSession().setAttribute("number", contract.getNumber());
             if (contract.isBlocked()) {
-                request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
+                if (contract.getEmployee() != null) {
+                    request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору");
+                }
+                else {
+                    request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
+                }
             }
             else {
                 request.getSession().setAttribute("paramIsBlocked", "выключена");

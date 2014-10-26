@@ -76,6 +76,8 @@ public class Option {
         return optionsTogether;
     }
 
+    public void removeOptionsTogether() { this.optionsTogether.clear(); }
+
     public void addOptionsTogether(Option optionTogether) {
         this.optionsTogether.add(optionTogether);
     }
@@ -83,6 +85,8 @@ public class Option {
     public List<Option> getOptionsIncompatible() {
         return optionsIncompatible;
     }
+
+    public void removeOptionsIncompatible() { this.optionsIncompatible.clear(); }
 
     public void addOptionsIncompatible(Option optionIncompatible) {
         this.optionsIncompatible.add(optionIncompatible);

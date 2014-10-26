@@ -389,11 +389,25 @@
         <servlet-name>UserContractFinalChangeServlet</servlet-name>
         <url-pattern>/controllers/UserContractFinalChangeServlet</url-pattern>
     </servlet-mapping>
-
-
-
-
-
-
+    <servlet>
+        <servlet-name>EmployeeOptionChangeServlet</servlet-name>
+        <display-name>EmployeeOptionChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeOptionChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeOptionChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeOptionChangeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EmployeeFinalOptionChangeServlet</servlet-name>
+        <display-name>EmployeeFinalOptionChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.EmployeeFinalOptionChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeFinalOptionChangeServlet</servlet-name>
+        <url-pattern>/controllers/EmployeeFinalOptionChangeServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
