@@ -73,8 +73,9 @@ public class UserContractFinalChangeServlet extends HttpServlet {
 
                 if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                     contract.removeAllOptions();
-                    contractService.updateContract(contract);
-                    response.sendRedirect("../cp_client/success.jsp");
+                    request.getSession().setAttribute("updatedContract", contract);
+                    request.getSession().setAttribute("optionsList", contract.getOptions());
+                    response.sendRedirect("../cp_client/cp_client_contract_change_bucket.jsp");
                 } else {
                     for (Option x : temporaryList) { // for each option
                         optionsTogether = x.getOptionsTogether(); // we get a list of necessary options
@@ -99,9 +100,10 @@ public class UserContractFinalChangeServlet extends HttpServlet {
                         for (Option x : temporaryList) {
                             contract.addOption(x);
                         }
-                        contractService.updateContract(contract);
+                        request.getSession().setAttribute("updatedContract", contract);
+                        request.getSession().setAttribute("optionsList", contract.getOptions());
                         request.getSession().setAttribute("areExceptions", "false");
-                        response.sendRedirect("../cp_client/success.jsp");
+                        response.sendRedirect("../cp_client/cp_client_contract_change_bucket.jsp");
                     } else {
                         request.getSession().setAttribute("areExceptions", "true");
                         request.getSession().setAttribute("exceptionsList", exceptionsList);

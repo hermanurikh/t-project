@@ -409,5 +409,14 @@
         <servlet-name>EmployeeFinalOptionChangeServlet</servlet-name>
         <url-pattern>/controllers/EmployeeFinalOptionChangeServlet</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>UserBucketApprovedServlet</servlet-name>
+        <display-name>UserBucketApprovedServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserBucketApprovedServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserBucketApprovedServlet</servlet-name>
+        <url-pattern>/controllers/UserBucketApprovedServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
