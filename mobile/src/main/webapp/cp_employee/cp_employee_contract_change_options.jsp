@@ -174,7 +174,7 @@ document.getElementById(el).style.display = 'block';
                                                 </div>
                                                 </div>
 
-                        <h2 class="js-h">Выберите опции для тарифа</h2><div>
+                        <h2 class="js-h">Выберите опции для тарифа ${tariff.name}</h2><div>
                         <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>
 
 

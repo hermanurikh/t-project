@@ -82,9 +82,9 @@
             <span class="href_line">Баланс</span>
         </a>
 
-        <a href="/crontab/" class="main-menu-item">
+        <a href="cp_client_profile.jsp" class="main-menu-item">
             <i class="np_icon crontab"></i>
-            <span class="href_line">Блокировка номера</span>
+            <span class="href_line">Информация об аккаунте</span>
         </a>
 
         <div class="np_menu-line"></div>

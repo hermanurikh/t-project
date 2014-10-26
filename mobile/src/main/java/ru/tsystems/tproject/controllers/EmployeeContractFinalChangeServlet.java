@@ -53,11 +53,8 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
         try {
 
             number = Long.parseLong(String.valueOf(request.getSession().getAttribute("number")));
-            logger.error("Номер нашли: " + number);
             tariffId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("tariffId")));
-            logger.error("Тарифф ид найден: " + tariffId);
             Contract contract = contractService.getContractByNumber(number);
-            logger.error("Контракт найден: " + contract);
             contract.setTariff(tariffService.getTariffById(tariffId));
             optionId = 0;
             if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {

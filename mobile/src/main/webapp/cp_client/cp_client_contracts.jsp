@@ -82,10 +82,10 @@
             <span class="href_line">Баланс</span>
         </a>
 
-        <a href="/crontab/" class="main-menu-item">
-            <i class="np_icon crontab"></i>
-            <span class="href_line">Блокировка номера</span>
-        </a>
+        <a href="cp_client_profile.jsp" class="main-menu-item">
+                    <i class="np_icon crontab"></i>
+                    <span class="href_line">Информация об аккаунте</span>
+                </a>
 
         <div class="np_menu-line"></div>
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
@@ -146,8 +146,8 @@
                                                                                         </td>
                                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                                             <div class="href_icon">
-                                                                                                <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>
-                                                                                                <a href="../controllers/EmployeeContractChangeServlet?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                                <a href="../controllers/UserContractDetailServlet?contractId=${contract.id}"><span>Подробней</span><br> </a>
+                                                                                                <a href="../controllers/UserContractChangeServlet?contractId=${contract.id}"><span>Изменить</span> <br></a>
                                                                                             </div>
                                                                                         </td>
 

@@ -339,6 +339,56 @@
         <servlet-name>UserIncreaseBalanceServlet</servlet-name>
         <url-pattern>/controllers/UserIncreaseBalanceServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UserContractDetailServlet</servlet-name>
+        <display-name>UserContractDetailServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserContractDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserContractDetailServlet</servlet-name>
+        <url-pattern>/controllers/UserContractDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserContractChangeServlet</servlet-name>
+        <display-name>UserContractChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserContractChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserContractChangeServlet</servlet-name>
+        <url-pattern>/controllers/UserContractChangeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserContractOptionsServlet</servlet-name>
+        <display-name>UserContractOptionsServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserContractOptionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserContractOptionsServlet</servlet-name>
+        <url-pattern>/controllers/UserContractOptionsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserBlockServlet</servlet-name>
+        <display-name>UserBlockServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserBlockServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserBlockServlet</servlet-name>
+        <url-pattern>/controllers/UserBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserContractFinalChangeServlet</servlet-name>
+        <display-name>UserContractFinalChangeServlet</display-name>
+        <description></description>
+        <servlet-class>ru.tsystems.tproject.controllers.UserContractFinalChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserContractFinalChangeServlet</servlet-name>
+        <url-pattern>/controllers/UserContractFinalChangeServlet</url-pattern>
+    </servlet-mapping>
 
 
 

@@ -57,6 +57,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                     request.getSession().setAttribute("contractNumber", contractNumber);
                     request.getSession().setAttribute("userId", userID);
                     request.getSession().setAttribute("tariffId", tariffID);
+                    request.getSession().setAttribute("tariff", tariff);
                     response.sendRedirect("../cp_employee/cp_employee_new_contract_options.jsp");
                 }
 
@@ -89,6 +90,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                 request.getSession().setAttribute("contractNumber", contractNumber);
                 request.getSession().setAttribute("userId", userID);
                 request.getSession().setAttribute("tariffId", tariffID);
+                request.getSession().setAttribute("tariff", tariff);
                 request.getSession().setAttribute("userExists", "false");
                 response.sendRedirect("../cp_employee/cp_employee_contract_change_options.jsp");
 
