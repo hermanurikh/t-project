@@ -157,7 +157,7 @@
 
 <div class="info info_small fr info-last">
     <div class="info__header">
-        <h2>Добро пожаловать, Урих Герман Константинович!</h2>
+        <h2>Добро пожаловать, ${currentUserU.surname} ${currentUserU.name}!</h2>
     </div>
     <div class="info__body info__body_simple quota" style="display:none;">
         <table>

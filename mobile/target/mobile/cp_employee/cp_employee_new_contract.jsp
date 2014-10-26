@@ -161,7 +161,9 @@
                          </div>
 
                         <div class="js-row control-group" id="exceptions" style="display:none">
-                                                                            <h2 class="js-h">${exception.message}</h2><div>
+                        <c:forEach var="exception" items="${exList}">
+                                                                            <small>${exception.message}<small><div>
+                                                                            </c:forEach>
 
                                                                         </div>
                                                                         </div>

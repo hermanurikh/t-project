@@ -133,7 +133,7 @@
 
                                 <div class="info-wrap">
                                     <div>
-                                        <a href="cp_employee_new_user.html"><span>Создать нового пользователя</span></a>
+                                        <a href="cp_employee_new_user.jsp"><span>Создать нового пользователя</span></a>
                                     </div>
 
                                 </div>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,20 +28,37 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImplementation();
         TariffService tariffService = new TariffServiceImplementation();
+        List<Exception> list = new ArrayList<>();
+        String contractNumber = "";
         try {
-            String contractNumber = request.getParameter("number");
             User user = null;
-            try {
-                user = userService.getUserByNumber(Long.parseLong(contractNumber));
+            if (request.getParameter("login") == null || request.getParameter("login").equals("")) {
+                list.add(new Exception("Login can't be null!"));
             }
-            catch (CustomDAOException ex) {
-                logger.error("User not found, everything correct");
+            if (request.getParameter("cb") == null) {
+                list.add(new Exception("Please choose a contract!"));
             }
-            Exception exception = null;
+            if (request.getParameter("number") == null || request.getParameter("number").equals("")) {
+                list.add(new Exception("Contract number can't be null!"));
+            }
+            else {
+                contractNumber = request.getParameter("number");
+                try {
+                    user = userService.getUserByNumber(Long.parseLong(contractNumber));
+                }
+                catch (CustomDAOException ex) {
+                    logger.error("User not found, everything correct");
+                }
+            }
+
+
              if (user != null) {
+                 list.add(new Exception("A contract with this number already exists!"));
+
+             }
+                if (!list.isEmpty()) {
+                    request.getSession().setAttribute("exList", list);
                     request.getSession().setAttribute("userExists", "true");
-                    exception = new Exception("A contract with this number already exists!");
-                    request.getSession().setAttribute("exception", exception);
                     response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
                 }
              else {
@@ -76,12 +94,18 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
         UserService userService = new UserServiceImplementation();
         TariffService tariffService = new TariffServiceImplementation();
         try {
+            List<Exception> list = new ArrayList<>();
             String contractNumber = request.getParameter("number");
             String login = request.getParameter("login");
             if (login == null) login = String.valueOf(request.getSession().getAttribute("login"));
             if (contractNumber == null) contractNumber = String.valueOf(request.getSession().getAttribute("number"));
-
-
+            if (request.getParameter("cb") == null) {
+                list.add(new Exception("Please choose a tariff"));
+                request.getSession().setAttribute("exList", list);
+                request.getSession().setAttribute("userExists", "true");
+                response.sendRedirect("../cp_employee/cp_employee_change_contract.jsp");
+            }
+            else {
                 int userID = userService.getUserByLogin(login).getId();
                 int tariffID = Integer.parseInt(request.getParameter("cb"));
                 Tariff tariff = tariffService.getTariffById(tariffID);
@@ -93,9 +117,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                 request.getSession().setAttribute("tariff", tariff);
                 request.getSession().setAttribute("userExists", "false");
                 response.sendRedirect("../cp_employee/cp_employee_contract_change_options.jsp");
-
-
-
+            }
         }
         catch (Exception ex) {
             logger.error(ex);

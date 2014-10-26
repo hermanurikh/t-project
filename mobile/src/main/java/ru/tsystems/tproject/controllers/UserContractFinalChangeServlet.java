@@ -75,6 +75,7 @@ public class UserContractFinalChangeServlet extends HttpServlet {
                     contract.removeAllOptions();
                     request.getSession().setAttribute("updatedContract", contract);
                     request.getSession().setAttribute("optionsList", contract.getOptions());
+                    request.getSession().setAttribute("areExceptions", "false");
                     response.sendRedirect("../cp_client/cp_client_contract_change_bucket.jsp");
                 } else {
                     for (Option x : temporaryList) { // for each option

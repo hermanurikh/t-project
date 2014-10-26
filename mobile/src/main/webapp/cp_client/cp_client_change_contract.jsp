@@ -11,6 +11,7 @@
     <script>window.page_data = {};</script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
+        <script type="text/javascript" src="../scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
@@ -24,6 +25,16 @@
     location.href = "cp_client_main.jsp";
     }
 </script>
+<script>
+    $(document).ready(function()
+    {
+    if (document.getElementById('areExceptions').value == "true") {
+    var o = document.getElementById('checkedTariff');
+    o.style.display = 'block';
+    }
+    });
+</script>
+
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -34,7 +45,10 @@
             <div class="inner-wrap">
                 <div class="logotype"  onclick="redirect()">
                 </div>
+
+
                 <div class="nav-wrap">
+                <input id="areExceptions" value=${areExceptions} style="display:none">
                     <ul class="nav">
                         <li><a href="cp_client_profile.jsp">Профиль</a></li>
                         <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
@@ -124,6 +138,7 @@
 
 
                                     <h2 class="js-h">Выберите тариф для контракта </h2><div>
+                                    <small id="checkedTariff" style="display:none">Пожалуйста, отметьте один из тарифов.</small>
 
 
 

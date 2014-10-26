@@ -39,16 +39,23 @@ public class UserContractOptionsServlet extends HttpServlet {
             }
             else {
                 int userID = ((User) (request.getSession().getAttribute("currentUserU"))).getId();
-                int tariffID = Integer.parseInt(request.getParameter("cb"));
-                Tariff tariff = tariffService.getTariffById(tariffID);
-                List<Option> optionsList = tariff.getPossibleOptions();
-                request.getSession().setAttribute("optionsList", optionsList);
-                request.getSession().setAttribute("contractNumber", contractNumber);
-                request.getSession().setAttribute("userId", userID);
-                request.getSession().setAttribute("tariffId", tariffID);
-                request.getSession().setAttribute("tariff", tariff);
-                request.getSession().setAttribute("userExists", "false");
-                response.sendRedirect("../cp_client/cp_client_contract_change_options.jsp");
+                if (request.getParameter("cb") != null) {
+                    int tariffID = Integer.parseInt(request.getParameter("cb"));
+                    Tariff tariff = tariffService.getTariffById(tariffID);
+                    List<Option> optionsList = tariff.getPossibleOptions();
+                    request.getSession().setAttribute("optionsList", optionsList);
+                    request.getSession().setAttribute("contractNumber", contractNumber);
+                    request.getSession().setAttribute("userId", userID);
+                    request.getSession().setAttribute("tariffId", tariffID);
+                    request.getSession().setAttribute("tariff", tariff);
+                    request.getSession().setAttribute("userExists", "false");
+                    request.getSession().setAttribute("areExceptions", "false");
+                    response.sendRedirect("../cp_client/cp_client_contract_change_options.jsp");
+                }
+                else {
+                    request.getSession().setAttribute("areExceptions", "true");
+                    response.sendRedirect("../cp_client/cp_client_change_contract.jsp");
+                }
             }
 
 
