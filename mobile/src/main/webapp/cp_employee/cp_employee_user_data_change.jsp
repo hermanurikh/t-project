@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
@@ -34,9 +36,16 @@
     function redirect() {
     location.href = "cp_employee_main.jsp";
     }
+</script>
 
-
-
+<script>
+    $(document).ready(function()
+    {
+    if (document.getElementById('isContract').value == "true") {
+    var o = document.getElementById('exceptions');
+    o.style.display = 'block';
+    }
+    });
 </script>
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
@@ -56,6 +65,9 @@
                 </div>
             </div>
             <div class="right">
+            <div style="display:none">
+                                                     <input id="isContract" value=${userExists}>
+                                                     </div>
                 <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script>
                 <div class="account-selector dobble">
                     <div class="main">
@@ -142,6 +154,13 @@
             <form name="MyForm" action="../controllers/EmployeeUserDataChangeServlet" method="POST" accept-charset="CP1252" onsubmit="return validateForm()">
             <div class="js-body info__body">
                 <h2 class="js-h">Изменение пользователя</h2><div>
+                <div class="js-row control-group" id="exceptions" style="display:none">
+                        <c:forEach var="exception" items="${exList}">
+                                  <small>${exception.message}<small><div>
+                                  </c:forEach>
+
+                                   </div>
+                 </div>
                 <div class="js-table form-horizontal support-issue-form">
 
                     <div class="js-row control-group">
@@ -202,7 +221,7 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Баланс:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="balance" value=${balance}>
+                            <input type="number" class="js-input big-input" name="balance" value=${balance}>
                         </div>
                     </div>
 
@@ -216,7 +235,7 @@
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Роль пользователя: 1, если обычный клиент, и 2, если администратор:</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="role" value=${role}>
+                            <input type="number" class="js-input big-input" name="role" value=${role}>
                         </div>
                     </div>
 

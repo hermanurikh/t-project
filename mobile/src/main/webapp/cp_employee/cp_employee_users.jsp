@@ -150,7 +150,8 @@
                         <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                         <tr class="ui-table-header">
 
-                            <th class="header_s" style="width:150px;" id="table_header_database">Логин</th>
+                            <th class="header_s" style="width:100px;" id="table_header_database">Логин</th>
+                            <th class="header_s" style="width:100px;" id="table_header_database">Баланс</th>
                             <th class="header_s" style="width:100px;" id="table_header_type">Фамилия</th>
                             <th class="header_s" style="width:100px;" id="table_header_point_access">Имя</th>
                             <th class="header_s" style="width:100px;" id="table_header_point">Действия</th>
@@ -160,14 +161,16 @@
                         <c:forEach var="user" items="${usersList}">
                             <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${user.login}</span><br></td>
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px"><span>${user.login}</span><br></td>
+                                <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${user.balance}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${user.surname}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${user.name}</span></td>
                                 <td class="simplecell" name="tcell" style="vertical-align: top;">
                                     <div class="href_icon">
                                         <a href="../controllers/EmployeeContractServlet?id=${user.id}"><span>Создать контракт</span><br> </a>
+                                        <a href="../controllers/EmployeeBalanceServlet?id=${user.id}"><span>Пополнить баланс</span><br> </a>
                                         <a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Изменить</span><br> </a>
-                                        <a href="#"><span>Удалить</span> </a>
+                                        <a href="../controllers/DeleteEmployeeServlet?id=${user.id}"><span>Удалить</span> </a>
                                     </div>
                                 </td>
                             </tr>

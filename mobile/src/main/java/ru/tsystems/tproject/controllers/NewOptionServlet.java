@@ -22,8 +22,14 @@ public class NewOptionServlet extends HttpServlet {
         OptionService optionService = new OptionServiceImplementation();
         try {
             String name = request.getParameter("name");
-            int price =  Integer.parseInt(request.getParameter("price"));
-            int initialPrice = Integer.parseInt(request.getParameter("initialPrice"));
+            int price = 0;
+            int initialPrice = 0;
+            if (request.getParameter("price") != null && !request.getParameter("price").equals("")) {
+                price = Integer.parseInt(request.getParameter("price"));
+            }
+            if (request.getParameter("initialPrice") != null && !request.getParameter("initialPrice").equals("")) {
+                initialPrice = Integer.parseInt(request.getParameter("initialPrice"));
+            }
             Option option = new Option(name, price, initialPrice);
             String[] optionsTogether = null;
             String[] optionsIncompatible = null;

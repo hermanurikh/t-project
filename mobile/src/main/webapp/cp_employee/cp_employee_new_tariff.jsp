@@ -39,6 +39,8 @@
     }
 </script>
 
+
+
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
 
@@ -139,7 +141,7 @@
                 </div>
             </div>
 
-            <form action="../controllers/NewTariffServlet" method="POST" accept-charset="CP1252">
+            <form name="myForm" action="../controllers/NewTariffServlet" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Создание нового тарифа</h2><div>
                     <div class="js-table form-horizontal support-issue-form">

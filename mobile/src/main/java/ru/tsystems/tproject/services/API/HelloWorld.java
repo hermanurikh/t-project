@@ -21,8 +21,19 @@ public class HelloWorld {
     private static Logger logger = Logger.getLogger(HelloWorld.class);
 
     public static void main(String[] args) throws Exception {
-     String id = "1";
-        System.out.println((id !=null && !id.equals("")));
+        UserService userService = new UserServiceImplementation();
+        ContractService contractService = new ContractServiceImplementation();
+        int userId = 6;
+        User user = userService.getUserById(userId);
+        List<Contract> contractList = user.getContracts();
+        if (!contractList.isEmpty()) {
+            for (Contract x : contractList) {
+            contractService.deleteContract(x);
+         }
+        }
+
+        userService.deleteUser(user);
+        System.out.println("success");
 
 
     }

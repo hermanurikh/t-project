@@ -48,6 +48,17 @@
     location.href = "cp_employee_main.jsp";
     }
 </script>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == null || x == "") {
+        alert("Please fill in the name of the option");
+        return false;
+    }
+}
+
+
+</script>
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
@@ -149,7 +160,7 @@
                 </div>
             </div>
 
-            <form action="../controllers/NewOptionServlet" method="POST" accept-charset="CP1252">
+            <form name="myForm" action="../controllers/NewOptionServlet" method="POST" onsubmit="return validateForm()" accept-charset="CP1252">
             <div class="js-body info__body">
                 <h2 class="js-h">Создание новой опции</h2><div>
                 <div class="js-table form-horizontal support-issue-form">

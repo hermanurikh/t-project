@@ -50,8 +50,11 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                     logger.error("User not found, everything correct");
                 }
             }
-
-
+            String login = request.getParameter("login");
+            try { userService.getUserByLogin(login); }
+            catch (CustomDAOException ex) {
+                list.add(new Exception("User with login " + login + " not found!"));
+            }
              if (user != null) {
                  list.add(new Exception("A contract with this number already exists!"));
 
@@ -63,7 +66,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                 }
              else {
                     request.getSession().setAttribute("userExists", "false");
-                    String login = request.getParameter("login");
+
                     if (contractNumber == null) {
                         contractNumber = String.valueOf(request.getSession().getAttribute("number"));
                     }

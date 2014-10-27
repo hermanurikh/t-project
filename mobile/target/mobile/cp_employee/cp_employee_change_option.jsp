@@ -42,6 +42,16 @@
 
 </script>
 
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == null || x == "") {
+        alert("Please fill in the name of the option");
+        return false;
+    }
+}
+</script>
+
 
 <script type="text/javascript">
     function redirect() {
@@ -149,7 +159,7 @@
                 </div>
             </div>
 
-            <form action="../controllers/EmployeeFinalOptionChangeServlet" method="POST" accept-charset="CP1252">
+            <form name="myForm"  action="../controllers/EmployeeFinalOptionChangeServlet" onsubmit="return validateForm()" method="POST" accept-charset="CP1252">
             <div class="js-body info__body">
                 <h2 class="js-h">Изменение опции</h2><div>
                 <div class="js-table form-horizontal support-issue-form">
