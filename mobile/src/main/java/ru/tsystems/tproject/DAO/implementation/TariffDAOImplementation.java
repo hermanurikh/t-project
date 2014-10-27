@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * An implementation of TariffDAO API.
  */
 public class TariffDAOImplementation implements TariffDAO {
     private EntityManager entityManager;
@@ -65,6 +65,11 @@ public class TariffDAOImplementation implements TariffDAO {
 
     }
 
+    /**
+     * Gets all tariffs from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Tariff> getAllTariffs() throws CustomDAOException {
         try {

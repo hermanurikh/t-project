@@ -10,7 +10,7 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * An implementation of OptionDAO API.
  */
 public class OptionDAOImplementation implements OptionDAO {
     private EntityManager entityManager;
@@ -65,6 +65,11 @@ public class OptionDAOImplementation implements OptionDAO {
 
     }
 
+    /**
+     * Gets all options from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Option> getAllOptions() throws CustomDAOException{
         try{
@@ -76,6 +81,12 @@ public class OptionDAOImplementation implements OptionDAO {
         }
     }
 
+    /**
+     * Gets all available options for a specified tariff.
+     * @param id
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException{
         try{

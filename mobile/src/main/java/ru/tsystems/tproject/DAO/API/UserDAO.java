@@ -6,7 +6,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * Base CRUD operations along with the specific ones.
  */
 public interface UserDAO {
     public void create(User user) throws CustomDAOException;
@@ -17,9 +17,29 @@ public interface UserDAO {
 
     public void delete(User user) throws CustomDAOException;
 
+    /**
+     * Gets a user by a specified number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
+
     public User getUserByNumber(long number) throws CustomDAOException;
 
+    /**
+     * Gets a user by a specified login.
+     * @param login
+     * @return
+     * @throws CustomDAOException
+     */
+
     public User getUserByLogin(String login) throws CustomDAOException;
+
+    /**
+     * Gets all users from the database.
+     * @return
+     * @throws CustomDAOException
+     */
 
     public List<User> getAllUsers() throws CustomDAOException;
 }

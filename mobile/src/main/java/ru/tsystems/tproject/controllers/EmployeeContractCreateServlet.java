@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by german on 23.10.14.
+ * A class that is intended to create a contract.
  */
 public class EmployeeContractCreateServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(EmployeeContractCreateServlet.class);
@@ -51,7 +51,6 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         List<Option> temporaryList = new ArrayList<>();
         List<Exception> exceptionsList = new ArrayList<>();
         Contract contract = null;
-
         try {
             if (request.getParameter("number") == null || request.getParameter("number").equals("")) {
                 exceptionsList.add(new Exception("Number can not be null!"));
@@ -127,9 +126,5 @@ public class EmployeeContractCreateServlet extends HttpServlet {
             response.sendRedirect("../cp_employee/exception.jsp");
 
         }
-
-
-
-
     }
 }

@@ -1,7 +1,7 @@
 package ru.tsystems.tproject.exceptions;
 
 /**
- * Created by german on 18.10.14.
+ * A custom exception to be thrown.
  */
 public class CustomDAOException extends RuntimeException {
     public CustomDAOException(String message)

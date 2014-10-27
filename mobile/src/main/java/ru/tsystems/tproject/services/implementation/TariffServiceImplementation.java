@@ -12,7 +12,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Created by german on 19.10.14.
+ * An implementation of TariffService API.
  */
 public class TariffServiceImplementation implements TariffService {
     private EntityManager entityManager = Manager.getEntityManager();
@@ -89,6 +89,11 @@ public class TariffServiceImplementation implements TariffService {
         }
     }
 
+    /**
+     * A method to get all tariffs from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Tariff> getAllTariffs() throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

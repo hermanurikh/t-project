@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by german on 17.10.14.
+ * One of the entities.
  */
 @Entity
 @Table (name = "CONTRACTS", uniqueConstraints = @UniqueConstraint(columnNames = {"number"}))
@@ -100,10 +100,22 @@ public class Contract {
         return options;
     }
 
+    /**
+     * Remove an option from the contract.
+     * @param option
+     */
+
     public void removeOption(Option option) { this.options.remove(option); }
 
+    /**
+     * Remove all options from the contract.
+     */
     public void removeAllOptions() { this.options.clear(); }
 
+    /**
+     * Add an option to the contract.
+     * @param option
+     */
     public void addOption(Option option) {
         this.options.add(option);
     }

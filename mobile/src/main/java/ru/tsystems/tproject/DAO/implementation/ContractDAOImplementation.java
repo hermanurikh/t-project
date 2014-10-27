@@ -9,7 +9,7 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * An implementation of a ContractDAO API.
  */
 public class ContractDAOImplementation implements ContractDAO {
     private EntityManager entityManager;
@@ -54,6 +54,12 @@ public class ContractDAOImplementation implements ContractDAO {
         }
     }
 
+    /**
+     * Gets contract by a specified number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
     public Contract getContractByNumber(long number) throws CustomDAOException {
         try {
             return (Contract) entityManager.createQuery("select c from Contract c where c.number=:number").setParameter("number", number).getSingleResult();
@@ -62,6 +68,11 @@ public class ContractDAOImplementation implements ContractDAO {
         }
     }
 
+    /**
+     * Gets all contracts from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     public List<Contract> getAllContracts() throws CustomDAOException {
         try {
             return entityManager.createNamedQuery("Contract.getAllContracts", Contract.class).getResultList();

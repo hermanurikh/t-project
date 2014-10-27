@@ -6,7 +6,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * Base CRUD operations along with the specific ones.
  */
 public interface TariffDAO {
 
@@ -17,6 +17,12 @@ public interface TariffDAO {
     public void update(Tariff tariff) throws CustomDAOException;
 
     public void delete(Tariff tariff) throws CustomDAOException;
+
+    /**
+     * Gets a list of all tariffs from the database.
+     * @return
+     * @throws CustomDAOException
+     */
 
     public List<Tariff> getAllTariffs() throws CustomDAOException;
 }

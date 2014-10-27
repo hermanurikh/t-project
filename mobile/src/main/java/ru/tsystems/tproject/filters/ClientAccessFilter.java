@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by german on 24.10.14.
+ * This filter checks if a client tries to access employee pages. If so, he/she is redirected to the main page.
  */
 public class ClientAccessFilter implements Filter {
 

@@ -12,7 +12,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Created by german on 19.10.14.
+ * A UserService API implementation,
  */
 public class UserServiceImplementation implements UserService {
     private EntityManager entityManager = Manager.getEntityManager();
@@ -89,6 +89,11 @@ public class UserServiceImplementation implements UserService {
         }
     }
 
+    /**
+     * Gets all users from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<User> getAllUsers() throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -108,6 +113,12 @@ public class UserServiceImplementation implements UserService {
 
     }
 
+    /**
+     * Gets user by a specified number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public User getUserByNumber(long number) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -127,7 +138,12 @@ public class UserServiceImplementation implements UserService {
         }
     }
 
-
+    /**
+     * Get user by a specified login,
+     * @param login
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public User getUserByLogin(String login) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

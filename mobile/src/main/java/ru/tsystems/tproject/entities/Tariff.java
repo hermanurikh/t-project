@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by german on 17.10.14.
+ * An entity class.
  */
 @Entity
 @Table (name = "TARIFFS")
@@ -68,6 +68,11 @@ public class Tariff {
     public void removeOptionForTariff(Option option) {
         this.possibleOptions.remove(option);
     }
+
+    /**
+     * This method adds an option to the list of possible options.
+     * @param option
+     */
 
     public void addPossibleOption(Option option) {
         this.possibleOptions.add(option);

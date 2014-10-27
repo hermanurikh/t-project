@@ -9,7 +9,7 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * An implementation of RoleDAO API.
  */
 public class RoleDAOImplementation implements RoleDAO{
     EntityManager entityManager;
@@ -63,6 +63,11 @@ public class RoleDAOImplementation implements RoleDAO{
 
     }
 
+    /**
+     * Lists all possible roles.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Role> getAllRoles() throws CustomDAOException {
         try{

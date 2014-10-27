@@ -6,7 +6,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * Base CRUD operations along with the specific ones.
  */
 public interface ContractDAO {
     public void create(Contract contract) throws CustomDAOException;
@@ -17,7 +17,20 @@ public interface ContractDAO {
 
     public void delete(Contract contract) throws CustomDAOException;
 
+    /**
+     * Gets contract by a specified number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
+
     public Contract getContractByNumber(long number) throws CustomDAOException;
+
+    /**
+     * Gets a list of all contracts.
+     * @return
+     * @throws CustomDAOException
+     */
 
     public List<Contract> getAllContracts() throws CustomDAOException;
 }

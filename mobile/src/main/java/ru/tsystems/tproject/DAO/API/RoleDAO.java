@@ -6,7 +6,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * Base CRUD operations along with the specific ones.
  */
 public interface RoleDAO {
 
@@ -14,5 +14,11 @@ public interface RoleDAO {
     public Role read(int id) throws CustomDAOException;
     public void update(Role role) throws CustomDAOException;
     public void delete(Role role) throws CustomDAOException;
+
+    /**
+     * Lists all roles.
+     * @return
+     * @throws CustomDAOException
+     */
     public List<Role> getAllRoles() throws CustomDAOException;
 }

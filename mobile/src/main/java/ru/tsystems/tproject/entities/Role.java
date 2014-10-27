@@ -2,7 +2,7 @@ package ru.tsystems.tproject.entities;
 import javax.persistence.*;
 
 /**
- * Created by german on 17.10.14.
+ * A base entity class.
  */
 @Entity
 @Table (name = "ROLES")

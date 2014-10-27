@@ -12,7 +12,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Created by german on 19.10.14.
+ * An implementation of RoleService API.
  */
 public class RoleServiceImplementation implements RoleService {
     private EntityManager entityManager = Manager.getEntityManager();
@@ -86,6 +86,11 @@ public class RoleServiceImplementation implements RoleService {
 
     }
 
+    /**
+     * A method to get all possible roles.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Role> getAllRoles() throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by german on 17.10.14.
+ * One of the entities.
  */
 @Entity
 @Table (name = "OPTIONS")
@@ -72,21 +72,47 @@ public class Option {
         this.initialPrice = initialPrice;
     }
 
+    /**
+     * Gets options that are necessary for current option,
+     * @return
+     */
     public List<Option> getOptionsTogether() {
         return optionsTogether;
     }
 
+    /**
+     * Deletes all options that are necessary for current option,
+     */
     public void removeOptionsTogether() { this.optionsTogether.clear(); }
+
+    /**
+     * Adds an option necessary for current option.
+     * @param optionTogether
+     */
 
     public void addOptionsTogether(Option optionTogether) {
         this.optionsTogether.add(optionTogether);
     }
 
+    /**
+     * Gets options that are incompatible with current option,
+     * @return
+     */
+
     public List<Option> getOptionsIncompatible() {
         return optionsIncompatible;
     }
 
+    /**
+     * Removes all options that are incompatible with current option.
+     */
+
     public void removeOptionsIncompatible() { this.optionsIncompatible.clear(); }
+
+    /**
+     * Adds an option that is incompatible with current option.
+     * @param optionIncompatible
+     */
 
     public void addOptionsIncompatible(Option optionIncompatible) {
         this.optionsIncompatible.add(optionIncompatible);

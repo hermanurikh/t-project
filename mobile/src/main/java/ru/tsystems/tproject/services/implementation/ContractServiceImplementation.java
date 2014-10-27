@@ -12,7 +12,7 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
- * Created by german on 19.10.14.
+ * An implementation of the API.
  */
 public class ContractServiceImplementation implements ContractService {
     private EntityManager entityManager = Manager.getEntityManager();
@@ -86,6 +86,12 @@ public class ContractServiceImplementation implements ContractService {
         }
     }
 
+    /**
+     * A method to get contract by number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public Contract getContractByNumber(long number) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -106,6 +112,11 @@ public class ContractServiceImplementation implements ContractService {
         }
     }
 
+    /**
+     * A method to get all contracts.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Contract> getAllContracts() throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

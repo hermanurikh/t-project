@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Created by german on 18.10.14.
+ * EntityManager class.
  */
 public class Manager {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");

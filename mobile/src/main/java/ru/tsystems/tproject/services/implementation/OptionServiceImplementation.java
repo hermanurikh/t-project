@@ -86,6 +86,11 @@ public class OptionServiceImplementation implements OptionService {
         }
     }
 
+    /**
+     * A method to get all options from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Option> getAllOptions() throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -103,6 +108,12 @@ public class OptionServiceImplementation implements OptionService {
         }
     }
 
+    /**
+     * A method to get all the options for the specified tariff ID.
+     * @param id
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * Created by german on 18.10.14.
+ * An implementation of a UserDAO API.
  */
 public class UserDAOImplementation implements UserDAO {
     EntityManager entityManager;
@@ -61,6 +61,11 @@ public class UserDAOImplementation implements UserDAO {
 
     }
 
+    /**
+     * Gets all users from the database.
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public List<User> getAllUsers() throws CustomDAOException {
         try {
@@ -71,6 +76,12 @@ public class UserDAOImplementation implements UserDAO {
         }
     }
 
+    /**
+     * Gets user by a specified number.
+     * @param number
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public User getUserByNumber(long number) throws CustomDAOException {
         try {
@@ -83,6 +94,12 @@ public class UserDAOImplementation implements UserDAO {
 
     }
 
+    /**
+     * Gets user by a specified login.
+     * @param login
+     * @return
+     * @throws CustomDAOException
+     */
     @Override
     public User getUserByLogin(String login) throws CustomDAOException {
         try {

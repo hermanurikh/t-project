@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * Created by german on 17.10.14.
+ * A basic entity class.
  */
 
 
