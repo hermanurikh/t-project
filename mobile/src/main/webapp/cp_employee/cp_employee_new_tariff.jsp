@@ -38,6 +38,16 @@
     location.href = "cp_employee_main.jsp";
     }
 </script>
+function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == null || x == "") {
+        alert("Please fill in the name of the tariff");
+        return false;
+    }
+}
+
+
+</script>
 
 
 
@@ -141,7 +151,7 @@
                 </div>
             </div>
 
-            <form name="myForm" action="../controllers/NewTariffServlet" method="POST" accept-charset="CP1252">
+            <form name="myForm" action="../controllers/NewTariffServlet" method="POST" onsubmit="return validateForm()" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Создание нового тарифа</h2><div>
                     <div class="js-table form-horizontal support-issue-form">

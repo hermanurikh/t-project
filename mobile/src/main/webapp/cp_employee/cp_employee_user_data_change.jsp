@@ -178,7 +178,7 @@
                 </div>
 
                     <div class="js-row control-group">
-                        <label class="js-caption control-label">Дата рождения:</label>
+                        <label class="js-caption control-label">Дата рождения (гггг-мм-дд):</label>
                         <div class="js-td controls jq-validate-container">
                             <input type="date" class="js-input big-input" name="birthday" value=${birthday}>
                         </div>

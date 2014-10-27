@@ -25,6 +25,8 @@ public class EmployeeUserChangeServlet extends HttpServlet {
         try {
             int userId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("id"))); //.getParameter("id"));
             User user = userService.getUserById(userId);
+            request.getSession().removeAttribute("exList");
+            request.getSession().setAttribute("userExists", "false");
             request.getSession().setAttribute("id", user.getId());
             request.getSession().setAttribute("name", user.getName());
             request.getSession().setAttribute("surname", user.getSurname());
@@ -49,6 +51,8 @@ public class EmployeeUserChangeServlet extends HttpServlet {
         try {
             int userId = Integer.parseInt(request.getParameter("id"));
             User user = userService.getUserById(userId);
+            request.getSession().removeAttribute("exList");
+            request.getSession().setAttribute("userExists", "false");
             request.getSession().setAttribute("id", user.getId());
             request.getSession().setAttribute("name", user.getName());
             request.getSession().setAttribute("surname", user.getSurname());
