@@ -46,9 +46,10 @@
                 <div class="logotype"  onclick="redirect()">
                 </div>
 
-
+                <div style="display:none"> <input id="areExceptions" value=${areExceptions} > </div>
                 <div class="nav-wrap">
-                <input id="areExceptions" value=${areExceptions} style="display:none">
+
+
                     <ul class="nav">
                         <li><a href="cp_client_profile.jsp">Профиль</a></li>
                         <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
@@ -56,6 +57,7 @@
                 </div>
             </div>
             <div class="right">
+
                 <div class="account-selector dobble">
                     <div class="main">
                         <div class="info">

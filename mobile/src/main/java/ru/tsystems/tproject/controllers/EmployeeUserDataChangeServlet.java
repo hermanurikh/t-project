@@ -37,7 +37,6 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
         String login = "";
         int balance = 0;
         String password = "";
-        int role = 0;
         try {
 
             int id = Integer.parseInt(request.getParameter("id"));
@@ -77,11 +76,7 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
             } else {
                 password = Converter.getMD5(request.getParameter("password"));
             }
-            if (request.getParameter("role") == null || request.getParameter("role").equals("")) {
-                list.add(new Exception("Please choose a role!"));
-            } else {
-                role = Integer.parseInt(request.getParameter("role"));
-            }
+
             if (list.isEmpty()) {
                 request.getSession().removeAttribute("exList");
                 request.getSession().setAttribute("userExists", "false");
@@ -94,7 +89,6 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
                 user.setEmail(email);
                 user.setBalance(balance);
                 user.setPassword(password);
-                user.setRole(roleService.getRoleById(role));
                 userService.updateUser(user);
                 response.sendRedirect("../cp_employee/success.jsp");
             }

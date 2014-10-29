@@ -17,7 +17,7 @@ public class Contract {
     private int id;
     private long number;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.DETACH)
     @JoinColumn(name = "user_id")
     private User user;
 

@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
 
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
@@ -160,10 +161,9 @@ function validateForm() {
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Название тарифа:</label>
                             <div class="js-td controls jq-validate-container">
-
-
                                 <input type="text" class="js-input big-input" name="name">
                             </div>
+                            <span class="error-custom-message" style="display:none">В качестве пароля Вы можете иcпользовать комбинацию из 8-30 символов и состоящую из следующих знаков: A-Z, a-z, 0-9.</span>
                         </div>
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
+import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
@@ -51,6 +52,7 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         List<Option> temporaryList = new ArrayList<>();
         List<Exception> exceptionsList = new ArrayList<>();
         Contract contract = null;
+        User user = null;
         try {
             if (request.getParameter("number") == null || request.getParameter("number").equals("")) {
                 exceptionsList.add(new Exception("Number can not be null!"));
@@ -58,8 +60,9 @@ public class EmployeeContractCreateServlet extends HttpServlet {
             else {
                 number = Long.parseLong(request.getParameter("number"));
                 userId = Integer.parseInt(request.getParameter("userID"));
+                user = userService.getUserById(userId);
                 tariffId = Integer.parseInt(request.getParameter("tariffID"));
-                contract = new Contract(number, userService.getUserById(userId), tariffService.getTariffById(tariffId));
+                contract = new Contract(number, user, tariffService.getTariffById(tariffId));
 
             }
 
@@ -76,7 +79,8 @@ public class EmployeeContractCreateServlet extends HttpServlet {
 
             if (temporaryList.isEmpty() && exceptionsList.isEmpty()) { // we do not need to check anything if there are no options
                 contractService.createContract(contract);
-
+                user.addContract(contract);
+                userService.updateUser(user);
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
@@ -104,7 +108,8 @@ public class EmployeeContractCreateServlet extends HttpServlet {
                             contract.addOption(x);
                         }
                         contractService.createContract(contract);
-
+                        user.addContract(contract);
+                        userService.updateUser(user);
                         request.getSession().setAttribute("areExceptions", "false");
                         response.sendRedirect("../cp_employee/success.jsp");
                     }

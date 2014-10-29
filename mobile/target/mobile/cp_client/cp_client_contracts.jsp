@@ -8,9 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script>window.page_data = {};</script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
+
+
     <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>

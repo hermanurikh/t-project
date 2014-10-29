@@ -3,10 +3,13 @@ package ru.tsystems.tproject.controllers;
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Tariff;
+import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.TariffService;
+import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
+import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,10 +30,14 @@ public class EmployeeContractDeleteServlet extends HttpServlet {
             throws ServletException, IOException
     {
         ContractService contractService = new ContractServiceImplementation();
+        UserService userService = new UserServiceImplementation();
         response.setContentType("text/html;charset=utf-8");
         try {
             Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
+            User user = userService.getUserByNumber(contract.getNumber());
             contractService.deleteContract(contract);
+            user.removeContract(contract);
+            userService.updateUser(user);
             request.getSession().setAttribute("contractsList", contractService.getAllContracts());
             response.sendRedirect("../cp_employee/cp_employee_contracts.jsp");
         }

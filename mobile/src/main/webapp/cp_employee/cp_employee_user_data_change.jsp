@@ -232,13 +232,6 @@
                         </div>
                     </div>
 
-                    <div class="js-row control-group">
-                        <label class="js-caption control-label">Роль пользователя: 1, если обычный клиент, и 2, если администратор:</label>
-                        <div class="js-td controls jq-validate-container">
-                            <input type="number" class="js-input big-input" name="role" value=${role}>
-                        </div>
-                    </div>
-
 
                     <div class="js-row control-group">
                     <label class="js-caption control-label"></label>
