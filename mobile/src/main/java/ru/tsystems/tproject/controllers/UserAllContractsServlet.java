@@ -16,17 +16,22 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by german on 26.10.14.
+ * This servlet gives out all users' contracts.
  */
 public class UserAllContractsServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(UserAllContractsServlet.class);
-    private ContractService contractService = new ContractServiceImplementation();
-    private UserService userService = new UserServiceImplementation();
+
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ContractService contractService = new ContractServiceImplementation();
+        UserService userService = new UserServiceImplementation();
         try {
             User user = (User) request.getSession().getAttribute("currentUserU");
+            //User newUser = userService.getUserById(user.getId());
             List<Contract> contractList = user.getContracts();
+            logger.error(contractList);
             request.getSession().setAttribute("contractsList", null);
+            request.getSession().setAttribute("contractsUserList", null);
             request.getSession().setAttribute("contractsUserList", contractList);
             response.sendRedirect("../cp_client/cp_client_contracts.jsp");
         }

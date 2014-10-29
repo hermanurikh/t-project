@@ -48,6 +48,7 @@
 
 
                 <div class="nav-wrap">
+
                 <input id="areExceptions" value=${areExceptions} style="display:none">
                     <ul class="nav">
                         <li><a href="cp_client_profile.jsp">Профиль</a></li>

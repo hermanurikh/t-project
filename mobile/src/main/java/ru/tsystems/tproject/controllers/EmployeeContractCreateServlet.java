@@ -76,6 +76,7 @@ public class EmployeeContractCreateServlet extends HttpServlet {
 
             if (temporaryList.isEmpty() && exceptionsList.isEmpty()) { // we do not need to check anything if there are no options
                 contractService.createContract(contract);
+
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
@@ -103,6 +104,7 @@ public class EmployeeContractCreateServlet extends HttpServlet {
                             contract.addOption(x);
                         }
                         contractService.createContract(contract);
+
                         request.getSession().setAttribute("areExceptions", "false");
                         response.sendRedirect("../cp_employee/success.jsp");
                     }

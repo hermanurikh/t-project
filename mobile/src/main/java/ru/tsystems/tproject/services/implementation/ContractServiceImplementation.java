@@ -87,7 +87,7 @@ public class ContractServiceImplementation implements ContractService {
     }
 
     /**
-     * A method to get contract by number.
+     * Gets contract by a specified number.
      * @param number
      * @return
      * @throws CustomDAOException

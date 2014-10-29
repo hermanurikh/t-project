@@ -38,6 +38,7 @@
     location.href = "cp_employee_main.jsp";
     }
 </script>
+<script>
 function validateForm() {
     var x = document.forms["myForm"]["name"].value;
     if (x == null || x == "") {
