@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by german on 26.10.14.
  */
 public class UserBucketApprovedServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UserBucketApprovedServlet.class);
+    private static final Logger logger = Logger.getLogger(UserBucketApprovedServlet.class);
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ContractService contractService = new ContractServiceImplementation();

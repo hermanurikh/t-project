@@ -1,6 +1,4 @@
 package ru.tsystems.tproject.controllers;
-import org.apache.log4j.Logger;
-
 
 
 import org.apache.log4j.Logger;
@@ -8,7 +6,6 @@ import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +18,7 @@ import java.util.List;
  * Created by german on 21.10.14.
  */
 public class AllOptionsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(AllOptionsServlet.class);
-    static List<Option> optionsList = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(AllOptionsServlet.class);
     public void doGet(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException

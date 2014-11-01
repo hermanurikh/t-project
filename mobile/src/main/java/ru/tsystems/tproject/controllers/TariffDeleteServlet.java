@@ -20,7 +20,7 @@ import java.util.List;
  * to base tariff, and 500 roubles are compensated.
  */
 public class TariffDeleteServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(TariffDeleteServlet.class);
+    private static final Logger logger = Logger.getLogger(TariffDeleteServlet.class);
 
 
     public void doGet(HttpServletRequest request,
@@ -32,7 +32,7 @@ public class TariffDeleteServlet extends HttpServlet {
             TariffService tariffService = new TariffServiceImplementation();
             ContractService contractService = new ContractServiceImplementation();
             int tariffId = Integer.parseInt(request.getParameter("id"));
-            int balance = 0;
+            int balance;
             Tariff tariff = tariffService.getTariffById(tariffId);
             List<Contract> contractList = contractService.getAllContracts();
             for (Contract x : contractList) {

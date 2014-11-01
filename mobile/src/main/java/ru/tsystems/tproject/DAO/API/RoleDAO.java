@@ -17,7 +17,7 @@ public interface RoleDAO {
 
     /**
      * Lists all roles.
-     * @return
+     * @return a list of roles
      * @throws CustomDAOException
      */
     public List<Role> getAllRoles() throws CustomDAOException;

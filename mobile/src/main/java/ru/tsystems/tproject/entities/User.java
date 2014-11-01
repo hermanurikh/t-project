@@ -30,7 +30,7 @@ public class User {
     @JoinColumn (name = "role")
     private Role role;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "user")
-    private List<Contract> contracts = new ArrayList<Contract>();
+    private final List<Contract> contracts = new ArrayList<>();
 
     public User() {
     }

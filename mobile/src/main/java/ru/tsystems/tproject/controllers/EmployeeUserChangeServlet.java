@@ -17,9 +17,9 @@ import java.text.SimpleDateFormat;
  *
  */
 public class EmployeeUserChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeUserChangeServlet.class);
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    UserService userService = new UserServiceImplementation();
+    private static final Logger logger = Logger.getLogger(EmployeeUserChangeServlet.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private final UserService userService = new UserServiceImplementation();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         try {

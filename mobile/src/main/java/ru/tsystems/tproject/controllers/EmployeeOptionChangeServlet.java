@@ -21,7 +21,7 @@ import java.util.List;
  *
  */
 public class EmployeeOptionChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeOptionChangeServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeOptionChangeServlet.class);
 
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         OptionService optionService = new OptionServiceImplementation();

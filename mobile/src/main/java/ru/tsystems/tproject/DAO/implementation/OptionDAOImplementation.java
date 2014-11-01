@@ -13,7 +13,7 @@ import java.util.List;
  * An implementation of OptionDAO API.
  */
 public class OptionDAOImplementation implements OptionDAO {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
     public OptionDAOImplementation(EntityManager entityManager)
     {
         this.entityManager = entityManager;
@@ -67,7 +67,7 @@ public class OptionDAOImplementation implements OptionDAO {
 
     /**
      * Gets all options from the database.
-     * @return
+     * @return a list of options
      * @throws CustomDAOException
      */
     @Override
@@ -83,14 +83,15 @@ public class OptionDAOImplementation implements OptionDAO {
 
     /**
      * Gets all available options for a specified tariff.
-     * @param id
-     * @return
+     * @param id - id of the tariff
+     * @return a list of options for the tariff
      * @throws CustomDAOException
      */
     @Override
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException{
         try{
             Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id);
+            //noinspection unchecked
             return (List<Option>)query.getResultList();
         }
         catch (PersistenceException ex)

@@ -6,11 +6,9 @@ import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
-import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
-import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +22,7 @@ import java.util.List;
  * Created by german on 25.10.14.
  */
 public class EmployeeContractFinalChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractFinalChangeServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeContractFinalChangeServlet.class);
     /**
      * This method gets an array of option ID's from the request as well as the number of contract. As a result, a contract is created.
      * It checks whether the options' choice is correct.
@@ -38,15 +36,13 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
         TariffService tariffService = new TariffServiceImplementation();
         OptionService optionService = new OptionServiceImplementation();
         ContractService contractService = new ContractServiceImplementation();
-        UserService userService = new UserServiceImplementation();
-        long number = 0;
-        int userId  = 0;
-        int tariffId  = 0;
-        int optionId  = 0;
-        String[] array = null;
+        long number;
+        int tariffId;
+        int optionId;
+        String[] array;
         Option option;
-        List<Option> optionsTogether = new ArrayList<>();
-        List<Option> optionsIncompatible = new ArrayList<>();
+        List<Option> optionsTogether;
+        List<Option> optionsIncompatible;
         List<Option> temporaryList = new ArrayList<>();
         List<Exception> exceptionsList = new ArrayList<>();
 

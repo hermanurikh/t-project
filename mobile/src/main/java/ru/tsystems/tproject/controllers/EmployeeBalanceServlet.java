@@ -1,7 +1,6 @@
 package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
-import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
@@ -11,13 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * This servlet deletes a user from the database.
  */
 public class EmployeeBalanceServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeBalanceServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeBalanceServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

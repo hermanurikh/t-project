@@ -1,11 +1,8 @@
 package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
-import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.User;
-import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
@@ -19,7 +16,7 @@ import java.util.List;
  * This servlet shows a list of all users on employee's page.
  */
 public class UsersServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UsersServlet.class);
+    private static final Logger logger = Logger.getLogger(UsersServlet.class);
 
 
     public void doGet(HttpServletRequest request,

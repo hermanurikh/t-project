@@ -12,7 +12,7 @@ import java.util.List;
  * An implementation of RoleDAO API.
  */
 public class RoleDAOImplementation implements RoleDAO{
-    EntityManager entityManager;
+    private final EntityManager entityManager;
     public RoleDAOImplementation(EntityManager entityManager){
         this.entityManager = entityManager;
     }
@@ -65,7 +65,7 @@ public class RoleDAOImplementation implements RoleDAO{
 
     /**
      * Lists all possible roles.
-     * @return
+     * @return a list of roles
      * @throws CustomDAOException
      */
     @Override

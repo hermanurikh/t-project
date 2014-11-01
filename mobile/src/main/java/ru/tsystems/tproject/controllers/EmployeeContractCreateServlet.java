@@ -3,7 +3,6 @@ package ru.tsystems.tproject.controllers;
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
-import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
@@ -26,7 +25,7 @@ import java.util.List;
  * A class that is intended to create a contract.
  */
 public class EmployeeContractCreateServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractCreateServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeContractCreateServlet.class);
     /**
      * This method gets an array of option ID's from the request as well as the number of contract. As a result, a contract is created.
      * It checks whether the options' choice is correct.
@@ -41,14 +40,14 @@ public class EmployeeContractCreateServlet extends HttpServlet {
         OptionService optionService = new OptionServiceImplementation();
         ContractService contractService = new ContractServiceImplementation();
         UserService userService = new UserServiceImplementation();
-        long number = 0;
-        int userId  = 0;
-        int tariffId  = 0;
-        int optionId  = 0;
-        String[] array = null;
+        long number;
+        int userId;
+        int tariffId;
+        int optionId;
+        String[] array;
         Option option;
-        List<Option> optionsTogether = new ArrayList<>();
-        List<Option> optionsIncompatible = new ArrayList<>();
+        List<Option> optionsTogether;
+        List<Option> optionsIncompatible;
         List<Option> temporaryList = new ArrayList<>();
         List<Exception> exceptionsList = new ArrayList<>();
         Contract contract = null;

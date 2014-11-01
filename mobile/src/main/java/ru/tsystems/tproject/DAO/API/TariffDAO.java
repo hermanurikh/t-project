@@ -20,7 +20,7 @@ public interface TariffDAO {
 
     /**
      * Gets a list of all tariffs from the database.
-     * @return
+     * @return a list of tariffs
      * @throws CustomDAOException
      */
 

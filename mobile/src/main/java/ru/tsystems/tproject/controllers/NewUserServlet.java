@@ -7,7 +7,6 @@ import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.RoleServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +21,8 @@ import java.util.List;
  * This servlet is responsible for creating a new user, redirecting to success/error page. The params are got from the session.
  */
 public class NewUserServlet extends HttpServlet {
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    private static Logger logger = Logger.getLogger(NewUserServlet.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final Logger logger = Logger.getLogger(NewUserServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImplementation();
         RoleService roleService = new RoleServiceImplementation();

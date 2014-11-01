@@ -7,7 +7,6 @@ import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.*;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +16,7 @@ import java.io.IOException;
  * This is a login servlet that dispatches the initial requests on employee or client pages in the event of success authorization.
  */
 public class LoginServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(LoginServlet.class);
+    private static final Logger logger = Logger.getLogger(LoginServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         UserService userService = new UserServiceImplementation();

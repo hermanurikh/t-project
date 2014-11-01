@@ -19,8 +19,8 @@ public interface UserDAO {
 
     /**
      * Gets a user by a specified number.
-     * @param number
-     * @return
+     * @param number of the user's contract
+     * @return a user
      * @throws CustomDAOException
      */
 
@@ -28,8 +28,8 @@ public interface UserDAO {
 
     /**
      * Gets a user by a specified login.
-     * @param login
-     * @return
+     * @param login of a user
+     * @return a user
      * @throws CustomDAOException
      */
 
@@ -37,7 +37,7 @@ public interface UserDAO {
 
     /**
      * Gets all users from the database.
-     * @return
+     * @return a list of all users
      * @throws CustomDAOException
      */
 

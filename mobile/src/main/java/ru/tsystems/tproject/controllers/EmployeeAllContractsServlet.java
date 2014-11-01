@@ -16,8 +16,8 @@ import java.util.List;
  * This servlet shows all contracts on the cp_employee_contracts.jsp page
  */
 public class EmployeeAllContractsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeAllContractsServlet.class);
-    private ContractService contractService = new ContractServiceImplementation();
+    private static final Logger logger = Logger.getLogger(EmployeeAllContractsServlet.class);
+    private final ContractService contractService = new ContractServiceImplementation();
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             List<Contract> contractList = contractService.getAllContracts();

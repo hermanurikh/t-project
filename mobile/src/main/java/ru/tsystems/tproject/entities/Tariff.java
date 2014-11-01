@@ -23,7 +23,7 @@ public class Tariff {
             joinColumns = @JoinColumn(name = "tariff_id"),
             inverseJoinColumns = @JoinColumn(name = "option_id")
     )
-    private List<Option> possibleOptions = new ArrayList<>();
+    private final List<Option> possibleOptions = new ArrayList<>();
     public Tariff(){}
     public Tariff(String name, int price)
     {

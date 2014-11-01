@@ -18,7 +18,7 @@ import java.io.IOException;
  * the tariff.
  */
 public class TariffDataChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(TariffDataChangeServlet.class);
+    private static final Logger logger = Logger.getLogger(TariffDataChangeServlet.class);
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         TariffService tariffService = new TariffServiceImplementation();

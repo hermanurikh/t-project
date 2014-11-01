@@ -15,8 +15,8 @@ import java.util.List;
  * Created by german on 19.10.14.
  */
 public class OptionServiceImplementation implements OptionService {
-    private EntityManager entityManager = Manager.getEntityManager();
-    private OptionDAO optionDAO = new OptionDAOImplementation(entityManager);
+    private final EntityManager entityManager = Manager.getEntityManager();
+    private final OptionDAO optionDAO = new OptionDAOImplementation(entityManager);
 
     @Override
     public void createOption(Option option) throws CustomDAOException {

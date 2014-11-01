@@ -16,7 +16,7 @@ import java.util.List;
  * This servlet is responsible for giving the info to the page where a new option is created. It sets a list of options to be checked.
  */
 public class EmployeeOptionCreateServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeOptionCreateServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeOptionCreateServlet.class);
 
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         OptionService optionService = new OptionServiceImplementation();

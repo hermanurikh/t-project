@@ -16,15 +16,15 @@ public interface OptionDAO {
 
     /**
      * Gets all options from the database.
-     * @return
+     * @return a list of all options
      * @throws CustomDAOException
      */
     public List<Option> getAllOptions() throws CustomDAOException;
 
     /**
      * Gets all options for a tariff id.
-     * @param id
-     * @return
+     * @param id of the tariff
+     * @return a list of possible options for the tariff
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;

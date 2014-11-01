@@ -16,7 +16,7 @@ import java.io.IOException;
  * It has a check whether the list of options_together and options_incompatible contain the same object.
  */
 public class EmployeeFinalOptionChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeFinalOptionChangeServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeFinalOptionChangeServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OptionService optionService = new OptionServiceImplementation();
         try {
@@ -36,8 +36,8 @@ public class EmployeeFinalOptionChangeServlet extends HttpServlet {
             option.removeOptionsIncompatible();
             option.removeOptionsTogether();
 
-            String[] optionsTogether = null;
-            String[] optionsIncompatible = null;
+            String[] optionsTogether;
+            String[] optionsIncompatible;
             if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
                 optionsTogether = request.getParameterValues("cb");
                 if (null != optionsTogether && optionsTogether.length > 0) {

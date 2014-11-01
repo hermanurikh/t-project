@@ -19,7 +19,7 @@ import java.util.List;
  * This servlet is responsible for giving out the cp_employee_change_contract.jsp page.
  */
 public class EmployeeContractChangeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractChangeServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeContractChangeServlet.class);
 
 
     public void doGet(HttpServletRequest request,

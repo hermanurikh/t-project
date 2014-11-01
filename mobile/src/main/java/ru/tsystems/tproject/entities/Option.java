@@ -25,13 +25,13 @@ public class Option {
             joinColumns = @JoinColumn(name = "optionOne_id"),
             inverseJoinColumns = @JoinColumn(name = "optionTwo_id")
     )
-    private List<Option> optionsTogether = new ArrayList<>();
+    private final List<Option> optionsTogether = new ArrayList<>();
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "OPTIONS_INCOMPATIBLE",
             joinColumns = @JoinColumn(name = "optionOne_id"),
             inverseJoinColumns = @JoinColumn(name = "optionTwo_id")
     )
-    private List<Option> optionsIncompatible = new ArrayList<>();
+    private final List<Option> optionsIncompatible = new ArrayList<>();
     public Option(){}
 
     public Option(String name, int price, int initialPrice) {

@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SessionFilter implements Filter {
     public void destroy(){}
     public void init(FilterConfig config){}
-    private static Logger logger = Logger.getLogger(SessionFilter.class);
+    private static final Logger logger = Logger.getLogger(SessionFilter.class);
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         UserService userService = new UserServiceImplementation();

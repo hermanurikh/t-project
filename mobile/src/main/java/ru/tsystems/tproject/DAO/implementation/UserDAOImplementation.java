@@ -13,7 +13,7 @@ import java.util.List;
  * An implementation of a UserDAO API.
  */
 public class UserDAOImplementation implements UserDAO {
-    EntityManager entityManager;
+    private final EntityManager entityManager;
     public UserDAOImplementation(EntityManager entityManager){
         this.entityManager = entityManager;
     }
@@ -63,7 +63,7 @@ public class UserDAOImplementation implements UserDAO {
 
     /**
      * Gets all users from the database.
-     * @return
+     * @return a list of users
      * @throws CustomDAOException
      */
     @Override
@@ -78,8 +78,8 @@ public class UserDAOImplementation implements UserDAO {
 
     /**
      * Gets user by a specified number.
-     * @param number
-     * @return
+     * @param number - a user contract's number
+     * @return user
      * @throws CustomDAOException
      */
     @Override
@@ -96,8 +96,8 @@ public class UserDAOImplementation implements UserDAO {
 
     /**
      * Gets user by a specified login.
-     * @param login
-     * @return
+     * @param login - a login of the user
+     * @return user
      * @throws CustomDAOException
      */
     @Override

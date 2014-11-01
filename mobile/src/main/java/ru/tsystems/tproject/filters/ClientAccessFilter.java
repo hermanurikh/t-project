@@ -15,7 +15,6 @@ import java.io.IOException;
  */
 public class ClientAccessFilter implements Filter {
 
-    private static Logger logger = Logger.getLogger(ClientAccessFilter.class);
     public void destroy() {
     }
 

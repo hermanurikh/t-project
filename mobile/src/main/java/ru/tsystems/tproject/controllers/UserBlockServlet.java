@@ -2,7 +2,6 @@ package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
-import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
 
@@ -16,7 +15,7 @@ import java.io.IOException;
  * This servlet blocks/unblocks the client.
  */
 public class UserBlockServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UserBlockServlet.class);
+    private static final Logger logger = Logger.getLogger(UserBlockServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

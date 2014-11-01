@@ -3,10 +3,6 @@ package ru.tsystems.tproject.controllers;
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.User;
-import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
-import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,12 +15,10 @@ import java.util.List;
  * This servlet gives out all users' contracts.
  */
 public class UserAllContractsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UserAllContractsServlet.class);
+    private static final Logger logger = Logger.getLogger(UserAllContractsServlet.class);
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ContractService contractService = new ContractServiceImplementation();
-        UserService userService = new UserServiceImplementation();
         try {
             User user = (User) request.getSession().getAttribute("currentUserU");
             //User newUser = userService.getUserById(user.getId());

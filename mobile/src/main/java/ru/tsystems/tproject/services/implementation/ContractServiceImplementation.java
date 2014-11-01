@@ -15,8 +15,8 @@ import java.util.List;
  * An implementation of the API.
  */
 public class ContractServiceImplementation implements ContractService {
-    private EntityManager entityManager = Manager.getEntityManager();
-    private ContractDAO contractDAO = new ContractDAOImplementation(entityManager);
+    private final EntityManager entityManager = Manager.getEntityManager();
+    private final ContractDAO contractDAO = new ContractDAOImplementation(entityManager);
 
     @Override
     public void createContract(Contract contract) throws CustomDAOException {

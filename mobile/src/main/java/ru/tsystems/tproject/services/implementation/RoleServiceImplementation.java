@@ -15,8 +15,8 @@ import java.util.List;
  * An implementation of RoleService API.
  */
 public class RoleServiceImplementation implements RoleService {
-    private EntityManager entityManager = Manager.getEntityManager();
-    private RoleDAO roleDAO = new RoleDAOImplementation(entityManager);
+    private final EntityManager entityManager = Manager.getEntityManager();
+    private final RoleDAO roleDAO = new RoleDAOImplementation(entityManager);
 
     @Override
     public void createRole(Role role) throws CustomDAOException {

@@ -37,7 +37,7 @@ public class Contract {
                     joinColumns = {@JoinColumn(name = "contract_id")},
                     inverseJoinColumns = {@JoinColumn(name = "option_id")}
             )
-    private List<Option> options = new ArrayList<>();
+    private final List<Option> options = new ArrayList<>();
     public Contract(){
 
     }

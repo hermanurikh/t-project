@@ -15,8 +15,8 @@ import java.util.List;
  * An implementation of TariffService API.
  */
 public class TariffServiceImplementation implements TariffService {
-    private EntityManager entityManager = Manager.getEntityManager();
-    private TariffDAO tariffDAO = new TariffDAOImplementation(entityManager);
+    private final EntityManager entityManager = Manager.getEntityManager();
+    private final TariffDAO tariffDAO = new TariffDAOImplementation(entityManager);
 
     public void createTariff(Tariff tariff) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

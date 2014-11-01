@@ -19,7 +19,7 @@ import java.util.List;
  *
  */
 public class EmployeeContractServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeContractServlet.class);
 
 
     public void doGet(HttpServletRequest request,

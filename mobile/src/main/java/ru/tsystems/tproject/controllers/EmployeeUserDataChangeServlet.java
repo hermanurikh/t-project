@@ -2,9 +2,7 @@ package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
-import ru.tsystems.tproject.services.API.RoleService;
 import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.services.implementation.RoleServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
@@ -21,12 +19,11 @@ import java.util.List;
  * This servlet changes the user's data from the page cp_employee_user_data_change.jsp
  */
 public class EmployeeUserDataChangeServlet extends HttpServlet {
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    private static Logger logger = Logger.getLogger(EmployeeUserDataChangeServlet.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final Logger logger = Logger.getLogger(EmployeeUserDataChangeServlet.class);
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImplementation();
-        RoleService roleService = new RoleServiceImplementation();
         List<Exception> list = new ArrayList<>();
         String name = "";
         String surname = "";
@@ -34,7 +31,6 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
         String passport = "";
         String address = "";
         String email = "";
-        String login = "";
         int balance = 0;
         String password = "";
         try {

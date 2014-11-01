@@ -25,8 +25,7 @@ import java.util.List;
  * then it is deleted from the database.
  */
 public class DeleteOptionServlet extends HttpServlet {
-    private static List<Option> optionsList;
-    private static Logger logger = Logger.getLogger(DeleteOptionServlet.class);
+    private static final Logger logger = Logger.getLogger(DeleteOptionServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -39,7 +38,7 @@ public class DeleteOptionServlet extends HttpServlet {
             Option option = optionService.getOptionById(optionID);
             option.getOptionsTogether().clear();
             option.getOptionsIncompatible().clear();
-            int balance = 0;
+            int balance;
             List<Option> options = optionService.getAllOptions();
             for (Option x : options) {
                 if (x.getOptionsTogether().contains(option)) {
@@ -60,7 +59,7 @@ public class DeleteOptionServlet extends HttpServlet {
                 x.getUser().setBalance(balance + 100);
             }
             optionService.deleteOption(option);
-            optionsList = optionService.getAllOptions();
+            List<Option> optionsList = optionService.getAllOptions();
             request.getSession().setAttribute("optionsList", optionsList);
             response.sendRedirect("../cp_employee/cp_employee_options.jsp");
         }

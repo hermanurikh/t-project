@@ -1,11 +1,5 @@
 package ru.tsystems.tproject.entities;
 
-import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.TariffService;
-import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
-import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
-import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

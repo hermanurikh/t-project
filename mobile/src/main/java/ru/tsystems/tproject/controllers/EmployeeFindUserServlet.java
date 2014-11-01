@@ -16,7 +16,7 @@ import java.io.IOException;
  * This servlet parses the info from the cp_employee_user_find page and redirects to the page where you can change the user's data.
  */
 public class EmployeeFindUserServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeFindUserServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeFindUserServlet.class);
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("EmployeeUserChangeServlet");

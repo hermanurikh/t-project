@@ -12,7 +12,7 @@ import java.util.List;
  * An implementation of a ContractDAO API.
  */
 public class ContractDAOImplementation implements ContractDAO {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
     public ContractDAOImplementation(EntityManager entityManager)
     {
         this.entityManager = entityManager;
@@ -56,8 +56,8 @@ public class ContractDAOImplementation implements ContractDAO {
 
     /**
      * Gets contract by a specified number.
-     * @param number
-     * @return
+     * @param number - a number of the contract
+     * @return contract
      * @throws CustomDAOException
      */
     public Contract getContractByNumber(long number) throws CustomDAOException {
@@ -70,7 +70,7 @@ public class ContractDAOImplementation implements ContractDAO {
 
     /**
      * Gets all contracts from the database.
-     * @return
+     * @return a list of contracts
      * @throws CustomDAOException
      */
     public List<Contract> getAllContracts() throws CustomDAOException {

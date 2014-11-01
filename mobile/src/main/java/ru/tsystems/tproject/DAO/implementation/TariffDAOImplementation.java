@@ -6,14 +6,13 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
-import javax.persistence.Query;
 import java.util.List;
 
 /**
  * An implementation of TariffDAO API.
  */
 public class TariffDAOImplementation implements TariffDAO {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
     public  TariffDAOImplementation(EntityManager entityManager)
     {
         this.entityManager = entityManager;
@@ -67,7 +66,7 @@ public class TariffDAOImplementation implements TariffDAO {
 
     /**
      * Gets all tariffs from the database.
-     * @return
+     * @return a list of tariffs
      * @throws CustomDAOException
      */
     @Override

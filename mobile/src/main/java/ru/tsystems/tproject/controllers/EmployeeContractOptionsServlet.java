@@ -24,7 +24,7 @@ import java.util.List;
  */
 
 public class EmployeeContractOptionsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(EmployeeContractOptionsServlet.class);
+    private static final Logger logger = Logger.getLogger(EmployeeContractOptionsServlet.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserServiceImplementation();
         TariffService tariffService = new TariffServiceImplementation();

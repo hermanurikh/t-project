@@ -19,8 +19,8 @@ public interface ContractDAO {
 
     /**
      * Gets contract by a specified number.
-     * @param number
-     * @return
+     * @param number of the contract
+     * @return a contract
      * @throws CustomDAOException
      */
 
@@ -28,7 +28,7 @@ public interface ContractDAO {
 
     /**
      * Gets a list of all contracts.
-     * @return
+     * @return a list of contracts
      * @throws CustomDAOException
      */
 

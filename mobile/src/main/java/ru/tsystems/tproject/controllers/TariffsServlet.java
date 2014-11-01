@@ -2,11 +2,8 @@ package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Tariff;
-import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.TariffService;
-import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
-import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +16,7 @@ import java.util.List;
  * This servlet is a servlet that shows all the tariffs on cp_employee_tariffs.jsp page.
  */
 public class TariffsServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(TariffsServlet.class);
+    private static final Logger logger = Logger.getLogger(TariffsServlet.class);
 
 
     public void doGet(HttpServletRequest request,

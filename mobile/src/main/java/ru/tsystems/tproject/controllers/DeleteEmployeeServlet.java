@@ -2,15 +2,8 @@ package ru.tsystems.tproject.controllers;
 
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.Contract;
-import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.User;
-import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.OptionService;
-import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.services.implementation.ContractServiceImplementation;
-import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
-import ru.tsystems.tproject.services.implementation.TariffServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
 
 import javax.servlet.ServletException;
@@ -24,7 +17,7 @@ import java.util.List;
  * This servlet deletes a user from the database.
  */
 public class DeleteEmployeeServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(DeleteEmployeeServlet.class);
+    private static final Logger logger = Logger.getLogger(DeleteEmployeeServlet.class);
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

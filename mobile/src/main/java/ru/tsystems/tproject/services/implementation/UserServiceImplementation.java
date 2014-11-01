@@ -15,8 +15,8 @@ import java.util.List;
  * A UserService API implementation,
  */
 public class UserServiceImplementation implements UserService {
-    private EntityManager entityManager = Manager.getEntityManager();
-    private UserDAO userDAO = new UserDAOImplementation(entityManager);
+    private final EntityManager entityManager = Manager.getEntityManager();
+    private final UserDAO userDAO = new UserDAOImplementation(entityManager);
 
     public void createUser(User user) throws CustomDAOException {
         EntityTransaction entityTransaction = entityManager.getTransaction();

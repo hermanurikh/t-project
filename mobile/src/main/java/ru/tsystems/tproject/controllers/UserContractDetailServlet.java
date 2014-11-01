@@ -17,7 +17,7 @@ import java.util.List;
  * Created by german on 26.10.14.
  */
 public class UserContractDetailServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UserContractDetailServlet.class);
+    private static final Logger logger = Logger.getLogger(UserContractDetailServlet.class);
 
 
     public void doGet(HttpServletRequest request,
@@ -53,6 +53,8 @@ public class UserContractDetailServlet extends HttpServlet {
 
         }
         catch (Exception x) {
+            logger.error(x);
+            response.sendRedirect("../cp_client/exception.jsp");
 
         }
     }
