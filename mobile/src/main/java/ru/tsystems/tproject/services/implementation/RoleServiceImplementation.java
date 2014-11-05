@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.RoleDAO;
 import ru.tsystems.tproject.DAO.implementation.RoleDAOImplementation;
 import ru.tsystems.tproject.entities.Manager;
@@ -15,74 +16,33 @@ import java.util.List;
  * An implementation of RoleService API.
  */
 public class RoleServiceImplementation implements RoleService {
-    private final EntityManager entityManager = Manager.getEntityManager();
-    private final RoleDAO roleDAO = new RoleDAOImplementation(entityManager);
+    private RoleDAO roleDAO;
+    public void setRoleDAO(RoleDAO roleDAO) {
+        this.roleDAO = roleDAO;
+    }
 
     @Override
+    @Transactional
     public void createRole(Role role) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            roleDAO.create(role);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to create role: " + role, ex);
-        }
+        this.roleDAO.create(role);
     }
 
     @Override
+    @Transactional
     public Role getRoleById(int id) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            Role role = roleDAO.read(id);
-            entityTransaction.commit();
-            if (role == null) throw new CustomDAOException("Role with id " + id + " not found");
-            else return role;
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to create role with id: " + id, ex);
-        }
+        return this.roleDAO.read(id);
     }
 
     @Override
+    @Transactional
     public void updateRole(Role role) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            roleDAO.update(role);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to update role: " + role, ex);
-        }
-
+        this.roleDAO.update(role);
     }
 
     @Override
+    @Transactional
     public void deleteRole(Role role) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            roleDAO.delete(role);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to delete role: " + role, ex);
-        }
+        this.roleDAO.delete(role);
 
     }
 
@@ -92,20 +52,9 @@ public class RoleServiceImplementation implements RoleService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public List<Role> getAllRoles() throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            List<Role> list = roleDAO.getAllRoles();
-            entityTransaction.commit();
-            return list;
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get all roles", ex);
-        }
+        return this.roleDAO.getAllRoles();
     }
 }
 

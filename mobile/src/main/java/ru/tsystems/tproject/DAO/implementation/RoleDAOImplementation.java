@@ -1,5 +1,8 @@
 package ru.tsystems.tproject.DAO.implementation;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.RoleDAO;
 import ru.tsystems.tproject.entities.Role;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
@@ -11,15 +14,16 @@ import java.util.List;
 /**
  * An implementation of RoleDAO API.
  */
+@Repository
 public class RoleDAOImplementation implements RoleDAO{
-    private final EntityManager entityManager;
-    public RoleDAOImplementation(EntityManager entityManager){
-        this.entityManager = entityManager;
-    }
+    private SessionFactory sessionFactory;
+    public void setSessionFactory(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
+
     @Override
     public void create(Role role) throws CustomDAOException {
         try{
-            entityManager.persist(role);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.persist(role);
         }
         catch (PersistenceException ex)
         {
@@ -31,7 +35,8 @@ public class RoleDAOImplementation implements RoleDAO{
     @Override
     public Role read(int id) throws CustomDAOException {
         try{
-            return entityManager.find(Role.class, id);
+            Session session = this.sessionFactory.getCurrentSession();
+            return (Role) session.load(Role.class, id);
         }
         catch (PersistenceException ex)
         {
@@ -42,7 +47,8 @@ public class RoleDAOImplementation implements RoleDAO{
     @Override
     public void update(Role role) throws CustomDAOException {
         try{
-            entityManager.merge(role);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.update(role);
         }
         catch(PersistenceException ex)
         {
@@ -54,7 +60,8 @@ public class RoleDAOImplementation implements RoleDAO{
     @Override
     public void delete(Role role) throws CustomDAOException {
         try{
-            entityManager.remove(role);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.delete(role);
         }
         catch (PersistenceException ex)
         {
@@ -68,10 +75,12 @@ public class RoleDAOImplementation implements RoleDAO{
      * @return a list of roles
      * @throws CustomDAOException
      */
+    @SuppressWarnings("unchecked")
     @Override
     public List<Role> getAllRoles() throws CustomDAOException {
         try{
-            return entityManager.createNamedQuery("Role.getAllRoles", Role.class).getResultList();
+            Session session = this.sessionFactory.getCurrentSession();
+            return (List<Role>) session.createQuery("SELECT r FROM Role r").list();
         }
         catch (PersistenceException ex)
         {

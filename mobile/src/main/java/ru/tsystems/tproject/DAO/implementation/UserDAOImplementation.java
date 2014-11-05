@@ -1,5 +1,8 @@
 package ru.tsystems.tproject.DAO.implementation;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
@@ -12,16 +15,16 @@ import java.util.List;
 /**
  * An implementation of a UserDAO API.
  */
+@Repository
 public class UserDAOImplementation implements UserDAO {
-    private final EntityManager entityManager;
-    public UserDAOImplementation(EntityManager entityManager){
-        this.entityManager = entityManager;
-    }
+    private SessionFactory sessionFactory;
+    public void setSessionFactory(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
 
     @Override
     public void create(User user) throws CustomDAOException {
         try {
-            entityManager.persist(user);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.persist(user);
         }
         catch (PersistenceException ex)
         {
@@ -32,7 +35,8 @@ public class UserDAOImplementation implements UserDAO {
     @Override
     public User read(int id) throws CustomDAOException {
         try {
-            return entityManager.find(User.class, id);
+            Session session = this.sessionFactory.getCurrentSession();
+            return (User) session.load(User.class, id);
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User with id " + id + " not found", ex);
@@ -42,7 +46,8 @@ public class UserDAOImplementation implements UserDAO {
     @Override
     public void update(User user) throws CustomDAOException {
         try {
-            entityManager.merge(user);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.update(user);
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User not updated: " + user, ex);
@@ -53,7 +58,8 @@ public class UserDAOImplementation implements UserDAO {
     @Override
     public void delete(User user) throws CustomDAOException {
         try {
-            entityManager.remove(user);
+            Session session = this.sessionFactory.getCurrentSession();
+            session.delete(user);
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User not deleted: " + user, ex);
@@ -66,10 +72,12 @@ public class UserDAOImplementation implements UserDAO {
      * @return a list of users
      * @throws CustomDAOException
      */
+    @SuppressWarnings("unchecked")
     @Override
     public List<User> getAllUsers() throws CustomDAOException {
         try {
-            return entityManager.createNamedQuery("User.getAllUsers", User.class).getResultList();
+            Session session = this.sessionFactory.getCurrentSession();
+            return (List<User>) session.createQuery("SELECT u FROM User u").list();
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("Users not got", ex);
@@ -82,11 +90,12 @@ public class UserDAOImplementation implements UserDAO {
      * @return user
      * @throws CustomDAOException
      */
+    @SuppressWarnings("unchecked")
     @Override
     public User getUserByNumber(long number) throws CustomDAOException {
         try {
-            Query query = entityManager.createQuery("select c.user from Contract c where c.number=:number").setParameter("number", number);
-            return (User) query.getSingleResult();
+            Session session = this.sessionFactory.getCurrentSession();
+            return (User) session.createQuery("select c.user from Contract c where c.number=:number").setParameter("number", number).uniqueResult();
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User with number " + number + " not found", ex);
@@ -103,8 +112,9 @@ public class UserDAOImplementation implements UserDAO {
     @Override
     public User getUserByLogin(String login) throws CustomDAOException {
         try {
-            Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);
-            return (User) query.getSingleResult();
+            Session session = this.sessionFactory.getCurrentSession();
+            return (User) session.createQuery("select u from User u where u.login=:login").setParameter("login", login).uniqueResult();
+
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User with login " + login + " not found!", ex);

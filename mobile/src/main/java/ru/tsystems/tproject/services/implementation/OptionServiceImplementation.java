@@ -1,5 +1,7 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.OptionDAO;
 import ru.tsystems.tproject.DAO.implementation.OptionDAOImplementation;
 import ru.tsystems.tproject.entities.Manager;
@@ -14,76 +16,35 @@ import java.util.List;
 /**
  * Created by german on 19.10.14.
  */
+
 public class OptionServiceImplementation implements OptionService {
-    private final EntityManager entityManager = Manager.getEntityManager();
-    private final OptionDAO optionDAO = new OptionDAOImplementation(entityManager);
+    private OptionDAO optionDAO;
+    public void setOptionDAO(OptionDAO optionDAO) {
+        this.optionDAO = optionDAO;
+    }
 
     @Override
+    @Transactional
     public void createOption(Option option) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            optionDAO.create(option);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to create option: " + option, ex);
-        }
+        this.optionDAO.create(option);
     }
 
     @Override
+    @Transactional
     public Option getOptionById(int id) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            Option option = optionDAO.read(id);
-            entityTransaction.commit();
-            if (option == null) {
-                throw new CustomDAOException("Option with id " + id + " not found");
-            }
-            else return option;
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to find option with id: " + id, ex);
-        }
+        return this.optionDAO.read(id);
     }
 
     @Override
+    @Transactional
     public void updateOption(Option option) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            optionDAO.update(option);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to update option: " + option, ex);
-        }
+        this.optionDAO.update(option);
     }
 
     @Override
+    @Transactional
     public void deleteOption(Option option) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            optionDAO.delete(option);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to delete option: " + option, ex);
-        }
+        this.optionDAO.delete(option);
     }
 
     /**
@@ -92,20 +53,9 @@ public class OptionServiceImplementation implements OptionService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public List<Option> getAllOptions() throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            List<Option> list = optionDAO.getAllOptions();
-            entityTransaction.commit();
-            return list;
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new RuntimeException("Unable to get all opions", ex);
-        }
+        return this.optionDAO.getAllOptions();
     }
 
     /**
@@ -115,19 +65,8 @@ public class OptionServiceImplementation implements OptionService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            List<Option> list = optionDAO.getAllOptionsForTariff(id);
-            entityTransaction.commit();
-            return list;
-        }
-        catch (RuntimeException ex) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new RuntimeException("Unable to get all opions for tariffid " + id, ex);
-        }
+        return this.optionDAO.getAllOptionsForTariff(id);
     }
 }

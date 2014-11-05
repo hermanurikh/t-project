@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.TariffDAO;
 import ru.tsystems.tproject.DAO.implementation.TariffDAOImplementation;
 import ru.tsystems.tproject.entities.Manager;
@@ -15,78 +16,35 @@ import java.util.List;
  * An implementation of TariffService API.
  */
 public class TariffServiceImplementation implements TariffService {
-    private final EntityManager entityManager = Manager.getEntityManager();
-    private final TariffDAO tariffDAO = new TariffDAOImplementation(entityManager);
+    private TariffDAO tariffDAO;
+    public void setTariffDAO(TariffDAO tariffDAO) {
+        this.tariffDAO = tariffDAO;
+    }
 
+    @Override
+    @Transactional
     public void createTariff(Tariff tariff) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            tariffDAO.create(tariff);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to create tariff: " + tariff, ex);
-        }
+        this.tariffDAO.create(tariff);
 
     }
 
     @Override
+    @Transactional
     public Tariff getTariffById(int id) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            Tariff tariff = tariffDAO.read(id);
-            entityTransaction.commit();
-            if (tariff == null) throw new CustomDAOException("Tariff with id " + id + " not found");
-            else return  tariff;
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to read tariff with id: " + id, ex);
-        }
+        return this.tariffDAO.read(id);
     }
 
     @Override
+    @Transactional
     public void updateTariff(Tariff tariff) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            tariffDAO.update(tariff);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to update tariff: " + tariff, ex);
-        }
+        this.tariffDAO.update(tariff);
 
     }
 
     @Override
+    @Transactional
     public void deleteTariff(Tariff tariff) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            tariffDAO.delete(tariff);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to delete tariff: " + tariff, ex);
-        }
+        this.tariffDAO.delete(tariff);
     }
 
     /**
@@ -95,21 +53,9 @@ public class TariffServiceImplementation implements TariffService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public List<Tariff> getAllTariffs() throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            List<Tariff> list = tariffDAO.getAllTariffs();
-            entityTransaction.commit();
-            return list;
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get all tariffs", ex);
-        }
+        return this.tariffDAO.getAllTariffs();
 
     }
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/tproject" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+
+    <!-- Hibernate 4 SessionFactory Bean definition -->
+    <bean id="hibernate4AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>ru.tsystems.tproject.entities.Contract</value>
+                <value>ru.tsystems.tproject.entities.Option</value>
+                <value>ru.tsystems.tproject.entities.User</value>
+                <value>ru.tsystems.tproject.entities.Tariff</value>
+                <value>ru.tsystems.tproject.entities.Role</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+                <prop key="hibernate.show_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="contractDAO" class="ru.tsystems.tproject.DAO.implementation.ContractDAOImplementation">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="contractService" class="ru.tsystems.tproject.services.implementation.ContractServiceImplementation">
+        <property name="contractDAO" ref="contractDAO" />
+    </bean>
+    <bean id="optionDAO" class="ru.tsystems.tproject.DAO.implementation.OptionDAOImplementation">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="optionService" class="ru.tsystems.tproject.services.implementation.OptionServiceImplementation">
+        <property name="optionDAO" ref="optionDAO" />
+    </bean>
+    <bean id="roleDAO" class="ru.tsystems.tproject.DAO.implementation.RoleDAOImplementation">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="roleService" class="ru.tsystems.tproject.services.implementation.RoleServiceImplementation">
+        <property name="roleDAO" ref="roleDAO" />
+    </bean>
+    <bean id="tariffDAO" class="ru.tsystems.tproject.DAO.implementation.TariffDAOImplementation">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="tariffService" class="ru.tsystems.tproject.services.implementation.TariffServiceImplementation">
+        <property name="tariffDAO" ref="tariffDAO" />
+    </bean>
+    <bean id="userDAO" class="ru.tsystems.tproject.DAO.implementation.UserDAOImplementation">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="userService" class="ru.tsystems.tproject.services.implementation.UserServiceImplementation">
+        <property name="userDAO" ref="userDAO" />
+    </bean>
+
+
+</beans>

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="springframework:spring-context:1.2.6" type="repository">
+    <properties maven-id="springframework:spring-context:1.2.6" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/oro-2.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

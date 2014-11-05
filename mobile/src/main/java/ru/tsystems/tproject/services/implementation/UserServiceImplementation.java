@@ -1,5 +1,6 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.DAO.implementation.UserDAOImplementation;
 import ru.tsystems.tproject.entities.Manager;
@@ -15,78 +16,35 @@ import java.util.List;
  * A UserService API implementation,
  */
 public class UserServiceImplementation implements UserService {
-    private final EntityManager entityManager = Manager.getEntityManager();
-    private final UserDAO userDAO = new UserDAOImplementation(entityManager);
+    private UserDAO userDAO;
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
+    @Override
+    @Transactional
     public void createUser(User user) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            userDAO.create(user);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-            entityTransaction.rollback();
-        }
-            throw new CustomDAOException("Unable to create user: " + user, ex);
-        }
+        this.userDAO.create(user);
 
     }
 
     @Override
+    @Transactional
     public User getUserById(int id) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            User user = userDAO.read(id);
-            entityTransaction.commit();
-            if (user == null) throw new CustomDAOException("User with id " + id + " not found");
-            else return user;
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get user: " + id, ex);
-        }
+        return this.userDAO.read(id);
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            userDAO.update(user);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to update user: " + user, ex);
-        }
+        this.userDAO.update(user);
 
     }
 
     @Override
+    @Transactional
     public void deleteUser(User user) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            userDAO.delete(user);
-            entityTransaction.commit();
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to delete user: " + user, ex);
-        }
+        this.userDAO.delete(user);
     }
 
     /**
@@ -95,21 +53,9 @@ public class UserServiceImplementation implements UserService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public List<User> getAllUsers() throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            List<User> list = userDAO.getAllUsers();
-            entityTransaction.commit();
-            return list;
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get all users", ex);
-        }
+        return this.userDAO.getAllUsers();
 
     }
 
@@ -120,22 +66,9 @@ public class UserServiceImplementation implements UserService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public User getUserByNumber(long number) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            User user = userDAO.getUserByNumber(number);
-            entityTransaction.commit();
-            if (user == null) throw new CustomDAOException("User with number " + number + " not found");
-            else return user;
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get user with number: " + number, ex);
-        }
+        return this.userDAO.getUserByNumber(number);
     }
 
     /**
@@ -145,26 +78,8 @@ public class UserServiceImplementation implements UserService {
      * @throws CustomDAOException
      */
     @Override
+    @Transactional
     public User getUserByLogin(String login) throws CustomDAOException {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        try {
-            entityTransaction.begin();
-            User user = userDAO.getUserByLogin(login);
-            entityTransaction.commit();
-            if (user == null) {
-                throw new CustomDAOException("User with login " + login + " not found");
-            }
-            else {
-                return user;
-            }
-        }
-        catch (RuntimeException ex)
-        {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new CustomDAOException("Unable to get user with login: " + login + ":" + ex.getMessage(), ex);
-            //throw new CustomDAOException(String.valueOf(entityTransaction.isActive()));
-        }
+        return this.userDAO.getUserByLogin(login);
     }
 }
