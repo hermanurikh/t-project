@@ -56,7 +56,7 @@ public class UserDAOImplementation implements UserDAO {
     @Override
     public void delete(User user) throws CustomDAOException {
         try {
-            entityManager.remove(user);
+            entityManager.remove(entityManager.merge(user));
         }
         catch (PersistenceException ex) {
             throw new CustomDAOException("User not deleted: " + user, ex);
