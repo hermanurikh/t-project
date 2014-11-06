@@ -20,6 +20,6 @@ public class DIConfiguration {
     public RoleDAO getRoleDAO() { return new RoleDAOImplementation(); }
     @Bean
     public TariffDAO getTariffDAO() { return new TariffDAOImplementation(); }
-    @Bean
-    public UserDAO getUserDAO() { return new UserDAOImplementation(); }
+    //@Bean
+    //public UserDAO getUserDAO() { return new UserDAOImplementation(); }
 }

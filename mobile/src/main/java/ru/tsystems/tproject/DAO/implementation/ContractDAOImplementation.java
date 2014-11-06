@@ -20,7 +20,6 @@ import java.util.List;
 public class ContractDAOImplementation implements ContractDAO {
     @PersistenceContext
     private EntityManager entityManager;
-    //public void setEntityManager(EntityManager entityManager) { this.entityManager = entityManager; }
 
 
     @Override
@@ -33,7 +32,7 @@ public class ContractDAOImplementation implements ContractDAO {
     }
 
     @Override
-    public Contract read(int id) throws CustomDAOException {
+    public Contract read(Integer id) throws CustomDAOException {
         try {
             return entityManager.find(Contract.class, id);
         } catch (PersistenceException e) {

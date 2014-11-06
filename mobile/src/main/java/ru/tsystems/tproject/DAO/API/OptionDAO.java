@@ -8,11 +8,7 @@ import java.util.List;
 /**
  * Base CRUD operations along with the specific ones.
  */
-public interface OptionDAO {
-    public void create(Option option) throws CustomDAOException;
-    public Option read(int id) throws CustomDAOException;
-    public void update(Option option) throws CustomDAOException;
-    public void delete(Option option) throws CustomDAOException;
+public interface OptionDAO extends GenericDAO<Option, Integer> {
 
     /**
      * Gets all options from the database.

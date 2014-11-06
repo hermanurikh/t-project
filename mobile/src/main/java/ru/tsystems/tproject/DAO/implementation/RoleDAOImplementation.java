@@ -33,7 +33,7 @@ public class RoleDAOImplementation implements RoleDAO{
     }
 
     @Override
-    public Role read(int id) throws CustomDAOException {
+    public Role read(Integer id) throws CustomDAOException {
         try{
             return entityManager.find(Role.class, id);
         }

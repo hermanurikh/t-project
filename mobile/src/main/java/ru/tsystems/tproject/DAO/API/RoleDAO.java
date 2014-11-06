@@ -8,12 +8,7 @@ import java.util.List;
 /**
  * Base CRUD operations along with the specific ones.
  */
-public interface RoleDAO {
-
-    public void create(Role role) throws CustomDAOException;
-    public Role read(int id) throws CustomDAOException;
-    public void update(Role role) throws CustomDAOException;
-    public void delete(Role role) throws CustomDAOException;
+public interface RoleDAO extends GenericDAO<Role, Integer> {
 
     /**
      * Lists all roles.

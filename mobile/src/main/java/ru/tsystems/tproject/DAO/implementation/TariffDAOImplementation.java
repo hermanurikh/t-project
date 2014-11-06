@@ -32,7 +32,7 @@ public class TariffDAOImplementation implements TariffDAO {
     }
 
     @Override
-    public Tariff read(int id) throws CustomDAOException {
+    public Tariff read(Integer id) throws CustomDAOException {
         try{
             return entityManager.find(Tariff.class, id);
         }

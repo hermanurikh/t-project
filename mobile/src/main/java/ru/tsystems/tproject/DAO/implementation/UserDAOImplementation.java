@@ -17,11 +17,11 @@ import java.util.List;
  * An implementation of a UserDAO API.
  */
 @Repository("userDAO")
-public class UserDAOImplementation implements UserDAO {
+public class UserDAOImplementation extends GenericDAOImplementation<User, Integer> implements UserDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Override
+   /* @Override
     public void create(User user) throws CustomDAOException {
         try {
             entityManager.persist(user);
@@ -33,7 +33,7 @@ public class UserDAOImplementation implements UserDAO {
     }
 
     @Override
-    public User read(int id) throws CustomDAOException {
+    public User read(Integer id) throws CustomDAOException {
         try {
             return entityManager.find(User.class, id);
         }
@@ -62,14 +62,14 @@ public class UserDAOImplementation implements UserDAO {
             throw new CustomDAOException("User not deleted: " + user, ex);
         }
 
-    }
+    }*/
 
     /**
      * Gets all users from the database.
      * @return a list of users
      * @throws CustomDAOException
      */
-    @Override
+    //@Override
     public List<User> getAllUsers() throws CustomDAOException {
         try {
             return entityManager.createNamedQuery("User.getAllUsers", User.class).getResultList();
@@ -85,7 +85,7 @@ public class UserDAOImplementation implements UserDAO {
      * @return user
      * @throws CustomDAOException
      */
-    @Override
+   // @Override
     public User getUserByNumber(long number) throws CustomDAOException {
         try {
             Query query = entityManager.createQuery("select c.user from Contract c where c.number=:number").setParameter("number", number);
@@ -103,7 +103,7 @@ public class UserDAOImplementation implements UserDAO {
      * @return user
      * @throws CustomDAOException
      */
-    @Override
+   // @Override
     public User getUserByLogin(String login) throws CustomDAOException {
         try {
             Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);

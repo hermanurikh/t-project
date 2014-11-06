@@ -8,14 +8,7 @@ import java.util.List;
 /**
  * Base CRUD operations along with the specific ones.
  */
-public interface UserDAO {
-    public void create(User user) throws CustomDAOException;
-
-    public User read(int id) throws CustomDAOException;
-
-    public void update(User user) throws CustomDAOException;
-
-    public void delete(User user) throws CustomDAOException;
+public interface UserDAO extends GenericDAO<User, Integer> {
 
     /**
      * Gets a user by a specified number.

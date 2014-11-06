@@ -13,6 +13,7 @@ import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.ContractService;
+import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.RoleService;
 import ru.tsystems.tproject.services.API.UserService;
 
@@ -29,8 +30,7 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     private UserService userService;
     @Autowired
     private RoleService roleService;
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+
 
     private final String createScript = "mobile/src/main/resources/sql/create-data.sql";
     private final String deleteScript = "mobile/src/main/resources/sql/remove-data.sql";

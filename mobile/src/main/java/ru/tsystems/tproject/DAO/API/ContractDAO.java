@@ -8,15 +8,7 @@ import java.util.List;
 /**
  * Base CRUD operations along with the specific ones.
  */
-public interface ContractDAO {
-    public void create(Contract contract) throws CustomDAOException;
-
-    public Contract read(int id) throws CustomDAOException;
-
-    public void update(Contract contract) throws CustomDAOException;
-
-    public void delete(Contract contract) throws CustomDAOException;
-
+public interface ContractDAO extends GenericDAO<Contract, Integer> {
     /**
      * Gets contract by a specified number.
      * @param number of the contract

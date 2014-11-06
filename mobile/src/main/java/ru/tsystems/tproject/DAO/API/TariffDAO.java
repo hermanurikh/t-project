@@ -8,15 +8,7 @@ import java.util.List;
 /**
  * Base CRUD operations along with the specific ones.
  */
-public interface TariffDAO {
-
-    public void create(Tariff tariff) throws CustomDAOException;
-
-    public Tariff read(int id) throws CustomDAOException;
-
-    public void update(Tariff tariff) throws CustomDAOException;
-
-    public void delete(Tariff tariff) throws CustomDAOException;
+public interface TariffDAO extends GenericDAO<Tariff, Integer> {
 
     /**
      * Gets a list of all tariffs from the database.

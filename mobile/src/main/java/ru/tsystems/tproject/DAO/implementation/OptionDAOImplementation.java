@@ -33,7 +33,7 @@ public class OptionDAOImplementation implements OptionDAO {
     }
 
     @Override
-    public Option read(int id) throws CustomDAOException{
+    public Option read(Integer id) throws CustomDAOException{
         try{
             return entityManager.find(Option.class, id);
         }
