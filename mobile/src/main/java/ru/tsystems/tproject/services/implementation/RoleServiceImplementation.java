@@ -1,5 +1,7 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.RoleDAO;
 import ru.tsystems.tproject.DAO.implementation.RoleDAOImplementation;
@@ -15,11 +17,10 @@ import java.util.List;
 /**
  * An implementation of RoleService API.
  */
+@Service("roleService")
 public class RoleServiceImplementation implements RoleService {
+    @Autowired
     private RoleDAO roleDAO;
-    public void setRoleDAO(RoleDAO roleDAO) {
-        this.roleDAO = roleDAO;
-    }
 
     @Override
     @Transactional

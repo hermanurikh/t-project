@@ -9,23 +9,24 @@ import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
  * An implementation of a ContractDAO API.
  */
-@Repository
+@Repository("contractDAO")
 public class ContractDAOImplementation implements ContractDAO {
-    private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
+    @PersistenceContext
+    private EntityManager entityManager;
+    //public void setEntityManager(EntityManager entityManager) { this.entityManager = entityManager; }
 
 
     @Override
     public void create(Contract contract) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            session.persist(contract);
+            entityManager.persist(contract);
         } catch (PersistenceException e) {
             throw new CustomDAOException("Contract " + contract + " not created", e);
         }
@@ -34,8 +35,7 @@ public class ContractDAOImplementation implements ContractDAO {
     @Override
     public Contract read(int id) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            return (Contract) session.load(Contract.class, id);
+            return entityManager.find(Contract.class, id);
         } catch (PersistenceException e) {
             throw new CustomDAOException("Contract " + id + " not read", e);
         }
@@ -44,8 +44,7 @@ public class ContractDAOImplementation implements ContractDAO {
     @Override
     public void update(Contract contract) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            session.update(contract);
+            entityManager.merge(contract);
         } catch (PersistenceException e) {
             throw new CustomDAOException("Contract " + contract + " not updated", e);
         }
@@ -54,8 +53,7 @@ public class ContractDAOImplementation implements ContractDAO {
     @Override
     public void delete(Contract contract) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            session.delete(contract);
+            entityManager.remove(contract);
         } catch (PersistenceException e) {
             throw new CustomDAOException("Contract " + contract + " not deleted", e);
         }
@@ -70,8 +68,7 @@ public class ContractDAOImplementation implements ContractDAO {
     @Override
     public Contract getContractByNumber(long number) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            return (Contract) session.createQuery("select c from Contract c where c.number=:number").setParameter("number", number).uniqueResult();
+            return (Contract) entityManager.createQuery("select c from Contract c where c.number=:number").setParameter("number", number).getSingleResult();
         } catch (PersistenceException e) {
             throw new CustomDAOException("Contract with number " + number + " not got", e);
         }
@@ -86,8 +83,7 @@ public class ContractDAOImplementation implements ContractDAO {
     @Override
     public List<Contract> getAllContracts() throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            return session.createQuery("select c from Contract c").list();
+            return entityManager.createNamedQuery("Contract.getAllContracts", Contract.class).getResultList();
         } catch (PersistenceException e) {
             throw new CustomDAOException("Couldn't get all contracts.", e);
         }

@@ -7,6 +7,7 @@ import ru.tsystems.tproject.DAO.API.OptionDAO;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
@@ -15,16 +16,15 @@ import java.util.List;
 /**
  * An implementation of OptionDAO API.
  */
-@Repository
+@Repository("optionDAO")
 public class OptionDAOImplementation implements OptionDAO {
-    private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public void create(Option option) throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            session.persist(option);
+            entityManager.persist(option);
         }
         catch(PersistenceException ex)
         {
@@ -35,9 +35,7 @@ public class OptionDAOImplementation implements OptionDAO {
     @Override
     public Option read(int id) throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            return (Option) session.load(Option.class, id);
-
+            return entityManager.find(Option.class, id);
         }
         catch (PersistenceException ex)
         {
@@ -48,8 +46,7 @@ public class OptionDAOImplementation implements OptionDAO {
     @Override
     public void update(Option option) throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            session.update(option);
+            entityManager.merge(option);
         }
         catch (PersistenceException ex)
         {
@@ -61,8 +58,7 @@ public class OptionDAOImplementation implements OptionDAO {
     @Override
     public void delete(Option option) throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            session.delete(option);
+            entityManager.remove(option);
         }
         catch (PersistenceException ex)
         {
@@ -76,12 +72,10 @@ public class OptionDAOImplementation implements OptionDAO {
      * @return a list of options
      * @throws CustomDAOException
      */
-    @SuppressWarnings("unchecked")
     @Override
     public List<Option> getAllOptions() throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            return (List<Option>) session.createQuery("SELECT opt FROM Option opt").list();
+            return entityManager.createNamedQuery("Option.getAllOptions", Option.class).getResultList();
         }
         catch (PersistenceException ex)
         {
@@ -99,10 +93,9 @@ public class OptionDAOImplementation implements OptionDAO {
     @Override
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException{
         try{
-            Session session = this.sessionFactory.getCurrentSession();
+            Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id);
 
-            return (List<Option>) session.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id).list();
-
+            return (List<Option>)query.getResultList();
         }
         catch (PersistenceException ex)
         {

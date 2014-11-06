@@ -1,5 +1,7 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.TariffDAO;
 import ru.tsystems.tproject.DAO.implementation.TariffDAOImplementation;
@@ -15,11 +17,10 @@ import java.util.List;
 /**
  * An implementation of TariffService API.
  */
+@Service("tariffService")
 public class TariffServiceImplementation implements TariffService {
+    @Autowired
     private TariffDAO tariffDAO;
-    public void setTariffDAO(TariffDAO tariffDAO) {
-        this.tariffDAO = tariffDAO;
-    }
 
     @Override
     @Transactional

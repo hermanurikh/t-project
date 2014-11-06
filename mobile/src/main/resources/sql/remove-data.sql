@@ -1,0 +1,1 @@
+DELETE FROM `tproject`.`USERS` WHERE `id`='100500';

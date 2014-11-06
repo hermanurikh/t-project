@@ -1,5 +1,8 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.DAO.implementation.ContractDAOImplementation;
@@ -14,11 +17,10 @@ import java.util.List;
 /**
  * An implementation of the API.
  */
+@Service("contractService")
 public class ContractServiceImplementation implements ContractService {
+    @Autowired
     private ContractDAO contractDAO;
-    public void setContractDAO(ContractDAO contractDAO) {
-        this.contractDAO = contractDAO;
-    }
     @Override
     @Transactional
     public void createContract(Contract contract) throws CustomDAOException {

@@ -8,22 +8,22 @@ import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
 /**
  * An implementation of TariffDAO API.
  */
-@Repository
+@Repository("tariffDAO")
 public class TariffDAOImplementation implements TariffDAO {
-    private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public void create(Tariff tariff) throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            session.persist(tariff);
+            entityManager.persist(tariff);
         }
         catch (PersistenceException ex)
         {
@@ -34,8 +34,7 @@ public class TariffDAOImplementation implements TariffDAO {
     @Override
     public Tariff read(int id) throws CustomDAOException {
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            return (Tariff) session.load(Tariff.class, id);
+            return entityManager.find(Tariff.class, id);
         }
         catch (PersistenceException ex)
         {
@@ -46,8 +45,7 @@ public class TariffDAOImplementation implements TariffDAO {
     @Override
     public void update(Tariff tariff) throws CustomDAOException {
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            session.update(tariff);
+            entityManager.merge(tariff);
         }
         catch (PersistenceException ex)
         {
@@ -59,8 +57,7 @@ public class TariffDAOImplementation implements TariffDAO {
     @Override
     public void delete(Tariff tariff) throws CustomDAOException {
         try{
-            Session session = this.sessionFactory.getCurrentSession();
-            session.delete(tariff);
+            entityManager.remove(tariff);
         }
         catch (PersistenceException ex)
         {
@@ -74,12 +71,10 @@ public class TariffDAOImplementation implements TariffDAO {
      * @return a list of tariffs
      * @throws CustomDAOException
      */
-    @SuppressWarnings("unchecked")
     @Override
     public List<Tariff> getAllTariffs() throws CustomDAOException {
         try {
-            Session session = this.sessionFactory.getCurrentSession();
-            return (List<Tariff>) session.createQuery("SELECT tar FROM Tariff tar").list();
+            return entityManager.createNamedQuery("Tariff.getAllTariffs", Tariff.class).getResultList();
         }
         catch (PersistenceException ex)
         {

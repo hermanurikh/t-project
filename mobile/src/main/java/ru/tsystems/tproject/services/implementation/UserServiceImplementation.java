@@ -1,5 +1,7 @@
 package ru.tsystems.tproject.services.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.DAO.implementation.UserDAOImplementation;
@@ -15,11 +17,11 @@ import java.util.List;
 /**
  * A UserService API implementation,
  */
+@Service("userService")
 public class UserServiceImplementation implements UserService {
+    @Autowired
     private UserDAO userDAO;
-    public void setUserDAO(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
+
 
     @Override
     @Transactional

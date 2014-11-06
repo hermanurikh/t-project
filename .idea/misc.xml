@@ -9,7 +9,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/mobile" />
   </component>
-  <component name="IdProvider" IDEtalkID="F58588E9ED15CD7DB55827E585F45081" />
+  <component name="IdProvider" IDEtalkID="CC3A400ACD237E9D0FE48F1AC4DC2D80" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -127,22 +127,6 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
 
