@@ -20,48 +20,46 @@ public class TariffDAOImplementation implements TariffDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
+
     @Override
-    public void create(Tariff tariff) throws CustomDAOException {
+    public void create(Tariff entity) throws CustomDAOException {
         try {
-            entityManager.persist(tariff);
+            entityManager.persist(entity);
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Tariff not created: " + tariff, ex);
+            throw new CustomDAOException("Entity not created: " + entity, ex);
         }
     }
 
     @Override
     public Tariff read(Integer id) throws CustomDAOException {
-        try{
+        try {
             return entityManager.find(Tariff.class, id);
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Tariff with id " + id + " not found.", ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity with id " + id + " not found", ex);
         }
     }
 
     @Override
-    public void update(Tariff tariff) throws CustomDAOException {
-        try{
-            entityManager.merge(tariff);
+    public void update(Tariff entity) throws CustomDAOException {
+        try {
+            entityManager.merge(entity);
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Tariff not updated: " + tariff, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not updated: " + entity, ex);
         }
 
     }
 
     @Override
-    public void delete(Tariff tariff) throws CustomDAOException {
-        try{
-            entityManager.remove(tariff);
+    public void delete(Tariff entity) throws CustomDAOException {
+        try {
+            entityManager.remove(entityManager.merge(entity));
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Tariff not deleted: " + tariff, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not deleted: " + entity, ex);
         }
 
     }

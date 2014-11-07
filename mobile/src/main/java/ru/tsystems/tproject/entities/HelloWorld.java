@@ -25,6 +25,10 @@ public class HelloWorld {
         List<Contract> contracts = contractService.getAllContracts();
         for (Contract x : contracts) System.out.println(x);
     }
+
+    public void test() {
+
+    }
 }
 
 

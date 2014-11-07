@@ -22,50 +22,48 @@ public class OptionDAOImplementation implements OptionDAO {
     private EntityManager entityManager;
 
     @Override
-    public void create(Option option) throws CustomDAOException{
-        try{
-            entityManager.persist(option);
+    public void create(Option entity) throws CustomDAOException {
+        try {
+            entityManager.persist(entity);
         }
-        catch(PersistenceException ex)
+        catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Option not created: " + option, ex);
+            throw new CustomDAOException("Entity not created: " + entity, ex);
         }
     }
 
     @Override
-    public Option read(Integer id) throws CustomDAOException{
-        try{
+    public Option read(Integer id) throws CustomDAOException {
+        try {
             return entityManager.find(Option.class, id);
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Option not found: " + id, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity with id " + id + " not found", ex);
         }
     }
 
     @Override
-    public void update(Option option) throws CustomDAOException{
-        try{
-            entityManager.merge(option);
+    public void update(Option entity) throws CustomDAOException {
+        try {
+            entityManager.merge(entity);
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Option not updated: " + option, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not updated: " + entity, ex);
         }
 
     }
 
     @Override
-    public void delete(Option option) throws CustomDAOException{
-        try{
-            entityManager.remove(option);
+    public void delete(Option entity) throws CustomDAOException {
+        try {
+            entityManager.remove(entityManager.merge(entity));
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Option not deleted: " + option, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not deleted: " + entity, ex);
         }
 
     }
+
 
     /**
      * Gets all options from the database.
