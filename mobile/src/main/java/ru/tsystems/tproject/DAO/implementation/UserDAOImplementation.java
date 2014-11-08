@@ -19,53 +19,10 @@ import java.util.List;
  * An implementation of a UserDAO API.
  */
 @Repository("userDAO")
-public class UserDAOImplementation implements UserDAO {
+public class UserDAOImplementation extends GenericDAOImplementation<User, Integer> implements UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Override
-    public void create(User entity) throws CustomDAOException {
-        try {
-            entityManager.persist(entity);
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Entity not created: " + entity, ex);
-        }
-    }
-
-    @Override
-    public User read(Integer id) throws CustomDAOException {
-        try {
-            return entityManager.find(User.class, id);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity with id " + id + " not found", ex);
-        }
-    }
-
-    @Override
-    public void update(User entity) throws CustomDAOException {
-        try {
-            entityManager.merge(entity);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not updated: " + entity, ex);
-        }
-
-    }
-
-    @Override
-    public void delete(User entity) throws CustomDAOException {
-        try {
-            entityManager.remove(entityManager.merge(entity));
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not deleted: " + entity, ex);
-        }
-
-    }
 
     /**
      * Gets all users from the database.
@@ -109,7 +66,6 @@ public class UserDAOImplementation implements UserDAO {
    @Override
     public User getUserByLogin(String login) throws CustomDAOException {
         try {
-            System.out.println("em exists = " + (this.entityManager != null));
             Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);
             return (User) query.getSingleResult();
         }

@@ -31,14 +31,21 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private RoleService roleService;
 
+    private static JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
-    private final String createScript = "mobile/src/main/resources/sql/create-data.sql";
+
+    private static final String createScript = "mobile/src/main/resources/sql/create-data.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data.sql";
-/*
-    @Before
-    public void insertData() {
+
+    @BeforeClass
+    public static void insertData() {
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(createScript), false);
-    }*/
+    }
+    @AfterClass
+    public static void deleteData() {
+        JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(createScript), false);
+    }
+
 
 
     @Test
@@ -46,8 +53,7 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
         User user3 = userService.getUserByLogin("hermanurikh");
         assertTrue(user3.getRole().getId() == 2);
         //create test
-        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin2", 300, "password", roleService.getRoleById(2)));
-        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin", 300, "password", roleService.getRoleById(2)));
+        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin3", 300, "password", roleService.getRoleById(2)));
         User user = userService.getUserByLogin("jameslogin");
         //read by login test
         assertTrue(user.getRole().getId() == 2);
