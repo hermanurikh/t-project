@@ -31,25 +31,29 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private RoleService roleService;
 
+    private static JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
-    private final String createScript = "mobile/src/main/resources/sql/create-data.sql";
-    private final String deleteScript = "mobile/src/main/resources/sql/remove-data.sql";
-/*
-    @Before
-    public void insertData() {
+
+    private static final String createScript = "mobile/src/main/resources/sql/create-data.sql";
+    private static final String deleteScript = "mobile/src/main/resources/sql/remove-data.sql";
+
+    @BeforeClass
+    public static void insertData() {
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(createScript), false);
     }
-    @After
-    public void removeData() {
-        JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(deleteScript), false);
-
+    @AfterClass
+    public static void deleteData() {
+        JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(createScript), false);
     }
-*/
+
+
+
     @Test
     public void testUserCreateReadUpdate() {
+        User user3 = userService.getUserByLogin("hermanurikh");
+        assertTrue(user3.getRole().getId() == 2);
         //create test
-        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin2", 300, "password", roleService.getRoleById(2)));
-        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin", 300, "password", roleService.getRoleById(2)));
+        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "jameslogin3", 300, "password", roleService.getRoleById(2)));
         User user = userService.getUserByLogin("jameslogin");
         //read by login test
         assertTrue(user.getRole().getId() == 2);
@@ -65,14 +69,13 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
         List<User> userList = userService.getAllUsers();
         //getAllUsers test
         assertTrue(userList.size() > 1);
+        userService.deleteUser(user);
+        user = userService.getUserByLogin("jameslogin2");
+        userService.deleteUser(user);
     }
     @Test(expected = CustomDAOException.class)
     public void testUserDelete() {
         //delete test
-        User user = userService.getUserByLogin("jameslogin");
-        userService.deleteUser(user);
-        user = userService.getUserByLogin("jameslogin2");
-        userService.deleteUser(user);
         userService.getUserByLogin("jameslogin");
 
     }

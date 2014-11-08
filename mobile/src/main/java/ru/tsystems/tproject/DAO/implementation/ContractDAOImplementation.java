@@ -21,13 +21,14 @@ public class ContractDAOImplementation implements ContractDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-
     @Override
-    public void create(Contract contract) throws CustomDAOException {
+    public void create(Contract entity) throws CustomDAOException {
         try {
-            entityManager.persist(contract);
-        } catch (PersistenceException e) {
-            throw new CustomDAOException("Contract " + contract + " not created", e);
+            entityManager.persist(entity);
+        }
+        catch (PersistenceException ex)
+        {
+            throw new CustomDAOException("Entity not created: " + entity, ex);
         }
     }
 
@@ -35,27 +36,32 @@ public class ContractDAOImplementation implements ContractDAO {
     public Contract read(Integer id) throws CustomDAOException {
         try {
             return entityManager.find(Contract.class, id);
-        } catch (PersistenceException e) {
-            throw new CustomDAOException("Contract " + id + " not read", e);
+        }
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity with id " + id + " not found", ex);
         }
     }
 
     @Override
-    public void update(Contract contract) throws CustomDAOException {
+    public void update(Contract entity) throws CustomDAOException {
         try {
-            entityManager.merge(contract);
-        } catch (PersistenceException e) {
-            throw new CustomDAOException("Contract " + contract + " not updated", e);
+            entityManager.merge(entity);
         }
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not updated: " + entity, ex);
+        }
+
     }
 
     @Override
-    public void delete(Contract contract) throws CustomDAOException {
+    public void delete(Contract entity) throws CustomDAOException {
         try {
-            entityManager.remove(contract);
-        } catch (PersistenceException e) {
-            throw new CustomDAOException("Contract " + contract + " not deleted", e);
+            entityManager.remove(entityManager.merge(entity));
         }
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not deleted: " + entity, ex);
+        }
+
     }
 
     /**

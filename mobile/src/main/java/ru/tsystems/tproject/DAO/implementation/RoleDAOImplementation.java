@@ -21,48 +21,44 @@ public class RoleDAOImplementation implements RoleDAO{
     private EntityManager entityManager;
 
     @Override
-    public void create(Role role) throws CustomDAOException {
-        try{
-            entityManager.persist(role);
+    public void create(Role entity) throws CustomDAOException {
+        try {
+            entityManager.persist(entity);
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Role not created: " + role, ex);
+            throw new CustomDAOException("Entity not created: " + entity, ex);
         }
-
     }
 
     @Override
     public Role read(Integer id) throws CustomDAOException {
-        try{
+        try {
             return entityManager.find(Role.class, id);
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Role not read: " + id, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity with id " + id + " not found", ex);
         }
     }
 
     @Override
-    public void update(Role role) throws CustomDAOException {
-        try{
-            entityManager.merge(role);
+    public void update(Role entity) throws CustomDAOException {
+        try {
+            entityManager.merge(entity);
         }
-        catch(PersistenceException ex)
-        {
-            throw new CustomDAOException("Role not updated: " + role, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not updated: " + entity, ex);
         }
 
     }
 
     @Override
-    public void delete(Role role) throws CustomDAOException {
-        try{
-            entityManager.remove(role);
+    public void delete(Role entity) throws CustomDAOException {
+        try {
+            entityManager.remove(entityManager.merge(entity));
         }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Role not deleted: " + role, ex);
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Entity not deleted: " + entity, ex);
         }
 
     }

@@ -1,1 +1,2 @@
-DELETE FROM `tproject`.`USERS` WHERE `id`='100500';
+DELETE FROM `tproject`.`USERS` WHERE `login`='jameslogin2';
+DELETE FROM `tproject`.`USERS` WHERE `login`='jameslogin';

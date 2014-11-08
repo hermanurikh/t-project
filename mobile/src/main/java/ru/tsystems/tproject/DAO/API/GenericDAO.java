@@ -5,7 +5,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * A generic for all CRUD operations + getAllEntities.
+ * A generic for all CRUD operations.
  */
 public interface GenericDAO<E, K> {
 
