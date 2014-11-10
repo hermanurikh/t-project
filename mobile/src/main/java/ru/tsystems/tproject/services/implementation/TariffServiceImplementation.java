@@ -4,14 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.TariffDAO;
-import ru.tsystems.tproject.DAO.implementation.TariffDAOImplementation;
-import ru.tsystems.tproject.entities.Manager;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.TariffService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**

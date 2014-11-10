@@ -33,8 +33,13 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     private RoleService roleService;
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private final String createScript = "mobile/src/main/resources/sql/create-data-user.sql";
-    private final String deleteScript = "mobile/src/main/resources/sql/remove-data-user.sql";
+    /*for testing in IDEA uncomment the variables below */
+    /*
+    private static final String createScript = "mobile/src/main/resources/sql/create-data-user.sql";
+    private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-user.sql";
+     */
+    private static final String createScript = "src/main/resources/sql/create-data-user.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-user.sql";
 
     @Before
     public void insertData() {
@@ -44,8 +49,6 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     public void deleteData() {
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(deleteScript), false);
     }
-
-
     //a test to check the "create" method
     @Test
     public void testUserCreate() {

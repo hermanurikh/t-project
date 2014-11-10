@@ -13,17 +13,13 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.entities.Option;
-import ru.tsystems.tproject.entities.User;
-import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.OptionService;
-import ru.tsystems.tproject.services.API.RoleService;
-import ru.tsystems.tproject.services.API.UserService;
 
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@SuppressWarnings("deprecation")
 @ContextConfiguration(locations = "/spring.xml")
 public class OptionServiceTest extends AbstractJUnit4SpringContextTests {
 
@@ -31,15 +27,22 @@ public class OptionServiceTest extends AbstractJUnit4SpringContextTests {
     private OptionService optionService;
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private final String createScript = "mobile/src/main/resources/sql/create-data-option.sql";
-    private final String deleteScript = "mobile/src/main/resources/sql/remove-data-option.sql";
+    /*for testing in IDEA uncomment the variables below */
+    /*
+    private static final String createScript = "mobile/src/main/resources/sql/create-data-option.sql";
+    private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-option.sql";
+     */
+    private static final String createScript = "src/main/resources/sql/create-data-option.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-option.sql";
 
     @Before
     public void insertData() {
+
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(createScript), false);
     }
     @After
     public void deleteData() {
+
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(deleteScript), false);
     }
 

@@ -1,18 +1,13 @@
 package ru.tsystems.tproject.services.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.OptionDAO;
-import ru.tsystems.tproject.DAO.implementation.OptionDAOImplementation;
-import ru.tsystems.tproject.entities.Manager;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.OptionService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**

@@ -4,14 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.RoleDAO;
-import ru.tsystems.tproject.DAO.implementation.RoleDAOImplementation;
-import ru.tsystems.tproject.entities.Manager;
 import ru.tsystems.tproject.entities.Role;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.RoleService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
 /**
