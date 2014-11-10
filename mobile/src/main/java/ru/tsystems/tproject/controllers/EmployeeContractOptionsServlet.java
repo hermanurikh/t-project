@@ -72,7 +72,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
                     }
                     int userID = userService.getUserByLogin(login).getId();
                     int tariffID = Integer.parseInt(request.getParameter("cb"));
-                    Tariff tariff = tariffService.getTariffById(tariffID);
+                    Tariff tariff = tariffService.getEntityById(tariffID);
                     List<Option> optionsList = tariff.getPossibleOptions();
                     request.getSession().setAttribute("optionsList", optionsList);
                     request.getSession().setAttribute("contractNumber", contractNumber);
@@ -111,7 +111,7 @@ public class EmployeeContractOptionsServlet extends HttpServlet {
             else {
                 int userID = userService.getUserByLogin(login).getId();
                 int tariffID = Integer.parseInt(request.getParameter("cb"));
-                Tariff tariff = tariffService.getTariffById(tariffID);
+                Tariff tariff = tariffService.getEntityById(tariffID);
                 List<Option> optionsList = tariff.getPossibleOptions();
                 request.getSession().setAttribute("optionsList", optionsList);
                 request.getSession().setAttribute("contractNumber", contractNumber);

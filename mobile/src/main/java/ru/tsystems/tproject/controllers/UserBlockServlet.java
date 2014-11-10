@@ -26,7 +26,7 @@ public class UserBlockServlet extends HttpServlet {
             if (contract.isBlocked()) {
                 if (contract.getEmployee() == null) {
                     contract.setBlocked(false);
-                    contractService.updateContract(contract);
+                    contractService.updateEntity(contract);
                     request.getSession().setAttribute("paramIsBlocked", "выключена");
                 }
                 else {
@@ -35,7 +35,7 @@ public class UserBlockServlet extends HttpServlet {
             }
             else {
                 contract.setBlocked(true);
-                contractService.updateContract(contract);
+                contractService.updateEntity(contract);
                 request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом");
             }
             response.sendRedirect("../cp_client/cp_client_change_contract.jsp");

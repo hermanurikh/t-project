@@ -17,22 +17,6 @@ import java.util.List;
  */
 @Repository("roleDAO")
 public class RoleDAOImplementation extends GenericDAOImplementation<Role, Integer> implements RoleDAO{
-    @PersistenceContext
-    private EntityManager entityManager;
 
-    /**
-     * Lists all possible roles.
-     * @return a list of roles
-     * @throws CustomDAOException
-     */
-    @Override
-    public List<Role> getAllRoles() throws CustomDAOException {
-        try{
-            return entityManager.createNamedQuery("Role.getAllRoles", Role.class).getResultList();
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Roles not got", ex);
-        }
-    }
+
 }

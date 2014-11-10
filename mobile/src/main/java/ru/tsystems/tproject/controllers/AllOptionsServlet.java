@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +25,7 @@ public class AllOptionsServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             OptionService optionService = new OptionServiceImplementation();
-            List<Option> optionsList = optionService.getAllOptions();
+            List<Option> optionsList = optionService.getAll();
             request.getSession().setAttribute("optionsList", optionsList);
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
             rd.forward(request, response);*/

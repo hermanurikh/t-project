@@ -33,8 +33,8 @@ public class TariffChangeServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             int tariffId = Integer.parseInt(request.getParameter("id"));
-            Tariff tariff = tariffService.getTariffById(tariffId);
-            List<Option> allOptionsList = optionService.getAllOptions();
+            Tariff tariff = tariffService.getEntityById(tariffId);
+            List<Option> allOptionsList = optionService.getAll();
             List<Option> currentTariffOptionsList = optionService.getAllOptionsForTariff(tariffId);
             allOptionsList.removeAll(currentTariffOptionsList);
             request.getSession().setAttribute("currentOptionsList", currentTariffOptionsList);

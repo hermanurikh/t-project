@@ -43,7 +43,7 @@ public class EmployeeFinalOptionChangeServlet extends HttpServlet {
                 if (null != optionsTogether && optionsTogether.length > 0) {
                     for (String optionTogether : optionsTogether) {
                         int optionId = Integer.parseInt(optionTogether);
-                        option.addOptionsTogether(optionService.getOptionById(optionId));
+                        option.addOptionsTogether(optionService.getEntityById(optionId));
                     }
                 }
             }
@@ -52,7 +52,7 @@ public class EmployeeFinalOptionChangeServlet extends HttpServlet {
                 if (null != optionsIncompatible && optionsIncompatible.length > 0) {
                     for (String optionIncompatible : optionsIncompatible) {
                         int optionId = Integer.parseInt(optionIncompatible);
-                        option.addOptionsIncompatible(optionService.getOptionById(optionId));
+                        option.addOptionsIncompatible(optionService.getEntityById(optionId));
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class EmployeeFinalOptionChangeServlet extends HttpServlet {
                 }
             }
 
-            optionService.updateOption(option);
+            optionService.updateEntity(option);
             response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {

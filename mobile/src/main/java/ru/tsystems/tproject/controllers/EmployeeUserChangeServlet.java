@@ -24,7 +24,7 @@ public class EmployeeUserChangeServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             int userId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("id"))); //.getParameter("id"));
-            User user = userService.getUserById(userId);
+            User user = userService.getEntityById(userId);
             request.getSession().removeAttribute("exList");
             request.getSession().setAttribute("userExists", "false");
             request.getSession().setAttribute("id", user.getId());
@@ -50,7 +50,7 @@ public class EmployeeUserChangeServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             int userId = Integer.parseInt(request.getParameter("id"));
-            User user = userService.getUserById(userId);
+            User user = userService.getEntityById(userId);
             request.getSession().removeAttribute("exList");
             request.getSession().setAttribute("userExists", "false");
             request.getSession().setAttribute("id", user.getId());

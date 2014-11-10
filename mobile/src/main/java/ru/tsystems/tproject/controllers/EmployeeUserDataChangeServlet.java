@@ -76,7 +76,7 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
             if (list.isEmpty()) {
                 request.getSession().removeAttribute("exList");
                 request.getSession().setAttribute("userExists", "false");
-                User user = userService.getUserById(id);
+                User user = userService.getEntityById(id);
                 user.setName(name);
                 user.setSurname(surname);
                 user.setBirthday(birthday);
@@ -85,7 +85,7 @@ public class EmployeeUserDataChangeServlet extends HttpServlet {
                 user.setEmail(email);
                 user.setBalance(balance);
                 user.setPassword(password);
-                userService.updateUser(user);
+                userService.updateEntity(user);
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {

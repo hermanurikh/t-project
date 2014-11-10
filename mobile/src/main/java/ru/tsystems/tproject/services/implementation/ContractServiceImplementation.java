@@ -19,27 +19,27 @@ public class ContractServiceImplementation implements ContractService {
     private ContractDAO contractDAO;
     @Override
     @Transactional
-    public void createContract(Contract contract) throws CustomDAOException {
+    public void createEntity(Contract contract) throws CustomDAOException {
        this.contractDAO.create(contract);
     }
 
     @Override
     @Transactional
-    public Contract getContractById(int id) throws CustomDAOException {
+    public Contract getEntityById(Integer id) throws CustomDAOException {
         return this.contractDAO.read(id);
     }
 
 
     @Override
     @Transactional
-    public void updateContract(Contract contract) throws CustomDAOException {
+    public void updateEntity(Contract contract) throws CustomDAOException {
         this.contractDAO.update(contract);
     }
 
 
     @Override
     @Transactional
-    public void deleteContract(Contract contract) throws CustomDAOException {
+    public void deleteEntity(Contract contract) throws CustomDAOException {
                this.contractDAO.delete(contract);
     }
 
@@ -62,7 +62,7 @@ public class ContractServiceImplementation implements ContractService {
      */
     @Override
     @Transactional
-    public List<Contract> getAllContracts() throws CustomDAOException {
-        return this.contractDAO.getAllContracts();
+    public List<Contract> getAll() throws CustomDAOException {
+        return this.contractDAO.getAll();
     }
 }

@@ -8,18 +8,7 @@ import java.util.List;
 /**
  * CRUD methods along with the specific ones needed for this class.
  */
-public interface OptionService {
-    public void createOption(Option option) throws CustomDAOException;
-    public Option getOptionById(int id) throws CustomDAOException;
-    public void updateOption(Option option) throws CustomDAOException;
-    public void deleteOption(Option option) throws CustomDAOException;
-
-    /**
-     * get all options from the database
-     * @return
-     * @throws CustomDAOException
-     */
-    public List<Option> getAllOptions() throws CustomDAOException;
+public interface OptionService extends GenericService<Option, Integer> {
 
     /**
      * get all options for a specific tariff

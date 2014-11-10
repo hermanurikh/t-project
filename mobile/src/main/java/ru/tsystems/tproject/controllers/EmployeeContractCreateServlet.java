@@ -59,9 +59,9 @@ public class EmployeeContractCreateServlet extends HttpServlet {
             else {
                 number = Long.parseLong(request.getParameter("number"));
                 userId = Integer.parseInt(request.getParameter("userID"));
-                user = userService.getUserById(userId);
+                user = userService.getEntityById(userId);
                 tariffId = Integer.parseInt(request.getParameter("tariffID"));
-                contract = new Contract(number, user, tariffService.getTariffById(tariffId));
+                contract = new Contract(number, user, tariffService.getEntityById(tariffId));
 
             }
 
@@ -70,16 +70,16 @@ public class EmployeeContractCreateServlet extends HttpServlet {
                 if (null != array && array.length > 0) {
                     for (String x : array) {
                         optionId = Integer.parseInt(x);
-                        option = optionService.getOptionById(optionId);
+                        option = optionService.getEntityById(optionId);
                         temporaryList.add(option);
                     }
                 }
             }
 
             if (temporaryList.isEmpty() && exceptionsList.isEmpty()) { // we do not need to check anything if there are no options
-                contractService.createContract(contract);
+                contractService.createEntity(contract);
                 user.addContract(contract);
-                userService.updateUser(user);
+                userService.updateEntity(user);
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
@@ -106,9 +106,9 @@ public class EmployeeContractCreateServlet extends HttpServlet {
                         for (Option x : temporaryList) {
                             contract.addOption(x);
                         }
-                        contractService.createContract(contract);
+                        contractService.createEntity(contract);
                         user.addContract(contract);
-                        userService.updateUser(user);
+                        userService.updateEntity(user);
                         request.getSession().setAttribute("areExceptions", "false");
                         response.sendRedirect("../cp_employee/success.jsp");
                     }

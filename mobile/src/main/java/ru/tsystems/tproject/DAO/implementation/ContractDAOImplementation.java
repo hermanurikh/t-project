@@ -36,19 +36,4 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
         }
     }
 
-    /**
-     * Gets all contracts from the database.
-     * @return a list of contracts
-     * @throws CustomDAOException
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<Contract> getAllContracts() throws CustomDAOException {
-        try {
-            return entityManager.createNamedQuery("Contract.getAllContracts", Contract.class).getResultList();
-        } catch (PersistenceException e) {
-            throw new CustomDAOException("Couldn't get all contracts.", e);
-        }
-    }
-
 }

@@ -28,12 +28,12 @@ public class OptionServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
-    /*
+
     private static final String createScript = "mobile/src/main/resources/sql/create-data-option.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-option.sql";
-     */
-    private static final String createScript = "src/main/resources/sql/create-data-option.sql";
-    private static final String deleteScript = "src/main/resources/sql/remove-data-option.sql";
+
+    /*private static final String createScript = "src/main/resources/sql/create-data-option.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-option.sql";*/
 
     @Before
     public void insertData() {
@@ -52,49 +52,49 @@ public class OptionServiceTest extends AbstractJUnit4SpringContextTests {
     @Transactional
     @Rollback(true)
     public void testOptionCreate() {
-        int a = optionService.getAllOptions().size();
+        int a = optionService.getAll().size();
         Option option = new Option("testOption5", 200, 100);
-        optionService.createOption(option);
-        int b = optionService.getAllOptions().size();
+        optionService.createEntity(option);
+        int b = optionService.getAll().size();
         assertTrue(b == a + 1);
-        optionService.deleteOption(option);
+        optionService.deleteEntity(option);
     }
     //a test to check the "read" method
     @Test
     public void testOptionRead() {
-        Option option = optionService.getOptionById(214561783);
+        Option option = optionService.getEntityById(214561783);
         assertEquals(option.getName(), "testOption1");
     }
     //a test to check the "update" method
     @Test
     public void testOptionUpdate() {
-        Option option = optionService.getOptionById(214561783);
+        Option option = optionService.getEntityById(214561783);
         assertTrue(option.getOptionsTogether().isEmpty());
         assertTrue(option.getOptionsIncompatible().isEmpty());
         option.setInitialPrice(14041992);
-        option.addOptionsTogether(optionService.getOptionById(214561784));
-        option.addOptionsIncompatible(optionService.getOptionById(214561785));
-        optionService.updateOption(option);
-        option = optionService.getOptionById(option.getId());
+        option.addOptionsTogether(optionService.getEntityById(214561784));
+        option.addOptionsIncompatible(optionService.getEntityById(214561785));
+        optionService.updateEntity(option);
+        option = optionService.getEntityById(option.getId());
         assertTrue(option.getInitialPrice() == 14041992);
         //a test to check the correct work of options together and options incompatible
         assertFalse(option.getOptionsTogether().isEmpty());
         assertFalse(option.getOptionsIncompatible().isEmpty());
         option.getOptionsTogether().clear();
         option.getOptionsIncompatible().clear();
-        optionService.updateOption(option);
+        optionService.updateEntity(option);
     }
     //a test to check the "delete" method
     @Test//(expected = CustomDAOException.class)
     public void testOptionDelete() {
-        Option option = optionService.getOptionById(214561783);
-        optionService.deleteOption(option);
-        assertNull(optionService.getOptionById(214561783));
+        Option option = optionService.getEntityById(214561783);
+        optionService.deleteEntity(option);
+        assertNull(optionService.getEntityById(214561783));
     }
-    //a test to check the "getAllOptions" method
+    //a test to check the "getAll" method
     @Test
     public void testOptionGetAll() {
-        List<Option> optionsList = optionService.getAllOptions();
+        List<Option> optionsList = optionService.getAll();
         assertTrue(optionsList.size() > 3);
     }
 

@@ -16,4 +16,6 @@ public interface GenericDAO<E, K> {
     public void update(E entity) throws CustomDAOException;
 
     public void delete(E entity) throws CustomDAOException;
+
+    public List<E> getAll() throws CustomDAOException;
 }

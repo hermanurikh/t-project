@@ -54,14 +54,14 @@ public class UserContractFinalChangeServlet extends HttpServlet {
                 response.sendRedirect("../cp_client/cp_client_change_contract.jsp"); // если заблокирован, нельзя
             }
             else {
-                contract.setTariff(tariffService.getTariffById(tariffId));
+                contract.setTariff(tariffService.getEntityById(tariffId));
                 optionId = 0;
                 if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
                     array = request.getParameterValues("cb"); //checkbox of options
                     if (null != array && array.length > 0) {
                         for (String x : array) {
                             optionId = Integer.parseInt(x);
-                            option = optionService.getOptionById(optionId);
+                            option = optionService.getEntityById(optionId);
                             temporaryList.add(option);
                         }
                     }

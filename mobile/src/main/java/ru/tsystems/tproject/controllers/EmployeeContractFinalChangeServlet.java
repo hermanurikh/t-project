@@ -51,14 +51,14 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
             number = Long.parseLong(String.valueOf(request.getSession().getAttribute("number")));
             tariffId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("tariffId")));
             Contract contract = contractService.getContractByNumber(number);
-            contract.setTariff(tariffService.getTariffById(tariffId));
+            contract.setTariff(tariffService.getEntityById(tariffId));
             optionId = 0;
             if (request.getParameterValues("cb") != null && request.getParameterValues("cb").length > 0) {
                 array = request.getParameterValues("cb"); //checkbox of options
                 if (null != array && array.length > 0) {
                     for (String x : array) {
                         optionId = Integer.parseInt(x);
-                        option = optionService.getOptionById(optionId);
+                        option = optionService.getEntityById(optionId);
                         temporaryList.add(option);
                     }
                 }
@@ -66,7 +66,7 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
 
             if (temporaryList.isEmpty()) { // we do not need to check anything if there are no options
                 contract.removeAllOptions();
-                contractService.updateContract(contract);
+                contractService.updateEntity(contract);
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {
@@ -93,7 +93,7 @@ public class EmployeeContractFinalChangeServlet extends HttpServlet {
                     for (Option x : temporaryList) {
                         contract.addOption(x);
                     }
-                    contractService.updateContract(contract);
+                    contractService.updateEntity(contract);
                     request.getSession().setAttribute("areExceptions", "false");
                     response.sendRedirect("../cp_employee/success.jsp");
                 }

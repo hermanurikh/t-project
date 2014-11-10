@@ -37,7 +37,7 @@ public class UserContractOptionsServlet extends HttpServlet {
                 int userID = ((User) (request.getSession().getAttribute("currentUserU"))).getId();
                 if (request.getParameter("cb") != null) {
                     int tariffID = Integer.parseInt(request.getParameter("cb"));
-                    Tariff tariff = tariffService.getTariffById(tariffID);
+                    Tariff tariff = tariffService.getEntityById(tariffID);
                     List<Option> optionsList = tariff.getPossibleOptions();
                     request.getSession().setAttribute("optionsList", optionsList);
                     request.getSession().setAttribute("contractNumber", contractNumber);

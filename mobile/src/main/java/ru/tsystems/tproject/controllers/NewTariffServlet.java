@@ -44,12 +44,12 @@ public class NewTariffServlet extends HttpServlet {
                 if (null != array && array.length > 0) {
                     for (String x : array) {
                         int optionId = Integer.parseInt(x);
-                        tariff.addPossibleOption(optionService.getOptionById(optionId));
+                        tariff.addPossibleOption(optionService.getEntityById(optionId));
                     }
                 }
             }
 
-            tariffService.createTariff(tariff);
+            tariffService.createEntity(tariff);
             response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {

@@ -14,31 +14,31 @@ import java.util.List;
  * An implementation of RoleService API.
  */
 @Service("roleService")
-public class RoleServiceImplementation implements RoleService {
+public class RoleServiceImplementation  implements RoleService {
     @Autowired
     private RoleDAO roleDAO;
 
     @Override
     @Transactional
-    public void createRole(Role role) throws CustomDAOException {
+    public void createEntity(Role role) throws CustomDAOException {
         this.roleDAO.create(role);
     }
 
     @Override
     @Transactional
-    public Role getRoleById(int id) throws CustomDAOException {
+    public Role getEntityById(Integer id) throws CustomDAOException {
         return this.roleDAO.read(id);
     }
 
     @Override
     @Transactional
-    public void updateRole(Role role) throws CustomDAOException {
+    public void updateEntity(Role role) throws CustomDAOException {
         this.roleDAO.update(role);
     }
 
     @Override
     @Transactional
-    public void deleteRole(Role role) throws CustomDAOException {
+    public void deleteEntity(Role role) throws CustomDAOException {
         this.roleDAO.delete(role);
 
     }
@@ -50,8 +50,8 @@ public class RoleServiceImplementation implements RoleService {
      */
     @Override
     @Transactional
-    public List<Role> getAllRoles() throws CustomDAOException {
-        return this.roleDAO.getAllRoles();
+    public List<Role> getAll() throws CustomDAOException {
+        return this.roleDAO.getAll();
     }
 }
 

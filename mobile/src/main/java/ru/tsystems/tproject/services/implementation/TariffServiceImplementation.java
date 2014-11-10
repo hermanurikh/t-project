@@ -20,27 +20,27 @@ public class TariffServiceImplementation implements TariffService {
 
     @Override
     @Transactional
-    public void createTariff(Tariff tariff) throws CustomDAOException {
+    public void createEntity(Tariff tariff) throws CustomDAOException {
         this.tariffDAO.create(tariff);
 
     }
 
     @Override
     @Transactional
-    public Tariff getTariffById(int id) throws CustomDAOException {
+    public Tariff getEntityById(Integer id) throws CustomDAOException {
         return this.tariffDAO.read(id);
     }
 
     @Override
     @Transactional
-    public void updateTariff(Tariff tariff) throws CustomDAOException {
+    public void updateEntity(Tariff tariff) throws CustomDAOException {
         this.tariffDAO.update(tariff);
 
     }
 
     @Override
     @Transactional
-    public void deleteTariff(Tariff tariff) throws CustomDAOException {
+    public void deleteEntity(Tariff tariff) throws CustomDAOException {
         this.tariffDAO.delete(tariff);
     }
 
@@ -51,8 +51,8 @@ public class TariffServiceImplementation implements TariffService {
      */
     @Override
     @Transactional
-    public List<Tariff> getAllTariffs() throws CustomDAOException {
-        return this.tariffDAO.getAllTariffs();
+    public List<Tariff> getAll() throws CustomDAOException {
+        return this.tariffDAO.getAll();
 
     }
 }

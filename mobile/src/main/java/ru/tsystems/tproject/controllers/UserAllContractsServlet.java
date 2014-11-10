@@ -21,7 +21,7 @@ public class UserAllContractsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             User user = (User) request.getSession().getAttribute("currentUserU");
-            //User newUser = userService.getUserById(user.getId());
+            //User newUser = userService.getEntityById(user.getId());
             List<Contract> contractList = user.getContracts();
             logger.error(contractList);
             request.getSession().setAttribute("contractsList", null);

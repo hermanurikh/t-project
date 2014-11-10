@@ -31,12 +31,12 @@ public class EmployeeContractServlet extends HttpServlet {
         try {
             if (request.getParameter("id") !=null && !request.getParameter("id").equals("")) {
                 int userId = Integer.parseInt(request.getParameter("id"));
-                request.getSession().setAttribute("currentLogin", userService.getUserById(userId).getLogin());
+                request.getSession().setAttribute("currentLogin", userService.getEntityById(userId).getLogin());
 
             }
             request.getSession().removeAttribute("exList");
             TariffService tariffService = new TariffServiceImplementation();
-            List<Tariff> tariffsList = tariffService.getAllTariffs();
+            List<Tariff> tariffsList = tariffService.getAll();
             request.getSession().setAttribute("tariffsList", tariffsList);
             response.sendRedirect("../cp_employee/cp_employee_new_contract.jsp");
         }

@@ -22,7 +22,7 @@ public class EmployeeOptionCreateServlet extends HttpServlet {
         OptionService optionService = new OptionServiceImplementation();
         response.setContentType("text/html;charset=utf-8");
         try {
-            List<Option> optionsList = optionService.getAllOptions();
+            List<Option> optionsList = optionService.getAll();
             request.getSession().setAttribute("optionsList", optionsList);
             response.sendRedirect("../cp_employee/cp_employee_new_option.jsp");
         }

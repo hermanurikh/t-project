@@ -9,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "CONTRACTS", uniqueConstraints = @UniqueConstraint(columnNames = {"number"}))
-@NamedQuery (name = "Contract.getAllContracts", query = "SELECT c FROM Contract c")
+@NamedQuery (name = "Contract.getAll", query = "SELECT c FROM Contract c")
 public class Contract {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)

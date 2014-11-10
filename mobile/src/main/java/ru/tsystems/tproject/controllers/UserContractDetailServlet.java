@@ -26,7 +26,7 @@ public class UserContractDetailServlet extends HttpServlet {
         ContractService contractService = new ContractServiceImplementation();
         response.setContentType("text/html;charset=utf-8");
         try {
-            Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
+            Contract contract = contractService.getEntityById(Integer.parseInt(request.getParameter("contractId")));
             request.getSession().setAttribute("contract", contract);
             List<Option> optionList = contract.getOptions();
             int amount = contract.getTariff().getPrice();

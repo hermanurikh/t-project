@@ -35,11 +35,11 @@ public class DeleteOptionServlet extends HttpServlet {
             TariffService tariffService = new TariffServiceImplementation();
             ContractService contractService = new ContractServiceImplementation();
             int optionID = Integer.parseInt(request.getParameter("optionId"));
-            Option option = optionService.getOptionById(optionID);
+            Option option = optionService.getEntityById(optionID);
             option.getOptionsTogether().clear();
             option.getOptionsIncompatible().clear();
             int balance;
-            List<Option> options = optionService.getAllOptions();
+            List<Option> options = optionService.getAll();
             for (Option x : options) {
                 if (x.getOptionsTogether().contains(option)) {
                     x.getOptionsTogether().remove(option);
@@ -48,18 +48,18 @@ public class DeleteOptionServlet extends HttpServlet {
                     x.getOptionsIncompatible().remove(option);
                 }
             }
-            List<Tariff> tariffs = tariffService.getAllTariffs();
+            List<Tariff> tariffs = tariffService.getAll();
             for (Tariff x : tariffs) {
                 x.removeOptionForTariff(option);
             }
-            List<Contract> contractList = contractService.getAllContracts();
+            List<Contract> contractList = contractService.getAll();
             for (Contract x : contractList) {
                 x.removeOption(option);
                 balance = x.getUser().getBalance();
                 x.getUser().setBalance(balance + 100);
             }
-            optionService.deleteOption(option);
-            List<Option> optionsList = optionService.getAllOptions();
+            optionService.deleteEntity(option);
+            List<Option> optionsList = optionService.getAll();
             request.getSession().setAttribute("optionsList", optionsList);
             response.sendRedirect("../cp_employee/cp_employee_options.jsp");
         }

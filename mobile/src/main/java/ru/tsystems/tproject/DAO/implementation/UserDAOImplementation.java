@@ -24,20 +24,6 @@ public class UserDAOImplementation extends GenericDAOImplementation<User, Intege
     @PersistenceContext
     private EntityManager entityManager;
 
-    /**
-     * Gets all users from the database.
-     * @return a list of users
-     * @throws CustomDAOException
-     */
-    @Override
-    public List<User> getAllUsers() throws CustomDAOException {
-        try {
-            return entityManager.createNamedQuery("User.getAllUsers", User.class).getResultList();
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Users not got", ex);
-        }
-    }
 
     /**
      * Gets user by a specified number.

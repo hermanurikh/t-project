@@ -38,12 +38,12 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
-    /*
+
     private static final String createScript = "mobile/src/main/resources/sql/create-data-contract.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-contract.sql";
-     */
-    private static final String createScript = "src/main/resources/sql/create-data-contract.sql";
-    private static final String deleteScript = "src/main/resources/sql/remove-data-contract.sql";
+
+    /*private static final String createScript = "src/main/resources/sql/create-data-contract.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-contract.sql";*/
 
 
     @Before
@@ -62,44 +62,44 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
     @Transactional
     @Rollback(true)
     public void testContractCreate() {
-        int a = contractService.getAllContracts().size();
-        Contract contract = new Contract(9999999999l, userService.getUserById(299999998), tariffService.getTariffById(211369877));
-        contractService.createContract(contract);
-        int b = contractService.getAllContracts().size();
+        int a = contractService.getAll().size();
+        Contract contract = new Contract(9999999999l, userService.getEntityById(299999998), tariffService.getEntityById(211369877));
+        contractService.createEntity(contract);
+        int b = contractService.getAll().size();
         assertTrue(b == a + 1);
-        contractService.deleteContract(contract);
+        contractService.deleteEntity(contract);
     }
     //a test to check the "read" method
     @Test
     public void testContractRead() {
-        Contract contract = contractService.getContractById(213698745);
+        Contract contract = contractService.getEntityById(213698745);
         assertTrue(contract.getNumber() == 2030508090);
     }
     //a test to check the "update" method
     @Test
     public void testContractUpdate() {
-        Contract contract = contractService.getContractById(213698745);
+        Contract contract = contractService.getEntityById(213698745);
         assertTrue(contract.getOptions().isEmpty());
-        contract.setTariff(tariffService.getTariffById(211369878));
-        contract.addOption(optionService.getOptionById(214561783));
-        contractService.updateContract(contract);
-        contract = contractService.getContractById(contract.getId());
+        contract.setTariff(tariffService.getEntityById(211369878));
+        contract.addOption(optionService.getEntityById(214561783));
+        contractService.updateEntity(contract);
+        contract = contractService.getEntityById(contract.getId());
         assertTrue(contract.getTariff().getId() == 211369878);
         assertFalse(contract.getOptions().isEmpty());
         contract.getOptions().clear();
-        contractService.updateContract(contract);
+        contractService.updateEntity(contract);
     }
     //a test to check the "delete" method
     @Test//(expected = CustomDAOException.class)
     public void testContractDelete() {
-        Contract contract = contractService.getContractById(213698745);
-        contractService.deleteContract(contract);
-        assertNull(contractService.getContractById(213698745));
+        Contract contract = contractService.getEntityById(213698745);
+        contractService.deleteEntity(contract);
+        assertNull(contractService.getEntityById(213698745));
     }
-    //a test to check the "getAllContracts" method
+    //a test to check the "getAll" method
     @Test
     public void testContractGetAll() {
-        List<Contract> contractList = contractService.getAllContracts();
+        List<Contract> contractList = contractService.getAll();
         assertTrue(contractList.size() > 1);
     }
     //a test to check the "getContractByNumber" method

@@ -28,12 +28,12 @@ public class EmployeeOptionChangeServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             int optionId = Integer.parseInt(request.getParameter("optionId"));
-            Option option = optionService.getOptionById(optionId);
-            List<Option> optionsListAllTogether = optionService.getAllOptions();
+            Option option = optionService.getEntityById(optionId);
+            List<Option> optionsListAllTogether = optionService.getAll();
             List<Option> optionsTogether = option.getOptionsTogether(); // a list of options together, checked
             optionsListAllTogether.removeAll(optionsTogether); // a list of other options together, unchecked
             optionsListAllTogether.remove(option);
-            List<Option> optionsListAllIncompatible = optionService.getAllOptions();
+            List<Option> optionsListAllIncompatible = optionService.getAll();
             List<Option> optionsIncompatible = option.getOptionsIncompatible(); // a list of incompatible options, checked
             optionsListAllIncompatible.removeAll(optionsIncompatible); // and unchecked
             optionsListAllIncompatible.remove(option);

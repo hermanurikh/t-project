@@ -19,11 +19,4 @@ public interface ContractDAO extends GenericDAO<Contract, Integer> {
 
     public Contract getContractByNumber(long number) throws CustomDAOException;
 
-    /**
-     * Gets a list of all contracts.
-     * @return a list of contracts
-     * @throws CustomDAOException
-     */
-
-    public List<Contract> getAllContracts() throws CustomDAOException;
 }

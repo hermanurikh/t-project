@@ -20,7 +20,7 @@ public class EmployeeAllContractsServlet extends HttpServlet {
     private final ContractService contractService = new ContractServiceImplementation();
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<Contract> contractList = contractService.getAllContracts();
+            List<Contract> contractList = contractService.getAll();
             request.getSession().setAttribute("contractsList", contractList);
             response.sendRedirect("../cp_employee/cp_employee_contracts.jsp");
         }

@@ -37,7 +37,7 @@ public class NewOptionServlet extends HttpServlet {
                 if (null != optionsTogether && optionsTogether.length > 0) {
                     for (String optionTogether : optionsTogether) {
                         int optionId = Integer.parseInt(optionTogether);
-                        option.addOptionsTogether(optionService.getOptionById(optionId));
+                        option.addOptionsTogether(optionService.getEntityById(optionId));
                     }
                 }
             }
@@ -46,7 +46,7 @@ public class NewOptionServlet extends HttpServlet {
                 if (null != optionsIncompatible && optionsIncompatible.length > 0) {
                     for (String optionIncompatible : optionsIncompatible) {
                         int optionId = Integer.parseInt(optionIncompatible);
-                        option.addOptionsIncompatible(optionService.getOptionById(optionId));
+                        option.addOptionsIncompatible(optionService.getEntityById(optionId));
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class NewOptionServlet extends HttpServlet {
                 }
             }
 
-            optionService.createOption(option);
+            optionService.createEntity(option);
             response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {

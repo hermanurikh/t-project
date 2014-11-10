@@ -9,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "OPTIONS")
-@NamedQuery(name = "Option.getAllOptions", query = "SELECT opt FROM Option opt")
+@NamedQuery(name = "Option.getAll", query = "SELECT opt FROM Option opt")
 public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

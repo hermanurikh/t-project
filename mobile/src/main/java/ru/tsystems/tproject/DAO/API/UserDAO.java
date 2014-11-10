@@ -34,5 +34,4 @@ public interface UserDAO extends GenericDAO<User, Integer> {
      * @throws CustomDAOException
      */
 
-    public List<User> getAllUsers() throws CustomDAOException;
 }

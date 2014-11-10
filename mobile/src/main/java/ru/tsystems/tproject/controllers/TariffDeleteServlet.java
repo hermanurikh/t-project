@@ -33,17 +33,17 @@ public class TariffDeleteServlet extends HttpServlet {
             ContractService contractService = new ContractServiceImplementation();
             int tariffId = Integer.parseInt(request.getParameter("id"));
             int balance;
-            Tariff tariff = tariffService.getTariffById(tariffId);
-            List<Contract> contractList = contractService.getAllContracts();
+            Tariff tariff = tariffService.getEntityById(tariffId);
+            List<Contract> contractList = contractService.getAll();
             for (Contract x : contractList) {
                 if (x.getTariff() == tariff) {
-                    x.setTariff(tariffService.getTariffById(11));
+                    x.setTariff(tariffService.getEntityById(11));
                     balance = x.getUser().getBalance() + 500;
                     x.getUser().setBalance(balance);
                 }
             }
-            tariffService.deleteTariff(tariff);
-            List<Tariff> tariffsList = tariffService.getAllTariffs();
+            tariffService.deleteEntity(tariff);
+            List<Tariff> tariffsList = tariffService.getAll();
             request.getSession().setAttribute("tariffsList", tariffsList);
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
             rd.forward(request, response);*/

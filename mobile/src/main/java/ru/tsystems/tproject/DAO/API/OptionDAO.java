@@ -11,13 +11,6 @@ import java.util.List;
 public interface OptionDAO extends GenericDAO<Option, Integer> {
 
     /**
-     * Gets all options from the database.
-     * @return a list of all options
-     * @throws CustomDAOException
-     */
-    public List<Option> getAllOptions() throws CustomDAOException;
-
-    /**
      * Gets all options for a tariff id.
      * @param id of the tariff
      * @return a list of possible options for the tariff

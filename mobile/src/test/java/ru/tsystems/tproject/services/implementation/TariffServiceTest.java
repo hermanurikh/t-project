@@ -28,12 +28,12 @@ public class TariffServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
-    /*
+
     private static final String createScript = "mobile/src/main/resources/sql/create-data-tariff.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-tariff.sql";
-     */
-    private static final String createScript = "src/main/resources/sql/create-data-tariff.sql";
-    private static final String deleteScript = "src/main/resources/sql/remove-data-tariff.sql";
+
+    /*private static final String createScript = "src/main/resources/sql/create-data-tariff.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-tariff.sql";*/
 
     @Before
     public void insertData() {
@@ -50,48 +50,48 @@ public class TariffServiceTest extends AbstractJUnit4SpringContextTests {
     //a test to check the "create" method
     @Test
     public void testTariffCreate() {
-        int a = tariffService.getAllTariffs().size();
+        int a = tariffService.getAll().size();
         Tariff tariff = new Tariff("testTariff3", 1234);
-        tariffService.createTariff(tariff);
-        int b = tariffService.getAllTariffs().size();
+        tariffService.createEntity(tariff);
+        int b = tariffService.getAll().size();
         assertTrue(a == b - 1);
-        tariffService.deleteTariff(tariff);
+        tariffService.deleteEntity(tariff);
     }
     //a test to check the "read" method
     @Test
     public void testTariffRead() {
-        Tariff tariff = tariffService.getTariffById(211369877);
+        Tariff tariff = tariffService.getEntityById(211369877);
         assertEquals(tariff.getName(), "testTariff1");
     }
     //a test to check the "update" method
 
     @Test
     public void testTariffUpdate() {
-        Tariff tariff = tariffService.getTariffById(211369877);
+        Tariff tariff = tariffService.getEntityById(211369877);
         assertTrue(tariff.getPossibleOptions().isEmpty());
         tariff.setPrice(89765);
-        tariff.getPossibleOptions().add(optionService.getOptionById(214561786));
-        tariffService.updateTariff(tariff);
-        tariff = tariffService.getTariffById(211369877);
+        tariff.getPossibleOptions().add(optionService.getEntityById(214561786));
+        tariffService.updateEntity(tariff);
+        tariff = tariffService.getEntityById(211369877);
         assertFalse(tariff.getPossibleOptions().isEmpty());
         // a test of getAllOptionsForTariff
         assertTrue(tariff.getPossibleOptions().size() == optionService.getAllOptionsForTariff(tariff.getId()).size());
         assertTrue(tariff.getPrice() == 89765);
         tariff.removePossibleOptions();
-        tariffService.updateTariff(tariff);
+        tariffService.updateEntity(tariff);
 
     }
     //a test to check the "delete" method
     @Test//expected = CustomDAOException.class)
     public void testTariffDelete() {
-        Tariff tariff = tariffService.getTariffById(211369877);
-        tariffService.deleteTariff(tariff);
-        assertNull(tariffService.getTariffById(211369877));
+        Tariff tariff = tariffService.getEntityById(211369877);
+        tariffService.deleteEntity(tariff);
+        assertNull(tariffService.getEntityById(211369877));
     }
-    //a test to check the "getAllTariffs" method
+    //a test to check the "getAll" method
     @Test
     public void testTariffGetAll() {
-        List<Tariff> tariffList = tariffService.getAllTariffs();
+        List<Tariff> tariffList = tariffService.getAll();
         assertTrue(tariffList.size() > 1);
     }
 

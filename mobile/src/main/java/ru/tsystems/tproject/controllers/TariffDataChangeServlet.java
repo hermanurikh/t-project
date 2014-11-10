@@ -32,17 +32,17 @@ public class TariffDataChangeServlet extends HttpServlet {
 
             String name = request.getParameter("name");
             int price =  Integer.parseInt(request.getParameter("price"));
-            Tariff tariff = tariffService.getTariffById(Integer.parseInt(request.getParameter("id")));
+            Tariff tariff = tariffService.getEntityById(Integer.parseInt(request.getParameter("id")));
             tariff.removePossibleOptions();
             if (null != array && array.length > 0) {
                 for (String x : array) {
                     int optionId = Integer.parseInt(x);
-                    tariff.addPossibleOption(optionService.getOptionById(optionId));
+                    tariff.addPossibleOption(optionService.getEntityById(optionId));
                 }
             }
             tariff.setName(name);
             tariff.setPrice(price);
-            tariffService.updateTariff(tariff);
+            tariffService.updateEntity(tariff);
             response.sendRedirect("../cp_employee/success.jsp");
         }
         catch (Exception ex) {

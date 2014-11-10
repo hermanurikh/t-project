@@ -27,13 +27,13 @@ public class EmployeeBlockServlet extends HttpServlet {
             if (contract.isBlocked()) {
                 contract.setBlocked(false);
                 contract.setEmployee(null);
-                contractService.updateContract(contract);
+                contractService.updateEntity(contract);
                 request.getSession().setAttribute("paramIsBlocked", "выключена");
             }
             else {
                 contract.setBlocked(true);
                 contract.setEmployee((User)request.getSession().getAttribute("currentUserU"));
-                contractService.updateContract(contract);
+                contractService.updateEntity(contract);
                 request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
             }
             response.sendRedirect("../cp_employee/cp_employee_change_contract.jsp");

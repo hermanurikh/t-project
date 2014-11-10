@@ -21,9 +21,9 @@ public class RoleServiceTest extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void testRoleService() {
-        Role user = roleService.getRoleById(1);
-        Role employee = roleService.getRoleById(2);
-        assertTrue(roleService.getAllRoles().size() == 2);
+        Role user = roleService.getEntityById(1);
+        Role employee = roleService.getEntityById(2);
+        assertTrue(roleService.getAll().size() == 2);
         assertEquals(user.getName(), "User");
         assertEquals(employee.getName(), "Employee");
     }

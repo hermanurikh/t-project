@@ -9,11 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.jdbc.JdbcTestUtils;
-import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
-import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.RoleService;
 import ru.tsystems.tproject.services.API.UserService;
 
@@ -34,12 +31,12 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
-    /*
+
     private static final String createScript = "mobile/src/main/resources/sql/create-data-user.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-user.sql";
-     */
-    private static final String createScript = "src/main/resources/sql/create-data-user.sql";
-    private static final String deleteScript = "src/main/resources/sql/remove-data-user.sql";
+
+    /*private static final String createScript = "src/main/resources/sql/create-data-user.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-user.sql";*/
 
     @Before
     public void insertData() {
@@ -52,16 +49,16 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     //a test to check the "create" method
     @Test
     public void testUserCreate() {
-        userService.createUser(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "1a3bjh9UzwC", 300, "password", roleService.getRoleById(2)));
+        userService.createEntity(new User("James", "Brown", new Date(), "passport", "address", "email@gmail.com", "1a3bjh9UzwC", 300, "password", roleService.getEntityById(2)));
         User user = userService.getUserByLogin("1a3bjh9UzwC");
         assertTrue(user.getRole().getId() == 2);
-        userService.deleteUser(user);
+        userService.deleteEntity(user);
     }
     //a test to check the "read" method
     @Test
     public void testUserRead() {
         User user = userService.getUserByLogin("1poi3JUShN76c");
-        User user2 = userService.getUserById(user.getId());
+        User user2 = userService.getEntityById(user.getId());
         assertTrue(user.toString().equals(user2.toString()));
     }
     //a test to check the "update" method
@@ -69,21 +66,21 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     public void testUserUpdate() {
         User user = userService.getUserByLogin("1poi3JUShN76c");
         user.setBalance(1398);
-        userService.updateUser(user);
-        user = userService.getUserById(user.getId());
+        userService.updateEntity(user);
+        user = userService.getEntityById(user.getId());
         assertTrue(user.getBalance() == 1398);
     }
     //a test to check the "delete" method
     @Test(expected = CustomDAOException.class)
     public void testUserDelete() {
         User user = userService.getUserByLogin("1poi3JUShN76c");
-        userService.deleteUser(user);
+        userService.deleteEntity(user);
         userService.getUserByLogin("1poi3JUShN76c");
     }
-    //a test to check the "getAllUsers" method
+    //a test to check the "getAll" method
     @Test
     public void testUserGetAll() {
-        List<User> userList = userService.getAllUsers();
+        List<User> userList = userService.getAll();
         assertTrue(userList.size() > 1);
     }
     //a test to check the "getUserByLogin" method

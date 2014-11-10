@@ -20,25 +20,25 @@ public class OptionServiceImplementation implements OptionService {
 
     @Override
     @Transactional
-    public void createOption(Option option) throws CustomDAOException {
+    public void createEntity(Option option) throws CustomDAOException {
         this.optionDAO.create(option);
     }
 
     @Override
     @Transactional
-    public Option getOptionById(int id) throws CustomDAOException {
+    public Option getEntityById(Integer id) throws CustomDAOException {
         return this.optionDAO.read(id);
     }
 
     @Override
     @Transactional
-    public void updateOption(Option option) throws CustomDAOException {
+    public void updateEntity(Option option) throws CustomDAOException {
         this.optionDAO.update(option);
     }
 
     @Override
     @Transactional
-    public void deleteOption(Option option) throws CustomDAOException {
+    public void deleteEntity(Option option) throws CustomDAOException {
         this.optionDAO.delete(option);
     }
 
@@ -49,8 +49,8 @@ public class OptionServiceImplementation implements OptionService {
      */
     @Override
     @Transactional
-    public List<Option> getAllOptions() throws CustomDAOException {
-        return this.optionDAO.getAllOptions();
+    public List<Option> getAll() throws CustomDAOException {
+        return this.optionDAO.getAll();
     }
 
     /**

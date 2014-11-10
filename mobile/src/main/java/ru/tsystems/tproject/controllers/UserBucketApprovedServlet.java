@@ -21,7 +21,7 @@ public class UserBucketApprovedServlet extends HttpServlet {
         ContractService contractService = new ContractServiceImplementation();
         try {
             Contract contract = (Contract) req.getSession().getAttribute("updatedContract");
-            contractService.updateContract(contract);
+            contractService.updateEntity(contract);
             resp.sendRedirect("../cp_client/success.jsp");
         }
         catch (Exception ex) {

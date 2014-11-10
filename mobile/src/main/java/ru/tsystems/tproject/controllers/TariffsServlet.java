@@ -26,7 +26,7 @@ public class TariffsServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             TariffService tariffService = new TariffServiceImplementation();
-            List<Tariff> tariffsList = tariffService.getAllTariffs();
+            List<Tariff> tariffsList = tariffService.getAll();
             request.getSession().setAttribute("tariffsList", tariffsList);
             /*RequestDispatcher rd = request.getRequestDispatcher("../cp_employee/cp_employee_options.jsp");
             rd.forward(request, response);*/

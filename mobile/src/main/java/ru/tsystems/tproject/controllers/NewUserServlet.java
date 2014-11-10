@@ -85,7 +85,7 @@ public class NewUserServlet extends HttpServlet {
             }
 
             if (list.isEmpty()) {
-                userService.createUser(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getRoleById(role)));
+                userService.createEntity(new User(name, surname, birthday, passport, address, email, login, balance, password, roleService.getEntityById(role)));
                 response.sendRedirect("../cp_employee/success.jsp");
             }
             else {

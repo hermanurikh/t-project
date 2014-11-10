@@ -27,7 +27,7 @@ public class UsersServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         try {
             UserService userService = new UserServiceImplementation();
-            List<User> usersList = userService.getAllUsers();
+            List<User> usersList = userService.getAll();
             request.getSession().setAttribute("usersList", usersList);
             response.sendRedirect("../cp_employee/cp_employee_users.jsp");
         }

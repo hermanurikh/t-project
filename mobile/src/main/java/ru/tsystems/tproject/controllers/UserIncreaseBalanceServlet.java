@@ -24,7 +24,7 @@ public class UserIncreaseBalanceServlet extends HttpServlet {
             User user = (User) request.getSession().getAttribute("currentUserU");
             int balance = user.getBalance() + 500;
             user.setBalance(balance);
-            userService.updateUser(user);
+            userService.updateEntity(user);
             request.getSession().setAttribute("currentUserU", user);
             response.sendRedirect("../cp_client/cp_client_balance.jsp");
 

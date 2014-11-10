@@ -25,12 +25,12 @@ public class DeleteEmployeeServlet extends HttpServlet {
         UserService userService = new UserServiceImplementation();
         try {
             int userId = Integer.parseInt(request.getParameter("id"));
-            User user = userService.getUserById(userId);
+            User user = userService.getEntityById(userId);
             List<Contract> contracts = user.getContracts();
             if (contracts.isEmpty()) {
-                userService.deleteUser(user);
+                userService.deleteEntity(user);
             } else throw new Exception("Before deleting a user you should delete all his contracts.");
-            request.getSession().setAttribute("usersList", userService.getAllUsers());
+            request.getSession().setAttribute("usersList", userService.getAll());
             response.sendRedirect("../cp_employee/cp_employee_users.jsp");
         }
         catch (Exception ex) {

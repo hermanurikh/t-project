@@ -8,19 +8,7 @@ import java.util.List;
 /**
  * CRUD along with the specific operations needed.
  */
-public interface UserService {
-
-    public void createUser(User user) throws CustomDAOException;
-    public User getUserById(int id) throws CustomDAOException;
-    public void updateUser(User user) throws CustomDAOException;
-    public void deleteUser(User user) throws CustomDAOException;
-
-    /**
-     * get all users from the database
-     * @return
-     * @throws CustomDAOException
-     */
-    public List<User> getAllUsers() throws CustomDAOException;
+public interface UserService extends GenericService<User, Integer> {
 
     /**
      * get a user by specifying its number

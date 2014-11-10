@@ -10,10 +10,4 @@ import java.util.List;
  */
 public interface RoleDAO extends GenericDAO<Role, Integer> {
 
-    /**
-     * Lists all roles.
-     * @return a list of roles
-     * @throws CustomDAOException
-     */
-    public List<Role> getAllRoles() throws CustomDAOException;
 }

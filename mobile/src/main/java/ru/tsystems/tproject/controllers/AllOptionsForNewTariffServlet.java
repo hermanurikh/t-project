@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.services.API.OptionService;
-import ru.tsystems.tproject.services.implementation.OptionServiceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +25,7 @@ public class AllOptionsForNewTariffServlet extends HttpServlet {
     {
         response.setContentType("text/html;charset=utf-8");
         try {
-            List<Option> optionsList = optionService.getAllOptions();
+            List<Option> optionsList = optionService.getAll();
             request.getSession().setAttribute("optionsList", optionsList);
             response.sendRedirect("../cp_employee/cp_employee_new_tariff.jsp");
         }

@@ -17,22 +17,6 @@ import java.util.List;
  */
 @Repository("tariffDAO")
 public class TariffDAOImplementation extends GenericDAOImplementation<Tariff, Integer> implements TariffDAO {
-    @PersistenceContext
-    private EntityManager entityManager;
 
-    /**
-     * Gets all tariffs from the database.
-     * @return a list of tariffs
-     * @throws CustomDAOException
-     */
-    @Override
-    public List<Tariff> getAllTariffs() throws CustomDAOException {
-        try {
-            return entityManager.createNamedQuery("Tariff.getAllTariffs", Tariff.class).getResultList();
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("All tariffs not got", ex);
-        }
-    }
+
 }

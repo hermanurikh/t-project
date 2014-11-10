@@ -10,11 +10,4 @@ import java.util.List;
  */
 public interface TariffDAO extends GenericDAO<Tariff, Integer> {
 
-    /**
-     * Gets a list of all tariffs from the database.
-     * @return a list of tariffs
-     * @throws CustomDAOException
-     */
-
-    public List<Tariff> getAllTariffs() throws CustomDAOException;
 }

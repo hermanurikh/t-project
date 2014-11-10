@@ -22,22 +22,6 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
     private EntityManager entityManager;
 
     /**
-     * Gets all options from the database.
-     * @return a list of options
-     * @throws CustomDAOException
-     */
-    @Override
-    public List<Option> getAllOptions() throws CustomDAOException{
-        try{
-            return entityManager.createNamedQuery("Option.getAllOptions", Option.class).getResultList();
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Options not got", ex);
-        }
-    }
-
-    /**
      * Gets all available options for a specified tariff.
      * @param id - id of the tariff
      * @return a list of options for the tariff

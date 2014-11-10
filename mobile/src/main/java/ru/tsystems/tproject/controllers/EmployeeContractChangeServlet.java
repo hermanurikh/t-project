@@ -29,7 +29,7 @@ public class EmployeeContractChangeServlet extends HttpServlet {
         ContractService contractService = new ContractServiceImplementation();
         response.setContentType("text/html;charset=utf-8");
         try {
-            Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
+            Contract contract = contractService.getEntityById(Integer.parseInt(request.getParameter("contractId")));
             request.getSession().setAttribute("number", contract.getNumber());
             request.getSession().setAttribute("login", contract.getUser().getLogin());
             if (contract.isBlocked()) {
@@ -40,7 +40,7 @@ public class EmployeeContractChangeServlet extends HttpServlet {
             }
             request.getSession().removeAttribute("exList");
             TariffService tariffService = new TariffServiceImplementation();
-            List<Tariff> tariffsList = tariffService.getAllTariffs();
+            List<Tariff> tariffsList = tariffService.getAll();
             request.getSession().setAttribute("tariffsList", tariffsList);
             response.sendRedirect("../cp_employee/cp_employee_change_contract.jsp");
         }

@@ -29,12 +29,12 @@ public class EmployeeContractDeleteServlet extends HttpServlet {
         UserService userService = new UserServiceImplementation();
         response.setContentType("text/html;charset=utf-8");
         try {
-            Contract contract = contractService.getContractById(Integer.parseInt(request.getParameter("contractId")));
+            Contract contract = contractService.getEntityById(Integer.parseInt(request.getParameter("contractId")));
             User user = userService.getUserByNumber(contract.getNumber());
-            contractService.deleteContract(contract);
+            contractService.deleteEntity(contract);
             user.removeContract(contract);
-            userService.updateUser(user);
-            request.getSession().setAttribute("contractsList", contractService.getAllContracts());
+            userService.updateEntity(user);
+            request.getSession().setAttribute("contractsList", contractService.getAll());
             response.sendRedirect("../cp_employee/cp_employee_contracts.jsp");
         }
         catch (Exception ex) {

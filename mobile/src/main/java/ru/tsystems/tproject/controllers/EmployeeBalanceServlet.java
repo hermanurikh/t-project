@@ -23,11 +23,11 @@ public class EmployeeBalanceServlet extends HttpServlet {
         UserService userService = new UserServiceImplementation();
         try {
             int userId = Integer.parseInt(request.getParameter("id"));
-            User user = userService.getUserById(userId);
+            User user = userService.getEntityById(userId);
             int balance = user.getBalance();
             user.setBalance(balance + 500);
-            userService.updateUser(user);
-            request.getSession().setAttribute("usersList", userService.getAllUsers());
+            userService.updateEntity(user);
+            request.getSession().setAttribute("usersList", userService.getAll());
             response.sendRedirect("../cp_employee/cp_employee_users.jsp");
         }
         catch (Exception ex) {

@@ -9,13 +9,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 /**
  * A generic DAO Implementation of main operations.
  */
 
 public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K> {
-    protected Class<? extends E> daoType;
+    protected Class<E> daoType;
 
     @SuppressWarnings("unchecked")
     public GenericDAOImplementation() {
@@ -67,6 +68,15 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
             throw new CustomDAOException("Entity not deleted: " + entity, ex);
         }
 
+    }
+    @Override
+    public List<E> getAll() throws CustomDAOException {
+        try {
+            return this.entityManager.createNamedQuery(daoType.getSimpleName() + ".getAll", daoType).getResultList();
+        }
+        catch (PersistenceException ex) {
+            throw new CustomDAOException("Unable to get all entities of class " + daoType.getSimpleName(), ex);
+        }
     }
 
 

@@ -18,31 +18,28 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     private UserDAO userDAO;
 
-
     @Override
     @Transactional
-    public void createUser(User user) throws CustomDAOException {
-        this.userDAO.create(user);
-
+    public void createEntity(User entity) throws CustomDAOException {
+        this.userDAO.create(entity);
     }
 
     @Override
     @Transactional
-    public User getUserById(int id) throws CustomDAOException {
+    public User getEntityById(Integer id) throws CustomDAOException {
         return this.userDAO.read(id);
     }
 
     @Override
     @Transactional
-    public void updateUser(User user) throws CustomDAOException {
-        this.userDAO.update(user);
-
+    public void updateEntity(User entity) throws CustomDAOException {
+        this.userDAO.update(entity);
     }
 
     @Override
     @Transactional
-    public void deleteUser(User user) throws CustomDAOException {
-        this.userDAO.delete(user);
+    public void deleteEntity(User entity) throws CustomDAOException {
+        this.userDAO.delete(entity);
     }
 
     /**
@@ -52,8 +49,8 @@ public class UserServiceImplementation implements UserService {
      */
     @Override
     @Transactional
-    public List<User> getAllUsers() throws CustomDAOException {
-        return this.userDAO.getAllUsers();
+    public List<User> getAll() throws CustomDAOException {
+        return this.userDAO.getAll();
 
     }
 
