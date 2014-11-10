@@ -52,17 +52,6 @@
         <property name="persistenceXmlLocation" value="classpath:persistence.xml" />
         <property name="persistenceUnitName" value="persistenceUnit" />
         <property name="dataSource" ref="dataSource"/>
-        <property name="jpaPropertyMap">
-            <props>
-                <prop key="eclipselink.weaving">false</prop>
-            </props>
-        </property>
-        <!--
-        <property name="packagesToScan">
-            <list>
-                <value>ru.tsystems.tproject.entities.*</value>
-            </list>
-        </property>-->
 
 
     </bean>

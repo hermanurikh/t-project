@@ -17,52 +17,9 @@ import java.util.List;
  * An implementation of a ContractDAO API.
  */
 @Repository("contractDAO")
-public class ContractDAOImplementation implements ContractDAO {
+public class ContractDAOImplementation extends GenericDAOImplementation<Contract, Integer> implements ContractDAO {
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Override
-    public void create(Contract entity) throws CustomDAOException {
-        try {
-            entityManager.persist(entity);
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Entity not created: " + entity, ex);
-        }
-    }
-
-    @Override
-    public Contract read(Integer id) throws CustomDAOException {
-        try {
-            return entityManager.find(Contract.class, id);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity with id " + id + " not found", ex);
-        }
-    }
-
-    @Override
-    public void update(Contract entity) throws CustomDAOException {
-        try {
-            entityManager.merge(entity);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not updated: " + entity, ex);
-        }
-
-    }
-
-    @Override
-    public void delete(Contract entity) throws CustomDAOException {
-        try {
-            entityManager.remove(entityManager.merge(entity));
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not deleted: " + entity, ex);
-        }
-
-    }
 
     /**
      * Gets contract by a specified number.

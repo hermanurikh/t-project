@@ -17,53 +17,9 @@ import java.util.List;
  * An implementation of OptionDAO API.
  */
 @Repository("optionDAO")
-public class OptionDAOImplementation implements OptionDAO {
+public class OptionDAOImplementation extends GenericDAOImplementation<Option, Integer> implements OptionDAO {
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Override
-    public void create(Option entity) throws CustomDAOException {
-        try {
-            entityManager.persist(entity);
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Entity not created: " + entity, ex);
-        }
-    }
-
-    @Override
-    public Option read(Integer id) throws CustomDAOException {
-        try {
-            return entityManager.find(Option.class, id);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity with id " + id + " not found", ex);
-        }
-    }
-
-    @Override
-    public void update(Option entity) throws CustomDAOException {
-        try {
-            entityManager.merge(entity);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not updated: " + entity, ex);
-        }
-
-    }
-
-    @Override
-    public void delete(Option entity) throws CustomDAOException {
-        try {
-            entityManager.remove(entityManager.merge(entity));
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not deleted: " + entity, ex);
-        }
-
-    }
-
 
     /**
      * Gets all options from the database.

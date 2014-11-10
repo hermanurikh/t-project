@@ -16,52 +16,9 @@ import java.util.List;
  * An implementation of RoleDAO API.
  */
 @Repository("roleDAO")
-public class RoleDAOImplementation implements RoleDAO{
+public class RoleDAOImplementation extends GenericDAOImplementation<Role, Integer> implements RoleDAO{
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Override
-    public void create(Role entity) throws CustomDAOException {
-        try {
-            entityManager.persist(entity);
-        }
-        catch (PersistenceException ex)
-        {
-            throw new CustomDAOException("Entity not created: " + entity, ex);
-        }
-    }
-
-    @Override
-    public Role read(Integer id) throws CustomDAOException {
-        try {
-            return entityManager.find(Role.class, id);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity with id " + id + " not found", ex);
-        }
-    }
-
-    @Override
-    public void update(Role entity) throws CustomDAOException {
-        try {
-            entityManager.merge(entity);
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not updated: " + entity, ex);
-        }
-
-    }
-
-    @Override
-    public void delete(Role entity) throws CustomDAOException {
-        try {
-            entityManager.remove(entityManager.merge(entity));
-        }
-        catch (PersistenceException ex) {
-            throw new CustomDAOException("Entity not deleted: " + entity, ex);
-        }
-
-    }
 
     /**
      * Lists all possible roles.
