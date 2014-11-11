@@ -32,11 +32,11 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
 
-    private static final String createScript = "mobile/src/main/resources/sql/create-data-user.sql";
+   /* private static final String createScript = "mobile/src/main/resources/sql/create-data-user.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-user.sql";
-
-    /*private static final String createScript = "src/main/resources/sql/create-data-user.sql";
-    private static final String deleteScript = "src/main/resources/sql/remove-data-user.sql";*/
+*/
+    private static final String createScript = "src/main/resources/sql/create-data-user.sql";
+    private static final String deleteScript = "src/main/resources/sql/remove-data-user.sql";
 
     @Before
     public void insertData() {

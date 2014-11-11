@@ -4,11 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/login_file1.css" />
-    <link rel="stylesheet" type="text/css" href="css/login_file2.css" />
-    <script type="text/javascript" src="scripts/form_script_1"></script>
-    <script type="text/javascript" src="scripts/form_script_2"></script>
-    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/login_file1.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/login_file2.css" />
+    <script type="text/javascript" src="../../scripts/form_script_1"></script>
+    <script type="text/javascript" src="../../scripts/form_script_2"></script>
+    <script type="text/javascript" src="../../scripts/jquery.js"></script>
     <title>Личный кабинет - авторизация</title>
     <meta charset="utf-8" />
 </head>
