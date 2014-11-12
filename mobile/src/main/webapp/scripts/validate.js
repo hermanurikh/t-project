@@ -16,7 +16,7 @@ $(document).ready(function(){
            }
            else {
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-               numberDiv.removeClass('ui-ajaxvalidate-error')
+               numberDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
            }
        },
        'login' : function() {
@@ -30,7 +30,7 @@ $(document).ready(function(){
            }
            else {
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-               loginDiv.removeClass('ui-ajaxvalidate-error')
+               loginDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
            }
        },
        'tariff' : function() {
@@ -64,4 +64,6 @@ $(document).ready(function(){
     $('#number').change(jVal.number);
     $('#login').change(jVal.login);
     $('input[name="cb"]').change(jVal.tariff);
+    $("#number").inputmask("(999)999-99-99");//маска
+
 });

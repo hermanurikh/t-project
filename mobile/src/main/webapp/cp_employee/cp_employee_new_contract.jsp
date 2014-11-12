@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file9.css" />
     <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="jquery.inputmask.js"></script>
     <script type="text/javascript" src="../scripts/validate.js"></script>
 
 </head>
