@@ -131,27 +131,7 @@
             </div>
         </div>
     </div>
-</div><script>
-		$(document).ready(function(){
-			$( "#accordion" ).accordion({
-				active: 0,
-				create: function(e, ui){
-					$('h2', ui.header).removeClass('no-link');
-					$('i', ui.header).removeClass('ui-icon-arrow-down').addClass('ui-icon-arrow-up');
-
-				},
-				beforeActivate: function(e, ui){
-					$('h2', ui.newHeader).removeClass('no-link');
-					$('i', ui.newHeader).removeClass('ui-icon-arrow-down').addClass('ui-icon-arrow-up');
-
-					$('h2', ui.oldHeader).addClass('no-link');
-					$('i', ui.oldHeader).removeClass('ui-icon-arrow-up').addClass('ui-icon-arrow-down');
-
-				}
-			});
-		});
-
-	</script>
+</div>
 
 
 
