@@ -22,8 +22,10 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file9.css" />
     <script type="text/javascript" src="../scripts/jquery.js"></script>
-    <script type="text/javascript" src="jquery.inputmask.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="../scripts/validate.js"></script>
+    <script type="text/javascript" src="../scripts/numberMask.js"></script>
+    <script type="text/javascript" src="../scripts/focus.js"></script>
 
 </head>
 
@@ -42,6 +44,13 @@
             var o = document.getElementById('exceptions');
             o.style.display = 'block';
         }
+    });
+
+
+</script>
+<script type="text/javascript">
+    jQuery(function($){
+        $("#number").mask("(999) 999-99-99");
     });
 </script>
 
@@ -155,11 +164,13 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Номер контракта (10 цифр):</label>
                                         <div id="numberDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all"><!--ui-field отвечает за иконку, без него она уезжает-->
-                                            <input type="text" id="number" class="js-input big-input" name="number">
+                                            <input type="text" id="number" class="js-input big-input" name="number"/><!-- class="js-input big-input"-->
                                             <div class="ui-ajaxvalidate-icon"></div>
                                         </div>
                                         <span class="error-custom-message" id="error-custom-message-1">В качестве номера необходимо использовать число из 10 цифр.</span>
                                     </div>
+
+
 
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Логин пользователя:</label>
@@ -167,7 +178,7 @@
                                             <input type="text" id="login" class="js-input big-input" name="login" value=${currentLogin}>
                                             <div class="ui-ajaxvalidate-icon"></div>
                                         </div>
-                                        <span class="error-custom-message" id="error-custom-message-2">Логин не может быть нулевым!</span>
+                                        <span class="error-custom-message" id="error-custom-message-2">Логин должен содержать от 2 до 15 знаков.</span>
                                     </div>
                                     <div style="display:none">
                                         <input id="isContract" value=${userExists}>
@@ -202,7 +213,7 @@
                                             <c:forEach var="tariff" items="${tariffsList}">
                                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" name="cb" value=${tariff.id}></td>
+                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id = "cb" name="cb" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
 

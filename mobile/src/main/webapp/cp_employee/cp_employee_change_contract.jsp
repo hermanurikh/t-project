@@ -20,7 +20,9 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css" />
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css" />
     <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/validate.js"></script>
 
 </head>
 
@@ -74,81 +76,7 @@
                                 </div>
                             </div>
                             <div class="right">
-                                <script>
-                                    var cp_pages = new Array();
-                                    cp_pages.push({
-                                        'caption': 'Домены и поддомены',
-                                        'name': 'domains'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Сайты',
-                                        'name': 'sites'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Каталог CMS',
-                                        'name': 'cms'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Файловый менеджер',
-                                        'name': 'fileman'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Базы данных MySQL',
-                                        'name': 'mysql'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Почтовый менеджер',
-                                        'name': 'mailman'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Пользователи ПУ/FTP',
-                                        'name': 'managers'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Резервные копии',
-                                        'name': 'backup'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Crontab',
-                                        'name': 'crontab'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Jabber сервер',
-                                        'name': 'jabber'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Безопасность',
-                                        'name': 'security'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Логи',
-                                        'name': 'logmanager'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Дополнительные услуги',
-                                        'name': 'services'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Тариф',
-                                        'name': 'tariff'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Финансы',
-                                        'name': 'balance'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Документы',
-                                        'name': 'documents'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Уведомления',
-                                        'name': 'sms'
-                                    });
-                                    cp_pages.push({
-                                        'caption': 'Бонусы',
-                                        'name': 'bonuses'
-                                    });
-                                </script>
+
                                 <div class="account-selector dobble">
                                     <div class="main">
                                         <div class="info">
@@ -231,7 +159,7 @@
 
 
 
-                    <form action="../controllers/EmployeeContractOptionsServlet" method="GET" accept-charset="CP1252">
+                    <form action="../controllers/EmployeeContractOptionsServlet" id="jForm" method="GET" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Изменение контракта с номером ${number} для пользователя ${login}</h2>
                             <div>
@@ -240,6 +168,7 @@
 
 
                                     <h2 class="js-h">Выберите тариф для контракта </h2>
+                                    <span class="error-custom-message" id="error-custom-message-3">Пожалуйста, выберите один из тарифов.</span>
                                     <div>
                                         <div style="display:none">
                                             <input id="isContract" value=${userExists}>
@@ -269,7 +198,7 @@
                                                 <c:forEach var="tariff" items="${tariffsList}">
                                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                                        <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" name="cb" value=${tariff.id}></td>
+                                                        <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id = "cb" name="cb" value=${tariff.id}></td>
                                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
                                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
 
@@ -286,7 +215,7 @@
                                         </div><div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="submit" value="Выбрать опции для тарифа" />
+                                            <input type="submit" id="send" value="Выбрать опции для тарифа" />
                                         </div>
                                     </div></div>
                                 </div></div>
