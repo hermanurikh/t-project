@@ -18,13 +18,21 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css" />
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css" />
-
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css" />
     <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="../scripts/validateSearch.js"></script>
+    <script type="text/javascript" src="../scripts/focus.js"></script>
 
 </head>
 
 
 <body class="locale-ru_RU">
+<script type="text/javascript">
+    jQuery(function($){
+        $("#number").mask("(999) 999-99-99");
+    });
+</script>
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a>
 </div>
 <div id="vds-overlay" style="display: none;"></div>
@@ -38,23 +46,22 @@
 </div>
 
 <script type="text/javascript">
-        function recheck(id) {
-            document.getElementById(id).value = "";
-        }
-    </script>
+    function recheck(id) {
+        document.getElementById(id).value = "";
+    }
+</script>
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.jsp";
+        location.href = "cp_employee_main.jsp";
     }
 </script>
 <script>
-    $(document).ready(function()
-    {
-    if (document.getElementById('found').value == "false") {
-    var o = document.getElementById('exceptions');
-    o.style.display = 'block';
-    }
+    $(document).ready(function() {
+        if (document.getElementById('found').value == "false") {
+            var o = document.getElementById('exceptions');
+            o.style.display = 'block';
+        }
     });
 </script>
 
@@ -69,19 +76,20 @@
 
                         <div class="main-header">
                             <div class="inner-wrap">
-                                <div class="logotype"  onclick="redirect()">
+                                <div class="logotype" onclick="redirect()">
                                 </div>
                                 <div class="nav-wrap">
                                     <ul class="nav">
-                                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                                        <li><a href="cp_employee_profile.jsp">Профиль</a>
+                                        </li>
                                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                                     </ul>
                                 </div>
                             </div>
                             <div id="isValid" style="display:none">
-                                                        <input id="found" value=${found}>
+                                <input id="found" value=${found}>
 
-                                                    </div>
+                            </div>
                             <div class="right">
                                 <div class="account-selector dobble">
                                     <div class="main">
@@ -174,26 +182,56 @@
                         </div>
                     </div>
 
-                    <form action="../controllers/EmployeeFindUserServlet" method="post" accept-charset="CP1252">
+                    <form action="../controllers/EmployeeFindUserServlet" id="jForm" method="post" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Поиск пользователя</h2>
 
-                            <div class="js-row control-group" id="exceptions" style="display:none"><div>
+                            <div class="js-row control-group" id="exceptions" style="display:none">
+                                <div>
 
-                                                                                <span class="small_signature">Пользователь не найден.</span> <br>
+                                    <span class="small_signature">Пользователь не найден.</span>
+                                    <br>
 
-                                                                            </div>
-                                                                            </div>
+                                </div>
+                            </div>
 
 
 
                             <div>
                                 <div class="js-table form-horizontal support-issue-form">
 
+
+                                    <div class="js-row control-group">
+                                        <label class="js-caption control-label">Введите номер контракта:</label>
+                                        <div id="numberDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all"><!--ui-field отвечает за иконку, без него она уезжает-->
+                                            <input type="text" id="number" class="js-input big-input" name="number" onfocus="recheck('login')"/><!-- class="js-input big-input"-->
+                                            <div class="ui-ajaxvalidate-icon"></div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="js-row control-group">
+                                        <label class="js-caption control-label">Или логин:</label>
+                                        <div id="loginDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all">
+                                            <input type="text" id="login" class="js-input big-input" name="login" onfocus="recheck('number')"/>
+                                            <div class="ui-ajaxvalidate-icon"></div>
+                                        </div>
+                                        <span class="error-custom-message" id="error-custom-message-2">Логин должен содержать от 2 до 15 знаков.</span>
+                                        <span class="error-custom-message" id="error-custom-message-1">Пожалуйста, заполните одно из полей.</span>
+
+                                    </div>
+
+
+
+
+
+                                    <!--
+
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Введите номер контракта:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" id="nameFind" name="number" onfocus="recheck ( 'loginFind' );">
+                                            <input type="text" class="js-input big-input" id="number" name="number" onfocus="recheck ( 'login' );">
                                         </div>
                                     </div>
 
@@ -201,9 +239,17 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Или логин:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" id="loginFind" name="login" onfocus="recheck ( 'nameFind' );">
+                                            <input type="text" class="js-input big-input" id="login" name="login" onfocus="recheck ( 'number' );">
                                         </div>
-                                    </div>
+                                    </div> -->
+
+
+
+
+
+
+
+
 
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
@@ -212,7 +258,7 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
                                         <div class="js-td controls jq-validate-container">
-                                            <span><input type="submit" value="Найти" /></span>
+                                            <span><input type="submit" id="send" value="Найти" /></span>
                                         </div>
                                     </div>
                                 </div>

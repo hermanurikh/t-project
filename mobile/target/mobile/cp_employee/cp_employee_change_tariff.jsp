@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/validate.js"></script>
 
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
@@ -136,7 +139,7 @@
                 </div>
             </div>
 
-            <form action="../controllers/TariffDataChangeServlet" method="POST" accept-charset="CP1252">
+            <form action="../controllers/TariffDataChangeServlet" id="jForm" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Изменение тарифа</h2><div>
                     <div class="js-table form-horizontal support-issue-form">
@@ -144,15 +147,18 @@
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Название тарифа:</label>
                             <div class="js-td controls jq-validate-container">
+                                <input type="text" id="name" name= "name" class="js-input big-input" value=${name}>
+                                <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название тарифа.</span>
 
-                                <input type="text" name= "name" value=${name}>
                             </div>
                         </div>
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
-                            <div class="js-td controls jq-validate-container">
+                            <div class="js-td controls jq-validate-container" >
 
-                                <input type="text" name="price" value=${price}>
+                                <input type="text" id="price" name="price" class="js-input big-input" value=${price}>
+                                <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
+
                             </div>
                         </div>
 
@@ -173,7 +179,7 @@
                                 <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                                 <tr class="ui-table-header">
 
-                                    <th class="header_s_checkbox" width="12" align="center"><input id="main_checkbox" type="checkbox" checked="checked"></th>
+                                    <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox"></th> -- type="checkbox" checked="checked" -->
                                     <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
                                     <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
                                     <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
@@ -212,7 +218,7 @@
                         </div><div class="js-row control-group">
                         <label class="js-caption control-label"></label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="submit" value="Изменить тариф" />
+                            <input type="submit" id="send" value="Изменить тариф" />
                         </div>
                     </div></div>
                 </div></div>

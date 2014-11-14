@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/validate.js"></script
 </head>
 <body class="locale-ru_RU">
 <script type="text/javascript">
@@ -132,7 +135,7 @@
 
 
 
-                        <form action="../controllers/UserContractOptionsServlet" method="GET" accept-charset="CP1252">
+                        <form action="../controllers/UserContractOptionsServlet" id="jForm" method="GET" accept-charset="CP1252">
                             <div class="js-body info__body">
                                 <h2 class="js-h">Изменение контракта с номером ${number}</h2><div>
 
@@ -140,6 +143,7 @@
 
 
                                     <h2 class="js-h">Выберите тариф для контракта </h2><div>
+                                    <span class="error-custom-message" id="error-custom-message-3">Пожалуйста, выберите один из тарифов.</span>
                                     <small id="checkedTariff" style="display:none">Пожалуйста, отметьте один из тарифов.</small>
 
 
@@ -158,7 +162,7 @@
                                             <c:forEach var="tariff" items="${tariffsList}">
                                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" name="cb" value=${tariff.id}></td>
+                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id="cb" name="cb" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
 
@@ -175,7 +179,7 @@
                                     </div><div class="js-row control-group">
                                     <label class="js-caption control-label"></label>
                                     <div class="js-td controls jq-validate-container">
-                                        <input type="submit" value="Выбрать опции для тарифа" />
+                                        <input type="submit" id="send" value="Выбрать опции для тарифа" />
                                     </div>
                                 </div></div>
                             </div></div>

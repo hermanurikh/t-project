@@ -1,6 +1,6 @@
-.error-custom-message {
+.error-custom-message, .error-custom-message-incorrect {
 color: rgb(204, 51, 51);
-display: block;
+display: none;
 font-family: tahoma, arial, sans-serif;
 font-size: 11px;
 font-weight: normal;
@@ -11,4 +11,7 @@ margin-left: 8px;
 margin-right: 0px;
 margin-top: 0px;
 width: 500px;
+}
+.error-custom-message-incorrect {
+    display: block;
 }

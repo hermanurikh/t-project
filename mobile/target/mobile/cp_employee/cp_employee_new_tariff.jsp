@@ -19,9 +19,11 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/validate.js"></script>
 
 </head>
-<script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
+<body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
 <div id="vds-overlay" style="display: none;"></div>
 <div id="vds-wait" style="display: none;">
@@ -153,7 +155,7 @@ function validateForm() {
                 </div>
             </div>
 
-            <form name="myForm" action="../controllers/NewTariffServlet" method="POST" onsubmit="return validateForm()" accept-charset="CP1252">
+            <form name="myForm" action="../controllers/NewTariffServlet" id="jForm" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Создание нового тарифа</h2><div>
                     <div class="js-table form-horizontal support-issue-form">
@@ -161,14 +163,17 @@ function validateForm() {
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Название тарифа:</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="text" class="js-input big-input" name="name">
+                                <input type="text" id="name" class="js-input big-input" name="name">
+                                <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название тарифа.</span>
+
+
                             </div>
-                            <span class="error-custom-message" style="display:none">В качестве пароля Вы можете иcпользовать комбинацию из 8-30 символов и состоящую из следующих знаков: A-Z, a-z, 0-9.</span>
                         </div>
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="number" class="js-input big-input" name = "price">
+                                <input type="text" id="price" class="js-input big-input" name = "price">
+                                <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
                             </div>
                         </div>
 
@@ -181,7 +186,7 @@ function validateForm() {
                                 <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                                 <tr class="ui-table-header">
 
-                                    <th class="header_s_checkbox" width="12" align="center"><input id="main_checkbox" type="checkbox" checked="checked"></th>
+                                    <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox" type="checkbox" checked="checked">--></th>
                                     <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
                                     <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
                                     <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
@@ -209,7 +214,7 @@ function validateForm() {
                         </div><div class="js-row control-group">
                         <label class="js-caption control-label"></label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="submit" value="Создать тариф" />
+                            <input type="submit" id="send" value="Создать тариф" />
                         </div>
                     </div></div>
                 </div></div>

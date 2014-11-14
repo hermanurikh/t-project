@@ -172,7 +172,8 @@ function validateForm() {
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="number" class="js-input big-input" name = "price">
+                                <input type="text" id="price" class="js-input big-input" name = "price">
+                                <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
                             </div>
                         </div>
 

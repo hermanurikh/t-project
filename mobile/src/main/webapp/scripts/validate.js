@@ -65,6 +65,32 @@ $(document).ready(function(){
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
            }
        },
+       'price' : function() {
+           var userName = $('#price');
+           var errorMessage = $('#error-custom-message-5');
+           if (userName.val() == null) return false;
+           if (errorMessage.val() == null) return false;
+           else if (userName.val().length == 0) {
+               jVal.errors = true;
+               errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+           }
+           else {
+               errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+           }
+       },
+       'initialPrice' : function() {
+           var userName = $('#initialPrice');
+           var errorMessage = $('#error-custom-message-6');
+           if (userName.val() == null) return false;
+           if (errorMessage.val() == null) return false;
+           else if (userName.val().length == 0) {
+               jVal.errors = true;
+               errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+           }
+           else {
+               errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+           }
+       },
        'surName' : function() {
            var userName = $('#surname');
            var errorMessage = $('#error-custom-message-5');
@@ -140,11 +166,14 @@ $(document).ready(function(){
             jVal.birthday();
             jVal.userLogin();
             jVal.userPassword();
+            jVal.price();
+            jVal.initialPrice();
             jVal.sendIt();
        return false;
     });
 
-
+    var price = $('#price');
+    var initialPrice = $('#initialPrice');
 
     $('#number').change(jVal.number);
     $('#login').change(jVal.login);
@@ -154,5 +183,28 @@ $(document).ready(function(){
     $('#userLogin').change(jVal.userLogin);
     $('#userPassword').change(jVal.userPassword);
     $('input[name="cb"]').change(jVal.tariff);
+    price.bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    price.change(function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    price.change(jVal.price);
+    initialPrice.bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    initialPrice.change(function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    initialPrice.change(jVal.initialPrice);
+
 
 });

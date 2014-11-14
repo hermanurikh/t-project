@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/validate.js"></script>
 
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
@@ -40,16 +43,6 @@
   }
 }
 
-</script>
-
-<script>
-function validateForm() {
-    var x = document.forms["myForm"]["name"].value;
-    if (x == null || x == "") {
-        alert("Please fill in the name of the option");
-        return false;
-    }
-}
 </script>
 
 
@@ -159,7 +152,7 @@ function validateForm() {
                 </div>
             </div>
 
-            <form name="myForm"  action="../controllers/EmployeeFinalOptionChangeServlet" onsubmit="return validateForm()" method="POST" accept-charset="CP1252">
+            <form name="myForm"  action="../controllers/EmployeeFinalOptionChangeServlet" id="jForm" method="POST" accept-charset="CP1252">
             <div class="js-body info__body">
                 <h2 class="js-h">Изменение опции</h2><div>
                 <div class="js-table form-horizontal support-issue-form">
@@ -167,22 +160,23 @@ function validateForm() {
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Название опции:</label>
                         <div class="js-td controls jq-validate-container">
-
-
-                            <input type="text" class="js-input big-input" name="name" value="${option.name}">
+                            <input type="text" class="js-input big-input" id="name" name="name" value="${option.name}">
+                            <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название опции.</span>
                         </div>
                     </div>
                     <div class="js-row control-group">
                     <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                     <div class="js-td controls jq-validate-container">
-                        <input type="text" class="js-input big-input" name = "price" value="${option.price}">
+                        <input type="text" id="price" class="js-input big-input" name = "price" value="${option.price}">
+                        <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите ежемесячную цену.</span>
                     </div>
                 </div>
 
                     <div class="js-row control-group">
                         <label class="js-caption control-label">Цена подключения (в рублях):</label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="text" class="js-input big-input" name="initialPrice" value="${option.initialPrice}">
+                            <input type="text" id="initialPrice" class="js-input big-input" name="initialPrice" value="${option.initialPrice}">
+                            <span class="error-custom-message" id="error-custom-message-6">Пожалуйста, введите цену подключения.</span>
                         </div>
                     </div>
                     <div class="js-row control-group">
@@ -287,7 +281,7 @@ function validateForm() {
                     <div class="js-row control-group">
                     <label class="js-caption control-label"></label>
                     <div class="js-td controls jq-validate-container">
-                        <input type="submit" value="Изменить опцию" />
+                        <input type="submit" id="send" value="Изменить опцию" />
                         </div>
                 </div></div>
             </div></div>

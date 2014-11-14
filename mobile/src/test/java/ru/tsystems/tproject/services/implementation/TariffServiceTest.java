@@ -28,15 +28,13 @@ public class TariffServiceTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     /*for testing in IDEA uncomment the variables below */
-/*
 
     private static final String createScript = "mobile/src/main/resources/sql/create-data-tariff.sql";
     private static final String deleteScript = "mobile/src/main/resources/sql/remove-data-tariff.sql";
-*/
 
-    private static final String createScript = "src/main/resources/sql/create-data-tariff.sql";
+ /*   private static final String createScript = "src/main/resources/sql/create-data-tariff.sql";
     private static final String deleteScript = "src/main/resources/sql/remove-data-tariff.sql";
-
+*/
     @Before
     public void insertData() {
         //noinspection deprecation
