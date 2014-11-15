@@ -6,6 +6,7 @@ import ru.tsystems.tproject.services.API.RoleService;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.RoleServiceImplementation;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
+import ru.tsystems.tproject.utils.Converter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

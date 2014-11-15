@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
+import ru.tsystems.tproject.utils.Converter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

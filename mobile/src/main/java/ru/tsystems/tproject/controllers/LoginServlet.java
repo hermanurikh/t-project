@@ -2,10 +2,10 @@ package ru.tsystems.tproject.controllers;
 
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.services.implementation.UserServiceImplementation;
+import ru.tsystems.tproject.utils.Converter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
