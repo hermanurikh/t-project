@@ -141,10 +141,6 @@
             </td>
             <!--np_menu-->
             <td class="np_content">
-                <script src="/js/underscore-min.js"></script>
-                <script src="/js/d3.js"></script>
-                <script src="/js/path.js"></script>
-                <script src="/js/punycode.js"></script>
 
 
 
@@ -152,7 +148,7 @@
 
 
 
-                    <form action="../controllers/EmployeeContractOptionsServlet" id="jForm" method="GET" accept-charset="CP1252">
+                    <form action="cp_employee_contract_change_options" id="jForm" method="POST" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Изменение контракта с номером ${number} для пользователя ${login}</h2>
                             <div>
@@ -165,6 +161,7 @@
                                     <div>
                                         <div style="display:none">
                                             <input id="isContract" value=${userExists}>
+                                            <input id="number" value="${number}">
                                         </div>
 
                                         <div class="js-row control-group" id="exceptions" style="display:none">

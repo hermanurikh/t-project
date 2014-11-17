@@ -146,7 +146,7 @@
 
                     <div class="info info_small fr info-last">
                         <div class="info__header">
-                            <h2>Контракт успешно создан!</h2>
+                            <h2>Успешно!</h2>
                         </div>
                     </div>
 

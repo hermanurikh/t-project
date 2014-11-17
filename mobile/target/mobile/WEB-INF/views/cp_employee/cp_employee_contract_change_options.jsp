@@ -10,30 +10,25 @@
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <script>window.page_data = {};</script>
-    <script type="text/javascript" src="../scripts/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <script type="text/javascript" src="../../../scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
 
 </head>
 <script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
-<div id="vds-overlay" style="display: none;"></div>
-<div id="vds-wait" style="display: none;">
-    <div id="loader" class="loader-32 fl"></div>
-    <div class="caption-wrap border-l">
-        <div id="caption">
-            Пожалуйста, подождите
-        </div>
-    </div>
-</div>
+
+
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "../WEB-INF/views/cp_employee/cp_employee_main.jsp";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
 
@@ -68,7 +63,7 @@ document.getElementById(el).style.display = 'block';
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="../../../cp_employee/cp_employee_profile.jsp">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>
@@ -118,7 +113,7 @@ document.getElementById(el).style.display = 'block';
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="cp_employee_user_find.jsp" class="main-menu-item">
+        <a href="../../../cp_employee/cp_employee_user_find.jsp" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
@@ -148,7 +143,7 @@ document.getElementById(el).style.display = 'block';
 
 
 
-            <form action="../controllers/EmployeeContractFinalChangeServlet" method="POST" accept-charset="CP1252">
+            <form action="cp_employee_contract_changed" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
                     <h2 class="js-h">Изменение контракта</h2><div>
                     <div class="js-table form-horizontal support-issue-form">
@@ -158,21 +153,14 @@ document.getElementById(el).style.display = 'block';
                         <span class="small_signature">Номер контракта: ${contractNumber}</span>
 
                         </div>
-                        <div class="js-row control-group" style="display:none;">
-                            <label class="js-caption control-label">Id пользователя и тарифа:</label>
-                            <div class="js-td controls jq-validate-container">
-                                <input type="text" class="js-input big-input" name = "userID" value=${userId}>
-                                <input type="text" class="js-input big-input" name = "tariffID" value=${tariffId}>
-                            </div>
-                        </div>
 
                         <div class="js-row control-group" id="exceptions" style="display:none">
-                                                    <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2><div>
-                                                    <c:forEach var="ex" items="${exceptionsList}">
-                                                    <span class="small_signature">${ex.message}</span> <br>
-                                                    </c:forEach>
-                                                </div>
-                                                </div>
+                            <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2><div>
+                            <c:forEach var="ex" items="${exceptionsList}">
+                                <span class="error-custom-message-incorrect">${ex.message}</span>
+                            </c:forEach>
+                        </div>
+                        </div>
 
                         <h2 class="js-h">Выберите опции для тарифа ${tariff.name}</h2><div>
                         <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>

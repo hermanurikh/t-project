@@ -17,6 +17,7 @@ import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -105,7 +106,7 @@ public class EmployeeController {
      * @param array the array of selected options' ids;
      * @param locale locale
      * @param model model
-     * @return cp_employee_contract_created.jsp
+     * @return success.jsp
      */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/cp_employee_contract_created", method = RequestMethod.POST)
@@ -123,7 +124,7 @@ public class EmployeeController {
             //сделать по феншую?
             user.addContract(contract);
             userService.updateEntity(user);
-            return "cp_employee/cp_employee_contract_created";
+            return "cp_employee/success";
         }
         else {
             List<Exception> exceptionList = new ArrayList<>();
@@ -137,7 +138,7 @@ public class EmployeeController {
                 contractService.createEntity(contract);
                 user.addContract(contract);
                 userService.updateEntity(user);
-                return "cp_employee/cp_employee_contract_created";
+                return "cp_employee/success";
             }
             else {
                 model.addAttribute("optionsList", tariff.getPossibleOptions());
@@ -165,7 +166,7 @@ public class EmployeeController {
     @RequestMapping(value = "/cp_employee_change_contract", method = RequestMethod.GET)
     public String changeContract(@RequestParam(value = "contractId") Integer contractId,
                                  @RequestParam(value = "contractNumber", required = false) Long contractNumber,
-                                 Locale locale, Model model) {
+                                 HttpServletRequest request, Locale locale, Model model) {
         Contract contract = contractService.getEntityById(contractId);
         if (contractNumber != null) {
             contract.setBlocked(!contract.isBlocked());
@@ -179,10 +180,55 @@ public class EmployeeController {
             model.addAttribute("paramIsBlocked", "выключена");
             model.addAttribute("action", "Заблокировать");
         }
+        request.getSession().setAttribute("contractNumber", contract.getNumber());
+        request.getSession().setAttribute("login", contract.getUser().getLogin());
         model.addAttribute("tariffsList", tariffService.getAll());
         model.addAttribute("number", contract.getNumber());
         model.addAttribute("login", contract.getUser().getLogin());
         model.addAttribute("contractId", contractId);
         return "cp_employee/cp_employee_change_contract";
+    }
+    @RequestMapping(value = "/cp_employee_contract_change_options", method = RequestMethod.POST)
+    public String changeContractOptions(@RequestParam(value = "cb") Integer tariffId,
+                                        HttpServletRequest request, Locale locale, Model model) {
+        Tariff tariff = tariffService.getEntityById(tariffId);
+        model.addAttribute("optionsList", tariff.getPossibleOptions());
+        request.getSession().setAttribute("tariff", tariff);
+        return "cp_employee/cp_employee_contract_change_options";
+    }
+    @SuppressWarnings("unchecked")
+    @RequestMapping(value = "/cp_employee_contract_changed", method = RequestMethod.POST)
+    public String finalContractChange(@RequestParam(value = "cb", required = false) int[] array,
+                                        HttpServletRequest request, Locale locale, Model model) {
+        long number = (long) request.getSession().getAttribute("contractNumber");
+        Tariff tariff = (Tariff) request.getSession().getAttribute("tariff");
+        Contract contract = contractService.getContractByNumber(number);
+        contract.setTariff(tariff);
+        if (array == null || array.length == 0) {
+            contract.removeAllOptions();
+            contractService.updateEntity(contract);
+            return "cp_employee/success";
+        }
+        else {
+            List<Exception> exceptionList = new ArrayList<>();
+            List validationResultList = contractValidator.validateOptions(array, exceptionList); //checking if the entered options are correct
+            List<Option> optionList = (List<Option>) validationResultList.get(0);
+            exceptionList = (List<Exception>) validationResultList.get(1);
+            if (exceptionList.isEmpty()) {
+                contract.removeAllOptions();
+                for (Option x : optionList) {
+                    contract.addOption(x);
+                }
+                contractService.updateEntity(contract);
+                return "cp_employee/success";
+            }
+            else {
+                model.addAttribute("optionsList", tariff.getPossibleOptions());
+                model.addAttribute("areExceptions", "true");
+                model.addAttribute("exceptionsList", exceptionList);
+                return "cp_employee/cp_employee_contract_change_options";
+            }
+        }
+
     }
 }
