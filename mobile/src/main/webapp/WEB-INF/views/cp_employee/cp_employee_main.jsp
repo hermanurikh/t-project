@@ -81,7 +81,7 @@
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="../controllers/UsersServlet" class="main-menu-item">
+        <a href="cp_employee_users" class="main-menu-item">
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>

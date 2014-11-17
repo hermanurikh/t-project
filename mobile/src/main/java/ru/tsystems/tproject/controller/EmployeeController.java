@@ -11,13 +11,13 @@ import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.integration.ContractValidator;
+import ru.tsystems.tproject.integration.UserUpdater;
+import ru.tsystems.tproject.services.API.*;
+import ru.tsystems.tproject.utils.Converter;
 import ru.tsystems.tproject.utils.Parser;
-import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.OptionService;
-import ru.tsystems.tproject.services.API.TariffService;
-import ru.tsystems.tproject.services.API.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +36,13 @@ public class EmployeeController {
     @Autowired
     private OptionService optionService;
     @Autowired
+    private RoleService roleService;
+    @Autowired
     private ContractValidator contractValidator;
+    @Autowired
+    private UserUpdater userUpdater;
+
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
     /*@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -188,6 +194,15 @@ public class EmployeeController {
         model.addAttribute("contractId", contractId);
         return "cp_employee/cp_employee_change_contract";
     }
+
+    /**
+     * This method returns a page where the options for contract' changing should be selected.
+     * @param tariffId the id of the tariff
+     * @param request request
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_contract_change_options.jsp
+     */
     @RequestMapping(value = "/cp_employee_contract_change_options", method = RequestMethod.POST)
     public String changeContractOptions(@RequestParam(value = "cb") Integer tariffId,
                                         HttpServletRequest request, Locale locale, Model model) {
@@ -196,6 +211,16 @@ public class EmployeeController {
         request.getSession().setAttribute("tariff", tariff);
         return "cp_employee/cp_employee_contract_change_options";
     }
+
+    /** This method changes a contract, if the entered data is valid, and redirects back to the page with options otherwise.
+     * The array with options' id is validated by a contractValidator. If something is incorrect, the exception is
+     * added to the exceptionsList.
+     * @param array the array of selected options' ids;
+     * @param request request
+     * @param locale locale
+     * @param model model
+     * @return success.jsp or cp_employee_contract_change_options.jsp
+     */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/cp_employee_contract_changed", method = RequestMethod.POST)
     public String finalContractChange(@RequestParam(value = "cb", required = false) int[] array,
@@ -231,4 +256,120 @@ public class EmployeeController {
         }
 
     }
+
+    /**
+     * This method returns a page with all users.
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_users.jsp
+     */
+    @RequestMapping(value = "/cp_employee_users", method = RequestMethod.GET)
+    public String getAllUsers(Locale locale, Model model) {
+        model.addAttribute("usersList", userService.getAll());
+        return "cp_employee/cp_employee_users";
+    }
+
+    /**
+     * This method returns a page with user's creation.
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_new_user.jsp
+     */
+    @RequestMapping(value = "/cp_employee_new_user", method = RequestMethod.GET)
+    public String createUser(Locale locale, Model model) {
+        return "cp_employee/cp_employee_new_user";
+    }
+
+    /**
+     * This method adds 100 to current balance.
+     * @param id user's id
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_users.jsp
+     */
+    @RequestMapping(value = "/cp_employee_user_add_balance", method = RequestMethod.GET)
+    public String addBalance(@RequestParam(value = "id") int id,
+                             Locale locale, Model model) {
+        User user = userService.getEntityById(id);
+        user.setBalance(user.getBalance() + 100);
+        userService.updateEntity(user);
+        model.addAttribute("usersList", userService.getAll());
+        return "cp_employee/cp_employee_users";
+    }
+
+    /**
+     * This method returns a page where users' data can be changed.
+     * @param id user's id
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_user_data_change.jsp
+     */
+    @RequestMapping(value = "cp_employee_user_data_change", method = RequestMethod.GET)
+    public String changeUser(@RequestParam(value = "id") int id,
+                             Locale locale, Model model) {
+        User user = userService.getEntityById(id);
+        model.addAttribute("id", user.getId());
+        model.addAttribute("name", user.getName());
+        model.addAttribute("surname", user.getSurname());
+        model.addAttribute("birthday", dateFormat.format(user.getBirthday()));
+        model.addAttribute("passport", user.getPassport());
+        model.addAttribute("address", user.getAddress());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("login", user.getLogin());
+        model.addAttribute("balance", user.getBalance());
+        model.addAttribute("role", user.getRole().getId());
+        return "cp_employee/cp_employee_user_data_change";
+    }
+
+    /**
+     * This method deletes a user.
+     * @param id user's id
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_users.jsp
+     */
+    @RequestMapping(value = "cp_employee_user_delete", method = RequestMethod.GET)
+    public String deleteUser(@RequestParam(value = "id") int id,
+                             Locale locale, Model model) {
+        //добавить проверку, если есть контракты - не удалять!
+        User user = userService.getEntityById(id);
+        userService.deleteEntity(user);
+        model.addAttribute("usersList", userService.getAll());
+        return "cp_employee/cp_employee_users";
+    }
+    @RequestMapping(value = "cp_employee_create_user", method = RequestMethod.POST)
+    public String createUser(@RequestParam(value = "name") String name,
+                             @RequestParam(value = "surname") String surname,
+                             @RequestParam(value = "birthday") String birthday,
+                             @RequestParam(value = "passport", required = false) String passport,
+                             @RequestParam(value = "address", required = false) String address,
+                             @RequestParam(value = "email", required = false) String email,
+                             @RequestParam(value = "login") String login,
+                             //добавить валидацию баланса
+                             @RequestParam(value = "balance", required = false) Integer balance,
+                             @RequestParam(value = "password") String password,
+                             @RequestParam(value = "cb") int roleId,
+                             Locale locale, Model model) throws Exception{
+
+        User user = userUpdater.createUser(name, surname, birthday, passport, address, email, balance, login, password, roleId);
+        userService.createEntity(user);
+        return "cp_employee/success";
+    }
+    @RequestMapping(value = "cp_employee_change_user", method = RequestMethod.POST)
+    public String updateUser(@RequestParam(value = "id") int id,
+                             @RequestParam(value = "name") String name,
+                             @RequestParam(value = "surname") String surname,
+                             @RequestParam(value = "birthday") String birthday,
+                             @RequestParam(value = "passport", required = false) String passport,
+                             @RequestParam(value = "address", required = false) String address,
+                             @RequestParam(value = "email", required = false) String email,
+                             //добавить валидацию баланса
+                             @RequestParam(value = "balance", required = false) Integer balance,
+                             @RequestParam(value = "password") String password,
+                             Locale locale, Model model) throws Exception {
+        User user = userUpdater.updateUser(id, name, surname, birthday, passport, address, email, balance, password);
+        userService.updateEntity(user);
+        return "cp_employee/success";
+    }
+
 }
