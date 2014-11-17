@@ -90,7 +90,7 @@
             <span class="href_line">Поиск пользователя</span>
         </a>
 
-        <a href="../controllers/TariffsServlet" class="main-menu-item">
+        <a href="cp_employee_tariffs" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тарифы</span>
         </a>

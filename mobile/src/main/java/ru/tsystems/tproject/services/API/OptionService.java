@@ -13,7 +13,7 @@ public interface OptionService extends GenericService<Option, Integer> {
     /**
      * get all options for a specific tariff
      * @param id
-     * @return
+     * @return a list of options
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;

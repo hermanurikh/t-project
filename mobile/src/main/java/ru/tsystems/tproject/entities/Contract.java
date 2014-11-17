@@ -119,6 +119,7 @@ public class Contract {
     public void addOption(Option option) {
         this.options.add(option);
     }
+    @Override
     public String toString(){
         return String.format("Contract{number: %s, user: %s, tariff: %s, isBlocked: %s, blockedEmpID: %s}", this.getNumber(), this.getUser(), this.getTariff(), this.isBlocked(), this.getEmployee());
     }

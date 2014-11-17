@@ -186,12 +186,6 @@
                         <div class="js-body info__body">
                             <h2 class="js-h">Поиск пользователя</h2>
                             <span id="exceptions" style="display:none" class="error-custom-message-incorrect">Пользователь не найден.</span>
-
-
-
-
-
-
                             <div>
                                 <div class="js-table form-horizontal support-issue-form">
 

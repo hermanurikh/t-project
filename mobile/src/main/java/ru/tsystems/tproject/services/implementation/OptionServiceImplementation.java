@@ -1,6 +1,7 @@
 package ru.tsystems.tproject.services.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.OptionDAO;
@@ -50,7 +51,7 @@ public class OptionServiceImplementation implements OptionService {
     @Override
     @Transactional
     public List<Option> getAll() throws CustomDAOException {
-        return this.optionDAO.getAll();
+        return optionDAO.getAll();
     }
 
     /**
@@ -62,6 +63,6 @@ public class OptionServiceImplementation implements OptionService {
     @Override
     @Transactional
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
-        return this.optionDAO.getAllOptionsForTariff(id);
+        return optionDAO.getAllOptionsForTariff(id);
     }
 }

@@ -10,7 +10,7 @@ import ru.tsystems.tproject.utils.Converter;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by german on 17.11.14.
+ * This class handles the data validation and creating/updating the user's data.
  */
 @Service("userUpdater")
 public class UserUpdater {

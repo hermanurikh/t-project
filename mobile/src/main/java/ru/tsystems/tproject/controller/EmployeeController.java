@@ -401,7 +401,7 @@ public class EmployeeController {
                              //добавить валидацию баланса
                              @RequestParam(value = "balance", required = false) Integer balance,
                              @RequestParam(value = "password") String password,
-                             Locale locale, Model model) throws Exception {
+                             Locale locale, Model model) throws Exception{
         User user = userUpdater.updateUser(id, name, surname, birthday, passport, address, email, balance, password);
         userService.updateEntity(user);
         return "cp_employee/success";
@@ -447,6 +447,106 @@ public class EmployeeController {
             model.addAttribute("found", "false");
             return "cp_employee/cp_employee_user_search";
         }
+    }
+
+    /**
+     * This method resolves a page with all tariffs.
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_tariffs.jsp
+     */
+    @RequestMapping(value = "cp_employee_tariffs", method = RequestMethod.GET)
+    public String getTariffs(Locale locale, Model model) {
+        model.addAttribute("tariffsList", tariffService.getAll());
+        return "cp_employee/cp_employee_tariffs";
+    }
+
+    /**
+     * This method resolves a page with all options to choose the ones that will be compatible.
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_new_tariff.jsp
+     */
+    @RequestMapping(value = "cp_employee_new_tariff", method = RequestMethod.GET)
+    public String createTariff(Locale locale, Model model) {
+        model.addAttribute("optionsList", optionService.getAll());
+        return "cp_employee/cp_employee_new_tariff";
+    }
+
+    /**
+     * This method creates a new tariff with the specified params.
+     * @param name tariff's name;
+     * @param price tariff's price;
+     * @param array the array of selected options' ids;
+     * @param locale locale;
+     * @param model model;
+     * @return success.jsp
+     */
+    @RequestMapping(value = "cp_employee_create_tariff", method = RequestMethod.POST)
+    public String createNewTariff(@RequestParam(value = "name") String name,
+                                  @RequestParam(value = "price") int price,
+                                  @RequestParam(value = "cb", required = false) int[] array,
+                                  Locale locale, Model model) {
+        Tariff tariff = new Tariff(name, price);
+        if (null != array && array.length > 0) {
+            for (int optionId : array) {
+                tariff.addPossibleOption(optionService.getEntityById(optionId));
+            }
+        }
+        tariffService.createEntity(tariff);
+        return "cp_employee/success";
+    }
+
+    /**
+     * This method returns a page where the tariff can be changed.
+     * @param tariffId the tariff id;
+     * @param request request;     *
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_change_tariff.jsp
+     */
+    @RequestMapping(value = "cp_employee_change_tariff", method = RequestMethod.GET)
+    public String changeTariff(@RequestParam(value = "id") int tariffId,
+                               HttpServletRequest request, Locale locale, Model model) {
+        Tariff tariff = tariffService.getEntityById(tariffId);
+        List<Option> allOptionsList = optionService.getAll();
+        List<Option> currentTariffOptionsList = optionService.getAllOptionsForTariff(tariffId);
+        allOptionsList.removeAll(currentTariffOptionsList);
+        model.addAttribute("id", tariff.getId());
+        model.addAttribute("currentOptionsList", currentTariffOptionsList);
+        model.addAttribute("allOptionsList", allOptionsList);
+        model.addAttribute("name", tariff.getName());
+        model.addAttribute("price", tariff.getPrice());
+        return "cp_employee/cp_employee_change_tariff";
+    }
+
+    /**
+     * This method changes the tariff's data.
+     * @param tariffId the tariff id;
+     * @param name the tariff's name;
+     * @param price the tariff's price;
+     * @param array the array of selected options' ids;
+     * @param locale locale;
+     * @param model model;
+     * @return success.jsp
+     */
+    @RequestMapping(value = "cp_employee_tariff_final_change", method = RequestMethod.POST)
+    public String finalChangeTariff(@RequestParam(value = "id") int tariffId,
+                                    @RequestParam(value = "name") String name,
+                                    @RequestParam(value = "price") int price,
+                                    @RequestParam(value = "cb", required = false) int[] array,
+                                    Locale locale, Model model) {
+        Tariff tariff = tariffService.getEntityById(tariffId);
+        tariff.removePossibleOptions();
+        if (null != array && array.length > 0) {
+            for (int optionId : array) {
+                tariff.addPossibleOption(optionService.getEntityById(optionId));
+            }
+        }
+        tariff.setName(name);
+        tariff.setPrice(price);
+        tariffService.updateEntity(tariff);
+        return "cp_employee/success";
     }
 
 }

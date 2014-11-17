@@ -117,8 +117,22 @@ public class Option {
     public void addOptionsIncompatible(Option optionIncompatible) {
         this.optionsIncompatible.add(optionIncompatible);
     }
-
+        @Override
         public String toString(){
             return String.format("Option{name: %s, price: %s, initialPrice: %s}", this.getName(), this.getPrice(), this.getInitialPrice());
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Option)) return false;
+
+        Option option = (Option) o;
+
+        return (id == option.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
     }
 }

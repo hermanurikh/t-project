@@ -9,47 +9,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script>window.page_data = {};</script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
-    <script type="text/javascript" src="/js/Gettext.js?946e49b921"></script>
-    <script type="text/javascript" src="/js/locale.js?e739290ec4"></script>
-    <script type="text/javascript" src="/js/jquery-1.8.3.min.js?24bd97b1de"></script>
-    <script type="text/javascript" src="/js/jquery.cookie.js?84d0a0bc4f"></script>
-    <script type="text/javascript" src="/js/jquery.validate.js?25d1504dfd"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.10.2.custom.js?2372906e54"></script>
-    <script type="text/javascript" src="/js/filters.js?6b6f65d0c5"></script>
-    <script type="text/javascript" src="/js/dialogs2.js?93d6e20d76"></script>
-    <script type="text/javascript" src="/js/basepage.js?9bec998850"></script>
-    <script type="text/javascript" src="/js/preloader.js?ff1850aa06"></script>
-    <script type="text/javascript" src="/public/external/timestrap/js/timestrap-ui-cp.js?d41d8cd98f"></script>
-    <script type="text/javascript" src="/js/timestrap-cp.js?a82060dc90"></script>
-    <script type="text/javascript" src="/js/menus2.js?1fdd70fe60"></script>
-    <script type="text/javascript" src="/js/main_page.js?ff84094920"></script>
-    <script type="text/javascript" src="/js/jstable.js?51c263d43e"></script>
-    <script type="text/javascript" src="/js/new_panel.js?4345501cbd"></script>
+
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
 </head>
-<script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
+<body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
-<div id="vds-overlay" style="display: none;"></div>
-<div id="vds-wait" style="display: none;">
-    <div id="loader" class="loader-32 fl"></div>
-    <div class="caption-wrap border-l">
-        <div id="caption">
-            Пожалуйста, подождите
-        </div>
-    </div>
-</div>
+
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "../WEB-INF/views/cp_employee/cp_employee_main.jsp";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
 
@@ -64,7 +38,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="../../../cp_employee/cp_employee_profile.jsp">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>
@@ -147,7 +121,7 @@
                     Тарифы
 
                 </div>
-                <div class="element" style="display:;">
+                <div class="element" style="display:block;">
                     <table class="element__table element-main-table">
                         <tbody>
                         <tr>
@@ -155,7 +129,7 @@
 
                                 <div class="info-wrap">
                                     <div>
-                                        <a href="../controllers/AllOptionsForNewTariffServlet"><span>Создание нового тарифа</span></a>
+                                        <a href="cp_employee_new_tariff"><span>Создание нового тарифа</span></a>
                                     </div>
 
                                 </div>
@@ -185,7 +159,7 @@
                             <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
                             <td class="simplecell" name="tcell" style="vertical-align: top;">
                             <div class="href_icon">
-                                <a href="../controllers/TariffChangeServlet?id=${tariff.id}"><span>Изменить</span><br> </a>
+                                <a href="cp_employee_change_tariff?id=${tariff.id}"><span>Изменить</span><br> </a>
                                 <a href="../controllers/TariffDeleteServlet?id=${tariff.id}"><span>Удалить</span> </a>
                             </div>
                             </td>

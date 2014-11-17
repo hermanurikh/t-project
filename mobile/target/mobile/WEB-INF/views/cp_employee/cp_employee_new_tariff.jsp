@@ -12,34 +12,39 @@
     <script>window.page_data = {};</script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css"/>
-    <script type="text/javascript" src="../scripts/jquery.js"></script>
-    <script type="text/javascript" src="../scripts/validate.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
 
 </head>
-<script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
-<div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
-<div id="vds-overlay" style="display: none;"></div>
-<div id="vds-wait" style="display: none;">
-    <div id="loader" class="loader-32 fl"></div>
-    <div class="caption-wrap border-l">
-        <div id="caption">
-            Пожалуйста, подождите
-        </div>
-    </div>
-</div>
+<body class="locale-ru_RU">
+
+
+
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "../WEB-INF/views/cp_employee/cp_employee_main.jsp";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == null || x == "") {
+        alert("Please fill in the name of the tariff");
+        return false;
+    }
+}
+
+
+</script>
+
 
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
@@ -53,7 +58,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="../../../cp_employee/cp_employee_profile.jsp">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>
@@ -65,7 +70,7 @@
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
-
+                            <div class="user-balance">1 р.</div>
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">
@@ -91,9 +96,9 @@
     <div id="np_menu_id"  class="wrap-for-hover">
 
         <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
-            <i class="np_icon logmanager"></i>
-            <span class="href_line">Контракты</span>
-        </a>
+                    <i class="np_icon logmanager"></i>
+                    <span class="href_line">Контракты</span>
+                </a>
 
         <a href="../controllers/UsersServlet" class="main-menu-item">
             <i class="np_icon managers"></i>
@@ -118,7 +123,10 @@
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
-
+        <script src="/js/underscore-min.js"></script>
+        <script src="/js/d3.js"></script>
+        <script src="/js/path.js"></script>
+        <script src="/js/punycode.js"></script>
 
 
 
@@ -139,35 +147,26 @@
                 </div>
             </div>
 
-            <form action="../controllers/TariffDataChangeServlet" id="jForm" method="POST" accept-charset="CP1252">
+            <form name="myForm" action="cp_employee_create_tariff" id="jForm" method="POST" accept-charset="CP1252">
                 <div class="js-body info__body">
-                    <h2 class="js-h">Изменение тарифа</h2><div>
+                    <h2 class="js-h">Создание нового тарифа</h2><div>
                     <div class="js-table form-horizontal support-issue-form">
 
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Название тарифа:</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="text" id="name" name= "name" class="js-input big-input" value=${name}>
+                                <input type="text" id="name" class="js-input big-input" name="name">
                                 <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название тарифа.</span>
+
 
                             </div>
                         </div>
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
-                            <div class="js-td controls jq-validate-container" >
-
-                                <input type="text" id="price" name="price" class="js-input big-input" value=${price}>
+                            <div class="js-td controls jq-validate-container">
+                                <input type="text" id="price" class="js-input big-input" name = "price">
                                 <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
-
                             </div>
-                        </div>
-
-                        <div class="js-row control-group" style="display:none;">
-                             <label class="js-caption control-label">Id тарифа:</label>
-                              <div class="js-td controls jq-validate-container">
-
-                               <input type="text" name="id" value=${id}>
-                                </div>
                         </div>
 
                         <h2 class="js-h">Выберите опции, которые будут совместимы с тарифом</h2><div>
@@ -179,46 +178,35 @@
                                 <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
                                 <tr class="ui-table-header">
 
-                                    <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox"></th> -- type="checkbox" checked="checked" -->
+                                    <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox" type="checkbox" checked="checked">--></th>
                                     <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
                                     <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
                                     <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
                                 </tr>
 
                                 <!--начало элемента таблицы-->
-                                <!--текущие опции-->
+                                <c:forEach var="option" items="${optionsList}">
+                                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                <c:forEach var="option" items="${currentOptionsList}">
-                                  <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
                                         <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" checked="checked" name="cb" value=${option.id}></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
-                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
+                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
 
-                                   </tr>
+                                    </tr>
                                 </c:forEach>
-
-                                 <!--остальные опции-->
-                                <c:forEach var="option" items="${allOptionsList}">
-                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
-                                     <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" value=${option.id}></td>
-                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
-                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
-                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
-
-                                      </tr>
-                                 </c:forEach>
                                 <!--конец элемента таблицы-->
+                                 </tbody>
+                                </table></div></div>
 
 
-                                </tbody>
-                                </table></div></div><div class="js-row control-group">
+                        <div class="js-row control-group">
                             <label class="js-caption control-label"></label>
 
                         </div><div class="js-row control-group">
                         <label class="js-caption control-label"></label>
                         <div class="js-td controls jq-validate-container">
-                            <input type="submit" id="send" value="Изменить тариф" />
+                            <input type="submit" id="send" value="Создать тариф" />
                         </div>
                     </div></div>
                 </div></div>
