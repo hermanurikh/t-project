@@ -124,7 +124,7 @@
                         <i class="np_icon managers"></i>
                         <span class="href_line">Пользователи</span>
                     </a>
-                    <a href="../../../cp_employee/cp_employee_user_find.jsp" class="main-menu-item">
+                    <a href="cp_employee_user_find.jsp" class="main-menu-item">
                         <i class="np_icon domains"></i>
                         <span class="href_line">Поиск пользователя</span>
                     </a>

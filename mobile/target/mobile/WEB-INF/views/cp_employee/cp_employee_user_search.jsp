@@ -12,17 +12,17 @@
 
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
     <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cp_file9.css" />
-    <script type="text/javascript" src="../scripts/jquery.js"></script>
-    <script type="text/javascript" src="../scripts/jquery.maskedinput.js"></script>
-    <script type="text/javascript" src="../scripts/validateSearch.js"></script>
-    <script type="text/javascript" src="../scripts/focus.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validateSearch.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
 
 </head>
 
@@ -53,7 +53,7 @@
 
 <script type="text/javascript">
     function redirect() {
-        location.href = "../WEB-INF/views/cp_employee/cp_employee_main.jsp";
+        location.href = "cp_employee_main.jsp";
     }
 </script>
 <script>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="nav-wrap">
                                     <ul class="nav">
-                                        <li><a href="cp_employee_profile.jsp">Профиль</a>
+                                        <li><a href="../../../cp_employee/cp_employee_profile.jsp">Профиль</a>
                                         </li>
                                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                                     </ul>
@@ -182,18 +182,13 @@
                         </div>
                     </div>
 
-                    <form action="../controllers/EmployeeFindUserServlet" id="jForm" method="post" accept-charset="CP1252">
+                    <form action="cp_employee_find_user" id="jForm" method="post" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Поиск пользователя</h2>
+                            <span id="exceptions" style="display:none" class="error-custom-message-incorrect">Пользователь не найден.</span>
 
-                            <div class="js-row control-group" id="exceptions" style="display:none">
-                                <div>
 
-                                    <span class="small_signature">Пользователь не найден.</span>
-                                    <br>
 
-                                </div>
-                            </div>
 
 
 
@@ -222,26 +217,6 @@
 
                                     </div>
 
-
-
-
-
-                                    <!--
-
-                                    <div class="js-row control-group">
-                                        <label class="js-caption control-label">Введите номер контракта:</label>
-                                        <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" id="number" name="number" onfocus="recheck ( 'login' );">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="js-row control-group">
-                                        <label class="js-caption control-label">Или логин:</label>
-                                        <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" id="login" name="login" onfocus="recheck ( 'number' );">
-                                        </div>
-                                    </div> -->
 
 
 

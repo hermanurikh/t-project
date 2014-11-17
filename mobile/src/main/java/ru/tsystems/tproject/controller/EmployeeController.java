@@ -337,6 +337,24 @@ public class EmployeeController {
         model.addAttribute("usersList", userService.getAll());
         return "cp_employee/cp_employee_users";
     }
+
+    /**
+     * This method creates a new user. The userUpdater bean is responsible for validating the entered data.
+     * @param name user's name
+     * @param surname user's surname
+     * @param birthday user's birthday
+     * @param passport user's passport
+     * @param address user's address
+     * @param email user's email
+     * @param login user's login
+     * @param balance user's balance
+     * @param password user's password
+     * @param roleId user's roleId
+     * @param locale locale
+     * @param model model
+     * @return success.jsp
+     * @throws Exception
+     */
     @RequestMapping(value = "cp_employee_create_user", method = RequestMethod.POST)
     public String createUser(@RequestParam(value = "name") String name,
                              @RequestParam(value = "surname") String surname,
@@ -355,6 +373,23 @@ public class EmployeeController {
         userService.createEntity(user);
         return "cp_employee/success";
     }
+
+    /**
+     * This method updates a user. The userUpdater bean is responsible for validating the entered data.
+     * @param id user's id
+     * @param name user's name
+     * @param surname user's surname
+     * @param birthday user's birthday
+     * @param passport user's passport
+     * @param address user's address
+     * @param email user's email
+     * @param balance user's balance
+     * @param password user's password
+     * @param locale locale
+     * @param model model
+     * @return success.jsp
+     * @throws Exception
+     */
     @RequestMapping(value = "cp_employee_change_user", method = RequestMethod.POST)
     public String updateUser(@RequestParam(value = "id") int id,
                              @RequestParam(value = "name") String name,
@@ -370,6 +405,48 @@ public class EmployeeController {
         User user = userUpdater.updateUser(id, name, surname, birthday, passport, address, email, balance, password);
         userService.updateEntity(user);
         return "cp_employee/success";
+    }
+
+    /**
+     * This method redirects to a page for user searching.
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_user_search.jsp
+     */
+    @RequestMapping(value = "cp_employee_user_search", method = RequestMethod.GET)
+    public String searchForUser(Locale locale, Model model) {
+        return "cp_employee/cp_employee_user_search";
+    }
+
+    /**
+     * This method searches for a user. It redirects to a page where user can be changed, if the user is found, and back otherwise.
+     * @param number user's contract number
+     * @param login user's login
+     * @param locale locale
+     * @param model model
+     * @return cp_employee_user_data_change.jsp or cp_employee_user_search.jsp
+     */
+    @RequestMapping(value = "cp_employee_find_user", method = RequestMethod.POST)
+    public String doSearch(@RequestParam(value = "number", required = false) String number,
+                           @RequestParam(value = "login", required = false) String login,
+                           Locale locale, Model model) {
+        User user;
+        try {
+            if (number == null || number.equals("")) {
+                user = userService.getUserByLogin(login);
+            }
+            else {
+                long userNumber = Long.parseLong(Parser.doParse(number));
+                user = userService.getUserByNumber(userNumber);
+            }
+
+            model.addAttribute("id", user.getId());
+            return "redirect:/cp_employee_user_data_change";
+        }
+        catch (Exception ex) {
+            model.addAttribute("found", "false");
+            return "cp_employee/cp_employee_user_search";
+        }
     }
 
 }

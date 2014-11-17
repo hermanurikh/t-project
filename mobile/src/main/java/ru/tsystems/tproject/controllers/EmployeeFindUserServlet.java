@@ -40,7 +40,7 @@ public class EmployeeFindUserServlet extends HttpServlet {
         catch (Exception ex) {
             logger.error(ex);
             request.getSession().setAttribute("found", "false");
-            response.sendRedirect("../cp_employee/cp_employee_user_find.jsp");
+            response.sendRedirect("../cp_employee/cp_employee_user_search.jsp");
         }
 
     }
