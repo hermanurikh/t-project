@@ -11,6 +11,7 @@ import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.integration.ContractValidator;
+import ru.tsystems.tproject.integration.EntityRemoval;
 import ru.tsystems.tproject.integration.UserUpdater;
 import ru.tsystems.tproject.services.API.*;
 import ru.tsystems.tproject.utils.Converter;
@@ -41,6 +42,8 @@ public class EmployeeController {
     private ContractValidator contractValidator;
     @Autowired
     private UserUpdater userUpdater;
+    @Autowired
+    private EntityRemoval entityRemoval;
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -515,8 +518,9 @@ public class EmployeeController {
         model.addAttribute("id", tariff.getId());
         model.addAttribute("currentOptionsList", currentTariffOptionsList);
         model.addAttribute("allOptionsList", allOptionsList);
-        model.addAttribute("name", tariff.getName());
-        model.addAttribute("price", tariff.getPrice());
+        request.getSession().setAttribute("tariff", tariff);
+        /*model.addAttribute("name", tariff.getName());
+        model.addAttribute("price", tariff.getPrice());*/
         return "cp_employee/cp_employee_change_tariff";
     }
 
@@ -547,6 +551,167 @@ public class EmployeeController {
         tariff.setPrice(price);
         tariffService.updateEntity(tariff);
         return "cp_employee/success";
+    }
+
+    /**
+     * This method deletes a tariff with the help of entityRemoval service.
+     * @param tariffId the tariff id;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_tariffs.jsp
+     */
+    @RequestMapping(value = "cp_employee_delete_tariff", method = RequestMethod.GET)
+    public String deleteTariff(@RequestParam(value = "id") int tariffId,
+                               Locale locale, Model model) {
+        entityRemoval.removeTariff(tariffId);
+        model.addAttribute("tariffsList", tariffService.getAll());
+        return "cp_employee/cp_employee_tariffs";
+    }
+
+    /**
+     * This method returns a page with all options where you can create a new one or change the existing ones.
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_options.jsp
+     */
+    @RequestMapping(value = "cp_employee_options", method = RequestMethod.GET)
+    public String getAllOptions(Locale locale, Model model) {
+        model.addAttribute("optionsList", optionService.getAll());
+        return "cp_employee/cp_employee_options";
+    }
+
+    /**
+     * This method returns a page where you create a new option.
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_new_option.jsp
+     */
+    @RequestMapping(value = "cp_employee_new_option", method = RequestMethod.GET)
+    public String createOption(Locale locale, Model model) {
+        model.addAttribute("optionsList", optionService.getAll());
+        return "cp_employee/cp_employee_new_option";
+    }
+
+    /**
+     * This method creates a new option with a list of optionsTogether and optionsIncompatible, if any.
+     * @param name option's name;
+     * @param price option's price;
+     * @param initialPrice option's initialPrice;
+     * @param optionsTogether an array of option's ids that will be necessary for current option;
+     * @param optionsIncompatible an array of option's ids that will be incompatible for current option;
+     * @param locale locale;
+     * @param model model;
+     * @return success.jsp
+     */
+    @RequestMapping(value = "cp_employee_option_created", method = RequestMethod.POST)
+    public String finalCreateOption(@RequestParam(value = "name") String name,
+                                    @RequestParam(value = "price") int price,
+                                    @RequestParam(value = "initialPrice") int initialPrice,
+                                    @RequestParam(value = "cb", required = false) int[] optionsTogether,
+                                    @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
+                                    Locale locale, Model model) {
+        Option option = new Option(name, price, initialPrice);
+        //add a check here if two options were selected incorrectly
+        if (null != optionsTogether && optionsTogether.length > 0) {
+            for (int optionId : optionsTogether) {
+                option.addOptionsTogether(optionService.getEntityById(optionId));
+            }
+        }
+        if (null != optionsIncompatible && optionsIncompatible.length > 0) {
+            for (int optionId : optionsIncompatible) {
+                option.addOptionsIncompatible(optionService.getEntityById(optionId));
+            }
+        }
+        optionService.createEntity(option);
+        return "cp_employee/success";
+    }
+
+    /**
+     * This method returns a page where an option can be modified. It sets 4 lists to the model:
+     * - the list of options which are currently necessary for the option;
+     * - the list of options which are not necessary for the option, but can be selected as necessary;
+     * - the list of options which are currently incompatible with the option;
+     * - the list of options which are not incompatible, but can be selected as incompatible.
+     * @param optionId option's id;
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_change_option.jsp
+     */
+    @RequestMapping(value = "cp_employee_change_option", method = RequestMethod.GET)
+    public String changeOption(@RequestParam(value = "optionId") int optionId,
+                               HttpServletRequest request, Locale locale, Model model) {
+        Option option = optionService.getEntityById(optionId);
+        List<Option> optionsListAllIncompatible = new ArrayList<>();
+        List<Option> optionsListAllTogether = optionService.getAll();
+        optionsListAllIncompatible.addAll(optionsListAllTogether);
+        List<Option> optionsTogether = option.getOptionsTogether(); // a list of options together, checked
+        optionsListAllTogether.removeAll(optionsTogether); // a list of other options together, unchecked
+        optionsListAllTogether.remove(option);
+        List<Option> optionsIncompatible = option.getOptionsIncompatible(); // a list of incompatible options, checked
+        optionsListAllIncompatible.removeAll(optionsIncompatible); // and unchecked
+        optionsListAllIncompatible.remove(option);
+        request.getSession().setAttribute("option", option);
+        model.addAttribute("optionsTogether", optionsTogether);
+        model.addAttribute("optionsListAllTogether", optionsListAllTogether);
+        model.addAttribute("optionsIncompatible", optionsIncompatible);
+        model.addAttribute("optionsListAllIncompatible", optionsListAllIncompatible);
+        return "cp_employee/cp_employee_change_option";
+    }
+
+    /**
+     * This method updates an option with a list of optionsTogether and optionsIncompatible, if any.
+     * @param name option's name;
+     * @param price option's price;
+     * @param initialPrice option's initialPrice;
+     * @param optionsTogether an array of option's ids that will be necessary for current option;
+     * @param optionsIncompatible an array of option's ids that will be incompatible for current option;
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return success.jsp
+     */
+    @RequestMapping(value = "cp_employee_option_changed", method = RequestMethod.POST)
+    public String finalOptionChange(@RequestParam(value = "name") String name,
+                                    @RequestParam(value = "price") int price,
+                                    @RequestParam(value = "initialPrice") int initialPrice,
+                                    @RequestParam(value = "cb", required = false) int[] optionsTogether,
+                                    @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
+                                    HttpServletRequest request, Locale locale, Model model) {
+        Option option = (Option) request.getSession().getAttribute("option");
+        option.setName(name);
+        option.setPrice(price);
+        option.setInitialPrice(initialPrice);
+        option.removeOptionsIncompatible();
+        option.removeOptionsTogether();
+        //добавить проверку на обход скрипта
+        if (null != optionsTogether && optionsTogether.length > 0) {
+            for (int optionId : optionsTogether) {
+                option.addOptionsTogether(optionService.getEntityById(optionId));
+            }
+        }
+        if (null != optionsIncompatible && optionsIncompatible.length > 0) {
+            for (int optionId : optionsIncompatible) {
+                option.addOptionsIncompatible(optionService.getEntityById(optionId));
+            }
+        }
+        optionService.updateEntity(option);
+        return "cp_employee/success";
+    }
+
+    /**
+     * This method deletes an option with the help of entityRemoval.deleteOption method.
+     * @param optionId option's id;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_options.jsp
+     */
+    @RequestMapping(value = "cp_employee_delete_option", method = RequestMethod.GET)
+    public String deleteOption(@RequestParam(value = "optionId") int optionId,
+                               Locale locale, Model model) {
+        entityRemoval.removeOption(optionId);
+        model.addAttribute("optionsList", optionService.getAll());
+        return "cp_employee/cp_employee_options";
     }
 
 }

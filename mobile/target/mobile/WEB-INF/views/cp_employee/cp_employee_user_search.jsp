@@ -53,7 +53,7 @@
 
 <script type="text/javascript">
     function redirect() {
-        location.href = "cp_employee_main.jsp";
+        location.href = "cp_employee_main";
     }
 </script>
 <script>
@@ -130,26 +130,26 @@
             <td class="content np_menu">
                 <div id="np_menu_id" class="wrap-for-hover">
 
-                    <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
+                    <a href="cp_employee_contracts" class="main-menu-item">
                         <i class="np_icon logmanager"></i>
                         <span class="href_line">Контракты</span>
                     </a>
 
-                    <a href="../controllers/UsersServlet" class="main-menu-item">
+                    <a href="cp_employee_users" class="main-menu-item">
                         <i class="np_icon managers"></i>
                         <span class="href_line">Пользователи</span>
                     </a>
-                    <a href="cp_employee_user_find.jsp" class="main-menu-item">
+                    <a href="cp_employee_user_search" class="main-menu-item">
                         <i class="np_icon domains"></i>
                         <span class="href_line">Поиск пользователя</span>
                     </a>
 
-                    <a href="../controllers/TariffsServlet" class="main-menu-item">
+                    <a href="cp_employee_tariffs" class="main-menu-item">
                         <i class="np_icon tariff"></i>
                         <span class="href_line">Тарифы</span>
                     </a>
 
-                    <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+                    <a href="cp_employee_options" class="main-menu-item">
                         <i class="np_icon mysql"></i>
                         <span class="href_line">Опции</span>
                     </a>

@@ -35,7 +35,7 @@
 
 <script type="text/javascript">
     function redirect() {
-        location.href = "cp_employee_main.jsp";
+        location.href = "cp_employee_main";
     }
 </script>
 
@@ -113,26 +113,26 @@
             <td class="content np_menu">
                 <div id="np_menu_id" class="wrap-for-hover">
 
-                    <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
+                    <a href="cp_employee_contracts" class="main-menu-item">
                         <i class="np_icon logmanager"></i>
                         <span class="href_line">Контракты</span>
                     </a>
 
-                    <a href="../controllers/UsersServlet" class="main-menu-item">
+                    <a href="cp_employee_users" class="main-menu-item">
                         <i class="np_icon managers"></i>
                         <span class="href_line">Пользователи</span>
                     </a>
-                    <a href="cp_employee_user_find.jsp" class="main-menu-item">
+                    <a href="cp_employee_user_search" class="main-menu-item">
                         <i class="np_icon domains"></i>
                         <span class="href_line">Поиск пользователя</span>
                     </a>
 
-                    <a href="../controllers/TariffsServlet" class="main-menu-item">
+                    <a href="cp_employee_tariffs" class="main-menu-item">
                         <i class="np_icon tariff"></i>
                         <span class="href_line">Тарифы</span>
                     </a>
 
-                    <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+                    <a href="cp_employee_options" class="main-menu-item">
                         <i class="np_icon mysql"></i>
                         <span class="href_line">Опции</span>
                     </a>
@@ -144,10 +144,6 @@
             </td>
             <!--np_menu-->
             <td class="np_content">
-                <script src="/js/underscore-min.js"></script>
-                <script src="/js/d3.js"></script>
-                <script src="/js/path.js"></script>
-                <script src="/js/punycode.js"></script>
 
 
 
@@ -184,7 +180,7 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Имя:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" id="name" class="js-input big-input" name="name" value=${name}>
+                                            <input type="text" id="name" class="js-input big-input" name="name" value="${name}">
                                             <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым!</span>
 
                                         </div>
@@ -193,7 +189,7 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Фамилия:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" id="surname" class="js-input big-input" name = "surname" value=${surname}>
+                                            <input type="text" id="surname" class="js-input big-input" name = "surname" value="${surname}">
                                             <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой!</span>
 
                                         </div>
@@ -211,20 +207,20 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Паспорт:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" name="passport" value=${passport}>
+                                            <input type="text" class="js-input big-input" name="passport" value="${passport}">
                                         </div>
                                     </div>
 
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Адрес:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" name="address" value=${address}>
+                                            <input type="text" class="js-input big-input" name="address" value="${address}">
                                         </div>
                                     </div>
                                     <div class="js-row control-group" style="display:none;">
                                         <label class="js-caption control-label">Логин:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="text" class="js-input big-input" name="login" value=${login}>
+                                            <input type="text" class="js-input big-input" name="login" value="${login}">
                                         </div>
                                     </div>
 
@@ -238,14 +234,14 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">E-mail:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="email" class="js-input big-input" name="email" value=${email}>
+                                            <input type="email" class="js-input big-input" name="email" value="${email}">
                                         </div>
                                     </div>
 
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Баланс:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="number" class="js-input big-input" name="balance" value=${balance}>
+                                            <input type="number" class="js-input big-input" name="balance" value="${balance}">
                                         </div>
                                     </div>
 

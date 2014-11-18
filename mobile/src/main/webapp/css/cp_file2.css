@@ -881,7 +881,7 @@ table.file-table>tbody>tr:hover>td {
     text-align: center;
 }
 .loader-32 {
-    background: url("/images/np/preloader-32.gif") left top no-repeat;
+    background: url("../images/preloader-32.gif") left top no-repeat;
     width: 32px;
     height: 32px;
     position: absolute;

@@ -7,6 +7,7 @@ import ru.tsystems.tproject.services.API.OptionService;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,11 @@ import java.util.List;
 public class Test {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     public static void main(String[] args) {
-        System.out.println(dateFormat.format(new Date()));
+        List<Integer> list = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        list.add(1); list.add(2);
+        list2.addAll(list);
+        list.add(3);
+        for (int x : list2) System.out.println(x);
     }
 }

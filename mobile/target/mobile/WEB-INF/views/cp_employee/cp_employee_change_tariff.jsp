@@ -37,7 +37,7 @@
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.jsp";
+    location.href = "cp_employee_main";
     }
 </script>
 
@@ -90,26 +90,26 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
+        <a href="cp_employee_contracts" class="main-menu-item">
             <i class="np_icon logmanager"></i>
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="../controllers/UsersServlet" class="main-menu-item">
+        <a href="cp_employee_users" class="main-menu-item">
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="../WEB-INF/views/cp_employee/cp_employee_user_find.jsp" class="main-menu-item">
+        <a href="cp_employee_user_search" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
 
-        <a href="../controllers/TariffsServlet" class="main-menu-item">
+        <a href="cp_employee_tariffs" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тарифы</span>
         </a>
 
-        <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+        <a href="cp_employee_options" class="main-menu-item">
             <i class="np_icon mysql"></i>
             <span class="href_line">Опции</span>
         </a>
@@ -147,7 +147,7 @@
                         <div class="js-row control-group">
                             <label class="js-caption control-label">Название тарифа:</label>
                             <div class="js-td controls jq-validate-container">
-                                <input type="text" id="name" name= "name" class="js-input big-input" value=${name}>
+                                <input type="text" id="name" name= "name" class="js-input big-input" value="${tariff.name}">
                                 <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название тарифа.</span>
 
                             </div>
@@ -156,7 +156,7 @@
                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                             <div class="js-td controls jq-validate-container" >
 
-                                <input type="text" id="price" name="price" class="js-input big-input" value=${price}>
+                                <input type="text" id="price" name="price" class="js-input big-input" value="${tariff.price}">
                                 <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
 
                             </div>

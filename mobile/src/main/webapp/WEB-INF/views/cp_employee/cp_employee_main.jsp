@@ -95,7 +95,7 @@
             <span class="href_line">Тарифы</span>
         </a>
 
-        <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+        <a href="cp_employee_options" class="main-menu-item">
             <i class="np_icon mysql"></i>
             <span class="href_line">Опции</span>
         </a>
@@ -104,29 +104,11 @@
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
 <td class="np_content">
-<script src="/js/underscore-min.js"></script>
-<script src="/js/d3.js"></script>
-<script src="/js/path.js"></script>
-<script src="/js/punycode.js"></script>
+
 
 
 
 <div class="primary_div npp_index">
-
-<div style="display:none;">
-    <div id="template_HotActionsDialog">
-        <div class="form-horizontal npp_index-hot_actions_dialog">
-            <div class="control-group">
-                <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                </table>
-            </div>
-
-            <div class="form-actions">
-                <button class="btn" id="save_button">Сохранить настройки</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -178,39 +160,6 @@
 </table>
 </div>
 
-<script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-31254085-3', 'timeweb.ru');
-        ga('send', 'pageview');
-      </script>
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-                    (function (d, w, c) {
-                        (w[c] = w[c] || []).push(function() {
-                            try {
-                                w.yaCounter22579897 = new Ya.Metrika({id:22579897
-                                        });
-                            } catch(e) { }
-                        });
-
-                        var n = d.getElementsByTagName("script")[0],
-                            s = d.createElement("script"),
-                            f = function () { n.parentNode.insertBefore(s, n); };
-                        s.type = "text/javascript";
-                        s.async = true;
-                        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-
-                        if (w.opera == "[object Opera]") {
-                            d.addEventListener("DOMContentLoaded", f, false);
-                        } else { f(); }
-                    })(document, window, "yandex_metrika_callbacks");
-                    </script>
-<noscript><div><img src="//mc.yandex.ru/watch/22579897" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-<script type="text/javascript" src="/js/awstats_misc_tracker.js"></script><noscript><img src="/js/awstats_misc_tracker.js.php?nojs=y" height=20 width=0 border=0></noscript>
 </body>
 </html>

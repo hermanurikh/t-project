@@ -30,7 +30,7 @@
 
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.jsp";
+    location.href = "cp_employee_main";
     }
 </script>
 <script>
@@ -95,26 +95,26 @@ function validateForm() {
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
-                    <i class="np_icon logmanager"></i>
-                    <span class="href_line">Контракты</span>
-                </a>
+        <a href="cp_employee_contracts" class="main-menu-item">
+            <i class="np_icon logmanager"></i>
+            <span class="href_line">Контракты</span>
+        </a>
 
-        <a href="../controllers/UsersServlet" class="main-menu-item">
+        <a href="cp_employee_users" class="main-menu-item">
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="../WEB-INF/views/cp_employee/cp_employee_user_find.jsp" class="main-menu-item">
+        <a href="cp_employee_user_search" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
 
-        <a href="../controllers/TariffsServlet" class="main-menu-item">
+        <a href="cp_employee_tariffs" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тарифы</span>
         </a>
 
-        <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+        <a href="cp_employee_options" class="main-menu-item">
             <i class="np_icon mysql"></i>
             <span class="href_line">Опции</span>
         </a>
@@ -123,10 +123,6 @@ function validateForm() {
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
-        <script src="/js/underscore-min.js"></script>
-        <script src="/js/d3.js"></script>
-        <script src="/js/path.js"></script>
-        <script src="/js/punycode.js"></script>
 
 
 

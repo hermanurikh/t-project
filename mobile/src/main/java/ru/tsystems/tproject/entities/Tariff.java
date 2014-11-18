@@ -77,7 +77,26 @@ public class Tariff {
     public void addPossibleOption(Option option) {
         this.possibleOptions.add(option);
     }
+    @Override
     public String toString(){
         return String.format("Tariff{name: %s, price: %s}", this.getName(), this.getPrice());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tariff)) return false;
+
+        Tariff tariff = (Tariff) o;
+
+        return (id == tariff.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
+
+
+
 }
