@@ -36,7 +36,7 @@
 
             </div>
             <div class="b_secondary-menu js-forms-cont">
-                <form class="cp_loginscreen-form" action="controllers/LoginServlet" method="post">
+                <form class="cp_loginscreen-form" action="login-check-data" method="post">
                     <div class="b_input_wrap">
                         <label for="panel-login" class="b_input_text_placeholder" style="display:none">Имя пользователя</label>
                         <input id="panel-login" class="b_input_text" name="username" size="30" value="" type="text" />

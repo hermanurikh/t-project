@@ -163,7 +163,7 @@ document.getElementById(el).style.display = 'block';
                         </div>
 
                         <h2 class="js-h">Выберите опции для тарифа ${tariff.name}</h2><div>
-                        <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>
+                        <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций. </span>
 
 
 
@@ -181,7 +181,6 @@ document.getElementById(el).style.display = 'block';
                                 <!--начало элемента таблицы-->
                                 <c:forEach var="option" items="${optionsList}">
                                     <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick="changeDiv('${option.id}150')">
-
                                         <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" id=${option.id} value=${option.id}></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>

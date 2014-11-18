@@ -35,7 +35,7 @@ public class SessionFilter implements Filter {
         }
         catch (CustomDAOException ex) {
             logger.error(ex);
-            response.sendRedirect("../login.jsp");
+            response.sendRedirect("login.jsp");
         }
     }
 }

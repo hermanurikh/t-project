@@ -43,7 +43,7 @@
     </filter>
     <filter-mapping>
         <filter-name>ClientAccessFilter</filter-name>
-        <url-pattern>/cp_employee/*</url-pattern>
+        <url-pattern>/WEB-INF/views/cp_employee/*</url-pattern>
     </filter-mapping>
 
 

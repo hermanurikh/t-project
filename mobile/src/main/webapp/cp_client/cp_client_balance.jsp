@@ -21,7 +21,7 @@
 <body class="locale-ru_RU">
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_client_main.jsp";
+    location.href = "../WEB-INF/views/cp_client/cp_client_main.jsp";
     }
 </script>
 
@@ -36,7 +36,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_client_profile.jsp">Профиль</a></li>
+                        <li><a href="../WEB-INF/views/cp_client/cp_client_profile.jsp">Профиль</a></li>
                         <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
             <span class="href_line">Баланс</span>
         </a>
 
-        <a href="cp_client_profile.jsp" class="main-menu-item">
+        <a href="../WEB-INF/views/cp_client/cp_client_profile.jsp" class="main-menu-item">
             <i class="np_icon crontab"></i>
             <span class="href_line">Информация об аккаунте</span>
         </a>

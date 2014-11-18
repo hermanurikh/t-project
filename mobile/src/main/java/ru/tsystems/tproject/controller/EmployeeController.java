@@ -53,10 +53,7 @@ public class EmployeeController {
         ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }*/
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Locale locale, Model model) {
-        return "login";
-    }
+
 
     @RequestMapping(value = "/cp_employee_main", method = RequestMethod.GET)
     public String mainPage(Locale locale, Model model) {
@@ -97,7 +94,7 @@ public class EmployeeController {
         //добавить проверку, существует ли пользователь!
         int userID = userService.getUserByLogin(login).getId();
         Tariff tariff = tariffService.getEntityById(tariffId);
-        model.addAttribute("optionsList", tariff.getPossibleOptions());
+        model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
         model.addAttribute("contractNumber", Parser.doParse(contractNumber));
         model.addAttribute("userId", userID);
         model.addAttribute("tariffId", tariffId);
@@ -150,7 +147,7 @@ public class EmployeeController {
                 return "cp_employee/success";
             }
             else {
-                model.addAttribute("optionsList", tariff.getPossibleOptions());
+                model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
                 model.addAttribute("contractNumber", number);
                 model.addAttribute("userId", userID);
                 model.addAttribute("tariffId", tariffId);
@@ -178,7 +175,14 @@ public class EmployeeController {
                                  HttpServletRequest request, Locale locale, Model model) {
         Contract contract = contractService.getEntityById(contractId);
         if (contractNumber != null) {
-            contract.setBlocked(!contract.isBlocked());
+            if (contract.isBlocked()) {
+                contract.setBlocked(!contract.isBlocked());
+                contract.setEmployee(null);
+            }
+            else {
+                contract.setBlocked(!contract.isBlocked());
+                contract.setEmployee((User) request.getSession().getAttribute("currentUserU"));
+            }
             contractService.updateEntity(contract);
         }
         if (contract.isBlocked()) {
@@ -210,7 +214,8 @@ public class EmployeeController {
     public String changeContractOptions(@RequestParam(value = "cb") Integer tariffId,
                                         HttpServletRequest request, Locale locale, Model model) {
         Tariff tariff = tariffService.getEntityById(tariffId);
-        model.addAttribute("optionsList", tariff.getPossibleOptions());
+        List<Option> optionList = optionService.getAllOptionsForTariff(tariffId);
+        model.addAttribute("optionsList", optionList);
         request.getSession().setAttribute("tariff", tariff);
         return "cp_employee/cp_employee_contract_change_options";
     }
@@ -251,7 +256,7 @@ public class EmployeeController {
                 return "cp_employee/success";
             }
             else {
-                model.addAttribute("optionsList", tariff.getPossibleOptions());
+                model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariff.getId()));
                 model.addAttribute("areExceptions", "true");
                 model.addAttribute("exceptionsList", exceptionList);
                 return "cp_employee/cp_employee_contract_change_options";

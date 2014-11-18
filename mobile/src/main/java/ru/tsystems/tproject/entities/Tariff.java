@@ -56,7 +56,7 @@ public class Tariff {
     }
 
     public List<Option> getPossibleOptions() {
-        return possibleOptions;
+        return this.possibleOptions;
     }
 
     public void removePossibleOptions() { this.possibleOptions.clear(); }
