@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
 </head>
 <body class="locale-ru_RU">
 <script type="text/javascript">
@@ -128,14 +129,14 @@ document.getElementById(el).style.display = 'block';
             </div>
             <div class="info info_small fr info-last">
 
-                <form action="../controllers/UserContractFinalChangeServlet" method="POST" accept-charset="CP1252">
+                <form action="cp_client_contract_bucket" method="POST" accept-charset="CP1252">
                                 <div class="js-body info__body">
                                     <h2 class="js-h">Изменение контракта</h2><div>
                                     <div class="js-table form-horizontal support-issue-form">
 
                                         <div class="js-row control-group">
 
-                                        <span class="small_signature">Номер контракта: ${contractNumber}</span>
+                                        <span class="small_signature">Номер контракта: ${contract.number}</span>
 
                                         </div>
                                         <div class="js-row control-group" style="display:none;">
@@ -149,7 +150,7 @@ document.getElementById(el).style.display = 'block';
                                         <div class="js-row control-group" id="exceptions" style="display:none">
                                                                     <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2><div>
                                                                     <c:forEach var="ex" items="${exceptionsList}">
-                                                                    <span class="small_signature">${ex.message}</span> <br>
+                                                                    <span class="error-custom-message-incorrect">${ex.message}</span>
                                                                     </c:forEach>
                                                                 </div>
                                                                 </div>

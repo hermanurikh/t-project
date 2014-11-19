@@ -17,5 +17,7 @@ public interface OptionDAO extends GenericDAO<Option, Integer> {
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;
+    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException;
+
 
 }

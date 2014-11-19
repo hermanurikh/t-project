@@ -102,7 +102,7 @@ public class Contract {
 
     /**
      * Remove an option from the contract.
-     * @param option
+     * @param option option
      */
 
     public void removeOption(Option option) { this.options.remove(option); }
@@ -114,7 +114,7 @@ public class Contract {
 
     /**
      * Add an option to the contract.
-     * @param option
+     * @param option option
      */
     public void addOption(Option option) {
         this.options.add(option);

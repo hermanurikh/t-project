@@ -88,6 +88,7 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
         contract = contractService.getEntityById(contract.getId());
         assertTrue(contract.getTariff().getId() == 211369878);
         assertFalse(contract.getOptions().isEmpty());
+        assertTrue(optionService.getAllOptionsForContract(213698745).size() == 1);
         contract.getOptions().clear();
         contractService.updateEntity(contract);
     }

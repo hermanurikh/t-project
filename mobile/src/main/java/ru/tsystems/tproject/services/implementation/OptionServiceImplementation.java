@@ -65,4 +65,9 @@ public class OptionServiceImplementation implements OptionService {
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
         return optionDAO.getAllOptionsForTariff(id);
     }
+    @Override
+    @Transactional
+    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException {
+        return optionDAO.getAllOptionsForContract(id);
+    }
 }

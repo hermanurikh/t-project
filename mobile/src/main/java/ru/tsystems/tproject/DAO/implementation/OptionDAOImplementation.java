@@ -39,8 +39,19 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
         {
             throw new CustomDAOException("Options for tariff " + id + " not got", ex);
         }
+    }
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException{
+        try{
+            Query query = entityManager.createQuery("select c.options from Contract c where c.id=:id").setParameter("id", id);
 
-
+            return (List<Option>)query.getResultList();
+        }
+        catch (PersistenceException ex)
+        {
+            throw new CustomDAOException("Options for contract " + id + " not got", ex);
+        }
     }
 
 }

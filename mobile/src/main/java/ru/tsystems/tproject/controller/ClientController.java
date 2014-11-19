@@ -10,12 +10,14 @@ import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,6 +34,8 @@ public class ClientController {
     private TariffService tariffService;
     @Autowired
     private OptionService optionService;
+    @Autowired
+    private ContractValidator contractValidator;
 
     /**
      * This method returns a main page for the user control panel.
@@ -83,7 +87,7 @@ public class ClientController {
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
         int amount = contract.getTariff().getPrice();
-        List<Option> optionList = contract.getOptions();
+        List<Option> optionList = optionService.getAllOptionsForContract(contractId);
         if (!optionList.isEmpty()) {
             for (Option x : optionList) {
                 amount += x.getPrice();
@@ -162,6 +166,7 @@ public class ClientController {
                 contractService.updateEntity(contract);
                 request.getSession().setAttribute("paramIsBlocked", "выключена");
                 request.getSession().setAttribute("action", "Заблокировать");
+                request.getSession().setAttribute("contract", contract);
             }
             /*else {
                 model.addAttribute("paramIsBlocked", "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно снять блокировку или произвести изменения с контрактом. Пожалуйста, обратитесь к администратору");
@@ -172,9 +177,20 @@ public class ClientController {
             contractService.updateEntity(contract);
             request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом");
             request.getSession().setAttribute("action", "Разблокировать");
+            request.getSession().setAttribute("contract", contract);
         }
         return "cp_client/cp_client_change_contract";
     }
+
+    /**
+     * This method returns a page where the options for the contract are selected. If the contract is blocked, it redirects back to
+     * the page with the tariff selection.
+     * @param tariffId tariff's id;
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_client_contract_change_options.jsp or cp_client_change_contract.jsp
+     */
     @RequestMapping(value = "/cp_client_contract_change_options", method = RequestMethod.GET)
     public String selectOptions(@RequestParam(value = "cb") int tariffId,
                                 HttpServletRequest request, Locale locale, Model model) {
@@ -182,8 +198,74 @@ public class ClientController {
             return "cp_client/cp_client_change_contract";
         }
         model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
+        request.getSession().setAttribute("tariffId", tariffId);
         return "cp_client/cp_client_contract_change_options";
     }
+
+    /** This method returns a page with a bucket with selected options, if the entered data is valid, and redirects back to the page with options otherwise.
+     * The array with options' id is validated by a contractValidator. If something is incorrect, the exception is
+     * added to the exceptionsList.
+     * @param array the array of options' ids;
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_client_contract_change_bucket.jsp or cp_client_contract_change_options.jsp
+     */
+    @SuppressWarnings("unchecked")
+    @RequestMapping(value = "/cp_client_contract_bucket", method = RequestMethod.POST)
+    public String finalContractChange(@RequestParam(value = "cb", required = false) int[] array,
+                                      HttpServletRequest request, Locale locale, Model model) {
+        int tariffId = Integer.parseInt(String.valueOf(request.getSession().getAttribute("tariffId")));;
+        Tariff tariff = tariffService.getEntityById(tariffId);
+        Contract contract = (Contract) request.getSession().getAttribute("contract");
+        contract.setTariff(tariff);
+        if (array == null || array.length == 0) {
+            contract.removeAllOptions();
+            model.addAttribute("updatedContract", contract);
+            model.addAttribute("optionsList", contract.getOptions());
+            return "cp_client/cp_client_contract_change_bucket";
+        }
+        else {
+            List<Exception> exceptionList = new ArrayList<>();
+            List validationResultList = contractValidator.validateOptions(array, exceptionList); //checking if the entered options are correct
+            List<Option> optionList = (List<Option>) validationResultList.get(0);
+            exceptionList = (List<Exception>) validationResultList.get(1);
+            if (exceptionList.isEmpty()) {
+                contract.removeAllOptions();
+                for (Option x : optionList) {
+                    contract.addOption(x);
+                }
+                request.getSession().setAttribute("updatedContract", contract);
+                model.addAttribute("optionsList", contract.getOptions());
+                return "cp_client/cp_client_contract_change_bucket";
+            }
+            else {
+                model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
+                model.addAttribute("areExceptions", "true");
+                model.addAttribute("exceptionsList", exceptionList);
+                return "cp_client/cp_client_contract_change_options";
+            }
+        }
+
+
+    }
+
+    /**
+     * This method finally changes the contract after the approval by the client.
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return success.jsp
+     */
+    @RequestMapping(value = "/cp_client_bucket_approved", method =  RequestMethod.POST)
+    public String approveBucket(HttpServletRequest request, Locale locale, Model model) {
+        Contract contract = (Contract) request.getSession().getAttribute("updatedContract");
+        User user = (User) request.getSession().getAttribute("currentUserU");
+        contractService.updateEntity(contract);
+        userService.updateEntity(user);
+        return "cp_client/success";
+    }
+
 
 
 

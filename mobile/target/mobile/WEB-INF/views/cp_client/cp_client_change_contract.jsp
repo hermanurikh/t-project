@@ -184,7 +184,7 @@
 
                         <div class="icon-wrap">
                                                     <img src="${pageContext.request.contextPath}/images/ip-icon.png">
-                                                    <a href="cp_client_block_contract?contractNumber=${number}">${action}</a>
+                                                    <a href="cp_client_block_contract?contractNumber=${contract.number}">${action}</a>
                                                     <br>
                                                     <small>В данный момент блокировка ${paramIsBlocked}.</small>
                                                 </div>

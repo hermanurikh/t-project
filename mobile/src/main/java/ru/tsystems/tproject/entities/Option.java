@@ -111,7 +111,7 @@ public class Option {
 
     /**
      * Adds an option that is incompatible with current option.
-     * @param optionIncompatible
+     * @param optionIncompatible incompatible option
      */
 
     public void addOptionsIncompatible(Option optionIncompatible) {
