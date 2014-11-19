@@ -33,7 +33,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="../WEB-INF/views/cp_employee/cp_employee_profile.jsp">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>

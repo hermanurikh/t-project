@@ -9,23 +9,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script>window.page_data = {};</script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
 
 </head>
 <body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
 <div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_employee_main.html";
+    location.href = "cp_employee_main";
     }
 </script>
 
@@ -44,13 +49,12 @@
                     </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="cp_employee_profile">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>
             </div>
             <div class="right">
-                <script>var cp_pages = new Array();cp_pages.push({'caption': 'Домены и поддомены', 'name': 'domains'});cp_pages.push({'caption': 'Сайты', 'name': 'sites'});cp_pages.push({'caption': 'Каталог CMS', 'name': 'cms'});cp_pages.push({'caption': 'Файловый менеджер', 'name': 'fileman'});cp_pages.push({'caption': 'Базы данных MySQL', 'name': 'mysql'});cp_pages.push({'caption': 'Почтовый менеджер', 'name': 'mailman'});cp_pages.push({'caption': 'Пользователи ПУ/FTP', 'name': 'managers'});cp_pages.push({'caption': 'Резервные копии', 'name': 'backup'});cp_pages.push({'caption': 'Crontab', 'name': 'crontab'});cp_pages.push({'caption': 'Jabber сервер', 'name': 'jabber'});cp_pages.push({'caption': 'Безопасность', 'name': 'security'});cp_pages.push({'caption': 'Логи', 'name': 'logmanager'});cp_pages.push({'caption': 'Дополнительные услуги', 'name': 'services'});cp_pages.push({'caption': 'Тариф', 'name': 'tariff'});cp_pages.push({'caption': 'Финансы', 'name': 'balance'});cp_pages.push({'caption': 'Документы', 'name': 'documents'});cp_pages.push({'caption': 'Уведомления', 'name': 'sms'});cp_pages.push({'caption': 'Бонусы', 'name': 'bonuses'});</script>
                 <div class="account-selector dobble">
                 <div class="main">
                     <div class="info">
@@ -81,26 +85,26 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/EmployeeAllContractsServlet" class="main-menu-item">
+        <a href="cp_employee_contracts" class="main-menu-item">
             <i class="np_icon logmanager"></i>
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="../controllers/UsersServlet" class="main-menu-item">
+        <a href="cp_employee_users" class="main-menu-item">
             <i class="np_icon managers"></i>
             <span class="href_line">Пользователи</span>
         </a>
-        <a href="../WEB-INF/views/cp_employee/cp_employee_user_find.jsp" class="main-menu-item">
+        <a href="cp_employee_user_search" class="main-menu-item">
             <i class="np_icon domains"></i>
             <span class="href_line">Поиск пользователя</span>
         </a>
 
-        <a href="../controllers/TariffsServlet" class="main-menu-item">
+        <a href="cp_employee_tariffs" class="main-menu-item">
             <i class="np_icon tariff"></i>
             <span class="href_line">Тарифы</span>
         </a>
 
-        <a href="../controllers/AllOptionsServlet" class="main-menu-item">
+        <a href="cp_employee_options" class="main-menu-item">
             <i class="np_icon mysql"></i>
             <span class="href_line">Опции</span>
         </a>
@@ -109,10 +113,6 @@
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
 <td class="np_content">
-<script src="/js/underscore-min.js"></script>
-<script src="/js/d3.js"></script>
-<script src="/js/path.js"></script>
-<script src="/js/punycode.js"></script>
 
 
 

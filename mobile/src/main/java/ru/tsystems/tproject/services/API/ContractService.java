@@ -19,5 +19,6 @@ public interface ContractService extends GenericService<Contract, Integer> {
      */
 
     public Contract getContractByNumber(long number) throws CustomDAOException;
+    public List<Contract> getAllContractsForUser(int id) throws CustomDAOException;
 
 }

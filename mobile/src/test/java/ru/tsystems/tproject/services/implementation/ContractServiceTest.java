@@ -117,6 +117,11 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
         User user = userService.getUserByNumber(2030508091);
         assertNotNull(user);
     }
+    //a test to check the "getAllContractsForUser" method
+    @Test
+    public void testGetAllContractsForUser() {
+        assertTrue(contractService.getAllContractsForUser(299999998).size() == 2);
+    }
 
 
 

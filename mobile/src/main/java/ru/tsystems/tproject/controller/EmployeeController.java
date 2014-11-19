@@ -48,17 +48,23 @@ public class EmployeeController {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
-    /*@RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getAll() {
-        ModelAndView modelAndView = new ModelAndView("login");
-        return modelAndView;
-    }*/
-
-
+    /**
+     * This method returns the main employee page.
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_main.jsp
+     */
     @RequestMapping(value = "/cp_employee_main", method = RequestMethod.GET)
     public String mainPage(Locale locale, Model model) {
         return "cp_employee/cp_employee_main";
     }
+
+    /**
+     * This method returns a profile page.
+     * @return cp_employee_profile.jsp
+     */
+    @RequestMapping(value = "/cp_employee_profile", method = RequestMethod.GET)
+    public String getProfile() { return "cp_employee/cp_employee_profile"; }
 
     /**
      * This method resolves a page with all contracts. When contractId is specified, the contract is deleted.
@@ -78,6 +84,15 @@ public class EmployeeController {
         model.addAttribute("contractsList", contractService.getAll());
         return "cp_employee/cp_employee_contracts";
     }
+
+    /**
+     * This method returns a page where a new contract is being created. It sets a list with all tariffs to choose from.
+     * If the id is specified, the login of the user will be added to the page.
+     * @param id the id of the user;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_new_contract.jsp
+     */
     @RequestMapping(value = "/cp_employee_new_contract", method = RequestMethod.GET)
     public String addContract(@RequestParam(value = "id", required = false) Integer id, Locale locale, Model model) {
         if (id != null) {
@@ -86,6 +101,16 @@ public class EmployeeController {
         model.addAttribute("tariffsList", tariffService.getAll());
         return "cp_employee/cp_employee_new_contract";
     }
+
+    /**
+     * This method returns a page where options are chosen for the contract.
+     * @param contractNumber a number of the contract;
+     * @param login the user's login;
+     * @param tariffId the tariff id;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_new_contract_options.jsp
+     */
     @RequestMapping(value = "/cp_employee_new_contract_options", method = RequestMethod.POST)
     public String addContractOptions(@RequestParam(value = "number") String contractNumber,
                                      @RequestParam(value = "login") String login,

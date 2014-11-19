@@ -77,7 +77,7 @@
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="cp_client_balance.jsp" class="main-menu-item">
+        <a href="../WEB-INF/views/cp_client/cp_client_balance.jsp" class="main-menu-item">
             <i class="np_icon balance"></i>
             <span class="href_line">Баланс</span>
         </a>

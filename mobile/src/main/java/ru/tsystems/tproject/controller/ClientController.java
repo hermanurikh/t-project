@@ -69,7 +69,7 @@ public class ClientController {
     @RequestMapping(value = "/cp_client_contracts", method = RequestMethod.GET)
     public String getContracts(HttpServletRequest request, Locale locale, Model model) {
         User user = (User) request.getSession().getAttribute("currentUserU");
-        model.addAttribute("contractsUserList", user.getContracts());
+        model.addAttribute("contractsUserList", contractService.getAllContractsForUser(user.getId()));
         return "cp_client/cp_client_contracts";
     }
 
@@ -265,6 +265,34 @@ public class ClientController {
         userService.updateEntity(user);
         return "cp_client/success";
     }
+
+    /**
+     * This method returns a page where you can increase the current balance.
+     * @param locale locale;
+     * @param model model;
+     * @return cp_client_balance
+     */
+    @RequestMapping(value = "/cp_client_balance", method = RequestMethod.GET)
+    public String getBalance(Locale locale, Model model) {
+        return "cp_client/cp_client_balance";
+    }
+
+    /**
+     * This method increases the current balance by 100.
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_client_balance.jsp
+     */
+    @RequestMapping(value = "/cp_client_increase_balance", method = RequestMethod.GET)
+    public String increaseBalance(HttpServletRequest request, Locale locale, Model model) {
+        User user = (User) request.getSession().getAttribute("currentUserU");
+        user.setBalance(user.getBalance() + 100);
+        userService.updateEntity(user);
+        request.getSession().setAttribute("currentUserU", user);
+        return "cp_client/cp_client_balance";
+    }
+
 
 
 

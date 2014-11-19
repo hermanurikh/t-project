@@ -69,29 +69,25 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/UserAllContractsServlet" class="main-menu-item">
+        <a href="cp_client_contracts" class="main-menu-item">
             <i class="np_icon documents"></i>
             <span class="href_line">Контракты</span>
         </a>
 
-        <a href="../../../cp_client/cp_client_balance.jsp" class="main-menu-item">
+        <a href="cp_client_balance" class="main-menu-item">
             <i class="np_icon balance"></i>
             <span class="href_line">Баланс</span>
         </a>
 
-        <a href="cp_client_profile.jsp" class="main-menu-item">
-                    <i class="np_icon crontab"></i>
-                    <span class="href_line">Информация об аккаунте</span>
-                </a>
+        <a href="cp_client_profile" class="main-menu-item">
+            <i class="np_icon crontab"></i>
+            <span class="href_line">Информация об аккаунте</span>
+        </a>
 
         <div class="np_menu-line"></div>
         <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
-        <script src="/js/underscore-min.js"></script>
-        <script src="/js/d3.js"></script>
-        <script src="/js/path.js"></script>
-        <script src="/js/punycode.js"></script>
         <div class="primary_div npp_index">
 
             <div style="display:none;">

@@ -65,4 +65,9 @@ public class ContractServiceImplementation implements ContractService {
     public List<Contract> getAll() throws CustomDAOException {
         return this.contractDAO.getAll();
     }
+    @Override
+    @Transactional
+    public List<Contract> getAllContractsForUser(int id) throws CustomDAOException {
+        return this.contractDAO.getAllContractsForUser(id);
+    }
 }
