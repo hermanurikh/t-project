@@ -24,32 +24,22 @@ public class LoginController {
     public String loginPage(Locale locale, Model model) {
         return "login";
     }
-    @RequestMapping(value = "/login-check-data", method = RequestMethod.POST)
-    public String validateData(@RequestParam(value = "username") String username,
-                               @RequestParam(value = "password") String password,
-                               HttpServletRequest request, Locale locale, Model model) {
-        try {
-            User user = userService.getUserByLogin(username);
-            if (user == null) throw new Exception("There is no user with the login " + username);
-            else {
-                if (user.getPassword().equals(Converter.getMD5(password))) {
-                    request.getSession().setAttribute("currentUserU", user);
-                    if (user.getRole().getId() == 1) {
-                        return "cp_client/cp_client_main";
-                    } else if (user.getRole().getId() == 2) {
-                        return "cp_employee/cp_employee_main";
-                    } else {
-                        throw new Exception("The role of user is undefined");
-                    }
-                } else throw new Exception("The users passwords do not match");
-            }
-        }
-        catch (Exception exception) {
-            request.getSession().invalidate();
-            model.addAttribute("isInputValid", "false");
-            return "login";
-        }
-
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage() {
+        return "login";
     }
+    @RequestMapping(value = "/denied", method = RequestMethod.GET)
+    public String deniedPage() {
+        return "denied";
+    }
+    @RequestMapping(value = "/login-denied", method = RequestMethod.GET)
+    public String loginDenied(Locale locale, Model model) {
+        model.addAttribute("isInputValid", "false");
+        return "login";
+    }
+    /*@RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String dispatch(HttpServletRequest request, Locale locale, Model model) {
+        pageContext.request.userPrincipal.username
+    }*/
 }
 

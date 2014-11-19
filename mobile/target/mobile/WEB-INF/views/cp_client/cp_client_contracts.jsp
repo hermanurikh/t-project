@@ -88,13 +88,10 @@
         </a>
 
         <div class="np_menu-line"></div>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
-        <script src="/js/underscore-min.js"></script>
-        <script src="/js/d3.js"></script>
-        <script src="/js/path.js"></script>
-        <script src="/js/punycode.js"></script>
         <div class="primary_div npp_index">
 
             <div style="display:none;">

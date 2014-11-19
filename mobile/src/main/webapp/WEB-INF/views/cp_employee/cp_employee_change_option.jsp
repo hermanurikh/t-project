@@ -20,8 +20,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
 
-</head>
-<script>window.logins=[{"login":"gurikh","s":"475dc6f2020a987cf1344602b53e3531","page":"\/"}]</script><script> window.from_tab=0;</script><script>window.current_login="gurikh";</script><body class="locale-ru_RU">
+</head><body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a></div>
 <div id="vds-overlay" style="display: none;"></div>
 <div id="vds-wait" style="display: none;">
@@ -123,7 +122,8 @@
         </a>
 
         <div class="np_menu-line"></div>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
 
