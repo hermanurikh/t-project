@@ -168,9 +168,6 @@ public class ClientController {
                 request.getSession().setAttribute("action", "Заблокировать");
                 request.getSession().setAttribute("contract", contract);
             }
-            /*else {
-                model.addAttribute("paramIsBlocked", "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно снять блокировку или произвести изменения с контрактом. Пожалуйста, обратитесь к администратору");
-            }*/
         }
         else {
             contract.setBlocked(true);
@@ -221,7 +218,7 @@ public class ClientController {
         contract.setTariff(tariff);
         if (array == null || array.length == 0) {
             contract.removeAllOptions();
-            model.addAttribute("updatedContract", contract);
+            request.getSession().setAttribute("updatedContract", contract);
             model.addAttribute("optionsList", contract.getOptions());
             return "cp_client/cp_client_contract_change_bucket";
         }

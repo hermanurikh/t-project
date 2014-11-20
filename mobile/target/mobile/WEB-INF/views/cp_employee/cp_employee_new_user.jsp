@@ -199,7 +199,7 @@
                                         <label class="js-caption control-label">Имя:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="name" class="js-input big-input" name="name">
-                                            <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым!</span>
+                                            <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым.</span>
                                         </div>
 
                                     </div>
@@ -208,7 +208,7 @@
                                         <label class="js-caption control-label">Фамилия:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="surname" class="js-input big-input" name = "surname">
-                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой!</span>
+                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой.</span>
                                         </div>
                                     </div>
 
