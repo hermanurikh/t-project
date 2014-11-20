@@ -9,16 +9,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file6.css"/>
 </head>
 <script type="text/javascript">
     function redirect() {
-    location.href = "../WEB-INF/views/cp_employee/cp_employee_main.jsp";
+    location.href = "cp_employee_main.jsp";
     }
 </script>
 
@@ -33,7 +33,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="../WEB-INF/views/cp_employee/cp_employee_profile.jsp">Профиль</a></li>
+                        <li><a href="cp_employee_profile.jsp">Профиль</a></li>
                         <!--<li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>-->
                     </ul>
                 </div>
