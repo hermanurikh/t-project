@@ -7,7 +7,7 @@
              xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+    <beans:import resource="mvcDispatcher-servlet.xml"/>
     <!-- Configuring RoleVoter bean to use custom access roles, by default roles
         should be in the form ROLE_{XXX} -->
     <beans:bean id="roleVoter"
@@ -24,9 +24,6 @@
 
     <http authentication-manager-ref="dao-auth"
           access-decision-manager-ref="accessDecisionManager">
-
-
-
         <intercept-url pattern="/cp_employee**" access="Employee" />
         <intercept-url pattern="/cp_client**" access="User" />
         <form-login login-page="/login" authentication-failure-url="/login-denied"
@@ -40,8 +37,6 @@
                                  expired-url="/login" />
         </session-management>
     </http>
-    <context:annotation-config/>
-    <context:component-scan base-package="ru.tsystems.tproject"/>
 
     <authentication-manager id="dao-auth">
         <authentication-provider user-service-ref="userDetailsService">
@@ -53,38 +48,4 @@
     </beans:bean>
 
 
-
-
-    <beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <beans:property name="persistenceXmlLocation" value="classpath:persistence.xml"/>
-        <beans:property name="persistenceUnitName" value="persistenceUnit" />
-        <!--<property name="dataSource" ref="dataSource"/>-->
-    </beans:bean>
-
-    <beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </beans:bean>
-    <tx:annotation-driven transaction-manager="transactionManager" />
-
-
-
-   <!-- <beans:bean id="userDetailsService"
-                class="ru.tsystems.tproject.security.AppUserDetailsServiceDAO">
-    </beans:bean>-->
-
-    <!-- MySQL DB DataSource -->
-    <!--<beans:bean id="dataSource"
-                class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url"
-                        value="jdbc:mysql://localhost:3306/tproject" />
-        <beans:property name="username" value="pankaj" />
-        <beans:property name="password" value="pankaj123" />
-    </beans:bean>
-
-    &lt;!&ndash; If DataSource is configured in Tomcat Servlet Container &ndash;&gt;
-    <beans:bean id="dbDataSource"
-                class="org.springframework.jndi.JndiObjectFactoryBean">
-        <beans:property name="jndiName" value="java:comp/env/jdbc/MyLocalDB" />
-    </beans:bean>-->
 </beans:beans>

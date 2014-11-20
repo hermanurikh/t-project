@@ -19,19 +19,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
 
 </head>
-<script>
-    window.logins = [{
-        "login": "gurikh",
-        "s": "475dc6f2020a987cf1344602b53e3531",
-        "page": "\/"
-    }]
-</script>
-<script>
-    window.from_tab = 0;
-</script>
-<script>
-    window.current_login = "gurikh";
-</script>
+
 
 <body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a>

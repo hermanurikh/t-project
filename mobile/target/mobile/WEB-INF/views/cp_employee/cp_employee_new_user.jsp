@@ -19,19 +19,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
 
 </head>
-<script>
-    window.logins = [{
-        "login": "gurikh",
-        "s": "475dc6f2020a987cf1344602b53e3531",
-        "page": "\/"
-    }]
-</script>
-<script>
-    window.from_tab = 0;
-</script>
-<script>
-    window.current_login = "gurikh";
-</script>
+
 
 <body class="locale-ru_RU">
 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a>
@@ -199,7 +187,7 @@
                                         <label class="js-caption control-label">Имя:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="name" class="js-input big-input" name="name">
-                                            <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым!</span>
+                                            <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым.</span>
                                         </div>
 
                                     </div>
@@ -208,7 +196,7 @@
                                         <label class="js-caption control-label">Фамилия:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="surname" class="js-input big-input" name = "surname">
-                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой!</span>
+                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой.</span>
                                         </div>
                                     </div>
 
