@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.utils.Converter;
+import ru.tsystems.tproject.utils.Locale.RussianLanguage;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
@@ -81,6 +82,7 @@ public class LoginController {
         logger.error("Его права: " + user.getAuthorities());
         User currentUser = userService.getUserByLogin(user.getUsername());
         request.getSession().setAttribute("currentUserU", currentUser);
+        request.getSession().setAttribute("language", RussianLanguage.getRussianLanguage());
         if (currentUser.getRole().getId() == 2) {
             return "cp_employee/cp_employee_main";
         }

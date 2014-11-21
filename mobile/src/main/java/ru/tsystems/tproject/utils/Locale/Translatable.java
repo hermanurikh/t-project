@@ -4,6 +4,7 @@ package ru.tsystems.tproject.utils.Locale;
  * An interface to implement by different languages.
  */
 public interface Translatable {
+    public String getJSP_PANEL_NAME();
 
     public String getJSP_CONTRACTS_NAME();
 
@@ -60,6 +61,8 @@ public interface Translatable {
     public String getJSP_CONTRACTS_UNBLOCK();
 
     public String getJSP_CONTRACTS_UNBLOCKED();
+
+    public String getJSP_CONTRACTS_BLOCKED_BY_ADMIN();
 
     public String getJSP_CONTRACTS_CHANGING();
 

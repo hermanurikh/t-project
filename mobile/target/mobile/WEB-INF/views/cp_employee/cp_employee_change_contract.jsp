@@ -9,11 +9,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <script>
-        window.page_data = {};
-    </script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
@@ -27,7 +22,9 @@
 </head>
 
 <body class="locale-ru_RU">
-<div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a>
+<div class="lang-place" style="display:none;">
+    <a href="?change_lang=ru">ru</a>
+    <a href="?change_lang=en">en</a>
 </div>
 
 

@@ -16,6 +16,7 @@ import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
+import ru.tsystems.tproject.utils.Locale.Translatable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -122,21 +123,22 @@ public class ClientController {
     @RequestMapping(value = "/cp_client_change_contract", method = RequestMethod.GET)
     public String changeContract(@RequestParam(value = "contractId") int contractId,
                                  HttpServletRequest request, Locale locale, Model model) {
+        Translatable translatable = (Translatable) request.getSession().getAttribute("language");
         Contract contract = contractService.getEntityById(contractId);
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
         if (contract.isBlocked()) {
             if (contract.getEmployee() != null) {
-                request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору");
+                request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED_BY_ADMIN());
             }
             else {
-                request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
-                request.getSession().setAttribute("action", "Разблокировать");
+                request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED());
+                request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_UNBLOCK());
             }
         }
         else {
-            request.getSession().setAttribute("paramIsBlocked", "выключена");
-            request.getSession().setAttribute("action", "Заблокировать");
+            request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_UNBLOCKED());
+            request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_BLOCK());
         }
         request.getSession().setAttribute("tariffsList", tariffService.getAll());
         request.getSession().setAttribute("contract", contract);
@@ -158,6 +160,7 @@ public class ClientController {
     @RequestMapping(value = "/cp_client_block_contract", method = RequestMethod.GET)
     public String blockContract(@RequestParam(value = "contractNumber") long number,
                                 HttpServletRequest request, Locale locale, Model model) {
+        Translatable translatable = (Translatable) request.getSession().getAttribute("language");
         Contract contract = contractService.getContractByNumber(number);
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
@@ -165,16 +168,16 @@ public class ClientController {
             if (contract.getEmployee() == null) {
                 contract.setBlocked(false);
                 contractService.updateEntity(contract);
-                request.getSession().setAttribute("paramIsBlocked", "выключена");
-                request.getSession().setAttribute("action", "Заблокировать");
+                request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_UNBLOCKED());
+                request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_BLOCK());
                 request.getSession().setAttribute("contract", contract);
             }
         }
         else {
             contract.setBlocked(true);
             contractService.updateEntity(contract);
-            request.getSession().setAttribute("paramIsBlocked", "ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом");
-            request.getSession().setAttribute("action", "Разблокировать");
+            request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED());
+            request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_UNBLOCK());
             request.getSession().setAttribute("contract", contract);
         }
         return "cp_client/cp_client_change_contract";

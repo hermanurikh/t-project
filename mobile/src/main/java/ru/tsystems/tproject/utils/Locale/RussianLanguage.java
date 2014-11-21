@@ -5,6 +5,8 @@ package ru.tsystems.tproject.utils.Locale;
  */
 public class RussianLanguage implements Translatable {
     private static RussianLanguage russianLanguage;
+
+    private final String JSP_PANEL_NAME = "Панель управления аккаунтом";
     private final String JSP_CONTRACTS_NAME = "Контракты";
     private final String JSP_BALANCE_NAME = "Баланс";
     private final String JSP_INFO_NAME = "Информация об аккаунте";
@@ -30,9 +32,10 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_PRICE = "Цена";
     private final String JSP_CONTRACTS_SUBMIT = "Выбрать опции для тарифа";
     private final String JSP_CONTRACTS_BLOCK = "Заблокировать";
-    private final String JSP_CONTRACTS_BLOCKED = "В данный момент блокировка ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом.";
+    private final String JSP_CONTRACTS_BLOCKED = "В данный момент блокировка ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом";
     private final String JSP_CONTRACTS_UNBLOCK = "Разблокировать";
-    private final String JSP_CONTRACTS_UNBLOCKED = "В данный момент блокировка выключена.";
+    private final String JSP_CONTRACTS_UNBLOCKED = "В данный момент блокировка выключена";
+    private final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору";
     private final String JSP_CONTRACTS_CHANGING = "Изменение контракта";
     private final String JSP_CONTRACTS_CHANGING_NUMBER = "Номер контракта:";
     private final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Выберите опции для тарифа";
@@ -66,6 +69,10 @@ public class RussianLanguage implements Translatable {
         else {
             return russianLanguage;
         }
+    }
+    @Override
+    public String getJSP_PANEL_NAME() {
+        return JSP_PANEL_NAME;
     }
     @Override
     public String getJSP_CONTRACTS_NAME() {
@@ -170,6 +177,10 @@ public class RussianLanguage implements Translatable {
     @Override
     public String getJSP_CONTRACTS_BLOCKED() {
         return JSP_CONTRACTS_BLOCKED;
+    }
+    @Override
+    public String getJSP_CONTRACTS_BLOCKED_BY_ADMIN() {
+        return JSP_CONTRACTS_BLOCKED_BY_ADMIN;
     }
     @Override
     public String getJSP_CONTRACTS_UNBLOCK() {
