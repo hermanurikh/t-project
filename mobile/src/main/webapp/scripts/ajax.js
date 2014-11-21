@@ -2,71 +2,71 @@
  * Created by german on 21.11.14.
  */
 
-$(document).ready(function(){
-    var jVal = {
-        'number' : function() {
-            var number = $('#number');
-            var numberDiv = $('#numberDiv');
-            var errorMessage = $('#error-contract-exists');
-            if (number.val() == null) return false;
-            if (numberDiv.val() == null) return false;
-            if (errorMessage.val() == null) return false;
-            if (number.val().length == 15) {
-                var contractNumber = number.val();
-                $.get('cp_employee_check_number/' + contractNumber, function(answer) {
-                    if (answer == true) {
-                        errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-                        numberDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
-                    }
-                    else {
-                        jVal.errors = true;
-                        errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
-                        numberDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error');
-                    }
-                });
-            }
-            else return false;
-        },
-        'login' : function() {
-            var login = $('#login');
-            var loginDiv = $('#loginDiv');
-            var errorMessage = $('#error-user-not-exists');
-            if (login.val() == null) return false;
-            if (loginDiv.val() == null) return false;
-            if (errorMessage.val() == null) return false;
-            if (login.val().length >= 2 || login.val().length <= 15) {
-                var loginName = login.val();
-                $.get('cp_employee_check_user/' + loginName, function(answer) {
-                    if (answer == true) {
-                        errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-                        loginDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
-                    }
-                    else {
-                        jVal.errors = true;
-                        errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
-                        loginDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error');
-                    }
-                });
-            }
-            else return false;
-        },
-        'sendIt' : function (){
-            if(!jVal.errors) {
-                $('#jForm').submit();
-            }
+function getOptions(id) {
+    var vds1 = $("#vds-overlay");
+    var vds2 = $("#vds-wait");
+    vds1.show();
+    vds2.show();
+    setTimeout(doAjax(id), 1000)
+}
+
+
+
+function doAjax (tariff_id) {
+    var vds1 = $("#vds-overlay");
+    var vds2 = $("#vds-wait");
+    $.ajax({
+        url: 'cp_employee_get_options_for_tariff/' + tariff_id,
+        type: 'GET',
+        /* success: function (data) {
+         var bigDiv1 = $("#list_database2");
+         var bigDiv = $("#optionTable tbody");
+         bigDiv.empty();
+         bigDiv.append(
+         "<tr class='ui-table-header' id = 'options-header'>" +
+         "<th class='header_s_checkbox' width='12' align='center'></th>" +
+         "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
+         "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
+         "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
+         "</tr>"
+         );
+         data.forEach(function (elem, index, array) {
+         bigDiv.append(
+         "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
+         "<td name='tcell' class='simplecell_checkbox' align='left'>" +
+         "<input type='checkbox' name='cb' id=" + elem.id + " value=" + elem.id + "></td>" +
+         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
+         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
+         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
+         "</tr>");
+         });
+         bigDiv1.show();
+         }*/
+        success: function (data) {
+            var bigDiv1 = $("#list_database2");
+            var bigDiv = $("#optionTable tbody");
+            bigDiv.empty();
+            bigDiv.append(
+                    "<tr class='ui-table-header' id = 'options-header'>" +
+                    "<th class='header_s_checkbox' width='12' align='center'></th>" +
+                    "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
+                    "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
+                    "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
+                    "</tr>"
+            );
+            data.forEach(function (elem, index, array) {
+                bigDiv.append(
+                        "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
+                        "<td name='tcell' class='simplecell_checkbox' align='left'>" +
+                        "<input type='checkbox' name='cb' id=" + elem.id + " value=" + elem.id + "></td>" +
+                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
+                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
+                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
+                        "</tr>");
+            });
+            bigDiv1.show();
+            vds1.hide();
+            vds2.hide();
         }
-
-    };
-    $('#send').click(function (){
-        jVal.errors = false;
-        jVal.number();
-        jVal.login();
-        jVal.sendIt();
-
-        return false;
     });
-
-
-    $('#number').change(jVal.number);
-    $('#login').change(jVal.login);
-});
+}

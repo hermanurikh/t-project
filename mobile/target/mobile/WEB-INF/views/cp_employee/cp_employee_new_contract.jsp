@@ -22,6 +22,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/numberMask.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 
 </head>
 
@@ -49,6 +50,16 @@
         $("#number").mask("(999) 999-99-99");
     });
 </script>
+<div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
+
 
 
 <div class="header">
@@ -212,7 +223,7 @@
 
                                             <!--начало элемента таблицы-->
                                             <c:forEach var="tariff" items="${tariffsList}">
-                                                <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onClick="alert('Hello World!')">
+                                                <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick=getOptions(${tariff.id})>
 
                                                     <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id = "cb" name="cb" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
@@ -237,6 +248,24 @@
                                 </div></div>
                             </div>
                     </form>
+                    <div id="list_database2" style="display: none;">
+                        <div style="">
+                            <table class="ui-table ui-table-hover ui-table-striped" id = "optionTable" style="width:100%"><tbody>
+
+                            <tr class="ui-table-header" id = "options-header">
+
+                                <th class="header_s_checkbox" width="12" align="center"></th>
+                                <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                                <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                            </tr>
+
+                            <!--начало элемента таблицы-->
+
+
+                            <!--конец элемента таблицы-->
+                            </tbody>
+                            </table></div></div>
 
                     <div class="clear"></div>
 
