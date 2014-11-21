@@ -8,36 +8,89 @@ $(document).ready(function(){
            var number = $('#number');
            var numberDiv = $('#numberDiv');
            var errorMessage = $('#error-custom-message-1');
+           var errorMessage2 = $('#error-contract-exists');
            if (number.val() == null) return false;
+           var contractNumber = number.val();
            if (numberDiv.val() == null) return false;
            if (errorMessage.val() == null) return false;
-           else if (number.val().length != 15) {
+           var answer;
+           if (number.val().length != 15) { //если неправильное к-во
+               //jVal.errors = true;
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+               if (errorMessage2.val() != null) {
+                   errorMessage2.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+               }
                numberDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error');
 
            }
-           else {
+           else { //если правильное к-во
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-               numberDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
+               if (errorMessage2.val() == null) {
+                   numberDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
+               }
+               else {
+                   answer = $.ajax({
+                       type: "GET",
+                       url: 'cp_employee_check_number/' + contractNumber,
+                       async: false
+                   }).responseText;
+                       if (answer == "true") {
+                           errorMessage2.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+                           numberDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
+                       }
+                       else {
+                           jVal.errors = true;
+                           errorMessage2.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+                           numberDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error');
+                       }
+               }
            }
        },
        'login' : function() {
            var login = $('#login');
            var loginDiv = $('#loginDiv');
            var errorMessage = $('#error-custom-message-2');
+           var errorMessage2 = $('#error-user-not-exists');
            if (login.val() == null) return false;
            if (loginDiv.val() == null) return false;
            if (errorMessage.val() == null) return false;
            if (login.val().length < 2 || login.val().length > 15) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+               errorMessage2.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
                loginDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error')
            }
            else {
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
-               loginDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
+               jVal.loginAjax();
            }
+       },
+       'loginAjax' : function() {
+           var login = $('#login');
+           var loginDiv = $('#loginDiv');
+           var errorMessage = $('#error-user-not-exists');
+           if (login.val() == null) return false;
+           if (loginDiv.val() == null) return false;
+           if (errorMessage.val() == null) return false;
+           if (login.val().length >= 2 || login.val().length <= 15) {
+               var loginName = login.val();
+               var answer = $.ajax({
+                   type: "GET",
+                   url: 'cp_employee_check_user/' + loginName,
+                   async: false
+               }).responseText;
+                   if (answer == "true") {
+                       errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+                       loginDiv.removeClass('ui-ajaxvalidate-error').addClass('ui-ajaxvalidate-valid');
+                   }
+                   else {
+                       jVal.errors = true;
+                       errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+                       loginDiv.removeClass('ui-ajaxvalidate-valid').addClass('ui-ajaxvalidate-error');
+                   }
+           }
+           else return false;
        },
        'tariff' : function() {
            var errorMessage = $('#error-custom-message-3');
@@ -126,15 +179,41 @@ $(document).ready(function(){
        'userLogin' : function() {
            var userName = $('#userLogin');
            var errorMessage = $('#error-custom-message-7');
+           var errorMessage2 = $('#error-user-exists');
            if (userName.val() == null) return false;
            if (errorMessage.val() == null) return false;
            else if (userName.val().length < 2 || userName.val().length > 15) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+              if (errorMessage2 != null) {
+                  errorMessage2.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+              }
            }
            else {
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+               jVal.userLoginAjax();
            }
+       },
+       'userLoginAjax' : function() {
+           var userName = $('#userLogin');
+           var errorMessage = $('#error-user-exists');
+           if (errorMessage.val() == null) return false;
+           if (userName.val().length >= 2 || userName.val().length <= 15) {
+               var loginName = userName.val();
+               var answer = $.ajax({
+                   type: "GET",
+                   url: 'cp_employee_check_user/' + loginName,
+                   async: false
+               }).responseText;
+               if (answer == "false") {
+                   errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+               }
+               else {
+                   jVal.errors = true;
+                   errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+               }
+           }
+           else return false;
        },
        'userPassword' : function() {
            var userName = $('#userPassword');

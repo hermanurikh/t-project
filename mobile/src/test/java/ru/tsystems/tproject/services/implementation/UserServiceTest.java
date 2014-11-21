@@ -82,11 +82,16 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
         List<User> userList = userService.getAll();
         assertTrue(userList.size() > 1);
     }
-    //a test to check the "getUserByLogin" method
+    //a test to check the "getUserByLogin" method success
     @Test
-    public void testGetUserByLogin() {
+    public void testGetUserByLoginSuccess() {
         User user = userService.getUserByLogin("1poi3JUShN76c");
         assertNotNull(user);
+    }
+    //a test to check the "getUserByLogin" method failure
+    @Test (expected = CustomDAOException.class)
+    public void testGetUserByLoginFail() {
+        userService.getUserByLogin("j6ks8Ynfk4ui");
     }
 
 

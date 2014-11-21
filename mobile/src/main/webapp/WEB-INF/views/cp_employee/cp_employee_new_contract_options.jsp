@@ -159,6 +159,7 @@ document.getElementById(el).style.display = 'block';
                                 <div class="ui-ajaxvalidate-icon"></div>
                             </div>
                             <span class="error-custom-message" id="error-custom-message-1">В качестве номера необходимо использовать число из 10 цифр.</span>
+                            <span class="error-custom-message" id="error-contract-exists">Контракт с заданным номером уже существует!</span>
                         </div>
 
 

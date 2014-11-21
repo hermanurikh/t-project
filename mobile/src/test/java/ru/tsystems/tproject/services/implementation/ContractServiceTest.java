@@ -14,6 +14,7 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
@@ -105,11 +106,16 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
         List<Contract> contractList = contractService.getAll();
         assertTrue(contractList.size() > 1);
     }
-    //a test to check the "getContractByNumber" method
+    //a test to check the "getContractByNumber" method success
     @Test
-    public void testContractGetByNumber() {
+    public void testContractGetByNumberSuccess() {
         Contract contract = contractService.getContractByNumber(2030508090);
         assertNotNull(contract);
+    }
+    //a test to check the "getContractByNumber" method failure
+    @Test (expected = CustomDAOException.class)
+    public void testContractGetByNumberFailure() {
+        Contract contract2 = contractService.getContractByNumber(9764839232l);
     }
     //a test to check the "getUserByNumber" method in UserService
     @Test

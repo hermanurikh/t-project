@@ -9,9 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <script>
-        window.page_data = {};
-    </script>
+
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
@@ -50,6 +48,25 @@
     jQuery(function($){
         $("#number").mask("(999) 999-99-99");
     });
+</script>
+<script>
+    function getOptions(tariff_id) {
+        $.ajax({
+            url: 'cp_employee_get_options_for_tariff/' + tariff_id,
+            type: 'GET',
+            success: function (data) {
+                $(".options").empty();
+                data.forEach(function (elem, index, array) {
+                    $(".options").append(
+                                    "<div><label>" +
+                                    "<input name='option_id' type='checkbox' value=" + elem.id + ">" + elem.name +
+                                    ". Cost: " + elem.price + ". Activation cost: " + elem.initialPrice + "" +
+                                    "</label></div>");
+                })
+
+            }
+        });
+    }
 </script>
 
 
@@ -167,6 +184,8 @@
                                             <div class="ui-ajaxvalidate-icon"></div>
                                         </div>
                                         <span class="error-custom-message" id="error-custom-message-1">В качестве номера необходимо использовать число из 10 цифр.</span>
+                                        <span class="error-custom-message" id="error-contract-exists">Контракт с заданным номером уже существует!</span>
+
                                     </div>
 
 
@@ -178,6 +197,8 @@
                                             <div class="ui-ajaxvalidate-icon"></div>
                                         </div>
                                         <span class="error-custom-message" id="error-custom-message-2">Логин должен содержать от 2 до 15 знаков.</span>
+                                        <span class="error-custom-message" id="error-user-not-exists">Пользователь с указанным логином отсутствует!</span>
+
                                     </div>
                                     <div style="display:none">
                                         <input id="isContract" value=${userExists}>
@@ -210,7 +231,7 @@
 
                                             <!--начало элемента таблицы-->
                                             <c:forEach var="tariff" items="${tariffsList}">
-                                                <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+                                                <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick=getOptions(${tariff.id})>
 
                                                     <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id = "cb" name="cb" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>

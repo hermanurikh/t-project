@@ -39,6 +39,12 @@ public class Option {
         this.price = price;
         this.initialPrice = initialPrice;
     }
+    public Option(int id, String name, int price, int initialPrice) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.initialPrice = initialPrice;
+    }
 
     public int getId() {
         return id;

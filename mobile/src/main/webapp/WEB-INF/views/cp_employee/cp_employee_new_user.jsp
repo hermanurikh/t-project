@@ -241,6 +241,7 @@
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="userLogin" class="js-input big-input" name="login">
                                             <span class="error-custom-message" id="error-custom-message-7">Логин должен содержать от 2 до 15 знаков.</span>
+                                            <span class="error-custom-message" id="error-user-exists">Введенный логин уже существует!</span>
                                         </div>
                                     </div>
 

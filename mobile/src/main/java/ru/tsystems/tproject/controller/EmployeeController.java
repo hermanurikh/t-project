@@ -3,13 +3,12 @@ package ru.tsystems.tproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.integration.EntityRemoval;
 import ru.tsystems.tproject.integration.UserUpdater;
@@ -742,6 +741,44 @@ public class EmployeeController {
         entityRemoval.removeOption(optionId);
         model.addAttribute("optionsList", optionService.getAll());
         return "cp_employee/cp_employee_options";
+    }
+    /*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    /*---------------------------------AJAX QUERIES--------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+
+    @RequestMapping(value = "cp_employee_check_number/{number}", method = RequestMethod.GET)
+    @ResponseBody
+    public boolean checkNumber(@PathVariable String number) {
+        long contractNumber = Long.parseLong(Parser.doParse(number));
+        try {
+            contractService.getContractByNumber(contractNumber);
+        }
+        catch (CustomDAOException ex) {
+            return true;
+        }
+        return false;
+    }
+    @RequestMapping(value = "cp_employee_check_user/{login}", method = RequestMethod.GET)
+    @ResponseBody
+    public boolean checkUser(@PathVariable String login) {
+        try {
+            userService.getUserByLogin(login);
+        }
+        catch (CustomDAOException ex) {
+            return false;
+        }
+        return true;
+    }
+    @RequestMapping(value = "cp_employee_get_options_for_tariff/{tariffId}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Option> getOptionsForTariff(@PathVariable int tariffId) {
+        List<Option> optionList = new ArrayList<>();
+        for (Option option: optionService.getAllOptionsForTariff(tariffId)) {
+            optionList.add(new Option(option.getId(), option.getName(), option.getPrice(), option.getInitialPrice()));
+        }
+        return optionList;
     }
 
 }
