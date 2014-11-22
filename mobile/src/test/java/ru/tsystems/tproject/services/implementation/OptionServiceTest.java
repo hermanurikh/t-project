@@ -80,8 +80,8 @@ public class OptionServiceTest extends AbstractJUnit4SpringContextTests {
         option = optionService.getEntityById(option.getId());
         assertTrue(option.getInitialPrice() == 14041992);
         //a test to check the correct work of options together and options incompatible
-        assertFalse(option.getOptionsTogether().isEmpty());
-        assertFalse(option.getOptionsIncompatible().isEmpty());
+        assertTrue(option.getOptionsTogether().size() == optionService.getAllOptionsTogetherForOption(option.getId()).size());
+        assertTrue(option.getOptionsIncompatible().size() == optionService.getAllOptionsIncompatibleForOption(option.getId()).size());
         option.getOptionsTogether().clear();
         option.getOptionsIncompatible().clear();
         optionService.updateEntity(option);

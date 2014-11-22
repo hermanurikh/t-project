@@ -10,12 +10,12 @@
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file2.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file4.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file5.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/cp_file6.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/cp_file9.css" />
     <script type="text/javascript" src="../../../scripts/jquery.js"></script>
     <script type="text/javascript" src="../../../scripts/jquery.maskedinput.js"></script>
@@ -41,11 +41,9 @@
             o.style.display = 'block';
         }
     });
-
-
 </script>
 <script type="text/javascript">
-    jQuery(function($){
+    jQuery(function($) {
         $("#number").mask("(999) 999-99-99");
     });
 </script>
@@ -54,9 +52,9 @@
         $.ajax({
             url: 'cp_employee_get_options_for_tariff/' + tariff_id,
             type: 'GET',
-            success: function (data) {
+            success: function(data) {
                 $(".options").empty();
-                data.forEach(function (elem, index, array) {
+                data.forEach(function(elem, index, array) {
                     $(".options").append(
                                     "<div><label>" +
                                     "<input name='option_id' type='checkbox' value=" + elem.id + ">" + elem.name +
@@ -127,172 +125,297 @@
     </div>
 </div>
 <div class="middle">
-    <table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
-        <tr>
-            <td class="content np_menu">
-                <div id="np_menu_id" class="wrap-for-hover">
+<table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
+<tr>
+<td class="content np_menu">
+    <div id="np_menu_id" class="wrap-for-hover">
 
-                    <a href="cp_employee_contracts" class="main-menu-item">
-                        <i class="np_icon logmanager"></i>
-                        <span class="href_line">Контракты</span>
-                    </a>
+        <a href="cp_employee_contracts" class="main-menu-item">
+            <i class="np_icon logmanager"></i>
+            <span class="href_line">Контракты</span>
+        </a>
 
-                    <a href="cp_employee_users" class="main-menu-item">
-                        <i class="np_icon managers"></i>
-                        <span class="href_line">Пользователи</span>
-                    </a>
-                    <a href="cp_employee_user_search" class="main-menu-item">
-                        <i class="np_icon domains"></i>
-                        <span class="href_line">Поиск пользователя</span>
-                    </a>
+        <a href="cp_employee_users" class="main-menu-item">
+            <i class="np_icon managers"></i>
+            <span class="href_line">Пользователи</span>
+        </a>
+        <a href="cp_employee_user_search" class="main-menu-item">
+            <i class="np_icon domains"></i>
+            <span class="href_line">Поиск пользователя</span>
+        </a>
 
-                    <a href="cp_employee_tariffs" class="main-menu-item">
-                        <i class="np_icon tariff"></i>
-                        <span class="href_line">Тарифы</span>
-                    </a>
+        <a href="cp_employee_tariffs" class="main-menu-item">
+            <i class="np_icon tariff"></i>
+            <span class="href_line">Тарифы</span>
+        </a>
 
-                    <a href="cp_employee_options" class="main-menu-item">
-                        <i class="np_icon mysql"></i>
-                        <span class="href_line">Опции</span>
-                    </a>
+        <a href="cp_employee_options" class="main-menu-item">
+            <i class="np_icon mysql"></i>
+            <span class="href_line">Опции</span>
+        </a>
 
-                    <div class="np_menu-line"></div>
-                    <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-                    <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a>
+        <div class="np_menu-line"></div>
+        <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a>
+        </div>
+        &nbsp;</div>
+</td>
+<!--np_menu-->
+<td class="np_content">
+
+
+
+<div class="primary_div npp_index">
+
+
+
+<form action="cp_employee_new_contract_options" id="jForm" method="POST" accept-charset="CP1252">
+    <div class="js-body info__body">
+        <h2 class="js-h">Создание нового контракта</h2>
+        <div>
+            <div class="js-table form-horizontal support-issue-form">
+
+                <div class="js-row control-group">
+                    <label class="js-caption control-label">Номер контракта (10 цифр):</label>
+                    <div id="numberDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all">
+                        <!--ui-field отвечает за иконку, без него она уезжает-->
+                        <input type="text" id="number" class="js-input big-input" name="number" />
+                        <!-- class="js-input big-input"-->
+                        <div class="ui-ajaxvalidate-icon"></div>
                     </div>
-                    &nbsp;</div>
-            </td>
-            <!--np_menu-->
-            <td class="np_content">
+                    <span class="error-custom-message" id="error-custom-message-1">В качестве номера необходимо использовать число из 10 цифр.</span>
+                    <span class="error-custom-message" id="error-contract-exists">Контракт с заданным номером уже существует!</span>
+
+                </div>
 
 
 
-                <div class="primary_div npp_index">
+                <div class="js-row control-group">
+                    <label class="js-caption control-label">Логин пользователя:</label>
+                    <div id="loginDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all">
+                        <input type="text" id="login" class="js-input big-input" name="login" value=${currentLogin}>
+                        <div class="ui-ajaxvalidate-icon"></div>
+                    </div>
+                    <span class="error-custom-message" id="error-custom-message-2">Логин должен содержать от 2 до 15 знаков.</span>
+                    <span class="error-custom-message" id="error-user-not-exists">Пользователь с указанным логином отсутствует!</span>
+
+                </div>
+                <div style="display:none">
+                    <input id="isContract" value=${userExists}>
+                </div>
+
+                <div class="js-row control-group" id="exceptions" style="display:none">
+                    <c:forEach var="exception" items="${exList}">
+                    <small>${exception.message}</small>
+                    <div>
+                        </c:forEach>
+
+                    </div>
+                </div>
+
+                <h2 class="js-h">Выберите тариф для контракта </h2>
+                <small>Щелкните по тарифу для выбора опций.</small>
+                <span class="error-custom-message" id="error-custom-message-3">Пожалуйста, выберите один из тарифов.</span>
+
+                <div>
 
 
 
-                    <form action="cp_employee_new_contract_options" id="jForm" method="POST" accept-charset="CP1252">
-                        <div class="js-body info__body">
-                            <h2 class="js-h">Создание нового контракта</h2>
-                            <div>
-                                <div class="js-table form-horizontal support-issue-form">
-
-                                    <div class="js-row control-group">
-                                        <label class="js-caption control-label">Номер контракта (10 цифр):</label>
-                                        <div id="numberDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all"><!--ui-field отвечает за иконку, без него она уезжает-->
-                                            <input type="text" id="number" class="js-input big-input" name="number"/><!-- class="js-input big-input"-->
-                                            <div class="ui-ajaxvalidate-icon"></div>
-                                        </div>
-                                        <span class="error-custom-message" id="error-custom-message-1">В качестве номера необходимо использовать число из 10 цифр.</span>
-                                        <span class="error-custom-message" id="error-contract-exists">Контракт с заданным номером уже существует!</span>
-
-                                    </div>
-
-
-
-                                    <div class="js-row control-group">
-                                        <label class="js-caption control-label">Логин пользователя:</label>
-                                        <div id="loginDiv" class="ui-field ui-ajaxfield ui-ajaxvalidate ui-corner-all">
-                                            <input type="text" id="login" class="js-input big-input" name="login" value=${currentLogin}>
-                                            <div class="ui-ajaxvalidate-icon"></div>
-                                        </div>
-                                        <span class="error-custom-message" id="error-custom-message-2">Логин должен содержать от 2 до 15 знаков.</span>
-                                        <span class="error-custom-message" id="error-user-not-exists">Пользователь с указанным логином отсутствует!</span>
-
-                                    </div>
-                                    <div style="display:none">
-                                        <input id="isContract" value=${userExists}>
-                                    </div>
-
-                                    <div class="js-row control-group" id="exceptions" style="display:none">
-                                        <c:forEach var="exception" items="${exList}">
-                                        <small>${exception.message}</small><div>
-                                            </c:forEach>
-
-                                        </div>
-                                    </div>
-
-                                    <h2 class="js-h">Выберите тариф для контракта </h2>
-                                    <span class="error-custom-message" id="error-custom-message-3">Пожалуйста, выберите один из тарифов.</span>
-
-                                    <div>
-
-
-
-                                    <div id="list_database">
-                                        <div style="">
-                                            <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
-                                            <tr class="ui-table-header">
-
-                                                <th class="header_s_checkbox" width="12" align="center"><!--<input id="main_checkbox" type="radio">--></th>
-                                                <th class="header_s" style="width:150px;" id="table_header_database">Тариф</th>
-                                                <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                            </tr>
-
-                                            <!--начало элемента таблицы-->
-                                            <c:forEach var="tariff" items="${tariffsList}">
-                                                <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick=getOptions(${tariff.id})>
-
-                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id = "cb" name="cb" value=${tariff.id}></td>
-                                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
-                                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
-
-                                                </tr>
-                                            </c:forEach>
-                                            <!--конец элемента таблицы-->
-                                            </tbody>
-                                            </table></div></div>
-
-
-                                    <div class="js-row control-group">
-                                        <label class="js-caption control-label"></label>
-
-                                    </div><div class="js-row control-group">
-                                    <label class="js-caption control-label"></label>
-                                    <div class="js-td controls jq-validate-container">
-                                        <input type="submit" id="send" value="Выбрать опции для тарифа" />
-                                    </div>
-                                </div></div>
-                                </div></div>
-                            </div>
-                    </form>
-                    <div id="list_database2">
+                    <div id="list_database">
                         <div style="">
-                            <table class="ui-table ui-table-hover ui-table-striped" style="width:100%"><tbody>
+                            <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">
+                                <tbody>
+                                <tr class="ui-table-header">
 
-                            <tr class="ui-table-header" id = "options-header">
+                                    <th class="header_s_checkbox" width="12" align="center">
+                                        <!--<input id="main_checkbox" type="radio">-->
+                                    </th>
+                                    <th class="header_s" style="width:150px;" id="table_header_database">Тариф</th>
+                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                </tr>
 
-                                <th class="header_s_checkbox" width="12" align="center"></th>
-                                <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
-                            </tr>
+                                <!--начало элемента таблицы-->
+                                <c:forEach var="tariff" items="${tariffsList}">
+                                    <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick=getOptions(${tariff.id})>
 
-                            <!--начало элемента таблицы-->
+                                        <td name="tcell" class="simplecell_checkbox" align="left">
+                                            <input type="radio" id="cb" name="cb" value=${tariff.id}>
+                                        </td>
+                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span>
+                                            <br>
+                                        </td>
+                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span>
+                                        </td>
+
+                                    </tr>
+                                </c:forEach>
+                                <!--конец элемента таблицы-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div id="list_database2">
+                        <h2 class="js-h">Выберите опции для тарифа </h2>
+
+                        <div style="">
+                            <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">
+                                <tbody>
+
+                                <tr class="ui-table-header" id="options-header">
+
+                                    <th class="header_s_checkbox" width="12" align="center"></th>
+                                    <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                    <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                </tr>
+
+                                <!--начало элемента таблицы-->
 
                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick="changeDiv('${option.id}150')">
 
-                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="checkbox" name="cb" id=${option.id} value=${option.id}></td>
-                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span><br></td>
-                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span></td>
-                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span></td>
+                                    <td name="tcell" class="simplecell_checkbox" align="left">
+                                        <input type="checkbox" name="cb" id=${option.id} value=${option.id}>
+                                    </td>
+                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${option.name}</span>
+                                        <br>
+                                    </td>
+                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.price}</span>
+                                    </td>
+                                    <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${option.initialPrice}</span>
+                                    </td>
                                 </tr>
-                            <!--конец элемента таблицы-->
-                            </tbody>
-                            </table></div></div>
-
-                    <div class="clear"></div>
-
-
+                                <!--конец элемента таблицы-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
 
-                    <div id="test"></div>
+
+
+                    <div class="js-row control-group">
+                        <label class="js-caption control-label"></label>
+
+                    </div>
+                    <div class="js-row control-group">
+                        <label class="js-caption control-label"></label>
+                        <div class="js-td controls jq-validate-container">
+                            <input type="submit" id="send" value="Выбрать опции для тарифа" />
+                        </div>
+                    </div>
                 </div>
-            </td></tr>
-    </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="js-table form-horizontal support-issue-form">
+    <h2 class="js-h">Необходимые опции</h2>
+    <div>
+
+        <div id="list_database3">
+            <div style="">
+                <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">
+                    <tbody>
+                    <tr class="ui-table-header">
+
+
+                        <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                        <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                        <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                    </tr>
+
+                    <!--начало элемента таблицы-->
+
+                        <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${optionTogether.name}</span>
+                                <br>
+                            </td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionTogether.price}</span>
+                            </td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionTogether.initialPrice}</span>
+                            </td>
+                        </tr>
+
+
+                    <!--конец элемента таблицы-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="js-row control-group">
+            <label class="js-caption control-label"></label>
+
+        </div>
+        <div class="js-row control-group">
+            <label class="js-caption control-label"></label>
+
+        </div>
+    </div>
+
+    <h2 class="js-h">Несовместимые опции</h2>
+    <div>
+
+        <div id="list_database4">
+            <div style="">
+                <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">
+                    <tbody>
+                    <tr class="ui-table-header">
+
+
+                        <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                        <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                        <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                    </tr>
+
+                    <!--начало элемента таблицы-->
+                    <c:forEach var="optionIncompatible" items="${option.optionsIncompatible}">
+                        <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
+
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${optionIncompatible.name}</span>
+                                <br>
+                            </td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionIncompatible.price}</span>
+                            </td>
+                            <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${optionIncompatible.initialPrice}</span>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                    <!--конец элемента таблицы-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="clear"></div>
+
+
+
+
+<div id="test"></div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 
 
 
 </body>
+
 </html>

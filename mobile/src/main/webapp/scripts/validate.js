@@ -228,6 +228,18 @@ $(document).ready(function(){
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
            }
        },
+       'ajaxValidateOptions' : function() {
+           var exDiv = $('#exceptions23');
+           var exMessages = $('#exMessages');
+           if (exDiv.val() == null) return false;
+           $.ajax('cp_employee_ajax_validate_options', $('#jForm').serialize(), function(data) {
+               data.forEach(function (elem, index, array) {
+                                      
+               });
+
+           });
+
+       },
        'sendIt' : function (){
            if(!jVal.errors) {
                $('#jForm').submit();

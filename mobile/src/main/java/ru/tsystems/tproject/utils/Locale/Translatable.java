@@ -4,6 +4,8 @@ package ru.tsystems.tproject.utils.Locale;
  * An interface to implement by different languages.
  */
 public interface Translatable {
+    public String getJSP_BALANCE_MONTHLY_CURRENCY();
+
     public String getJSP_PANEL_NAME();
 
     public String getJSP_CONTRACTS_NAME();

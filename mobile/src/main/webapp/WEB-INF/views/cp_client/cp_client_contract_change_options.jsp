@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" >
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Панель управления аккаунтом.</title>
+    <title>${language.JSP_PANEL_NAME}.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
@@ -52,8 +52,8 @@ document.getElementById(el).style.display = 'block';
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_client_profile">Профиль</a></li>
-                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
+                        <li><a href="cp_client_profile">${language.JSP_PROFILE_NAME}</a></li>
+                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">${language.JSP_SUPPORT_NAME}</a></li>
                     </ul>
                 </div>
                 <div id="isValid" style="display:none">
@@ -67,7 +67,7 @@ document.getElementById(el).style.display = 'block';
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
-                            <div class="user-balance">${currentUserU.balance} р.</div>
+                            <div class="user-balance">${currentUserU.balance} ${language.JSP_BALANCE_CURRENCY}</div>
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">
@@ -94,50 +94,37 @@ document.getElementById(el).style.display = 'block';
 
         <a href="cp_client_contracts" class="main-menu-item">
             <i class="np_icon documents"></i>
-            <span class="href_line">Контракты</span>
+            <span class="href_line">${language.JSP_CONTRACTS_NAME}</span>
         </a>
 
         <a href="cp_client_balance" class="main-menu-item">
             <i class="np_icon balance"></i>
-            <span class="href_line">Баланс</span>
+            <span class="href_line">${language.JSP_BALANCE_NAME}</span>
         </a>
 
         <a href="cp_client_profile" class="main-menu-item">
             <i class="np_icon crontab"></i>
-            <span class="href_line">Информация об аккаунте</span>
+            <span class="href_line">${language.JSP_INFO_NAME}</span>
         </a>
 
         <div class="np_menu-line"></div>
         <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>${language.JSP_LOGOUT_NAME}</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
         <div class="primary_div npp_index">
 
-            <div style="display:none;">
-                <div id="template_HotActionsDialog">
-                    <div class="form-horizontal npp_index-hot_actions_dialog">
-                        <div class="control-group">
-                            <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                            </table>
-                        </div>
 
-                        <div class="form-actions">
-                            <button class="btn" id="save_button">Сохранить настройки</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="info info_small fr info-last">
 
                 <form action="cp_client_contract_bucket" method="POST" accept-charset="CP1252">
                                 <div class="js-body info__body">
-                                    <h2 class="js-h">Изменение контракта</h2><div>
+                                    <h2 class="js-h">${language.JSP_CONTRACTS_CHANGING}</h2><div>
                                     <div class="js-table form-horizontal support-issue-form">
 
                                         <div class="js-row control-group">
 
-                                        <span class="small_signature">Номер контракта: ${contract.number}</span>
+                                        <span class="small_signature">${language.JSP_CONTRACTS_CHANGING_NUMBER} ${contract.number}</span>
 
                                         </div>
                                         <div class="js-row control-group" style="display:none;">
@@ -156,8 +143,8 @@ document.getElementById(el).style.display = 'block';
                                                                 </div>
                                                                 </div>
 
-                                        <h2 class="js-h">Выберите опции для тарифа ${tariff.name}</h2><div>
-                                        <span class="small_signature">Щелкните по опции для просмотра ее необходимых и несовместимых опций.</span>
+                                        <h2 class="js-h">${language.JSP_CONTRACTS_CHOOSE_OPTIONS} ${tariff.name}</h2><div>
+                                        <span class="small_signature">${language.JSP_CONTRACTS_DETAILED_OPTIONS}</span>
 
 
 
@@ -167,9 +154,9 @@ document.getElementById(el).style.display = 'block';
                                                 <tr class="ui-table-header">
 
                                                     <th class="header_s_checkbox" width="12" align="center"></th>
-                                                    <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                                    <th class="header_s" style="width:150px;" id="table_header_database">${JSP_CONTRACTS_OPTION}</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_type">${JSP_CONTRACTS_OPTION_PRICE}</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">${JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                                 </tr>
 
                                                 <!--начало элемента таблицы-->
@@ -193,7 +180,7 @@ document.getElementById(el).style.display = 'block';
                                         </div><div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="submit" value="Изменить контракт" />
+                                            <input type="submit" value="${language.JSP_CONTRACTS_SUBMIT_CONTRACT}" />
                                         </div>
                                     </div></div>
                                 </div></div>
@@ -204,7 +191,7 @@ document.getElementById(el).style.display = 'block';
 
                             <c:forEach var="option" items="${optionsList}">
                             <div class="js-table form-horizontal support-issue-form" id="${option.id}150" style="display:none" onclick="document.getElementById('${option.id}150').style.display='none'">
-                                <h2 class="js-h">Необходимые опции</h2><div>
+                                <h2 class="js-h">${language.JSP_CONTRACTS_OPTIONS_TOGETHER}</h2><div>
 
                                 <div id="list_database3">
                                     <div style="">
@@ -212,9 +199,9 @@ document.getElementById(el).style.display = 'block';
                                     <tr class="ui-table-header">
 
 
-                                        <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                        <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                        <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                        <th class="header_s" style="width:150px;" id="table_header_database">${JSP_CONTRACTS_OPTION}</th>
+                                        <th class="header_s" style="width:100px;" id="table_header_type">${JSP_CONTRACTS_OPTION_PRICE}</th>
+                                        <th class="header_s" style="width:100px;" id="table_header_point_access">${JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                     </tr>
 
                                     <!--начало элемента таблицы-->
@@ -240,7 +227,7 @@ document.getElementById(el).style.display = 'block';
 
                             </div></div>
 
-                                <h2 class="js-h">Несовместимые опции</h2><div>
+                                <h2 class="js-h">${language.JSP_CONTRACTS_OPTIONS_INCOMPATIBLE}</h2><div>
 
                                 <div id="list_database4">
                                     <div style="">
@@ -248,9 +235,9 @@ document.getElementById(el).style.display = 'block';
                                         <tr class="ui-table-header">
 
 
-                                            <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                            <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                            <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                            <th class="header_s" style="width:150px;" id="table_header_database">${JSP_CONTRACTS_OPTION}</th>
+                                            <th class="header_s" style="width:100px;" id="table_header_type">${JSP_CONTRACTS_OPTION_PRICE}</th>
+                                            <th class="header_s" style="width:100px;" id="table_header_point_access">${JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                         </tr>
 
                                         <!--начало элемента таблицы-->

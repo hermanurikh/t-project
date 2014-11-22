@@ -53,5 +53,31 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
             throw new CustomDAOException("Options for contract " + id + " not got", ex);
         }
     }
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Option> getAllOptionsTogetherForOption(int id) throws CustomDAOException{
+        try{
+            Query query = entityManager.createQuery("select opt.optionsTogether from Option opt where opt.id=:id").setParameter("id", id);
+
+            return (List<Option>)query.getResultList();
+        }
+        catch (PersistenceException ex)
+        {
+            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
+        }
+    }
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Option> getAllOptionsIncompatibleForOption(int id) throws CustomDAOException{
+        try{
+            Query query = entityManager.createQuery("select opt.optionsIncompatible from Option opt where opt.id=:id").setParameter("id", id);
+
+            return (List<Option>)query.getResultList();
+        }
+        catch (PersistenceException ex)
+        {
+            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
+        }
+    }
 
 }

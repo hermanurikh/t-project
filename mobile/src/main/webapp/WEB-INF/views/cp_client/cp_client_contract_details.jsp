@@ -7,7 +7,7 @@
             <head>
                 <meta http-equiv="X-UA-Compatible" content="IE=8,9,10">
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <title>Панель управления аккаунтом.</title>
+                <title>${language.JSP_PANEL_NAME}.</title>
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
@@ -39,9 +39,9 @@
                                                 </div>
                                                 <div class="nav-wrap">
                                                     <ul class="nav">
-                                                        <li><a href="cp_client_profile">Профиль</a>
+                                                        <li><a href="cp_client_profile">${language.JSP_PROFILE_NAME}</a>
                                                         </li>
-                                                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a>
+                                                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">${language.JSP_SUPPORT_NAME}</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -53,7 +53,7 @@
                                                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                                                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span>
                                                             </div>
-                                                            <div class="user-balance">${currentUserU.balance} р.</div>
+                                                            <div class="user-balance">${currentUserU.balance} ${language.JSP_BALANCE_CURRENCY}</div>
                                                         </div>
                                                         <div class="slide-down" style="display:none;">
                                                             <div style="display:block;">
@@ -89,22 +89,22 @@
 
                                             <a href="cp_client_contracts" class="main-menu-item">
                                                 <i class="np_icon documents"></i>
-                                                <span class="href_line">Контракты</span>
+                                                <span class="href_line">${language.JSP_CONTRACTS_NAME}</span>
                                             </a>
 
                                             <a href="cp_client_balance" class="main-menu-item">
                                                 <i class="np_icon balance"></i>
-                                                <span class="href_line">Баланс</span>
+                                                <span class="href_line">${language.JSP_BALANCE_NAME}</span>
                                             </a>
 
                                             <a href="cp_client_profile" class="main-menu-item">
                                                 <i class="np_icon crontab"></i>
-                                                <span class="href_line">Информация об аккаунте</span>
+                                                <span class="href_line">${language.JSP_INFO_NAME}</span>
                                             </a>
 
                                             <div class="np_menu-line"></div>
                                             <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-                                            <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a>
+                                            <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>${language.JSP_LOGOUT_NAME}</span></a>
                                             </div>
                                             &nbsp;</div>
                                     </td>
@@ -112,20 +112,7 @@
                                     <td class="np_content">
                                         <div class="primary_div npp_index">
 
-                                            <div style="display:none;">
-                                                <div id="template_HotActionsDialog">
-                                                    <div class="form-horizontal npp_index-hot_actions_dialog">
-                                                        <div class="control-group">
-                                                            <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                                                            </table>
-                                                        </div>
 
-                                                        <div class="form-actions">
-                                                            <button class="btn" id="save_button">Сохранить настройки</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
 
                                             <fieldset class="primary_div_fieldset">
@@ -139,13 +126,13 @@
                                                         <div id="info-data" class="controls">
                                                             <!-- user info -->
                                                             <div id="table-description0">
-                                                                <h3>Просмотр контракта ${contract.number}</h3>
+                                                                <h3>${language.JSP_CONTRACTS_DETAILED_VIEW_CONTRACT} ${contract.number}</h3>
                                                                 <table class="npp_info info-table">
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>
                                                                                 <div class="help-underline help-underline-light">
-                                                                                    <div class="help-underline-caption js-caption">Подключенный тариф</div>
+                                                                                    <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_TARIFF}</div>
                                                                                 </div>
                                                                             </td>
                                                                             <td>
@@ -157,12 +144,12 @@
                                                                         <tr>
                                                                             <td>
                                                                                 <div class="help-underline help-underline-light">
-                                                                                    <div class="help-underline-caption js-caption">Стоимость, в месяц</div>
+                                                                                    <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_PRICE} </div>
                                                                                 </div>
                                                                             </td>
                                                                             <td>
                                                                                 <div class="info-data js-def">
-                                                                                    <label>${contract.tariff.price}</label>
+                                                                                    <label>${contract.tariff.price} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
@@ -172,7 +159,7 @@
                                                                 </table>
                                                             </div>
                                                             <div id="table-description1">
-                                                                <h3>Подключенные опции</h3>
+                                                                <h3>${language.JSP_CONTRACTS_DETAILED_VIEW_OPTIONS}</h3>
                                                                 <table class="npp_info info-table">
                                                                     <tbody>
                                                                         <c:forEach var="option" items="${optionsList}">
@@ -184,7 +171,7 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <div class="info-data js-def">
-                                                                                        <label>${option.price} р./мес.</label>
+                                                                                        <label>${option.price} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
@@ -193,12 +180,12 @@
                                                                         <tr>
                                                                             <td>
                                                                                 <div class="help-underline help-underline-light">
-                                                                                    <div class="help-underline-caption js-caption">Суммарная стоимость тарифа с опциями</div>
+                                                                                    <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE}</div>
                                                                                 </div>
                                                                             </td>
                                                                             <td>
                                                                                 <div class="info-data js-def">
-                                                                                    <label>${totalAmount} р./мес.</label>
+                                                                                    <label>${totalAmount} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
@@ -207,7 +194,7 @@
                                                                         <tr>
                                                                             <td>
                                                                                 <div class="help-underline help-underline-light">
-                                                                                    <div class="help-underline-caption js-caption">Состояние контракта: </div>
+                                                                                    <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED}: </div>
                                                                                 </div>
                                                                             </td>
                                                                             <td>
@@ -219,7 +206,7 @@
                                                                             <tr>
                                                                                 <td>
 
-                                                                                   <a href="cp_client_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                   <a href="cp_client_change_contract?contractId=${contract.id}"><span>${language.JSP_CONTRACTS_ACTION_CHANGE}</span> <br></a>
 
                                                                                    </td>
                                                                                     </tr>

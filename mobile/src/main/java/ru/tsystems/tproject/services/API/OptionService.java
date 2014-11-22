@@ -12,10 +12,19 @@ public interface OptionService extends GenericService<Option, Integer> {
 
     /**
      * get all options for a specific tariff
-     * @param id
+     * @param id tariffs id
      * @return a list of options
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;
+
+    /**
+     * Get all options for a specified contract.
+     * @param id contracts id
+     * @return a list of options
+     * @throws CustomDAOException
+     */
     public List<Option> getAllOptionsForContract(int id) throws CustomDAOException;
+    public List<Option> getAllOptionsTogetherForOption(int id) throws CustomDAOException;
+    public List<Option> getAllOptionsIncompatibleForOption(int id) throws CustomDAOException;
 }

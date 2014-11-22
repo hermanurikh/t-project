@@ -301,10 +301,6 @@ document.getElementById(el).style.display = 'block';
                 <label class="js-caption control-label"></label>
 
             </div></div>
-
-
-
-
             </div>
             </c:forEach>
 

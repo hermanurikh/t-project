@@ -53,6 +53,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_BALANCE_INCREASE_BALANCE = "Пополнить баланс на 100 рублей";
     private final String JSP_BALANCE_CURRENT = "Текущий баланс";
     private final String JSP_BALANCE_CURRENCY = "р.";
+    private final String JSP_BALANCE_MONTHLY_CURRENCY = "р./мес.";
     private final String JSP_INFO_PROFILE = "Профиль аккаунта";
     private final String JSP_INFO_BIRTHDAY = "Дата рождения";
     private final String JSP_INFO_PASSPORT = "Паспорт";
@@ -69,6 +70,10 @@ public class RussianLanguage implements Translatable {
         else {
             return russianLanguage;
         }
+    }
+    @Override
+    public String getJSP_BALANCE_MONTHLY_CURRENCY() {
+        return JSP_BALANCE_MONTHLY_CURRENCY;
     }
     @Override
     public String getJSP_PANEL_NAME() {
