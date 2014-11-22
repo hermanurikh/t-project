@@ -228,6 +228,32 @@ $(document).ready(function(){
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
            }
        },
+       'ajaxValidateOptions' : function() {
+           var vds1 = $("#vds-overlay");
+           var vds2 = $("#vds-wait");
+           var exDiv = $('#exceptions23');
+           var exMessages = $('#exMessages');
+           if (exDiv.val() == null) return false;
+           exDiv.hide();
+           exMessages.empty();
+           var answer = $.ajax({
+               url: 'cp_employee_ajax_validate_options',
+               type: 'POST',
+               async:    false,
+               data: $('#jForm').serialize(),
+               success: function(data) {
+                   data.forEach(function(elem, index, array) {
+                       exMessages.append("<span class='error-custom-message-incorrect'>" + elem + "</span>");
+                   });
+               }
+           }).responseText;
+           if (answer != "") {
+               jVal.errors = true;
+               exDiv.show();
+           }
+           vds1.hide();
+           vds2.hide();
+       },
        'sendIt' : function (){
            if(!jVal.errors) {
                $('#jForm').submit();
@@ -247,6 +273,7 @@ $(document).ready(function(){
             jVal.userPassword();
             jVal.price();
             jVal.initialPrice();
+            jVal.ajaxValidateOptions();
             jVal.sendIt();
        return false;
     });

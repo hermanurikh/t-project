@@ -131,7 +131,6 @@ public class EmployeeController {
      * added to the exceptionsList.
      *
      * @param contractNumber a number of the contract;
-     * @param userID the id of the user;
      * @param tariffId the tariff id;
      * @param array the array of selected options' ids;
      * @param locale locale
@@ -140,12 +139,12 @@ public class EmployeeController {
      */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/cp_employee_contract_created", method = RequestMethod.POST)
-    public String createContract(@RequestParam(value = "number") String contractNumber,
-                                 @RequestParam(value = "userID") int userID,
-                                 @RequestParam(value = "tariffID") int tariffId,
-                                 @RequestParam(value = "cb", required = false) int[] array,
-                                 Locale locale, Model model) {
-        User user = userService.getEntityById(userID);
+    public String createContract(@RequestParam(value = "login") String login,
+                                 @RequestParam(value = "number") String contractNumber,
+                                 @RequestParam(value = "cb") int tariffId,
+                                 @RequestParam(value = "cb3", required = false) int[] array,
+                                 Locale locale, Model model) throws Exception{
+        User user = userService.getUserByLogin(login);
         long number = Long.parseLong(Parser.doParse(contractNumber));
         Tariff tariff = tariffService.getEntityById(tariffId);
         Contract contract = new Contract(number, user, tariff);
@@ -171,14 +170,7 @@ public class EmployeeController {
                 return "cp_employee/success";
             }
             else {
-                model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
-                model.addAttribute("contractNumber", number);
-                model.addAttribute("userId", userID);
-                model.addAttribute("tariffId", tariffId);
-                model.addAttribute("tariff", tariff);
-                model.addAttribute("areExceptions", "true");
-                model.addAttribute("exceptionsList", exceptionList);
-                return "cp_employee/cp_employee_new_contract_options";
+                throw new Exception("jQuery required for performing the action!");
             }
         }
 

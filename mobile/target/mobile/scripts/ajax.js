@@ -46,7 +46,7 @@ function doAjax (tariff_id) {
                 bigDiv.append(
                         "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected' onclick=getOptionsForOption(" + elem.id + ")>" +
                         "<td name='tcell' class='simplecell_checkbox' align='left'>" +
-                        "<input type='checkbox' name='cb' id=" + elem.id + " value=" + elem.id + "></td>" +
+                        "<input type='checkbox' name='cb3' id=" + elem.id + " value=" + elem.id + "></td>" +
                         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
                         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
                         "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +

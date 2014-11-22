@@ -196,6 +196,7 @@
                                                                                 <!--<a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>-->
                                                                                 <a href="cp_employee_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
                                                                                 <a href="cp_employee_contracts?contractId=${contract.id}"><span>Удалить</span> </a>
+                                                                                <input type="hidden" value="${contract.isBlocked}">
                                                                             </div>
                                                                         </td>
 

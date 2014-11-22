@@ -161,7 +161,7 @@
 
 
 
-                    <form action="cp_employee_new_contract_options" id="jForm" method="POST" accept-charset="CP1252">
+                    <form action="cp_employee_contract_created" id="jForm" method="POST" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Создание нового контракта</h2>
                             <div>

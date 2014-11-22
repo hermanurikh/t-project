@@ -259,6 +259,13 @@
 
                     <div id="list_database2">
                         <h2 class="js-h">Выберите опции для тарифа </h2>
+                        <div class="js-row control-group" id="exceptions2" style="display:block">
+                            <span class="error-custom-message-incorrect">В процессе выбора опций произошли ошибки!</span><div>
+                            <c:forEach var="ex" items="${exceptionsList}">
+                                <span class="error-custom-message-incorrect">${ex.message}</span>
+                            </c:forEach>
+                        </div>
+                        </div>
 
                         <div style="">
                             <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">

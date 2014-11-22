@@ -161,7 +161,7 @@
 
 
 
-                    <form action="cp_employee_new_contract_options" id="jForm" method="POST" accept-charset="CP1252">
+                    <form action="cp_employee_contract_created" id="jForm" method="POST" accept-charset="CP1252">
                         <div class="js-body info__body">
                             <h2 class="js-h">Создание нового контракта</h2>
                             <div>
@@ -251,6 +251,13 @@
                                         <div id="list_database2" style="display: none;">
                                             <h2 class="js-h">Выберите опции для тарифа </h2>
                                             <small>Щелкните по опции для просмотра необходимых и несовместимых с ней опций.</small>
+                                            <div class="js-row control-group" id="exceptions23" style="display:none">
+                                                <span class="error-custom-message-incorrect">В процессе выбора опций произошли ошибки!</span><div id="exMessages">
+                                                <c:forEach var="ex" items="${exceptionsList}">
+                                                    <span class="error-custom-message-incorrect">${ex.message}</span>
+                                                </c:forEach>
+                                            </div>
+                                            </div>
 
                                             <div style="">
                                                 <table class="ui-table ui-table-hover ui-table-striped" id="optionTable" style="width:100%">
