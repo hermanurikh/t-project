@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.OptionDAO;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.OptionsForEntityNotGotException;
 
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -29,7 +30,7 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException{
+    public List<Option> getAllOptionsForTariff(int id) throws OptionsForEntityNotGotException {
         try{
             Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id);
 
@@ -37,12 +38,12 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
+            throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }
     @SuppressWarnings("unchecked")
     @Override
-    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException{
+    public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException{
         try{
             Query query = entityManager.createQuery("select c.options from Contract c where c.id=:id").setParameter("id", id);
 
@@ -50,12 +51,12 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Options for contract " + id + " not got", ex);
+            throw new OptionsForEntityNotGotException("Options for contract " + id + " not got", ex);
         }
     }
     @SuppressWarnings("unchecked")
     @Override
-    public List<Option> getAllOptionsTogetherForOption(int id) throws CustomDAOException{
+    public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException{
         try{
             Query query = entityManager.createQuery("select opt.optionsTogether from Option opt where opt.id=:id").setParameter("id", id);
 
@@ -63,12 +64,12 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
+            throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }
     @SuppressWarnings("unchecked")
     @Override
-    public List<Option> getAllOptionsIncompatibleForOption(int id) throws CustomDAOException{
+    public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException{
         try{
             Query query = entityManager.createQuery("select opt.optionsIncompatible from Option opt where opt.id=:id").setParameter("id", id);
 
@@ -76,7 +77,7 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Options for tariff " + id + " not got", ex);
+            throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }
 

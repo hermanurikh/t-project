@@ -1,6 +1,8 @@
 package ru.tsystems.tproject.services.API;
 
 import ru.tsystems.tproject.entities.Contract;
+import ru.tsystems.tproject.exceptions.ContractNotFoundException;
+import ru.tsystems.tproject.exceptions.ContractsForEntityNotGotException;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public interface ContractService extends GenericService<Contract, Integer> {
      * @throws CustomDAOException
      */
 
-    public Contract getContractByNumber(long number) throws CustomDAOException;
-    public List<Contract> getAllContractsForUser(int id) throws CustomDAOException;
+    public Contract getContractByNumber(long number) throws ContractNotFoundException;
+    public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException;
 
 }

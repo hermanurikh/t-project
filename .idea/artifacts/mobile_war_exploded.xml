@@ -27,6 +27,8 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.7.4" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.12" />
           <element id="library" level="project" name="Maven: org.mockito:mockito-all:1.9.5" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.33" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.3.6.Final" />

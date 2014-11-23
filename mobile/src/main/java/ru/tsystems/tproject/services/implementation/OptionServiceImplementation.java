@@ -1,12 +1,12 @@
 package ru.tsystems.tproject.services.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.OptionDAO;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.OptionsForEntityNotGotException;
 import ru.tsystems.tproject.services.API.OptionService;
 
 import java.util.List;
@@ -62,24 +62,24 @@ public class OptionServiceImplementation implements OptionService {
      */
     @Override
     @Transactional
-    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException {
+    public List<Option> getAllOptionsForTariff(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsForTariff(id);
     }
     @Override
     @Transactional
-    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException {
+    public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsForContract(id);
     }
 
     @Override
     @Transactional
-    public List<Option> getAllOptionsTogetherForOption(int id) throws CustomDAOException {
+    public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsTogetherForOption(id);
     }
 
     @Override
     @Transactional
-    public List<Option> getAllOptionsIncompatibleForOption(int id) throws CustomDAOException {
+    public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsIncompatibleForOption(id);
     }
 }

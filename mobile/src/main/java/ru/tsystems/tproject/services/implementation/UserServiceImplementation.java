@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.UserNotFoundException;
 import ru.tsystems.tproject.services.API.UserService;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class UserServiceImplementation implements UserService {
      */
     @Override
     @Transactional
-    public User getUserByNumber(long number) throws CustomDAOException {
+    public User getUserByNumber(long number) throws UserNotFoundException {
         return this.userDAO.getUserByNumber(number);
     }
 
@@ -79,7 +80,7 @@ public class UserServiceImplementation implements UserService {
      */
     @Override
     @Transactional
-    public User getUserByLogin(String login) throws CustomDAOException {
+    public User getUserByLogin(String login) throws UserNotFoundException {
         return this.userDAO.getUserByLogin(login);
     }
 

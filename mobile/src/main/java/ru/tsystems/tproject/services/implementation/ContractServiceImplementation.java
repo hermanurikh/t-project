@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.entities.Contract;
+import ru.tsystems.tproject.exceptions.ContractNotFoundException;
+import ru.tsystems.tproject.exceptions.ContractsForEntityNotGotException;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.services.API.ContractService;
 
@@ -51,7 +53,7 @@ public class ContractServiceImplementation implements ContractService {
      */
     @Override
     @Transactional
-    public Contract getContractByNumber(long number) throws CustomDAOException {
+    public Contract getContractByNumber(long number) throws ContractNotFoundException {
         return this.contractDAO.getContractByNumber(number);
     }
 
@@ -67,7 +69,7 @@ public class ContractServiceImplementation implements ContractService {
     }
     @Override
     @Transactional
-    public List<Contract> getAllContractsForUser(int id) throws CustomDAOException {
+    public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException {
         return this.contractDAO.getAllContractsForUser(id);
     }
 }

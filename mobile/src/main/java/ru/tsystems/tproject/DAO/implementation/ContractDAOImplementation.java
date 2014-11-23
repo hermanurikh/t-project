@@ -6,6 +6,8 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.entities.Contract;
+import ru.tsystems.tproject.exceptions.ContractNotFoundException;
+import ru.tsystems.tproject.exceptions.ContractsForEntityNotGotException;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import javax.persistence.EntityManager;
@@ -29,16 +31,16 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
      * @throws CustomDAOException
      */
     @Override
-    public Contract getContractByNumber(long number) throws CustomDAOException {
+    public Contract getContractByNumber(long number) throws ContractNotFoundException {
         try {
             return (Contract) entityManager.createQuery("select c from Contract c where c.number=:number").setParameter("number", number).getSingleResult();
         } catch (PersistenceException e) {
-            throw new CustomDAOException("Contract with number " + number + " not got", e);
+            throw new ContractNotFoundException("Contract with number " + number + " not got", e);
         }
     }
     @SuppressWarnings("unchecked")
     @Override
-    public List<Contract> getAllContractsForUser(int id) throws CustomDAOException{
+    public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException {
         try{
             Query query = entityManager.createQuery("select u.contracts from User u where u.id=:id").setParameter("id", id);
 
@@ -46,7 +48,7 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
         }
         catch (PersistenceException ex)
         {
-            throw new CustomDAOException("Contracts for user " + id + " not got", ex);
+            throw new ContractsForEntityNotGotException("Contracts for user " + id + " not got", ex);
         }
     }
 

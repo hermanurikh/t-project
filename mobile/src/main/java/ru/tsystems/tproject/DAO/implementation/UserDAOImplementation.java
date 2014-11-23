@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.UserNotFoundException;
 
 import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
@@ -32,13 +33,13 @@ public class UserDAOImplementation extends GenericDAOImplementation<User, Intege
      * @throws CustomDAOException
      */
     @Override
-    public User getUserByNumber(long number) throws CustomDAOException {
+    public User getUserByNumber(long number) throws UserNotFoundException {
         try {
             Query query = entityManager.createQuery("select c.user from Contract c where c.number=:number").setParameter("number", number);
             return (User) query.getSingleResult();
         }
         catch (PersistenceException ex) {
-            throw new CustomDAOException("User with number " + number + " not found", ex);
+            throw new UserNotFoundException("User with number " + number + " not found", ex);
         }
 
     }
@@ -50,13 +51,13 @@ public class UserDAOImplementation extends GenericDAOImplementation<User, Intege
      * @throws CustomDAOException
      */
    @Override
-    public User getUserByLogin(String login) throws CustomDAOException {
+    public User getUserByLogin(String login) throws UserNotFoundException {
         try {
             Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);
             return (User) query.getSingleResult();
         }
         catch (PersistenceException ex) {
-            throw new CustomDAOException("User with login " + login + " not found!", ex);
+            throw new UserNotFoundException("User with login " + login + " not found!", ex);
         }
 
     }

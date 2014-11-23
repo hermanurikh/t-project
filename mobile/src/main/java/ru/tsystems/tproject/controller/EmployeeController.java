@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.EntityNotDeletedException;
+import ru.tsystems.tproject.exceptions.UserNotFoundException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.integration.EntityRemoval;
 import ru.tsystems.tproject.integration.UserUpdater;
@@ -357,9 +360,15 @@ public class EmployeeController {
                              Locale locale, Model model) {
         //добавить проверку, если есть контракты - не удалять!
         User user = userService.getEntityById(id);
-        userService.deleteEntity(user);
-        model.addAttribute("usersList", userService.getAll());
-        return "cp_employee/cp_employee_users";
+        if (!contractService.getAllContractsForUser(id).isEmpty())
+        {
+            throw new EntityNotDeletedException("Unable to delete user, you need to remove his contracts first!");
+        }
+        else {
+            userService.deleteEntity(user);
+            model.addAttribute("usersList", userService.getAll());
+            return "cp_employee/cp_employee_users";
+        }
     }
 
     /**
@@ -809,4 +818,25 @@ public class EmployeeController {
             }
         }
     }
+    /*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    /*---------------------------------EXCEPTION HANDLERS--------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------*/
+    @ExceptionHandler(EntityNotDeletedException.class)
+    public ModelAndView handleEntityNotDeletedException(HttpServletRequest request, Exception ex) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", ex);
+        modelAndView.setViewName("cp_employee/errors/exception");
+        return modelAndView;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleGlobalException(HttpServletRequest request, Exception ex) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", ex);
+        modelAndView.setViewName("cp_employee/errors/exception_general");
+        return modelAndView;
+    }
+
 }

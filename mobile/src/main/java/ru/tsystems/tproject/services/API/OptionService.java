@@ -2,6 +2,7 @@ package ru.tsystems.tproject.services.API;
 
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.OptionsForEntityNotGotException;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface OptionService extends GenericService<Option, Integer> {
      * @return a list of options
      * @throws CustomDAOException
      */
-    public List<Option> getAllOptionsForTariff(int id) throws CustomDAOException;
+    public List<Option> getAllOptionsForTariff(int id) throws OptionsForEntityNotGotException;
 
     /**
      * Get all options for a specified contract.
@@ -24,7 +25,7 @@ public interface OptionService extends GenericService<Option, Integer> {
      * @return a list of options
      * @throws CustomDAOException
      */
-    public List<Option> getAllOptionsForContract(int id) throws CustomDAOException;
-    public List<Option> getAllOptionsTogetherForOption(int id) throws CustomDAOException;
-    public List<Option> getAllOptionsIncompatibleForOption(int id) throws CustomDAOException;
+    public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException;
+    public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException;
+    public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException;
 }

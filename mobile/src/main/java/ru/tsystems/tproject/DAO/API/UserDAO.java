@@ -2,6 +2,7 @@ package ru.tsystems.tproject.DAO.API;
 
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
+import ru.tsystems.tproject.exceptions.UserNotFoundException;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface UserDAO extends GenericDAO<User, Integer> {
      * @throws CustomDAOException
      */
 
-    public User getUserByNumber(long number) throws CustomDAOException;
+    public User getUserByNumber(long number) throws UserNotFoundException;
 
     /**
      * Gets a user by a specified login.
@@ -26,12 +27,6 @@ public interface UserDAO extends GenericDAO<User, Integer> {
      * @throws CustomDAOException
      */
 
-    public User getUserByLogin(String login) throws CustomDAOException;
-
-    /**
-     * Gets all users from the database.
-     * @return a list of all users
-     * @throws CustomDAOException
-     */
+    public User getUserByLogin(String login) throws UserNotFoundException;
 
 }
