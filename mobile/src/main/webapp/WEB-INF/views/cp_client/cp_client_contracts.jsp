@@ -120,6 +120,7 @@
                                                                                     <th class="header_s" style="width:80px;" id="table_header_database">Номер</th>
                                                                                     <th class="header_s" style="width:80px;" id="table_header_point_access">Тариф</th>
                                                                                     <th class="header_s" style="width:100px;" id="table_header_point">Опции</th>
+                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">Статус</th>
                                                                                     <th class="header_s" style="width:100px;" id="table_header_point">Действия</th>
                                                                                 </tr>
 
@@ -141,10 +142,40 @@
                                                                                                 </c:forEach>
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>
+                                                                                            <c:choose>
+                                                                                                <c:when test="${contract.blocked}">
+                                                                                                    <c:choose>
+                                                                                                        <c:when test="${contract.employee != null}">
+                                                                                                        Заблокирован администратором
+                                                                                                        </c:when>
+                                                                                                        <c:otherwise>Заблокирован</c:otherwise>
+                                                                                                    </c:choose>
+                                                                                                    </c:when>
+                                                                                                <c:otherwise>Активен</c:otherwise>
+                                                                                            </c:choose>
+                                                                                        </span>
+                                                                                        </td>
+
+
                                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                                             <div class="href_icon">
                                                                                                 <a href="cp_client_contract_details?contractId=${contract.id}"><span>Подробней</span><br> </a>
-                                                                                                <a href="cp_client_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                                <c:choose>
+                                                                                                    <c:when test="${contract.blocked}">
+                                                                                                        <c:choose>
+                                                                                                            <c:when test="${contract.employee == null}">
+                                                                                                                <a href="cp_client_block_contract?contractId=${contract.id}"><span>Разблокировать</span> <br></a>
+                                                                                                            </c:when>
+                                                                                                        </c:choose>
+                                                                                                    </c:when>
+                                                                                                    <c:otherwise>
+                                                                                                        <a href="cp_client_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                                        <a href="cp_client_block_contract?contractId=${contract.id}"><span>Заблокировать</span> <br></a>
+                                                                                                    </c:otherwise>
+                                                                                                </c:choose>
+
+
                                                                                             </div>
                                                                                         </td>
 

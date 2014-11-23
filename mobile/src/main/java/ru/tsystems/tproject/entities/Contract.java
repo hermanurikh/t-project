@@ -24,7 +24,7 @@ public class Contract {
     @OneToOne
     @JoinColumn(name = "tariff_id")
     private Tariff tariff;
-    private boolean isBlocked;
+    private boolean blocked;
 
     @ManyToOne
     @JoinColumn(name = "blockedEmp_id")
@@ -81,11 +81,11 @@ public class Contract {
     }
 
     public boolean isBlocked() {
-        return isBlocked;
+        return blocked;
     }
 
     public void setBlocked(boolean isBlocked) {
-        this.isBlocked = isBlocked;
+        this.blocked = isBlocked;
     }
 
     public User getEmployee() {
@@ -121,7 +121,7 @@ public class Contract {
     }
     @Override
     public String toString(){
-        return String.format("Contract{number: %s, user: %s, tariff: %s, isBlocked: %s, blockedEmpID: %s}", this.getNumber(), this.getUser(), this.getTariff(), this.isBlocked(), this.getEmployee());
+        return String.format("Contract{number: %s, user: %s, tariff: %s, blocked: %s, blockedEmpID: %s}", this.getNumber(), this.getUser(), this.getTariff(), this.isBlocked(), this.getEmployee());
     }
     @Override
     public boolean equals(Object o) {

@@ -206,9 +206,15 @@
                                                                             <tr>
                                                                                 <td>
 
-                                                                                   <a href="cp_client_change_contract?contractId=${contract.id}"><span>${language.JSP_CONTRACTS_ACTION_CHANGE}</span> <br></a>
+                                                                                    <c:choose>
+                                                                                        <c:when test="${!contract.blocked}">
+                                                                                            <a href="cp_client_change_contract?contractId=${contract.id}"><span>${language.JSP_CONTRACTS_ACTION_CHANGE}</span> <br></a>
+                                                                                        </c:when>
+                                                                                    </c:choose>
 
-                                                                                   </td>
+
+
+                                                                                </td>
                                                                                     </tr>
 
 

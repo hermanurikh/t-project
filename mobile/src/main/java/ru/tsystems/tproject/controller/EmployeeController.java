@@ -155,7 +155,6 @@ public class EmployeeController {
         Contract contract = new Contract(number, user, tariff);
         if (array == null || array.length == 0)  {
             contractService.createEntity(contract);
-            //сделать по феншую?
             user.addContract(contract);
             userService.updateEntity(user);
             return "cp_employee/success";
@@ -179,6 +178,31 @@ public class EmployeeController {
             }
         }
 
+    }
+
+    /**
+     * This method blocks or unblocks a contract.
+     * @param contractId the ID of the contract;
+     * @param request request;
+     * @param locale locale;
+     * @param model model;
+     * @return cp_employee_contracts.jsp
+     */
+    @RequestMapping(value = "/cp_employee_block_contract", method = RequestMethod.GET)
+    public String blockContract(@RequestParam(value = "contractId") Integer contractId,
+                                HttpServletRequest request, Locale locale, Model model) {
+        Contract contract = contractService.getEntityById(contractId);
+        if (contract.isBlocked()) {
+            contract.setBlocked(!contract.isBlocked());
+            contract.setEmployee(null);
+        }
+        else {
+            contract.setBlocked(!contract.isBlocked());
+            contract.setEmployee((User) request.getSession().getAttribute("currentUserU"));
+        }
+        contractService.updateEntity(contract);
+        model.addAttribute("contractsList", contractService.getAll());
+        return "cp_employee/cp_employee_contracts";
     }
 
     /**
@@ -252,10 +276,11 @@ public class EmployeeController {
      */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/cp_employee_contract_changed", method = RequestMethod.POST)
-    public String finalContractChange(@RequestParam(value = "cb", required = false) int[] array,
-                                        HttpServletRequest request, Locale locale, Model model) {
+    public String finalContractChange(  @RequestParam(value = "cb") Integer tariffId,
+                                        @RequestParam(value = "cb3", required = false) int[] array,
+                                        HttpServletRequest request, Locale locale, Model model) throws Exception{
+        Tariff tariff = tariffService.getEntityById(tariffId);
         long number = (long) request.getSession().getAttribute("contractNumber");
-        Tariff tariff = (Tariff) request.getSession().getAttribute("tariff");
         Contract contract = contractService.getContractByNumber(number);
         contract.setTariff(tariff);
         if (array == null || array.length == 0) {
@@ -277,10 +302,7 @@ public class EmployeeController {
                 return "cp_employee/success";
             }
             else {
-                model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariff.getId()));
-                model.addAttribute("areExceptions", "true");
-                model.addAttribute("exceptionsList", exceptionList);
-                return "cp_employee/cp_employee_contract_change_options";
+                throw new Exception("jQuery required to perform this operation!");
             }
         }
 
@@ -595,9 +617,14 @@ public class EmployeeController {
     @RequestMapping(value = "cp_employee_delete_tariff", method = RequestMethod.GET)
     public String deleteTariff(@RequestParam(value = "id") int tariffId,
                                Locale locale, Model model) {
-        entityRemoval.removeTariff(tariffId);
-        model.addAttribute("tariffsList", tariffService.getAll());
-        return "cp_employee/cp_employee_tariffs";
+        if(tariffId == 11) {
+            throw new EntityNotDeletedException("This tariff can not be deleted, some serious business logic is based upon it!");
+        }
+        else {
+            entityRemoval.removeTariff(tariffId);
+            model.addAttribute("tariffsList", tariffService.getAll());
+            return "cp_employee/cp_employee_tariffs";
+        }
     }
 
     /**
@@ -741,9 +768,12 @@ public class EmployeeController {
     @RequestMapping(value = "cp_employee_delete_option", method = RequestMethod.GET)
     public String deleteOption(@RequestParam(value = "optionId") int optionId,
                                Locale locale, Model model) {
-        entityRemoval.removeOption(optionId);
-        model.addAttribute("optionsList", optionService.getAll());
-        return "cp_employee/cp_employee_options";
+        if (optionId == 12) throw new EntityNotDeletedException("This option can not be deleted, as some serious business logic is based upon it!");
+        else {
+            entityRemoval.removeOption(optionId);
+            model.addAttribute("optionsList", optionService.getAll());
+            return "cp_employee/cp_employee_options";
+        }
     }
     /*-----------------------------------------------------------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------*/

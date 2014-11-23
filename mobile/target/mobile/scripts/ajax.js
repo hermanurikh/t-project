@@ -2,14 +2,15 @@
  * Created by german on 21.11.14.
  */
 
-function getOptions(id) {
+function getOptions(id, tariff_name) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
     vds1.show();
     vds2.show();
     var div = $("#bigOptionDiv");
     div.hide();
-    setTimeout(doAjax(id), 1000)
+    setTimeout(doAjax(id, tariff_name), 1000);
+    selectOptions();
 }
 function getOptionsForOption(id) {
     var vds1 = $("#vds-overlay");
@@ -24,9 +25,13 @@ function getOptionsForOption(id) {
 
 
 
-function doAjax (tariff_id) {
+function doAjax (tariff_id, tariff_name) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
+    var tariffName = tariff_name;
+    var tariffHeader = $("#optionsForTariff");
+    tariffHeader.empty();
+    tariffHeader.append("Доступные опции для тарифа " + tariffName);
     $.ajax({
         url: 'cp_employee_get_options_for_tariff/' + tariff_id,
         type: 'GET',
@@ -114,3 +119,18 @@ function getOptionsIncompatible (id) {
     });
 
 }
+
+function selectOptions() {
+    $('#tariff-header').hide();
+    $('#list_database').hide();
+    $('#tariff-helper').hide();
+    $('#backToTariffButton').show();
+}
+function backToTariff() {
+    $('#tariff-header').show();
+    $('#list_database').show();
+    $('#tariff-helper').show();
+    $('#backToTariffButton').hide();
+
+}
+

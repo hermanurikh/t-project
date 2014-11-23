@@ -205,8 +205,8 @@
                                         </div>
                                     </div>
 
-                                    <h2 class="js-h">Выберите тариф для контракта </h2>
-                                    <small>Щелкните по тарифу для выбора опций.</small>
+                                    <h2 class="js-h" id="tariff-header">Выберите тариф для контракта </h2>
+                                    <small id="tariff-helper">После выбора тарифа к нему можно будет подключить опции.</small>
                                     <span class="error-custom-message" id="error-custom-message-3">Пожалуйста, выберите один из тарифов.</span>
 
                                     <div>
@@ -228,10 +228,10 @@
 
                                                     <!--начало элемента таблицы-->
                                                     <c:forEach var="tariff" items="${tariffsList}">
-                                                        <tr name="trow" class="ui-table-data-row ui-state-even ui-selected" onclick=getOptions(${tariff.id})>
+                                                        <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
                                                             <td name="tcell" class="simplecell_checkbox" align="left">
-                                                                <input type="radio" id="cb" name="cb" value=${tariff.id}>
+                                                                <input type="radio" id="cb" name="cb" onchange="getOptions ('${tariff.id}','${tariff.name}');" value=${tariff.id}>
                                                             </td>
                                                             <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span>
                                                                 <br>
@@ -249,7 +249,7 @@
 
 
                                         <div id="list_database2" style="display: none;">
-                                            <h2 class="js-h">Выберите опции для тарифа </h2>
+                                            <h2 class="js-h" id="optionsForTariff"></h2>
                                             <small>Щелкните по опции для просмотра необходимых и несовместимых с ней опций.</small>
                                             <div class="js-row control-group" id="exceptions23" style="display:none">
                                                 <span class="error-custom-message-incorrect">В процессе выбора опций произошли ошибки!</span><div id="exMessages">
@@ -289,6 +289,7 @@
                                             <label class="js-caption control-label"></label>
                                             <div class="js-td controls jq-validate-container">
                                                 <input type="submit" id="send" value="Подтвердить" />
+                                                <input type="button" style="display: none;" id="backToTariffButton" value="Назад к выбору тарифа" onclick="backToTariff()"/>
                                             </div>
                                         </div>
                                     </div>

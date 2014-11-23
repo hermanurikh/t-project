@@ -129,13 +129,7 @@ public class ClientController {
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
         if (contract.isBlocked()) {
-            if (contract.getEmployee() != null) {
-                request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED_BY_ADMIN());
-            }
-            else {
-                request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED());
-                request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_UNBLOCK());
-            }
+            return "cp_client/cp_client_main";
         }
         else {
             request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_UNBLOCKED());
@@ -159,10 +153,10 @@ public class ClientController {
      * @return cp_client_change_contract.jsp
      */
     @RequestMapping(value = "/cp_client_block_contract", method = RequestMethod.GET)
-    public String blockContract(@RequestParam(value = "contractNumber") long number,
+    public String blockContract(@RequestParam(value = "contractId") int number,
                                 HttpServletRequest request, Locale locale, Model model) {
         Translatable translatable = (Translatable) request.getSession().getAttribute("language");
-        Contract contract = contractService.getContractByNumber(number);
+        Contract contract = contractService.getEntityById(number);
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
         if (contract.isBlocked()) {
@@ -181,7 +175,8 @@ public class ClientController {
             request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_UNBLOCK());
             request.getSession().setAttribute("contract", contract);
         }
-        return "cp_client/cp_client_change_contract";
+        model.addAttribute("contractsUserList", contractService.getAllContractsForUser(user.getId()));
+        return "cp_client/cp_client_contracts";
     }
 
     /**

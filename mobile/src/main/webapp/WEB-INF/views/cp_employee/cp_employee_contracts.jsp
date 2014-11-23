@@ -16,6 +16,8 @@
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+                <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+                <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
 
             </head>
 
@@ -24,10 +26,24 @@
                 <div class="lang-place" style="display:none;"><a href="?change_lang=ru">ru</a><a href="?change_lang=en">en</a><a href="?change_lang=de">de</a>
                 </div>
                 <div id="vds-overlay" style="display: none;"></div>
+                <div id="vds-wait" style="display: none;">
+                    <div id="loader" class="loader-32 fl"></div>
+                    <div class="caption-wrap border-l">
+                        <div id="caption">
+                            Пожалуйста, подождите
+                        </div>
+                    </div>
+                </div>
 
                 <script type="text/javascript">
                     function redirect() {
                         location.href = "cp_employee_main";
+                    }
+                    function overlay() {
+                        var vds1 = $("#vds-overlay");
+                        var vds2 = $("#vds-wait");
+                        vds1.show();
+                        vds2.show();
                     }
                 </script>
 
@@ -169,6 +185,7 @@
                                                                     <th class="header_s" style="width:100px;" id="table_header_type">Пользователь</th>
                                                                     <th class="header_s" style="width:80px;" id="table_header_point_access">Тариф</th>
                                                                     <th class="header_s" style="width:100px;" id="table_header_point">Опции</th>
+                                                                    <th class="header_s" style="width:100px;" id="table_header_point">Статус</th>
                                                                     <th class="header_s" style="width:100px;" id="table_header_point">Действия</th>
                                                                 </tr>
 
@@ -191,11 +208,25 @@
                                                                                 </c:forEach>
                                                                             </div>
                                                                         </td>
+                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>
+                                                                                            <c:choose>
+                                                                                                <c:when test="${contract.blocked}">Заблокирован</c:when>
+                                                                                                <c:otherwise>Активен</c:otherwise>
+                                                                                            </c:choose>
+                                                                                        </span>
+                                                                        </td>
+
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                             <div class="href_icon">
                                                                                 <!--<a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>-->
                                                                                 <a href="cp_employee_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
-                                                                                <a href="cp_employee_contracts?contractId=${contract.id}"><span>Удалить</span> </a>
+                                                                                <a href="cp_employee_contracts?contractId=${contract.id}" onclick="overlay()"><span>Удалить</span> </a>
+                                                                                <a href="cp_employee_block_contract?contractId=${contract.id}" onclick="overlay()"><span>
+                                                                                    <c:choose>
+                                                                                        <c:when test="${contract.blocked}">Разблокировать</c:when>
+                                                                                        <c:otherwise>Заблокировать</c:otherwise>
+                                                                                    </c:choose>
+                                                                                </span> </a>
                                                                             </div>
                                                                         </td>
 
