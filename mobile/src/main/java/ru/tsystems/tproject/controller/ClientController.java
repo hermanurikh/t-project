@@ -11,6 +11,7 @@ import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;

@@ -66,7 +66,9 @@ public class EmployeeController {
      * @return cp_employee_profile.jsp
      */
     @RequestMapping(value = "/cp_employee_profile", method = RequestMethod.GET)
-    public String getProfile() { return "cp_employee/cp_employee_profile"; }
+    public String getProfile() {
+        return "cp_employee/cp_employee_profile";
+    }
 
     /**
      * This method resolves a page with all contracts. When contractId is specified, the contract is deleted.
@@ -823,20 +825,6 @@ public class EmployeeController {
     /*---------------------------------EXCEPTION HANDLERS--------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------*/
-    @ExceptionHandler(EntityNotDeletedException.class)
-    public ModelAndView handleEntityNotDeletedException(HttpServletRequest request, Exception ex) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", ex);
-        modelAndView.setViewName("cp_employee/errors/exception");
-        return modelAndView;
-    }
 
-    @ExceptionHandler(Exception.class)
-    public ModelAndView handleGlobalException(HttpServletRequest request, Exception ex) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", ex);
-        modelAndView.setViewName("cp_employee/errors/exception_general");
-        return modelAndView;
-    }
 
 }

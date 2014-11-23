@@ -9,19 +9,19 @@
     <title>Панель управления аккаунтом.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <script>window.page_data = {};</script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/_global.json?c458e1acb7"></script>
-    <script type="text/javascript" src="/locale/ru_RU/LC_MESSAGES/index.json?85a3d254c6"></script>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file1.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file2.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file3.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file4.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file5.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
+
 </head>
 <body class="locale-ru_RU">
 <script type="text/javascript">
     function redirect() {
-    location.href = "cp_client_main.jsp";
+    location.href = "cp_client_main";
     }
 </script>
 
@@ -36,7 +36,7 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_client_profile.jsp">Профиль</a></li>
+                        <li><a href="cp_client_profile">Профиль</a></li>
                         <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
                     </ul>
                 </div>
@@ -72,29 +72,27 @@
 <div class="middle"><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;"><tr><td class="content np_menu">
     <div id="np_menu_id"  class="wrap-for-hover">
 
-        <a href="../controllers/UserAllContractsServlet" class="main-menu-item">
+        <a href="cp_client_contracts" class="main-menu-item">
             <i class="np_icon documents"></i>
-            <span class="href_line">Контракты</span>
+            <span class="href_line">${language.JSP_CONTRACTS_NAME}</span>
         </a>
 
-        <a href="cp_client_balance.jsp" class="main-menu-item">
+        <a href="cp_client_balance" class="main-menu-item">
             <i class="np_icon balance"></i>
-            <span class="href_line">Баланс</span>
+            <span class="href_line">${language.JSP_BALANCE_NAME}</span>
         </a>
 
-        <a href="cp_client_profile.jsp" class="main-menu-item">
-                    <i class="np_icon crontab"></i>
-                    <span class="href_line">Информация об аккаунте</span>
-                </a>
+        <a href="cp_client_profile" class="main-menu-item">
+            <i class="np_icon crontab"></i>
+            <span class="href_line">${language.JSP_INFO_NAME}</span>
+        </a>
 
         <div class="np_menu-line"></div>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="../controllers/LogoutServlet"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+
+        <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
-        <script src="/js/underscore-min.js"></script>
-        <script src="/js/d3.js"></script>
-        <script src="/js/path.js"></script>
-        <script src="/js/punycode.js"></script>
         <div class="primary_div npp_index">
 
             <div style="display:none;">
@@ -114,14 +112,10 @@
 
                <div class="info info_small fr info-last">
                                <!--<div class="info__header">-->
-                                   <h2>В процессе работы приложения возникла ошибка. Текст исключения ниже:</h2>
+                                   <h2>В процессе работы приложения возникла ошибка.</h2>
                                <div>
 
-                               <span class="small_signature" id="access_ip_info" style="display:"> <br> <br>
-                               ${exception} <br>
-                               ${exception.message}
-
-                               </span>
+                               <span class="error-custom-message-incorrect">Попробуйте позднее или обратитесь к администратору.</span>
 
 
 

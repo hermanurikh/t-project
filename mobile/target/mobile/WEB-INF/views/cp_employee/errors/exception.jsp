@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
 </head>
 <script type="text/javascript">
     function redirect() {
@@ -111,7 +112,7 @@
                 <!--<div class="info__header">-->
                     <h2>В процессе работы приложения возникла ошибка. Текст исключения ниже:</h2>
                 <div>
-                <span class="small_signature" id="access_ip_info" style="display:block;">${exception.message}</span>
+                <span class="error-custom-message-incorrect" id="access_ip_info" style="display:block;">${exception.message}</span>
                 </div>
                 </div>
             <!--</div>-->
