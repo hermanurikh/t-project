@@ -33,7 +33,7 @@ function doAjax (tariff_id, tariff_name) {
     tariffHeader.empty();
     tariffHeader.append("Доступные опции для тарифа " + tariffName);
     $.ajax({
-        url: 'cp_employee_get_options_for_tariff/' + tariff_id,
+        url: 'cp_get_options_for_tariff/' + tariff_id,
         type: 'GET',
         success: function (data) {
             var bigDiv1 = $("#list_database2");
@@ -65,7 +65,7 @@ function doAjax (tariff_id, tariff_name) {
 }
 function getOptionsTogether (id) {
     $.ajax({
-        url: 'cp_employee_get_optionsTogether_for_option/' + id,
+        url: 'cp_get_optionsTogether_for_option/' + id,
         type: 'GET',
         success: function (data) {
             var bigDiv = $("#optionTogetherTable tbody");
@@ -93,7 +93,7 @@ function getOptionsIncompatible (id) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
     $.ajax({
-        url: 'cp_employee_get_optionsIncompatible_for_option/' + id,
+        url: 'cp_get_optionsIncompatible_for_option/' + id,
         type: 'GET',
         success: function (data) {
             var bigDiv = $("#optionIncompatibleTable tbody");

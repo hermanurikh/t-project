@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * A controller that converts to MD5.
+ * A controllers that converts to MD5.
  */
 public class Converter extends org.springframework.security.authentication.encoding.BasePasswordEncoder {
     public static String getMD5(String word) throws NoSuchAlgorithmException{

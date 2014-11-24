@@ -237,7 +237,7 @@ $(document).ready(function(){
            exDiv.hide();
            exMessages.empty();
            var answer = $.ajax({
-               url: 'cp_employee_ajax_validate_options',
+               url: 'cp_ajax_validate_options',
                type: 'POST',
                async:    false,
                data: $('#jForm').serialize(),

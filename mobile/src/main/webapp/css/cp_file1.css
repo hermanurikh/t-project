@@ -312,7 +312,7 @@ table  {
 .ui-slider.ui-slider-half-handles .ui-slider-handle,
 .ui-slider-handle  {
 
-    background:  url('/public/external/timestrap/images/sprites/parts.png') no-repeat;
+    background:  url('../images/parts.png') no-repeat;
 
 }
 

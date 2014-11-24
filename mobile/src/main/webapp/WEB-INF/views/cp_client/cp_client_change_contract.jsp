@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 </head>
 <body class="locale-ru_RU">
 <script type="text/javascript">
@@ -33,6 +34,15 @@
     }
     });
 </script>
+<div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
 
 
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
@@ -115,14 +125,15 @@
 
 
 
-                        <form action="cp_client_contract_change_options" id="jForm" method="GET" accept-charset="CP1252">
+                        <form action="cp_client_contract_bucket" id="jForm" method="POST" accept-charset="CP1252">
                             <div class="js-body info__body">
                                 <h2 class="js-h">${language.JSP_CONTRACTS_CHANGE} ${contract.number}</h2><div>
 
                                 <div class="js-table form-horizontal support-issue-form">
 
 
-                                    <h2 class="js-h">${language.JSP_CONTRACTS_CHOOSE_TARIFF} </h2><div>
+                                    <h2 class="js-h" id="tariff-header">${language.JSP_CONTRACTS_CHOOSE_TARIFF} </h2>
+                                    <small id="tariff-helper">После выбора тарифа к нему можно будет подключить опции.</small>
                                     <span class="error-custom-message" id="error-custom-message-3">Please select a tariff!</span>
                                     <small id="checkedTariff" style="display:none">Please select a tariff!</small>
 
@@ -142,7 +153,8 @@
                                             <c:forEach var="tariff" items="${tariffsList}">
                                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
-                                                    <td name="tcell" class="simplecell_checkbox" align="left"><input type="radio" id="cb" name="cb" value=${tariff.id}></td>
+                                                    <td name="tcell" class="simplecell_checkbox" align="left">
+                                                        <input type="radio" id="cb" name="cb" onchange="getOptions ('${tariff.id}','${tariff.name}');" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
 
@@ -152,6 +164,38 @@
                                              </tbody>
                                             </table></div></div>
 
+                                    <div id="list_database2" style="display: none;">
+                                        <h2 class="js-h" id="optionsForTariff"></h2>
+                                        <small>Щелкните по опции для просмотра необходимых и несовместимых с ней опций.</small>
+                                        <div class="js-row control-group" id="exceptions23" style="display:none">
+                                            <span class="error-custom-message-incorrect">В процессе выбора опций произошли ошибки!</span><div id="exMessages">
+                                            <c:forEach var="ex" items="${exceptionsList}">
+                                                <span class="error-custom-message-incorrect">${ex.message}</span>
+                                            </c:forEach>
+                                        </div>
+                                        </div>
+
+                                        <div style="">
+                                            <table class="ui-table ui-table-hover ui-table-striped" id="optionTable" style="width:100%">
+                                                <tbody>
+
+                                                <tr class="ui-table-header" id="options-header">
+
+                                                    <th class="header_s_checkbox" width="12" align="center"></th>
+                                                    <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                                </tr>
+
+                                                <!--начало элемента таблицы-->
+
+
+                                                <!--конец элемента таблицы-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
 
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
@@ -160,17 +204,77 @@
                                     <label class="js-caption control-label"></label>
                                     <div class="js-td controls jq-validate-container">
                                         <input type="submit" id="send" value="${language.JSP_CONTRACTS_SUBMIT}" />
+                                        <input type="button" style="display: none;" id="backToTariffButton" value="Назад к выбору тарифа" onclick="backToTariff()"/>
                                     </div>
                                 </div></div>
                             </div></div>
                         </form>
 
-                        <div class="icon-wrap">
-                                                    <img src="${pageContext.request.contextPath}/images/ip-icon.png">
-                                                    <a href="cp_client_block_contract?contractNumber=${contract.number}">${action}</a>
-                                                    <br>
-                                                    <small>${paramIsBlocked}.</small>
-                                                </div>
+                 <div class="primary_div npp_index">
+                     <div class="js-table form-horizontal support-issue-form" id="bigOptionDiv" style="display: none;">
+                         <h2 class="js-h">Необходимые опции</h2>
+                         <div>
+                             <div id="list_database3">
+                                 <div style="">
+                                     <table class="ui-table ui-table-hover ui-table-striped" id="optionTogetherTable" style="width:100%">
+                                         <tbody>
+                                         <tr class="ui-table-header">
+
+
+                                             <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                         </tr>
+
+                                         <!--начало элемента таблицы-->
+
+
+
+                                         <!--конец элемента таблицы-->
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+
+
+                             <div class="js-row control-group">
+                                 <label class="js-caption control-label"></label>
+
+                             </div>
+                             <div class="js-row control-group">
+                                 <label class="js-caption control-label"></label>
+
+                             </div>
+                         </div>
+
+                         <h2 class="js-h">Несовместимые опции</h2>
+                         <div>
+
+                             <div id="list_database4">
+                                 <div style="">
+                                     <table class="ui-table ui-table-hover ui-table-striped" id="optionIncompatibleTable" style="width:100%">
+                                         <tbody>
+                                         <tr class="ui-table-header">
+
+
+                                             <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                         </tr>
+
+                                         <!--начало элемента таблицы-->
+
+
+                                         <!--конец элемента таблицы-->
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+
 
 
             <div class="clear"></div>
