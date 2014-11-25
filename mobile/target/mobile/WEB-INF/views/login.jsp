@@ -47,10 +47,10 @@
                         <label for="panel-password" class="b_input_text_placeholder" style="display:none">Пароль</label>
                         <input id="panel-password" class="b_input_text" name="password" size="30" type="password" />
                     </div>
-                    <div class="js-restore-block" style="display:none">
-                        <a class="b_link b_link-restore" href="#">Восстановить пароль</a>
+                    <div class="js-restore-block" style="display:block">
+                        <!--<a class="b_link b_link-restore" href="#">Восстановить пароль</a>-->
                         <label class="b_checkbox_wrap">
-                            <input class="b_checkbox" name="remember" type="checkbox" />
+                            <input class="b_checkbox" name="remember-me" type="checkbox" />
                             <i class="b_checkbox_icon"></i> Запомнить меня
                         </label>
                     </div>

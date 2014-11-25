@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Панель управления аккаунтом.</title>
+    <title>${language.JSP_PANEL_NAME}.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
@@ -17,9 +17,12 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/lang.js"></script>
+
 </head>
 
 <body class="locale-ru_RU">
+<div class="lang-place" style="display:block;"><a onclick="changeRus()">ru</a><a onclick="changeEng()">en</a></div>
 <script type="text/javascript">
     function redirect() {
         location.href = "cp_client_main";
@@ -57,9 +60,9 @@
                                 </div>
                                 <div class="nav-wrap">
                                     <ul class="nav">
-                                        <li><a href="cp_client_profile">Профиль</a>
+                                        <li><a href="cp_client_profile">${language.JSP_PROFILE_NAME}</a>
                                         </li>
-                                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a>
+                                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">${language.JSP_SUPPORT_NAME}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -75,17 +78,17 @@
                                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span>
                                             </div>
-                                            <div class="user-balance">${currentUserU.balance} р.</div>
+                                            <div class="user-balance">${currentUserU.balance} ${language.JSP_BALANCE_CURRENCY}</div>
                                         </div>
                                         <div class="slide-down" style="display:none;">
                                             <div style="display:block;">
                                                 <ul></ul>
                                                 <div class="buttons-wrap">
-                                                    <a href="/info/" class="account-add link">
-                                                        <span>Профиль аккаунта</span>
+                                                    <a href="cp_client_profile" class="account-add link">
+                                                        <span>${language.JSP_PROFILE_NAME}</span>
                                                     </a>
-                                                    <a href="/logout/" class="exit link">
-                                                        <span>Выход</span>
+                                                    <a href="/j_spring_security_logout" class="exit link">
+                                                        <span>${language.JSP_LOGOUT_NAME}</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -113,58 +116,43 @@
 
                     <a href="cp_client_contracts" class="main-menu-item">
                         <i class="np_icon documents"></i>
-                        <span class="href_line">Контракты</span>
+                        <span class="href_line">${language.JSP_CONTRACTS_NAME}</span>
                     </a>
 
                     <a href="cp_client_balance" class="main-menu-item">
                         <i class="np_icon balance"></i>
-                        <span class="href_line">Баланс</span>
+                        <span class="href_line">${language.JSP_BALANCE_NAME}</span>
                     </a>
 
                     <a href="cp_client_profile" class="main-menu-item">
                         <i class="np_icon crontab"></i>
-                        <span class="href_line">Информация об аккаунте</span>
+                        <span class="href_line">${language.JSP_INFO_NAME}</span>
                     </a>
 
                     <div class="np_menu-line"></div>
                     <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-                    <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a>
+                    <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>${language.JSP_LOGOUT_NAME}</span></a>
                     </div>
                     &nbsp;</div>
             </td>
             <!--np_menu-->
             <td class="np_content">
                 <div class="primary_div npp_index">
-
-                    <div style="display:none;">
-                        <div id="template_HotActionsDialog">
-                            <div class="form-horizontal npp_index-hot_actions_dialog">
-                                <div class="control-group">
-                                    <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                                    </table>
-                                </div>
-
-                                <div class="form-actions">
-                                    <button class="btn" id="save_button">Сохранить настройки</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="info info_small fr info-last">
 
                         <form action="cp_client_bucket_approved" method="POST" accept-charset="CP1252">
                             <div class="js-body info__body">
-                                <h2 class="js-h">Пожалуйста, подтвердите изменение контракта</h2>
+                                <h2 class="js-h">${language.JSP_CONTRACTS_SUBMIT_BUCKET}</h2>
                                 <div>
                                     <div class="js-table form-horizontal support-issue-form">
 
                                         <div class="js-row control-group">
 
-                                            <span class="small_signature">Номер контракта: ${updatedContract.number}</span>
+                                            <span class="small_signature">${language.JSP_CONTRACTS_CHANGING_NUMBER}: ${updatedContract.number}</span>
                                             <br>
                                             <c:choose>
                                                 <c:when test="${totalAmount !=0}">
-                                                    <span class="small_signature">С баланса аккаунта будет списано ${totalAmount} р.</span>
+                                                    <span class="small_signature">${language.JSP_BALANCE_DECREASED} ${totalAmount} ${language.JSP_BALANCE_CURRENCY}</span>
                                                 </c:when>
                                             </c:choose>
 
@@ -179,7 +167,7 @@
                                         </div>
 
                                         <div class="js-row control-group" id="exceptions" style="display:none">
-                                            <h2 class="js-h">В процессе выбора опций возникли ошибки!</h2>
+                                            <h2 class="js-h">${language.JSP_CONTRACTS_ERROR}</h2>
                                             <div>
                                                 <c:forEach var="ex" items="${exceptionsList}">
                                                     <span class="small_signature">${ex.message}</span>
@@ -188,7 +176,7 @@
                                             </div>
                                         </div>
 
-                                        <h2 class="js-h">Выбранный тариф и опции: </h2>
+                                        <h2 class="js-h">${language.JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS} </h2>
                                         <div>
                                             <div id="list_database">
                                                 <div style="">
@@ -203,8 +191,8 @@
                                                             <th class="header_s_checkbox" width="12" align="center">
                                                                 <!--<input id="main_checkbox" type="radio">-->
                                                             </th>
-                                                            <th class="header_s" style="width:150px;" id="table_header_database">Тариф</th>
-                                                            <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
+                                                            <th class="header_s" style="width:150px;" id="table_header_database">${language.JSP_CONTRACTS_LIST_TARIFF}</th>
+                                                            <th class="header_s" style="width:100px;" id="table_header_type">${language.JSP_CONTRACTS_PRICE}</th>
                                                         </tr>
 
                                                         <!--начало элемента таблицы-->
@@ -227,9 +215,9 @@
                                                                 <tr class="ui-table-header">
 
                                                                     <th class="header_s_checkbox" width="12" align="center"></th>
-                                                                    <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                                                    <th class="header_s" style="width:150px;" id="table_header_database">${language.JSP_CONTRACTS_OPTION}</th>
+                                                                    <th class="header_s" style="width:100px;" id="table_header_type">${language.JSP_CONTRACTS_OPTION_PRICE}</th>
+                                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">${language.JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                                                 </tr>
 
                                                                 <!--начало элемента таблицы-->
@@ -265,7 +253,7 @@
                                                 <div class="js-row control-group">
                                                     <label class="js-caption control-label"></label>
                                                     <div class="js-td controls jq-validate-container">
-                                                        <input type="submit" value="Изменить контракт" />
+                                                        <input type="submit" value="${language.JSP_CONTRACTS_SUBMIT_CONTRACT}" />
                                                     </div>
                                                 </div>
                                             </div>

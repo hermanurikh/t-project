@@ -18,14 +18,17 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/wait.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/lang.js"></script>
 </head>
 <body class="locale-ru_RU">
+<div class="lang-place" style="display:block;"><a onclick="changeRus()">ru</a><a onclick="changeEng()">en</a></div>
+
 <div id="vds-overlay" style="display: none;"></div>
 <div id="vds-wait" style="display: none;">
     <div id="loader" class="loader-32 fl"></div>
     <div class="caption-wrap border-l">
         <div id="caption">
-            Пожалуйста, подождите
+            ${language.JSP_PLEASE_WAIT}
         </div>
     </div>
 </div>
@@ -63,11 +66,11 @@
                             <div style="display:block;">
                                 <ul></ul>
                                 <div class="buttons-wrap">
-                                    <a href="/info/" class="account-add link">
-                                        <span>Профиль аккаунта</span>
+                                    <a href="cp_client_profile" class="account-add link">
+                                        <span>${language.JSP_PROFILE_NAME}</span>
                                     </a>
-                                    <a href="/logout/" class="exit link">
-                                        <span>Выход</span>
+                                    <a href="/j_spring_security_logout" class="exit link">
+                                        <span>${language.JSP_LOGOUT_NAME}</span>
                                     </a>
                                 </div>
                             </div>

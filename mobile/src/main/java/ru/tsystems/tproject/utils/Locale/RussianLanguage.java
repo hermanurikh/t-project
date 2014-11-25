@@ -18,6 +18,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_LIST_NUMBER = "Номер";
     private final String JSP_CONTRACTS_LIST_TARIFF = "Тариф";
     private final String JSP_CONTRACTS_LIST_OPTIONS = "Опции";
+    private final String JSP_CONTRACTS_LIST_STATUS = "Статус";
     private final String JSP_CONTRACTS_LIST_ACTIONS = "Действия";
     private final String JSP_CONTRACTS_ACTION_DETAILED = "Подробней";
     private final String JSP_CONTRACTS_ACTION_CHANGE = "Изменить";
@@ -29,6 +30,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED = "Состояние контракта";
     private final String JSP_CONTRACTS_CHANGE = "Изменение контракта с номером ";
     private final String JSP_CONTRACTS_CHOOSE_TARIFF = "Выберите тариф для контракта";
+    private final String JSP_CONTRACTS_TARIFF_HELPER = "После выбора тарифа к нему можно будет подключить опции.";
     private final String JSP_CONTRACTS_PRICE = "Цена";
     private final String JSP_CONTRACTS_SUBMIT = "Подтвердить";
     private final String JSP_CONTRACTS_BLOCK = "Заблокировать";
@@ -36,6 +38,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_UNBLOCK = "Разблокировать";
     private final String JSP_CONTRACTS_UNBLOCKED = "В данный момент блокировка выключена";
     private final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору";
+    private final String JSP_CONTRACTS_ERROR = "В процессе выбора опций произошли ошибки!";
     private final String JSP_CONTRACTS_CHANGING = "Изменение контракта";
     private final String JSP_CONTRACTS_CHANGING_NUMBER = "Номер контракта:";
     private final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Выберите опции для тарифа";
@@ -46,6 +49,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_OPTIONS_TOGETHER = "Необходимые опции";
     private final String JSP_CONTRACTS_OPTIONS_INCOMPATIBLE = "Несовместимые опции";
     private final String JSP_CONTRACTS_SUBMIT_CONTRACT = "Изменить контракт";
+    private final String JSP_CONTRACTS_BACK_TO_TARIFF = "Назад к выбору тарифа";
     private final String JSP_CONTRACTS_SUBMIT_BUCKET = "Пожалуйста, подтвердите изменение контракта";
     private final String JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS = "Выбранный тариф и опции:";
     private final String JSP_SUCCESS = "Успешно!";
@@ -53,6 +57,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_BALANCE_INCREASE_BALANCE = "Пополнить баланс на 100 рублей";
     private final String JSP_BALANCE_CURRENT = "Текущий баланс";
     private final String JSP_BALANCE_CURRENCY = "р.";
+    private final String JSP_BALANCE_DECREASED = "С баланса аккаунта будет списано";
     private final String JSP_BALANCE_MONTHLY_CURRENCY = "р./мес.";
     private final String JSP_INFO_PROFILE = "Профиль аккаунта";
     private final String JSP_INFO_BIRTHDAY = "Дата рождения";
@@ -60,6 +65,18 @@ public class RussianLanguage implements Translatable {
     private final String JSP_INFO_CONTACT_INFO = "Контактная информация";
     private final String JSP_INFO_EMAIL = "Эл. почта";
     private final String JSP_INFO_POST = "Почтовый адрес";
+    private final String JSP_PLEASE_WAIT = "Пожалуйста, подождите ";
+    private final String JSP_BLOCKED_BY_ADMIN = "ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ";
+    private final String JSP_BLOCKED_BY_ADMIN_SMALL = "Заблокирован администратором";
+    private final String JSP_BLOCKED = "Заблокирован";
+    private final String JSP_ACTIVE = "Активен";
+    private final String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Доступные опции для тарифа ";
+    private final String JSP_NO_OPTIONS_FOR_TARIFF = "К данному тарифу невозможно подключить опции.";
+    private final String JSP_NO_OPTIONS_TOGETHER = "Для данной опции нет других обязательных к подключению опций.";
+    private final String JSP_NO_OPTIONS_INCOMPATIBLE = "Для данной опции нет других невозможных к подключению опций.";
+
+
+
 
     private RussianLanguage() {
     }
@@ -72,9 +89,63 @@ public class RussianLanguage implements Translatable {
         }
     }
     @Override
+    public String getJSP_POSSIBLE_OPTIONS_FOR_TARIFF() {
+        return JSP_POSSIBLE_OPTIONS_FOR_TARIFF;
+    }
+    @Override
+    public String getJSP_NO_OPTIONS_FOR_TARIFF() {
+        return JSP_NO_OPTIONS_FOR_TARIFF;
+    }
+    @Override
+    public String getJSP_NO_OPTIONS_TOGETHER() {
+        return JSP_NO_OPTIONS_TOGETHER;
+    }
+    @Override
+    public String getJSP_NO_OPTIONS_INCOMPATIBLE() {
+        return JSP_NO_OPTIONS_INCOMPATIBLE;
+    }
+    @Override
+    public String getJSP_BLOCKED_BY_ADMIN_SMALL() {
+        return JSP_BLOCKED_BY_ADMIN_SMALL;
+    }
+    @Override
+    public String getJSP_CONTRACTS_LIST_STATUS() {
+        return JSP_CONTRACTS_LIST_STATUS;
+    }
+    @Override
+    public String getJSP_BLOCKED_BY_ADMIN() {
+        return JSP_BLOCKED_BY_ADMIN;
+    }
+    @Override
+    public String getJSP_BLOCKED() {
+        return JSP_BLOCKED;
+    }
+    @Override
+    public String getJSP_ACTIVE() {
+        return JSP_ACTIVE;
+    }
+    @Override
+    public String getJSP_BALANCE_DECREASED() {
+        return JSP_BALANCE_DECREASED;
+    }
+    @Override
+    public String getJSP_CONTRACTS_BACK_TO_TARIFF() {
+        return JSP_CONTRACTS_BACK_TO_TARIFF;
+    }
+    @Override
+    public String getJSP_CONTRACTS_ERROR() {
+        return JSP_CONTRACTS_ERROR;
+    }
+    @Override
+    public String getJSP_CONTRACTS_TARIFF_HELPER() {
+        return JSP_CONTRACTS_TARIFF_HELPER;
+    }
+    @Override
     public String getJSP_BALANCE_MONTHLY_CURRENCY() {
         return JSP_BALANCE_MONTHLY_CURRENCY;
     }
+    @Override
+    public String getJSP_PLEASE_WAIT() { return JSP_PLEASE_WAIT; }
     @Override
     public String getJSP_PANEL_NAME() {
         return JSP_PANEL_NAME;

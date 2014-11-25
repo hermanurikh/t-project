@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.OptionService;
+import ru.tsystems.tproject.utils.Locale.EnglishLanguage;
+import ru.tsystems.tproject.utils.Locale.RussianLanguage;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,5 +74,19 @@ public class AjaxDispatcher {
                 return messageList;
             }
         }
+    }
+    @RequestMapping(value = "cp_language_en", method = RequestMethod.GET)
+    @ResponseBody
+    public String setEnglish(HttpServletRequest request) {
+        request.getSession().removeAttribute("language");
+        request.getSession().setAttribute("language", EnglishLanguage.getEnglishLanguage());
+        return "";
+    }
+    @RequestMapping(value = "cp_language_ru", method = RequestMethod.GET)
+    @ResponseBody
+    public String setRussian(HttpServletRequest request) {
+        request.getSession().removeAttribute("language");
+        request.getSession().setAttribute("language", RussianLanguage.getRussianLanguage());
+        return "";
     }
 }

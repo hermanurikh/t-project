@@ -36,6 +36,10 @@
             <concurrency-control max-sessions="1"
                                  expired-url="/login" />
         </session-management>
+        <!--remember me-->
+        <remember-me token-validity-seconds="1209600"
+                     remember-me-parameter="remember-me"
+                     user-service-ref="userDetailsService"  />
     </http>
 
     <authentication-manager id="dao-auth">
@@ -46,6 +50,7 @@
     <beans:bean id="passwordEncoder"
                 class="ru.tsystems.tproject.utils.Converter">
     </beans:bean>
+
 
 
 </beans:beans>

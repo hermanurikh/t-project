@@ -1,7 +1,6 @@
 /**
- * Created by german on 21.11.14.
+ * Created by german on 25.11.14.
  */
-
 function getOptions(id, tariff_name) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
@@ -12,6 +11,7 @@ function getOptions(id, tariff_name) {
     setTimeout(doAjax(id, tariff_name), 1000);
     selectOptions();
 }
+
 function getOptionsForOption(id) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
@@ -25,7 +25,7 @@ function getOptionsForOption(id) {
 
 
 
-function doAjax (tariff_id, tariff_name) {
+function doAjax(tariff_id, tariff_name) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
     var tariffName = tariff_name;
@@ -35,14 +35,13 @@ function doAjax (tariff_id, tariff_name) {
     $.ajax({
         url: 'cp_get_options_for_tariff/' + tariff_id,
         type: 'GET',
-        success: function (data) {
+        success: function(data) {
             var bigDiv1 = $("#list_database2");
             var bigDiv = $("#optionTable tbody");
             bigDiv.empty();
             if (data == "") {
                 bigDiv.append("<span class='error-custom-message-incorrect'> К данному тарифу невозможно подключить опции.</span>");
-            }
-            else {
+            } else {
                 bigDiv.append(
                         "<tr class='ui-table-header' id = 'options-header'>" +
                         "<th class='header_s_checkbox' width='12' align='center'></th>" +
@@ -51,7 +50,7 @@ function doAjax (tariff_id, tariff_name) {
                         "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
                         "</tr>"
                 );
-                data.forEach(function (elem, index, array) {
+                data.forEach(function(elem, index, array) {
                     bigDiv.append(
                             "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected' onclick=getOptionsForOption(" + elem.id + ")>" +
                             "<td name='tcell' class='simplecell_checkbox' align='left'>" +
@@ -68,17 +67,17 @@ function doAjax (tariff_id, tariff_name) {
         }
     });
 }
-function getOptionsTogether (id) {
+
+function getOptionsTogether(id) {
     $.ajax({
         url: 'cp_get_optionsTogether_for_option/' + id,
         type: 'GET',
-        success: function (data) {
+        success: function(data) {
             var bigDiv = $("#optionTogetherTable tbody");
             bigDiv.empty();
             if (data == "") {
                 bigDiv.append("<span> Для данной опции нет других обязательных к подключению опций.</span>");
-            }
-            else {
+            } else {
                 bigDiv.append(
                         "<tr class='ui-table-header'>" +
                         "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
@@ -86,7 +85,7 @@ function getOptionsTogether (id) {
                         "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
                         "</tr>"
                 );
-                data.forEach(function (elem, index, array) {
+                data.forEach(function(elem, index, array) {
                     bigDiv.append(
                             "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
                             "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
@@ -99,19 +98,19 @@ function getOptionsTogether (id) {
     });
 
 }
-function getOptionsIncompatible (id) {
+
+function getOptionsIncompatible(id) {
     var vds1 = $("#vds-overlay");
     var vds2 = $("#vds-wait");
     $.ajax({
         url: 'cp_get_optionsIncompatible_for_option/' + id,
         type: 'GET',
-        success: function (data) {
+        success: function(data) {
             var bigDiv = $("#optionIncompatibleTable tbody");
             bigDiv.empty();
             if (data == "") {
                 bigDiv.append("<span> Для данной опции нет других невозможных к подключению опций.</span>");
-            }
-            else {
+            } else {
                 bigDiv.append(
                         "<tr class='ui-table-header'>" +
                         "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
@@ -119,7 +118,7 @@ function getOptionsIncompatible (id) {
                         "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
                         "</tr>"
                 );
-                data.forEach(function (elem, index, array) {
+                data.forEach(function(elem, index, array) {
                     bigDiv.append(
                             "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
                             "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
@@ -141,6 +140,7 @@ function selectOptions() {
     $('#tariff-helper').hide();
     $('#backToTariffButton').show();
 }
+
 function backToTariff() {
     $('#tariff-header').show();
     $('#list_database').show();
@@ -148,4 +148,3 @@ function backToTariff() {
     $('#backToTariffButton').hide();
 
 }
-

@@ -6,10 +6,8 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" >
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Панель управления аккаунтом.</title>
+    <title>${language.JSP_PANEL_NAME}.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-
-
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
@@ -21,14 +19,18 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/wait.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/lang.js"></script>
+
 </head>
 <body class="locale-ru_RU">
+<div class="lang-place" style="display:block;"><a onclick="changeRus()">ru</a><a onclick="changeEng()">en</a></div>
+
 <div id="vds-overlay" style="display: none;"></div>
 <div id="vds-wait" style="display: none;">
     <div id="loader" class="loader-32 fl"></div>
     <div class="caption-wrap border-l">
         <div id="caption">
-            Пожалуйста, подождите
+            ${language.JSP_PLEASE_WAIT}
         </div>
     </div>
 </div>
@@ -53,8 +55,8 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_client_profile">Профиль</a></li>
-                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
+                        <li><a href="cp_client_profile">${language.JSP_PROFILE_NAME}</a></li>
+                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">${language.JSP_SUPPORT_NAME}</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,17 +66,17 @@
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
-                            <div class="user-balance">${currentUserU.balance} р.</div>
+                            <div class="user-balance">${currentUserU.balance} ${language.JSP_BALANCE_CURRENCY}</div>
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">
                                 <ul></ul>
                                 <div class="buttons-wrap">
-                                    <a href="/info/" class="account-add link">
-                                        <span>Профиль аккаунта</span>
+                                    <a href="cp_client_profile" class="account-add link">
+                                        <span>${language.JSP_PROFILE_NAME}</span>
                                     </a>
-                                    <a href="/logout/" class="exit link">
-                                        <span>Выход</span>
+                                    <a href="/j_spring_security_logout" class="exit link">
+                                        <span>${language.JSP_LOGOUT_NAME}</span>
                                     </a>
                                 </div>
                             </div>
@@ -93,22 +95,22 @@
 
         <a href="cp_client_contracts" class="main-menu-item">
             <i class="np_icon documents"></i>
-            <span class="href_line">Контракты</span>
+            <span class="href_line">${language.JSP_CONTRACTS_NAME}</span>
         </a>
 
         <a href="cp_client_balance" class="main-menu-item">
             <i class="np_icon balance"></i>
-            <span class="href_line">Баланс</span>
+            <span class="href_line">${language.JSP_BALANCE_NAME}</span>
         </a>
 
         <a href="cp_client_profile" class="main-menu-item">
             <i class="np_icon crontab"></i>
-            <span class="href_line">Информация об аккаунте</span>
+            <span class="href_line">${language.JSP_INFO_NAME}</span>
         </a>
 
         <div class="np_menu-line"></div>
         <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>${language.JSP_LOGOUT_NAME}</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
         <div class="primary_div npp_index">
@@ -212,12 +214,12 @@
                                                                 <c:when test="${contract.blocked}">
                                                                     <c:choose>
                                                                         <c:when test="${contract.employee != null}">
-                                                                            ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ
+                                                                            ${language.JSP_BLOCKED_BY_ADMIN}
                                                                         </c:when>
-                                                                        <c:otherwise>Заблокирован</c:otherwise>
+                                                                        <c:otherwise>${language.JSP_BLOCKED}</c:otherwise>
                                                                     </c:choose>
                                                                 </c:when>
-                                                                <c:otherwise>Активен</c:otherwise>
+                                                                <c:otherwise>${language.JSP_ACTIVE}</c:otherwise>
                                                             </c:choose>
                                                         </label>
                                                     </div>
@@ -260,18 +262,18 @@
 
             <div class="info info_small fr info-last">
 
-                <h2>Список контрактов</h2>
+                <h2>${language.JSP_CONTRACTS_LIST_NAME}</h2>
                                                                 <div id="list_database">
                                                                     <div style="">
                                                                         <table class="ui-table ui-table-hover ui-table-striped" style="width:100%">
                                                                             <tbody>
                                                                                 <tr class="ui-table-header">
 
-                                                                                    <th class="header_s" style="width:80px;" id="table_header_database">Номер</th>
-                                                                                    <th class="header_s" style="width:80px;" id="table_header_point_access">Тариф</th>
-                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">Опции</th>
-                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">Статус</th>
-                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">Действия</th>
+                                                                                    <th class="header_s" style="width:80px;" id="table_header_database">${language.JSP_CONTRACTS_LIST_NUMBER}</th>
+                                                                                    <th class="header_s" style="width:80px;" id="table_header_point_access">${language.JSP_CONTRACTS_LIST_TARIFF}</th>
+                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">${language.JSP_CONTRACTS_LIST_OPTIONS}</th>
+                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">${language.JSP_CONTRACTS_LIST_STATUS}</th>
+                                                                                    <th class="header_s" style="width:100px;" id="table_header_point">${language.JSP_CONTRACTS_LIST_ACTIONS}</th>
                                                                                 </tr>
 
                                                                                 <!--начало элемента таблицы-->
@@ -297,12 +299,12 @@
                                                                                                 <c:when test="${contract.blocked}">
                                                                                                     <c:choose>
                                                                                                         <c:when test="${contract.employee != null}">
-                                                                                                        <span style="color: rgb(204, 51, 51);">Заблокирован администратором</span>
+                                                                                                        <span style="color: rgb(204, 51, 51);">${language.JSP_BLOCKED_BY_ADMIN_SMALL}</span>
                                                                                                         </c:when>
-                                                                                                        <c:otherwise><span>Заблокирован</span></c:otherwise>
+                                                                                                        <c:otherwise><span>${language.JSP_BLOCKED}</span></c:otherwise>
                                                                                                     </c:choose>
                                                                                                     </c:when>
-                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">Активен</span></c:otherwise>
+                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">${language.JSP_ACTIVE}</span></c:otherwise>
                                                                                             </c:choose>
 
                                                                                         </td>
@@ -310,18 +312,18 @@
 
                                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                                             <div class="href_icon">
-                                                                                                <a onclick="showMenu('new_user${contract.id}')"><span>Подробней</span><br> </a>
+                                                                                                <a onclick="showMenu('new_user${contract.id}')"><span>${language.JSP_CONTRACTS_ACTION_DETAILED}</span><br> </a>
                                                                                                 <c:choose>
                                                                                                     <c:when test="${contract.blocked}">
                                                                                                         <c:choose>
                                                                                                             <c:when test="${contract.employee == null}">
-                                                                                                                <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>Разблокировать</span> <br></a>
+                                                                                                                <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>${language.JSP_CONTRACTS_UNBLOCK}</span> <br></a>
                                                                                                             </c:when>
                                                                                                         </c:choose>
                                                                                                     </c:when>
                                                                                                     <c:otherwise>
-                                                                                                        <a href="cp_client_change_contract?contractId=${contract.id}" onclick="wait()"><span>Изменить</span> <br></a>
-                                                                                                        <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>Заблокировать</span> <br></a>
+                                                                                                        <a href="cp_client_change_contract?contractId=${contract.id}" onclick="wait()"><span>${language.JSP_CONTRACTS_ACTION_CHANGE}</span> <br></a>
+                                                                                                        <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>${language.JSP_CONTRACTS_BLOCK}</span> <br></a>
                                                                                                     </c:otherwise>
                                                                                                 </c:choose>
 

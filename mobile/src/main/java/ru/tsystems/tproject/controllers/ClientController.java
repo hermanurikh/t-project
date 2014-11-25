@@ -76,43 +76,6 @@ public class ClientController {
     }
 
     /**
-     * This method returns a page where the detailed info about the contract can be viewed.
-     * @param contractId the contracts id;
-     * @param locale locale;
-     * @param model model;
-     * @return cp_client_contract_details.jsp
-     */
-    @RequestMapping(value = "/cp_client_contract_details", method = RequestMethod.GET)
-    public String getContractDetails(@RequestParam(value = "contractId") int contractId,
-                                     HttpServletRequest request, Locale locale, Model model) {
-        Contract contract = contractService.getEntityById(contractId);
-        User user = (User) request.getSession().getAttribute("currentUserU");
-        if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
-        int amount = contract.getTariff().getPrice();
-        List<Option> optionList = optionService.getAllOptionsForContract(contractId);
-        if (!optionList.isEmpty()) {
-            for (Option x : optionList) {
-                amount += x.getPrice();
-            }
-        }
-        model.addAttribute("contract", contract);
-        model.addAttribute("optionsList", optionList);
-        model.addAttribute("totalAmount", amount);
-        if (contract.isBlocked()) {
-            if (contract.getEmployee() != null) {
-                model.addAttribute("isItBlocked", "ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ");
-            }
-            else {
-                model.addAttribute("isItBlocked", "ЗАБЛОКИРОВАН");
-            }
-        }
-        else {
-            model.addAttribute("isItBlocked", "активен");
-        }
-        return "cp_client/cp_client_contract_details";
-    }
-
-    /**
      * This method returns a page where the tariff for the contract should be selected.
      * @param contractId the contracts id;
      * @param request request;

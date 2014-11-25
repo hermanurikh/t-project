@@ -17,9 +17,13 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax-client.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/lang.js"></script>
+
 </head>
 <body class="locale-ru_RU">
+<div class="lang-place" style="display:block;"><a onclick="changeRus()">ru</a><a onclick="changeEng()">en</a></div>
+
 <script type="text/javascript">
     function redirect() {
     location.href = "cp_client_main";
@@ -39,7 +43,7 @@
     <div id="loader" class="loader-32 fl"></div>
     <div class="caption-wrap border-l">
         <div id="caption">
-            Пожалуйста, подождите
+            ${language.JSP_PLEASE_WAIT}
         </div>
     </div>
 </div>
@@ -78,11 +82,11 @@
                             <div style="display:block;">
                                 <ul></ul>
                                 <div class="buttons-wrap">
-                                    <a href="/info/" class="account-add link">
-                                        <span>Профиль аккаунта</span>
+                                    <a href="cp_client_profile" class="account-add link">
+                                        <span>${language.JSP_PROFILE_NAME}</span>
                                     </a>
-                                    <a href="/logout/" class="exit link">
-                                        <span>Выход</span>
+                                    <a href="/j_spring_security_logout" class="exit link">
+                                        <span>${language.JSP_LOGOUT_NAME}</span>
                                     </a>
                                 </div>
                             </div>
@@ -134,7 +138,7 @@
 
 
                                     <h2 class="js-h" id="tariff-header">${language.JSP_CONTRACTS_CHOOSE_TARIFF} </h2>
-                                    <small id="tariff-helper">После выбора тарифа к нему можно будет подключить опции.</small>
+                                    <small id="tariff-helper">${language.JSP_CONTRACTS_TARIFF_HELPER}</small>
                                     <span class="error-custom-message" id="error-custom-message-3">Please select a tariff!</span>
                                     <small id="checkedTariff" style="display:none">Please select a tariff!</small>
 
@@ -155,7 +159,10 @@
                                                 <tr name="trow" class="ui-table-data-row ui-state-even ui-selected">
 
                                                     <td name="tcell" class="simplecell_checkbox" align="left">
-                                                        <input type="radio" id="cb" name="cb" onchange="getOptions ('${tariff.id}','${tariff.name}');" value=${tariff.id}></td>
+                                                        <input type="radio" id="cb" name="cb" onchange="getOptions ('${tariff.id}','${tariff.name}', '${language.JSP_POSSIBLE_OPTIONS_FOR_TARIFF}',
+                                                                '${language.JSP_CONTRACTS_OPTION}', '${language.JSP_CONTRACTS_OPTION_PRICE}',
+                                                                '${language.JSP_CONTRACTS_OPTION_INITIAL_PRICE}', '${language.JSP_NO_OPTIONS_FOR_TARIFF}',
+                                                                '${language.JSP_NO_OPTIONS_TOGETHER}', '${language.JSP_NO_OPTIONS_INCOMPATIBLE}');" value=${tariff.id}></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 150px"><span>${tariff.name}</span><br></td>
                                                     <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>${tariff.price}</span></td>
 
@@ -167,9 +174,9 @@
 
                                     <div id="list_database2" style="display: none;">
                                         <h2 class="js-h" id="optionsForTariff"></h2>
-                                        <small>Щелкните по опции для просмотра необходимых и несовместимых с ней опций.</small>
+                                        <small>${language.JSP_CONTRACTS_DETAILED_OPTIONS}</small>
                                         <div class="js-row control-group" id="exceptions23" style="display:none">
-                                            <span class="error-custom-message-incorrect">В процессе выбора опций произошли ошибки!</span><div id="exMessages">
+                                            <span class="error-custom-message-incorrect">${language.JSP_CONTRACTS_ERROR}</span><div id="exMessages">
                                             <c:forEach var="ex" items="${exceptionsList}">
                                                 <span class="error-custom-message-incorrect">${ex.message}</span>
                                             </c:forEach>
@@ -183,9 +190,9 @@
                                                 <tr class="ui-table-header" id="options-header">
 
                                                     <th class="header_s_checkbox" width="12" align="center"></th>
-                                                    <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                                    <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                                    <th class="header_s" style="width:150px;" id="table_header_database">${language.JSP_CONTRACTS_OPTION}</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_type">${language.JSP_CONTRACTS_OPTION_PRICE}</th>
+                                                    <th class="header_s" style="width:100px;" id="table_header_point_access">${language.JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                                 </tr>
 
                                                 <!--начало элемента таблицы-->
@@ -205,7 +212,7 @@
                                     <label class="js-caption control-label"></label>
                                     <div class="js-td controls jq-validate-container">
                                         <input type="submit" id="send" value="${language.JSP_CONTRACTS_SUBMIT}" />
-                                        <input type="button" style="display: none;" id="backToTariffButton" value="Назад к выбору тарифа" onclick="backToTariff()"/>
+                                        <input type="button" style="display: none;" id="backToTariffButton" value="${language.JSP_CONTRACTS_BACK_TO_TARIFF}" onclick="backToTariff()"/>
                                     </div>
                                 </div></div>
                             </div></div>
@@ -213,7 +220,7 @@
 
                  <div class="primary_div npp_index">
                      <div class="js-table form-horizontal support-issue-form" id="bigOptionDiv" style="display: none;">
-                         <h2 class="js-h">Необходимые опции</h2>
+                         <h2 class="js-h">${language.JSP_CONTRACTS_OPTIONS_TOGETHER}</h2>
                          <div>
                              <div id="list_database3">
                                  <div style="">
@@ -222,9 +229,9 @@
                                          <tr class="ui-table-header">
 
 
-                                             <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                             <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                             <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                             <th class="header_s" style="width:150px;" id="table_header_database">${language.JSP_CONTRACTS_OPTION}</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_type">${language.JSP_CONTRACTS_OPTION_PRICE}</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_point_access">${language.JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                          </tr>
 
                                          <!--начало элемента таблицы-->
@@ -248,7 +255,7 @@
                              </div>
                          </div>
 
-                         <h2 class="js-h">Несовместимые опции</h2>
+                         <h2 class="js-h">${language.JSP_CONTRACTS_OPTIONS_INCOMPATIBLE}</h2>
                          <div>
 
                              <div id="list_database4">
@@ -258,9 +265,9 @@
                                          <tr class="ui-table-header">
 
 
-                                             <th class="header_s" style="width:150px;" id="table_header_database">Опция</th>
-                                             <th class="header_s" style="width:100px;" id="table_header_type">Цена</th>
-                                             <th class="header_s" style="width:100px;" id="table_header_point_access">Цена подключения</th>
+                                             <th class="header_s" style="width:150px;" id="table_header_database">${language.JSP_CONTRACTS_OPTION}</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_type">${language.JSP_CONTRACTS_OPTION_PRICE}</th>
+                                             <th class="header_s" style="width:100px;" id="table_header_point_access">${language.JSP_CONTRACTS_OPTION_INITIAL_PRICE}</th>
                                          </tr>
 
                                          <!--начало элемента таблицы-->

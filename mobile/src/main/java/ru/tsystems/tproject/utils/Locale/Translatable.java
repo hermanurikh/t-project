@@ -111,4 +111,33 @@ public interface Translatable {
     public String getJSP_INFO_EMAIL();
 
     public String getJSP_INFO_POST();
+
+    public String getJSP_PLEASE_WAIT();
+
+    public String getJSP_CONTRACTS_TARIFF_HELPER();
+
+    public String getJSP_CONTRACTS_ERROR();
+
+    public String getJSP_CONTRACTS_BACK_TO_TARIFF();
+
+    public String getJSP_BALANCE_DECREASED();
+
+    public String getJSP_BLOCKED_BY_ADMIN();
+
+    public String getJSP_BLOCKED();
+
+    public String getJSP_ACTIVE();
+
+    public String getJSP_CONTRACTS_LIST_STATUS();
+
+    public String getJSP_BLOCKED_BY_ADMIN_SMALL();
+
+    public String getJSP_POSSIBLE_OPTIONS_FOR_TARIFF();
+
+    public String getJSP_NO_OPTIONS_FOR_TARIFF();
+
+    public String getJSP_NO_OPTIONS_TOGETHER();
+
+    public String getJSP_NO_OPTIONS_INCOMPATIBLE();
+
 }
