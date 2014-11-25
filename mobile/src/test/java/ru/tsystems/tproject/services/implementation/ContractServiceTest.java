@@ -55,7 +55,6 @@ public class ContractServiceTest extends AbstractJUnit4SpringContextTests {
     }
     @After
     public void deleteData() {
-
         JdbcTestUtils.executeSqlScript(jdbcTemplate, new FileSystemResource(deleteScript), false);
     }
 

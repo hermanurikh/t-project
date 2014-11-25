@@ -17,11 +17,28 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/wait.js"></script>
 </head>
 <body class="locale-ru_RU">
+<div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     function redirect() {
     location.href = "cp_client_main";
+    }
+    function showMenu(id) {
+        $('#overlay_new').toggle();
+        $('#'+id).toggle();
     }
 </script>
 
@@ -66,6 +83,8 @@
                             ><div class="triangle"><div></div>
                 </div>
                 </div>
+                </div>
+            </div>
 
 
     </td></tr></table></div></div></div>
@@ -94,20 +113,151 @@
     <td class="np_content">
         <div class="primary_div npp_index">
 
-            <div style="display:none;">
-                <div id="template_HotActionsDialog">
-                    <div class="form-horizontal npp_index-hot_actions_dialog">
-                        <div class="control-group">
-                            <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                            </table>
+            <!--начало-->
+            <div class="ui-widget-overlay ui-front" id="overlay_new" style="display:none;"></div>
+            <c:forEach var="contract" items="${contractsUserList}">
+
+            <div id="new_user${contract.id}" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable ui-widget-shadow" tabindex="-1" role="dialog" aria-describedby="ftp_user_dialog" aria-labelledby="ui-id-7" style="position: absolute; height: auto; width: 640px; top: 99.5px; left: 360px; display: none;">
+                <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-7" class="ui-dialog-title">${language.JSP_CONTRACTS_DETAILED_VIEW_CONTRACT} ${contract.number}</span>
+                    <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" onclick="showMenu('new_user${contract.id}')" aria-disabled="false" title=""><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text"></span>
+                    </button>
+                </div>
+                <div id="ftp_user_dialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 76px; max-height: none; height: auto;">
+                    <div class="form-horizontal npp_ftp-dialog_middle">
+
+                        <div class="form-horizontal">
+                            <div class="control-group">
+
+                                <div id="info-data" class="controls">
+                                    <!-- user info -->
+                                    <div id="table-description0">
+                                        <c:set var="amount" value="${0}" />
+                                        <h3>${language.JSP_CONTRACTS_DETAILED_VIEW_CONTRACT} ${contract.number}</h3>
+                                        <table class="npp_info info-table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="help-underline help-underline-light">
+                                                        <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_TARIFF}</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="info-data js-def">
+                                                        <label>${contract.tariff.name}</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="help-underline help-underline-light">
+                                                        <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_PRICE} </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="info-data js-def">
+                                                        <label>${contract.tariff.price} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
+                                                        <c:set var="amount" value="${amount + contract.tariff.price}" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="table-description1">
+                                        <h3>${language.JSP_CONTRACTS_DETAILED_VIEW_OPTIONS}</h3>
+                                        <table class="npp_info info-table">
+                                            <tbody>
+                                            <c:forEach var="option" items="${contract.options}">
+                                                <tr>
+                                                    <td>
+                                                        <div class="help-underline help-underline-light">
+                                                            <div class="help-underline-caption js-caption">${option.name}</div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="info-data js-def">
+                                                            <label>${option.price} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
+                                                            <c:set var="amount" value="${amount + option.price}" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="help-underline help-underline-light">
+                                                        <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE}</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="info-data js-def">
+                                                        <label>${amount} ${language.JSP_BALANCE_MONTHLY_CURRENCY}</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    <div class="help-underline help-underline-light">
+                                                        <div class="help-underline-caption js-caption">${language.JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED}: </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="info-data js-def">
+                                                        <label>
+                                                            <c:choose>
+                                                                <c:when test="${contract.blocked}">
+                                                                    <c:choose>
+                                                                        <c:when test="${contract.employee != null}">
+                                                                            ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ
+                                                                        </c:when>
+                                                                        <c:otherwise>Заблокирован</c:otherwise>
+                                                                    </c:choose>
+                                                                </c:when>
+                                                                <c:otherwise>Активен</c:otherwise>
+                                                            </c:choose>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <c:choose>
+                                                        <c:when test="${!contract.blocked}">
+                                                            <a href="cp_client_change_contract?contractId=${contract.id}"><span>${language.JSP_CONTRACTS_ACTION_CHANGE}</span> <br></a>
+                                                        </c:when>
+                                                    </c:choose>
+
+
+
+                                                </td>
+                                            </tr>
+
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-actions">
-                            <button class="btn" id="save_button">Сохранить настройки</button>
-                        </div>
+
+
                     </div>
                 </div>
             </div>
+            </c:forEach>
+            <!--конец-->
+
+
+
             <div class="info info_small fr info-last">
 
                 <h2>Список контрактов</h2>
@@ -142,36 +292,36 @@
                                                                                                 </c:forEach>
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>
+                                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;">
                                                                                             <c:choose>
                                                                                                 <c:when test="${contract.blocked}">
                                                                                                     <c:choose>
                                                                                                         <c:when test="${contract.employee != null}">
-                                                                                                        Заблокирован администратором
+                                                                                                        <span style="color: rgb(204, 51, 51);">Заблокирован администратором</span>
                                                                                                         </c:when>
-                                                                                                        <c:otherwise>Заблокирован</c:otherwise>
+                                                                                                        <c:otherwise><span>Заблокирован</span></c:otherwise>
                                                                                                     </c:choose>
                                                                                                     </c:when>
-                                                                                                <c:otherwise>Активен</c:otherwise>
+                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">Активен</span></c:otherwise>
                                                                                             </c:choose>
-                                                                                        </span>
+
                                                                                         </td>
 
 
                                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                                             <div class="href_icon">
-                                                                                                <a href="cp_client_contract_details?contractId=${contract.id}"><span>Подробней</span><br> </a>
+                                                                                                <a onclick="showMenu('new_user${contract.id}')"><span>Подробней</span><br> </a>
                                                                                                 <c:choose>
                                                                                                     <c:when test="${contract.blocked}">
                                                                                                         <c:choose>
                                                                                                             <c:when test="${contract.employee == null}">
-                                                                                                                <a href="cp_client_block_contract?contractId=${contract.id}"><span>Разблокировать</span> <br></a>
+                                                                                                                <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>Разблокировать</span> <br></a>
                                                                                                             </c:when>
                                                                                                         </c:choose>
                                                                                                     </c:when>
                                                                                                     <c:otherwise>
-                                                                                                        <a href="cp_client_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
-                                                                                                        <a href="cp_client_block_contract?contractId=${contract.id}"><span>Заблокировать</span> <br></a>
+                                                                                                        <a href="cp_client_change_contract?contractId=${contract.id}" onclick="wait()"><span>Изменить</span> <br></a>
+                                                                                                        <a href="cp_client_block_contract?contractId=${contract.id}" onclick="wait()"><span>Заблокировать</span> <br></a>
                                                                                                     </c:otherwise>
                                                                                                 </c:choose>
 

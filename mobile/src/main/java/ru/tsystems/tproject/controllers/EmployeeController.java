@@ -462,19 +462,8 @@ public class EmployeeController {
     @RequestMapping(value = "cp_employee_tariffs", method = RequestMethod.GET)
     public String getTariffs(Locale locale, Model model) {
         model.addAttribute("tariffsList", tariffService.getAll());
-        return "cp_employee/cp_employee_tariffs";
-    }
-
-    /**
-     * This method resolves a page with all options to choose the ones that will be compatible.
-     * @param locale locale
-     * @param model model
-     * @return cp_employee_new_tariff.jsp
-     */
-    @RequestMapping(value = "cp_employee_new_tariff", method = RequestMethod.GET)
-    public String createTariff(Locale locale, Model model) {
         model.addAttribute("optionsList", optionService.getAll());
-        return "cp_employee/cp_employee_new_tariff";
+        return "cp_employee/cp_employee_tariffs";
     }
 
     /**
@@ -484,7 +473,7 @@ public class EmployeeController {
      * @param array the array of selected options' ids;
      * @param locale locale;
      * @param model model;
-     * @return success.jsp
+     * @return cp_employee_tariffs.jsp
      */
     @RequestMapping(value = "cp_employee_create_tariff", method = RequestMethod.POST)
     public String createNewTariff(@RequestParam(value = "name") String name,
@@ -498,7 +487,7 @@ public class EmployeeController {
             }
         }
         tariffService.createEntity(tariff);
-        return "cp_employee/success";
+        return "redirect:/cp_employee_tariffs";
     }
 
     /**
@@ -587,18 +576,6 @@ public class EmployeeController {
     }
 
     /**
-     * This method returns a page where you create a new option.
-     * @param locale locale;
-     * @param model model;
-     * @return cp_employee_new_option.jsp
-     */
-    @RequestMapping(value = "cp_employee_new_option", method = RequestMethod.GET)
-    public String createOption(Locale locale, Model model) {
-        model.addAttribute("optionsList", optionService.getAll());
-        return "cp_employee/cp_employee_new_option";
-    }
-
-    /**
      * This method creates a new option with a list of optionsTogether and optionsIncompatible, if any.
      * @param name option's name;
      * @param price option's price;
@@ -615,7 +592,7 @@ public class EmployeeController {
                                     @RequestParam(value = "initialPrice") int initialPrice,
                                     @RequestParam(value = "cb", required = false) int[] optionsTogether,
                                     @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
-                                    Locale locale, Model model) {
+                                    Locale locale, Model model) throws Exception{
         Option option = new Option(name, price, initialPrice);
         //add a check here if two options were selected incorrectly
         if (null != optionsTogether && optionsTogether.length > 0) {
@@ -628,8 +605,13 @@ public class EmployeeController {
                 option.addOptionsIncompatible(optionService.getEntityById(optionId));
             }
         }
+        for (Option x : option.getOptionsTogether()) {
+            if (option.getOptionsIncompatible().contains(x)) {
+                throw new Exception("jQuery required to perform this operation!");
+            }
+        }
         optionService.createEntity(option);
-        return "cp_employee/success";
+        return "redirect:/cp_employee_options";
     }
 
     /**

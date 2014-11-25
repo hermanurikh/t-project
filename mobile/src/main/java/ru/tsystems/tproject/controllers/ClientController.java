@@ -216,10 +216,6 @@ public class ClientController {
                 return "cp_client/cp_client_contract_change_bucket";
             }
             else {
-                /*model.addAttribute("optionsList", optionService.getAllOptionsForTariff(tariffId));
-                model.addAttribute("areExceptions", "true");
-                model.addAttribute("exceptionsList", exceptionList);
-                return "cp_client/cp_client_contract_change_options";*/
                 throw new Exception("jQuery required to perform this operation!");
             }
         }

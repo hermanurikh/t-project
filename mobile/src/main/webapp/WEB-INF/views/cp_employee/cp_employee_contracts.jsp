@@ -16,6 +16,7 @@
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+                <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
                 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
                 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
 
@@ -208,12 +209,12 @@
                                                                                 </c:forEach>
                                                                             </div>
                                                                         </td>
-                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;"><span>
+                                                                        <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;">
                                                                                             <c:choose>
-                                                                                                <c:when test="${contract.blocked}">Заблокирован</c:when>
-                                                                                                <c:otherwise>Активен</c:otherwise>
+                                                                                                <c:when test="${contract.blocked}"><span style="color: rgb(204, 51, 51);">Заблокирован</span></c:when>
+                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">Активен</span></c:otherwise>
                                                                                             </c:choose>
-                                                                                        </span>
+
                                                                         </td>
 
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">

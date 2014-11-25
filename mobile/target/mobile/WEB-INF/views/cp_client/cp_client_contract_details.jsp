@@ -73,6 +73,8 @@
                                                         <div></div>
                                                     </div>
                                                 </div>
+                                                </div>
+                                            </div>
 
 
                                     </td>
@@ -233,7 +235,6 @@
                                         </div>
                                         <div class="clear"></div>
                                         <div id="test"></div>
-                        </div>
                         </td>
                         </tr>
                         </table>

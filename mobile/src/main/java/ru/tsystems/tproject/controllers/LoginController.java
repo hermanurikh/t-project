@@ -75,9 +75,6 @@ public class LoginController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String dispatch(HttpServletRequest request, Locale locale, Model model) {
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        logger.info("Полученный из сессии юзер: " + user);
-        logger.info("Его логин: " + user.getUsername());
-        logger.info("Его права: " + user.getAuthorities());
         User currentUser = userService.getUserByLogin(user.getUsername());
         request.getSession().setAttribute("currentUserU", currentUser);
         request.getSession().setAttribute("language", RussianLanguage.getRussianLanguage());
