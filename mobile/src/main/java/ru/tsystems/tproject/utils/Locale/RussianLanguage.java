@@ -30,7 +30,7 @@ public class RussianLanguage implements Translatable {
     private final String JSP_CONTRACTS_CHANGE = "Изменение контракта с номером ";
     private final String JSP_CONTRACTS_CHOOSE_TARIFF = "Выберите тариф для контракта";
     private final String JSP_CONTRACTS_PRICE = "Цена";
-    private final String JSP_CONTRACTS_SUBMIT = "Выбрать опции для тарифа";
+    private final String JSP_CONTRACTS_SUBMIT = "Подтвердить";
     private final String JSP_CONTRACTS_BLOCK = "Заблокировать";
     private final String JSP_CONTRACTS_BLOCKED = "В данный момент блокировка ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом";
     private final String JSP_CONTRACTS_UNBLOCK = "Разблокировать";

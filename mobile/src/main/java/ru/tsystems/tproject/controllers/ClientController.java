@@ -192,6 +192,7 @@ public class ClientController {
         if (((Contract) request.getSession().getAttribute("contract")).isBlocked()) {
             return "cp_client/cp_client_main";
         }
+        User user = (User) request.getSession().getAttribute("currentUserU");
         Tariff tariff = tariffService.getEntityById(tariffId);
         Contract contract = (Contract) request.getSession().getAttribute("contract");
         contract.setTariff(tariff);
@@ -199,11 +200,12 @@ public class ClientController {
             contract.removeAllOptions();
             request.getSession().setAttribute("updatedContract", contract);
             model.addAttribute("optionsList", contract.getOptions());
+            request.getSession().setAttribute("totalAmount", 0);
             return "cp_client/cp_client_contract_change_bucket";
         }
         else {
             List<Exception> exceptionList = new ArrayList<>();
-            List validationResultList = contractValidator.validateOptions(array, exceptionList); //checking if the entered options are correct
+            List validationResultList = contractValidator.validateOptions(array, exceptionList, user.getId()); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
             exceptionList = (List<Exception>) validationResultList.get(1);
             if (exceptionList.isEmpty()) {
@@ -211,6 +213,8 @@ public class ClientController {
                 for (Option x : optionList) {
                     contract.addOption(x);
                 }
+                //the amount to decrease
+                request.getSession().setAttribute("totalAmount", user.getBalance() - contractValidator.balanceCheck(user.getId(), optionList));
                 request.getSession().setAttribute("updatedContract", contract);
                 model.addAttribute("optionsList", contract.getOptions());
                 return "cp_client/cp_client_contract_change_bucket";
@@ -235,6 +239,8 @@ public class ClientController {
         Contract contract = (Contract) request.getSession().getAttribute("updatedContract");
         User user = (User) request.getSession().getAttribute("currentUserU");
         contractService.updateEntity(contract);
+        //balance decreased
+        user.setBalance(user.getBalance() - (Integer) request.getSession().getAttribute("totalAmount"));
         userService.updateEntity(user);
         return "cp_client/success";
     }

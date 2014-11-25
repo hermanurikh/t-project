@@ -302,7 +302,7 @@
                                                                                                         <c:otherwise><span>Заблокирован</span></c:otherwise>
                                                                                                     </c:choose>
                                                                                                     </c:when>
-                                                                                                <c:otherwise><span style="color : rgb(51, 204, 82)">Активен</span></c:otherwise>
+                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">Активен</span></c:otherwise>
                                                                                             </c:choose>
 
                                                                                         </td>

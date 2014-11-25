@@ -49,11 +49,18 @@ public class AjaxDispatcher {
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "cp_ajax_validate_options", method = RequestMethod.POST)
     @ResponseBody
-    public List<String> validateOptions(@RequestParam(value = "cb3", required = false) int[] array) {
+    public List<String> validateOptions(@RequestParam(value = "cb3", required = false) int[] array,
+                                        @RequestParam(value = "currentUserID", required = false) Integer userID) {
         if (array == null || array.length == 0) return null;
         else {
+            List returnList = new ArrayList();
             List<Exception> list = new ArrayList<>();
-            List returnList = contractValidator.validateOptions(array, list);
+            if (userID != null && userID !=0) {
+                returnList = contractValidator.validateOptions(array, list, userID);
+            }
+            else {
+                returnList = contractValidator.validateOptions(array, list, 0);
+            }
             list = (List<Exception>) returnList.get(1);
             if (list.isEmpty()) return null;
             else {

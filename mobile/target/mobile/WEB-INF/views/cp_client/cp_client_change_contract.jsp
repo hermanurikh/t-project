@@ -128,6 +128,7 @@
                         <form action="cp_client_contract_bucket" id="jForm" method="POST" accept-charset="CP1252">
                             <div class="js-body info__body">
                                 <h2 class="js-h">${language.JSP_CONTRACTS_CHANGE} ${contract.number}</h2><div>
+                                <input type="hidden" name="currentUserID" value="${currentUserU.id}">
 
                                 <div class="js-table form-horizontal support-issue-form">
 

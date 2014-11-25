@@ -135,7 +135,7 @@ public class EmployeeController {
         }
         else {
             List<Exception> exceptionList = new ArrayList<>();
-            List validationResultList = contractValidator.validateOptions(array, exceptionList); //checking if the entered options are correct
+            List validationResultList = contractValidator.validateOptions(array, exceptionList, 0); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
             exceptionList = (List<Exception>) validationResultList.get(1);
             if (exceptionList.isEmpty()) {
@@ -248,7 +248,7 @@ public class EmployeeController {
         }
         else {
             List<Exception> exceptionList = new ArrayList<>();
-            List validationResultList = contractValidator.validateOptions(array, exceptionList); //checking if the entered options are correct
+            List validationResultList = contractValidator.validateOptions(array, exceptionList, 0); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
             exceptionList = (List<Exception>) validationResultList.get(1);
             if (exceptionList.isEmpty()) {

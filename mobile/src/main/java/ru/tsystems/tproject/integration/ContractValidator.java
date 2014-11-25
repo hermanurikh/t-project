@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.log4j.Logger;
+import ru.tsystems.tproject.services.API.UserService;
 
 import javax.print.attribute.IntegerSyntax;
 
@@ -20,9 +21,11 @@ import javax.print.attribute.IntegerSyntax;
 public class ContractValidator {
     @Autowired
     private OptionService optionService;
+    @Autowired
+    private UserService userService;
     Logger logger = Logger.getLogger(ContractValidator.class);
 
-    public List validateOptions(int[] array, List<Exception> exceptionsList) {
+    public List validateOptions(int[] array, List<Exception> exceptionsList, int userId) {
         List<Option> optionsTogether;
         List<Option> optionsIncompatible;
         List<Integer> temporaryList = new ArrayList<>();
@@ -50,8 +53,22 @@ public class ContractValidator {
                 }
             }
         }
+        if (exceptionsList.isEmpty() && userId != 0) {
+            //a check for balance - is the required sum on the account
+            int balance = balanceCheck(userId, optionList);
+            if (balance < 0) {
+                exceptionsList.add(new Exception("You do not have enough money on your account to perform the necessary action. Please refill your balance in the amount of " + (0 - balance) + " roubles."));
+            }
+        }
         List list = new ArrayList<>();
         Collections.addAll(list, optionList, exceptionsList);
         return list;
+    }
+    public int balanceCheck(int userId, List<Option> optionList) {
+        int balance = userService.getEntityById(userId).getBalance();
+        for (Option x : optionList) {
+            balance-=x.getInitialPrice();
+        }
+        return balance;
     }
 }

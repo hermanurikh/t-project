@@ -212,7 +212,7 @@
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top; width: 100px;">
                                                                                             <c:choose>
                                                                                                 <c:when test="${contract.blocked}"><span style="color: rgb(204, 51, 51);">Заблокирован</span></c:when>
-                                                                                                <c:otherwise><span style="color : rgb(51, 204, 82)">Активен</span></c:otherwise>
+                                                                                                <c:otherwise><span style="color: rgb(22, 128, 43)">Активен</span></c:otherwise>
                                                                                             </c:choose>
 
                                                                         </td>

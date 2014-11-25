@@ -14,8 +14,21 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file4.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/wait.js"></script>
 </head>
 <body class="locale-ru_RU">
+<div id="vds-overlay" style="display: none;"></div>
+<div id="vds-wait" style="display: none;">
+    <div id="loader" class="loader-32 fl"></div>
+    <div class="caption-wrap border-l">
+        <div id="caption">
+            Пожалуйста, подождите
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     function redirect() {
     location.href = "cp_client_main";
@@ -104,7 +117,7 @@
             									<td class="element__simple">
             										<div>
             											<div class="npp_balance_state-block state_default" style="display: block;">
-            												<span class="link">${language.JSP_BALANCE_PAY}</span>
+            												<span class="link" onclick="wait()">${language.JSP_BALANCE_PAY}</span>
             												<div class="npp_balance_state-desc small-text">${language.JSP_BALANCE_INCREASE_BALANCE}</div>
             											</div>
             										</div>

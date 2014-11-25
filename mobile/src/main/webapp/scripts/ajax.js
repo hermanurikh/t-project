@@ -39,24 +39,29 @@ function doAjax (tariff_id, tariff_name) {
             var bigDiv1 = $("#list_database2");
             var bigDiv = $("#optionTable tbody");
             bigDiv.empty();
-            bigDiv.append(
-                    "<tr class='ui-table-header' id = 'options-header'>" +
-                    "<th class='header_s_checkbox' width='12' align='center'></th>" +
-                    "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
-                    "</tr>"
-            );
-            data.forEach(function (elem, index, array) {
+            if (data == "") {
+                bigDiv.append("<span class='error-custom-message-incorrect'> К данному тарифу невозможно подключить опции.</span>");
+            }
+            else {
                 bigDiv.append(
-                        "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected' onclick=getOptionsForOption(" + elem.id + ")>" +
-                        "<td name='tcell' class='simplecell_checkbox' align='left'>" +
-                        "<input type='checkbox' name='cb3' id=" + elem.id + " value=" + elem.id + "></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
-                        "</tr>");
-            });
+                        "<tr class='ui-table-header' id = 'options-header'>" +
+                        "<th class='header_s_checkbox' width='12' align='center'></th>" +
+                        "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
+                        "</tr>"
+                );
+                data.forEach(function (elem, index, array) {
+                    bigDiv.append(
+                            "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected' onclick=getOptionsForOption(" + elem.id + ")>" +
+                            "<td name='tcell' class='simplecell_checkbox' align='left'>" +
+                            "<input type='checkbox' name='cb3' id=" + elem.id + " value=" + elem.id + "></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
+                            "</tr>");
+                });
+            }
             bigDiv1.show();
             vds1.hide();
             vds2.hide();
@@ -70,21 +75,26 @@ function getOptionsTogether (id) {
         success: function (data) {
             var bigDiv = $("#optionTogetherTable tbody");
             bigDiv.empty();
-            bigDiv.append(
-                    "<tr class='ui-table-header'>" +
-                    "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
-                    "</tr>"
-            );
-            data.forEach(function (elem, index, array) {
+            if (data == "") {
+                bigDiv.append("<span> Для данной опции нет других обязательных к подключению опций.</span>");
+            }
+            else {
                 bigDiv.append(
-                        "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
-                        "</tr>");
-            });
+                        "<tr class='ui-table-header'>" +
+                        "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
+                        "</tr>"
+                );
+                data.forEach(function (elem, index, array) {
+                    bigDiv.append(
+                            "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
+                            "</tr>");
+                });
+            }
         }
     });
 
@@ -98,21 +108,26 @@ function getOptionsIncompatible (id) {
         success: function (data) {
             var bigDiv = $("#optionIncompatibleTable tbody");
             bigDiv.empty();
-            bigDiv.append(
-                    "<tr class='ui-table-header'>" +
-                    "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
-                    "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
-                    "</tr>"
-            );
-            data.forEach(function (elem, index, array) {
+            if (data == "") {
+                bigDiv.append("<span> Для данной опции нет других невозможных к подключению опций.</span>");
+            }
+            else {
                 bigDiv.append(
-                        "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
-                        "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
-                        "</tr>");
-            });
+                        "<tr class='ui-table-header'>" +
+                        "<th class='header_s' style='width:150px;' id='table_header_database'>Опция</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_type'>Цена</th>" +
+                        "<th class='header_s' style='width:100px;' id='table_header_point_access'>Цена подключения</th>" +
+                        "</tr>"
+                );
+                data.forEach(function (elem, index, array) {
+                    bigDiv.append(
+                            "<tr name='trow' class='ui-table-data-row ui-state-even ui-selected'>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 150px'><span>" + elem.name + "</span><br></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.price + "</span></td>" +
+                            "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
+                            "</tr>");
+                });
+            }
             vds1.hide();
             vds2.hide();
         }
