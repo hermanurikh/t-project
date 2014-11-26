@@ -176,21 +176,21 @@
                                 <label class="js-caption control-label">Название опции:</label>
                                 <div class="js-td controls jq-validate-container">
                                     <input type="text" id="name" class="js-input big-input" name="name">
-                                    <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название опции.</span>
+                                    <span class="error-custom-message" id="error-custom-message-4">Название должно содержать от 1 до 30 символов.</span>
                                 </div>
                             </div>
                             <div class="js-row control-group">
                                 <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                                 <div class="js-td controls jq-validate-container">
                                     <input type="text" id="price" class="js-input big-input" name="price">
-                                    <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите ежемесячную цену.</span>
+                                    <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите корректное значение цены от 0 до 999999.</span>
                                 </div>
                             </div>
                             <div class="js-row control-group">
                                 <label class="js-caption control-label">Цена подключения (в рублях):</label>
                                 <div class="js-td controls jq-validate-container">
                                     <input type="text" id="initialPrice" class="js-input big-input" name="initialPrice">
-                                    <span class="error-custom-message" id="error-custom-message-6">Пожалуйста, введите цену подключения.</span>
+                                    <span class="error-custom-message" id="error-custom-message-6">Пожалуйста, введите корректное значение цены подключения от 0 до 999999.</span>
                                 </div>
                             </div>
                             <div class="js-row control-group">

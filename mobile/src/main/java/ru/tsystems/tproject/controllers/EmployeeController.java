@@ -19,6 +19,7 @@ import ru.tsystems.tproject.utils.Parser;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -402,7 +403,6 @@ public class EmployeeController {
                              @RequestParam(value = "passport", required = false) String passport,
                              @RequestParam(value = "address", required = false) String address,
                              @RequestParam(value = "email", required = false) String email,
-                             //добавить валидацию баланса
                              @RequestParam(value = "balance", required = false) Integer balance,
                              @RequestParam(value = "password") String password,
                              Locale locale, Model model) throws Exception{
@@ -479,7 +479,8 @@ public class EmployeeController {
     public String createNewTariff(@RequestParam(value = "name") String name,
                                   @RequestParam(value = "price") int price,
                                   @RequestParam(value = "cb", required = false) int[] array,
-                                  Locale locale, Model model) {
+                                  Locale locale, Model model) throws Exception{
+        contractValidator.priceCheck(price, "price");
         Tariff tariff = new Tariff(name, price);
         if (null != array && array.length > 0) {
             for (int optionId : array) {
@@ -529,7 +530,8 @@ public class EmployeeController {
                                     @RequestParam(value = "name") String name,
                                     @RequestParam(value = "price") int price,
                                     @RequestParam(value = "cb", required = false) int[] array,
-                                    Locale locale, Model model) {
+                                    Locale locale, Model model) throws Exception{
+        contractValidator.priceCheck(price, "price");
         Tariff tariff = tariffService.getEntityById(tariffId);
         tariff.removePossibleOptions();
         if (null != array && array.length > 0) {
@@ -593,6 +595,8 @@ public class EmployeeController {
                                     @RequestParam(value = "cb", required = false) int[] optionsTogether,
                                     @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
                                     Locale locale, Model model) throws Exception{
+        contractValidator.priceCheck(price, "price");
+        contractValidator.priceCheck(initialPrice, "initialPrice");
         Option option = new Option(name, price, initialPrice);
         //add a check here if two options were selected incorrectly
         if (null != optionsTogether && optionsTogether.length > 0) {
@@ -665,7 +669,9 @@ public class EmployeeController {
                                     @RequestParam(value = "initialPrice") int initialPrice,
                                     @RequestParam(value = "cb", required = false) int[] optionsTogether,
                                     @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
-                                    HttpServletRequest request, Locale locale, Model model) {
+                                    HttpServletRequest request, Locale locale, Model model) throws Exception{
+        contractValidator.priceCheck(price, "price");
+        contractValidator.priceCheck(initialPrice, "initialPrice");
         Option option = (Option) request.getSession().getAttribute("option");
         option.setName(name);
         option.setPrice(price);
@@ -732,6 +738,28 @@ public class EmployeeController {
             return false;
         }
         return true;
+    }
+    @RequestMapping(value = "cp_employee_tariff_change/{tariffId}", method = RequestMethod.GET)
+    @ResponseBody
+    public List changeTariffData(@PathVariable int tariffId,
+                               HttpServletRequest request, Locale locale, Model model) {
+        Tariff tariff = tariffService.getEntityById(tariffId);
+        List<Option> allOptionsList = optionService.getAll();
+        List<Option> currentTariffOptionsList = optionService.getAllOptionsForTariff(tariffId);
+        allOptionsList.removeAll(currentTariffOptionsList);
+        List<Option> allOptions = new ArrayList<>();
+        List<Option> currentOptions = new ArrayList<>();
+        for (Option option : allOptionsList) {
+            allOptions.add(new Option(option.getId(), option.getName(), option.getPrice(), option.getInitialPrice()));
+
+        }
+        for (Option option : currentTariffOptionsList) {
+            currentOptions.add(new Option(option.getId(), option.getName(), option.getPrice(), option.getInitialPrice()));
+
+        }
+        List list = new ArrayList();
+        Collections.addAll(list, currentOptions, allOptions);
+        return list;
     }
 
 

@@ -20,7 +20,6 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validate.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/numberMask.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 

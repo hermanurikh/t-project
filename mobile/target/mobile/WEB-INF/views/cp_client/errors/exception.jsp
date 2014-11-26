@@ -6,9 +6,8 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=8,9,10" >
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Панель управления аккаунтом.</title>
+    <title>${language.JSP_PANEL_NAME}.</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script>window.page_data = {};</script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file1.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file2.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file3.css"/>
@@ -16,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file5.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file6.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cp_file9.css"/>
-
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/lang.js"></script>
 </head>
 <body class="locale-ru_RU">
 <script type="text/javascript">
@@ -36,8 +35,10 @@
                 </div>
                 <div class="nav-wrap">
                     <ul class="nav">
-                        <li><a href="cp_client_profile">Профиль</a></li>
-                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">Служба поддержки</a></li>
+                        <li><a href="cp_client_profile">${language.JSP_PROFILE_NAME}</a>
+                        </li>
+                        <li class="last-child"><a href="mailto:herman.urikh@aengel.ru">${language.JSP_SUPPORT_NAME}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                         <div class="info">
                             <!--<a id="avatar_thumb" href="/info" class="avatar no-avatar thumbnail-small"></a>-->
                             <div class="username">${currentUserU.login}<span class="shad">&nbsp;</span></div>
-                            <div class="user-balance">${currentUserU.balance} р.</div>
+                            <div class="user-balance">${currentUserU.balance} ${language.JSP_BALANCE_CURRENCY}</div>
                         </div>
                         <div class="slide-down" style="display:none;">
                             <div style="display:block;">
@@ -90,25 +91,11 @@
         <div class="np_menu-line"></div>
 
         <c:url var="logoutAction" value="/j_spring_security_logout"></c:url>
-        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>Выход из аккаунта</span></a></div>
+        <div><a class="js-return-to-old return-to-old ui-corner-all ui-button-text-only" href="${logoutAction}"><i class="icon-back-arrow"></i><span>${language.JSP_LOGOUT_NAME}</span></a></div>
         &nbsp;</div></td><!--np_menu-->
     <td class="np_content">
         <div class="primary_div npp_index">
 
-            <div style="display:none;">
-                <div id="template_HotActionsDialog">
-                    <div class="form-horizontal npp_index-hot_actions_dialog">
-                        <div class="control-group">
-                            <table class="ui-table ui-table-striped ui-table-expanded dialog" id="tabl">
-                            </table>
-                        </div>
-
-                        <div class="form-actions">
-                            <button class="btn" id="save_button">Сохранить настройки</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
                <div class="info info_small fr info-last">
                                <!--<div class="info__header">-->

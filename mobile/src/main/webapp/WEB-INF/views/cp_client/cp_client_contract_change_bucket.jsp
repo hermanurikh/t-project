@@ -30,13 +30,6 @@
 </script>
 
 <script>
-    function changeDiv(el) {
-        if (document.getElementById(el).style.display == 'none') {
-            document.getElementById(el).style.display = 'block';
-        }
-    }
-</script>
-<script>
     $(document).ready(function() {
         if (document.getElementById('areExceptions').value == "true") {
             var o = document.getElementById('exceptions');
@@ -148,7 +141,7 @@
 
                                         <div class="js-row control-group">
 
-                                            <span class="small_signature">${language.JSP_CONTRACTS_CHANGING_NUMBER}: ${updatedContract.number}</span>
+                                            <span class="small_signature">${language.JSP_CONTRACTS_CHANGING_NUMBER} ${updatedContract.number}</span>
                                             <br>
                                             <c:choose>
                                                 <c:when test="${totalAmount !=0}">

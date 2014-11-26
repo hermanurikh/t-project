@@ -182,7 +182,7 @@
                                         <label class="js-caption control-label">Имя:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="name" class="js-input big-input" name="name" value="${name}">
-                                            <span class="error-custom-message" id="error-custom-message-4">Имя не может быть нулевым!</span>
+                                            <span class="error-custom-message" id="error-custom-message-4">Имя должно содержать от 1 до 30 знаков.</span>
 
                                         </div>
                                     </div>
@@ -191,7 +191,7 @@
                                         <label class="js-caption control-label">Фамилия:</label>
                                         <div class="js-td controls jq-validate-container">
                                             <input type="text" id="surname" class="js-input big-input" name = "surname" value="${surname}">
-                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия не может быть нулевой!</span>
+                                            <span class="error-custom-message" id="error-custom-message-5">Фамилия должна содержать от 1 до 30 знаков.</span>
 
                                         </div>
                                     </div>
@@ -242,7 +242,9 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Баланс:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="number" class="js-input big-input" name="balance" value="${balance}">
+                                            <input type="number" id="balance" class="js-input big-input" name="balance" value="${balance}">
+                                            <span class="error-custom-message" id="error-custom-message-balance">Пожалуйста, введите корректное значение баланса от 0 до 999999 или оставьте поле пустым.</span>
+
                                         </div>
                                     </div>
 

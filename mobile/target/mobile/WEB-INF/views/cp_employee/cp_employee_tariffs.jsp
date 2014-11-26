@@ -46,7 +46,6 @@
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
 
-        <img src='/images/ajax-loader.gif' style='display:none'>
 
         <div class="main-header">
             <div class="inner-wrap">
@@ -151,7 +150,7 @@
                                             <label class="js-caption control-label">Название тарифа:</label>
                                             <div class="js-td controls jq-validate-container">
                                                 <input type="text" id="name" class="js-input big-input" name="name">
-                                                <span class="error-custom-message" id="error-custom-message-4">Пожалуйста, введите название тарифа.</span>
+                                                <span class="error-custom-message" id="error-custom-message-4">Название тарифа должно содержать от 1 до 30 символов.</span>
 
 
                                             </div>
@@ -160,7 +159,7 @@
                                             <label class="js-caption control-label">Ежемесячная цена (в рублях):</label>
                                             <div class="js-td controls jq-validate-container">
                                                 <input type="text" id="price" class="js-input big-input" name = "price">
-                                                <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите цену.</span>
+                                                <span class="error-custom-message" id="error-custom-message-5">Пожалуйста, введите корректное значение цены от 0 до 999999.</span>
                                             </div>
                                         </div>
 
@@ -209,6 +208,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
 
 

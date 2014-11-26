@@ -71,4 +71,8 @@ public class ContractValidator {
         }
         return balance;
     }
+    public void priceCheck(int price, String priceName) throws Exception{
+        if (price > 400000) throw new Exception(String.format("The %s is too high!", priceName));
+        if (price < 0) throw new Exception(String.format("The %s must be > 0!", priceName));
+    }
 }

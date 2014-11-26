@@ -110,7 +110,7 @@ $(document).ready(function(){
            var errorMessage = $('#error-custom-message-4');
            if (userName.val() == null) return false;
            if (errorMessage.val() == null) return false;
-           else if (userName.val().length == 0) {
+           else if (userName.val().length < 1 || userName.val().length > 30) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
            }
@@ -123,7 +123,7 @@ $(document).ready(function(){
            var errorMessage = $('#error-custom-message-5');
            if (userName.val() == null) return false;
            if (errorMessage.val() == null) return false;
-           else if (userName.val().length == 0) {
+           else if (userName.val().length == 0 || userName.val().length > 6 || userName.val() < 0) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
            }
@@ -136,9 +136,26 @@ $(document).ready(function(){
            var errorMessage = $('#error-custom-message-6');
            if (userName.val() == null) return false;
            if (errorMessage.val() == null) return false;
-           else if (userName.val().length == 0) {
+           else if (userName.val().length == 0 || userName.val().length > 6 || userName.val() < 0) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+           }
+           else {
+               errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
+           }
+       },
+       'balance' : function() {
+           var userName = $('#balance');
+           var errorMessage = $('#error-custom-message-balance');
+           if (userName.val() == null) return false;
+           if (errorMessage.val() == null) return false;
+           else if (userName.val().length != 0) {
+               if (userName.val() > 400000 || userName.val() < 0) {
+                   jVal.errors = true;
+                   errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
+               }
+               else {
+                   errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');}
            }
            else {
                errorMessage.removeClass('error-custom-message-incorrect').addClass('error-custom-message');
@@ -149,7 +166,7 @@ $(document).ready(function(){
            var errorMessage = $('#error-custom-message-5');
            if (userName.val() == null) return false;
            if (errorMessage.val() == null) return false;
-           else if (userName.val().length == 0) {
+           else if (userName.val().length < 1 || userName.val().length > 30) {
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
            }
@@ -269,6 +286,7 @@ $(document).ready(function(){
             jVal.userName();
             jVal.surName();
             jVal.birthday();
+            jVal.balance();
             jVal.userLogin();
             jVal.userPassword();
             jVal.price();
@@ -280,6 +298,7 @@ $(document).ready(function(){
 
     var price = $('#price');
     var initialPrice = $('#initialPrice');
+    var balance = $('#balance');
 
     $('#number').change(jVal.number);
     $('#login').change(jVal.login);
@@ -311,6 +330,17 @@ $(document).ready(function(){
         }
     });
     initialPrice.change(jVal.initialPrice);
+    balance.bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    balance.change(function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+    balance.change(jVal.balance);
 
 
 });

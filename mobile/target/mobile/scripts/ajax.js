@@ -93,6 +93,7 @@ function getOptionsTogether(id) {
                             "<td class='simplecell' name='tcell' style='vertical-align: top; width: 100px'><span>" + elem.initialPrice + "</span></td>" +
                             "</tr>");
                 });
+
             }
         }
     });

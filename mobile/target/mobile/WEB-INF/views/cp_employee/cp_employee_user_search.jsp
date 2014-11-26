@@ -23,6 +23,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validateSearch.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/focus.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/wait.js"></script>
 
 </head>
 
@@ -228,7 +229,7 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label"></label>
                                         <div class="js-td controls jq-validate-container">
-                                            <span><input type="submit" id="send" value="Найти" /></span>
+                                            <span><input type="submit" id="send" value="Найти" onclick="wait()" /></span>
                                         </div>
                                     </div>
                                 </div>

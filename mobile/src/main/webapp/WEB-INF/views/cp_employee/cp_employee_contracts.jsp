@@ -220,7 +220,7 @@
                                                                         <td class="simplecell" name="tcell" style="vertical-align: top;">
                                                                             <div class="href_icon">
                                                                                 <!--<a href="../controllers/EmployeeUserChangeServlet?id=${user.id}"><span>Подробней</span><br> </a>-->
-                                                                                <a href="cp_employee_change_contract?contractId=${contract.id}"><span>Изменить</span> <br></a>
+                                                                                <a href="cp_employee_change_contract?contractId=${contract.id}" onclick="overlay()"><span>Изменить</span> <br></a>
                                                                                 <a href="cp_employee_contracts?contractId=${contract.id}" onclick="overlay()"><span>Удалить</span> </a>
                                                                                 <a href="cp_employee_block_contract?contractId=${contract.id}" onclick="overlay()"><span>
                                                                                     <c:choose>

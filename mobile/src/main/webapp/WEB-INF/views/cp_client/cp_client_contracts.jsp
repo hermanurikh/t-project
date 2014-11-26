@@ -47,7 +47,6 @@
 <div class="header"><div style="width:902px;"><div><table border="0" cellspacing="0" cellpadding="0" class="wrap-table" style="width:900px;">
     <tr><td>
 
-        <img src='/images/ajax-loader.gif' style='display:none'>
 
         <div class="main-header">
             <div class="inner-wrap">
