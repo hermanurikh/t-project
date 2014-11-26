@@ -26,6 +26,8 @@ $(document).ready(function(){
         },
         'sendIt' : function (){
             if(!jVal.errors) {
+                $('#vds-overlay').show();
+                $('#vds-wait').show();
                 $('#jForm').submit();
             }
         }

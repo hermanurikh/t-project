@@ -46,7 +46,7 @@ function doAjax (tariff_id, tariff_name, JSP_POSSIBLE_OPTIONS_FOR_TARIFF, JSP_CO
         type: 'GET',
         success: function (data) {
             var bigDiv1 = $("#list_database2");
-            var bigDiv = $("#optionTable tbody");
+            var bigDiv = $("#optionTable").find("tbody");
             bigDiv.empty();
             if (data == "") {
                 bigDiv.append("<span class='error-custom-message-incorrect'> " + JSP_NO_OPTIONS_FOR_TARIFF + "</span>");

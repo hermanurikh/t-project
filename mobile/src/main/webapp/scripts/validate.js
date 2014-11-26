@@ -14,7 +14,7 @@ $(document).ready(function(){
            if (numberDiv.val() == null) return false;
            if (errorMessage.val() == null) return false;
            var answer;
-           if (number.val().length != 15) { //если неправильное к-во
+           if (number.val().length != 15 || number.val()[1] == 0) { //если неправильное к-во
                //jVal.errors = true;
                jVal.errors = true;
                errorMessage.removeClass('error-custom-message').addClass('error-custom-message-incorrect');
