@@ -37,7 +37,7 @@ function doAjax(tariff_id, tariff_name) {
         type: 'GET',
         success: function(data) {
             var bigDiv1 = $("#list_database2");
-            var bigDiv = $("#optionTable tbody");
+            var bigDiv = $("#optionTable").find("tbody");
             bigDiv.empty();
             if (data == "") {
                 bigDiv.append("<span class='error-custom-message-incorrect'> К данному тарифу невозможно подключить опции.</span>");

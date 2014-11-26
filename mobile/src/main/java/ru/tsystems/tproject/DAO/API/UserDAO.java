@@ -4,8 +4,6 @@ import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.exceptions.UserNotFoundException;
 
-import java.util.List;
-
 /**
  * Base CRUD operations along with the specific ones.
  */

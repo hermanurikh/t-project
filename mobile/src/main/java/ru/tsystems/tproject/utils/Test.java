@@ -1,10 +1,8 @@
 package ru.tsystems.tproject.utils;
 
 import org.apache.log4j.Logger;
-import ru.tsystems.tproject.exceptions.EntityNotDeletedException;
-import ru.tsystems.tproject.utils.Locale.EnglishLanguage;
-import ru.tsystems.tproject.utils.Locale.RussianLanguage;
-import ru.tsystems.tproject.utils.Locale.Translatable;
+import ru.tsystems.tproject.utils.locale.EnglishLanguage;
+import ru.tsystems.tproject.utils.locale.Translatable;
 
 import java.text.SimpleDateFormat;
 
@@ -16,18 +14,9 @@ public class Test {
     private static Logger logger = Logger.getLogger(Test.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     public static void main(String[] args) {
-        String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Доступные опции для тарифа";
-        String JSP_CONTRACTS_OPTION = "Опция";
-        String JSP_CONTRACTS_OPTION_PRICE = "Цена";
-        String JSP_CONTRACTS_OPTION_INITIAL_PRICE = "Цена подключения";
-        String JSP_NO_OPTIONS_FOR_TARIFF = "К данному тарифу невозможно подключить опции.";
-        String JSP_NO_OPTIONS_TOGETHER = "Для данной опции нет других обязательных к подключению опций.";
-        String JSP_NO_OPTIONS_INCOMPATIBLE = "Для данной опции нет других невозможных к подключению опций.";
-
-        System.out.println("<tr name='trow' class='ui-table-data-row ui-state-even ui-selected' onclick=getOptionsForOption('" + 2 + "', '" +
-                JSP_CONTRACTS_OPTION  + "', '" + JSP_CONTRACTS_OPTION_PRICE + "', '" + JSP_CONTRACTS_OPTION_INITIAL_PRICE +
-                "', '" + JSP_NO_OPTIONS_TOGETHER + "', '" + JSP_NO_OPTIONS_INCOMPATIBLE +  "')>");
-        }
+        Translatable translatable = EnglishLanguage.getEnglishLanguage();
+        System.out.println(translatable.getJSP_CONTRACTS_BLOCKED_BY_ADMIN());
+    }
 
     }
 

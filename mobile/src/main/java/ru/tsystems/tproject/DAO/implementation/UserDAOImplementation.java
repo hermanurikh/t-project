@@ -1,20 +1,15 @@
 package ru.tsystems.tproject.DAO.implementation;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.UserDAO;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.exceptions.UserNotFoundException;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 /**
  * An implementation of a UserDAO API.
@@ -37,8 +32,7 @@ public class UserDAOImplementation extends GenericDAOImplementation<User, Intege
         try {
             Query query = entityManager.createQuery("select c.user from Contract c where c.number=:number").setParameter("number", number);
             return (User) query.getSingleResult();
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new UserNotFoundException("User with number " + number + " not found", ex);
         }
 
@@ -55,8 +49,7 @@ public class UserDAOImplementation extends GenericDAOImplementation<User, Intege
         try {
             Query query = entityManager.createQuery("select u from User u where u.login=:login").setParameter("login", login);
             return (User) query.getSingleResult();
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new UserNotFoundException("User with login " + login + " not found!", ex);
         }
 

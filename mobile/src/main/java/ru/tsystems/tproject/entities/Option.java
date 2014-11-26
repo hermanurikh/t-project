@@ -80,7 +80,7 @@ public class Option {
 
     /**
      * Gets options that are necessary for current option,
-     * @return
+     * @return a list of options
      */
     public List<Option> getOptionsTogether() {
         return optionsTogether;
@@ -93,7 +93,7 @@ public class Option {
 
     /**
      * Adds an option necessary for current option.
-     * @param optionTogether
+     * @param optionTogether an option to add
      */
 
     public void addOptionsTogether(Option optionTogether) {
@@ -102,7 +102,7 @@ public class Option {
 
     /**
      * Gets options that are incompatible with current option,
-     * @return
+     * @return a list of options
      */
 
     public List<Option> getOptionsIncompatible() {

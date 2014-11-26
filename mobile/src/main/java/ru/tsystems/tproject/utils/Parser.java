@@ -9,8 +9,4 @@ public class Parser {
         return number.replaceAll(" ", "").replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "");
     }
 
-    public static void main(String[] args) {
-        String a = "(555) 555-55-55";
-        System.out.println(doParse(a));
-    }
 }

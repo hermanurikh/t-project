@@ -29,8 +29,7 @@ public class GlobalExceptionHandler {
         modelAndView.addObject("exception", ex);
         if (user.getRole().getId() == 2) {
             modelAndView.setViewName("cp_employee/errors/exception_general");
-        }
-        else {
+        } else {
             modelAndView.setViewName("cp_client/errors/exception");
         }
         return modelAndView;

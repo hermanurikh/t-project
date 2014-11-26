@@ -1,4 +1,4 @@
-package ru.tsystems.tproject.utils.Locale;
+package ru.tsystems.tproject.utils.locale;
 
 /**
  * An interface to implement by different languages.

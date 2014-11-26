@@ -1,8 +1,6 @@
 package ru.tsystems.tproject.DAO.implementation;
 
-import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.GenericDAO;
-import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 
 import javax.persistence.EntityManager;
@@ -31,8 +29,7 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     public void create(E entity) throws CustomDAOException {
         try {
             this.entityManager.persist(entity);
-        }
-        catch (PersistenceException ex)
+        } catch (PersistenceException ex)
         {
             throw new CustomDAOException("Entity not created: " + entity, ex);
         }
@@ -42,8 +39,7 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     public E read(K id) throws CustomDAOException {
         try {
             return (E)this.entityManager.find(daoType, id);
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new CustomDAOException("Entity with id " + id + " not found", ex);
         }
     }
@@ -52,8 +48,7 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     public void update(E entity) throws CustomDAOException {
         try {
             this.entityManager.merge(entity);
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new CustomDAOException("Entity not updated: " + entity, ex);
         }
 
@@ -63,8 +58,7 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     public void delete(E entity) throws CustomDAOException {
         try {
             this.entityManager.remove(entityManager.merge(entity));
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new CustomDAOException("Entity not deleted: " + entity, ex);
         }
 
@@ -73,8 +67,7 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     public List<E> getAll() throws CustomDAOException {
         try {
             return this.entityManager.createNamedQuery(daoType.getSimpleName() + ".getAll", daoType).getResultList();
-        }
-        catch (PersistenceException ex) {
+        } catch (PersistenceException ex) {
             throw new CustomDAOException("Unable to get all entities of class " + daoType.getSimpleName(), ex);
         }
     }

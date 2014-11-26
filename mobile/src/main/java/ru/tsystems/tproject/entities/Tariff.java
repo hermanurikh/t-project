@@ -63,7 +63,7 @@ public class Tariff {
 
     /**
      * This method removes an option from the list of possible options.
-     * @param option
+     * @param option the option to delete
      */
     public void removeOptionForTariff(Option option) {
         this.possibleOptions.remove(option);
@@ -71,7 +71,7 @@ public class Tariff {
 
     /**
      * This method adds an option to the list of possible options.
-     * @param option
+     * @param option the option to add
      */
 
     public void addPossibleOption(Option option) {

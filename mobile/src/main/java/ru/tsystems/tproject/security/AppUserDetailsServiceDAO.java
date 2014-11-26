@@ -34,12 +34,10 @@ public class AppUserDetailsServiceDAO implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
             logger.info("The authorities of the user - " + user.getRole().getName());
             return new org.springframework.security.core.userdetails.User(username, user.getPassword(), true, true, true, true, authorities);
-        }
-        catch (CustomDAOException ex) {
+        } catch (CustomDAOException ex) {
             logger.info("User with login " + username + " not found!");
             throw new UsernameNotFoundException(username + " not found");
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             logger.error("Error! The text is: " + ex + ", as well as " + ex.getMessage());
             return null;
         }

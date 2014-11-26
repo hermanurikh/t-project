@@ -1,10 +1,6 @@
 package ru.tsystems.tproject.services.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystems.tproject.DAO.API.UserDAO;
@@ -13,7 +9,6 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.exceptions.UserNotFoundException;
 import ru.tsystems.tproject.services.API.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,7 +45,7 @@ public class UserServiceImplementation implements UserService {
 
     /**
      * Gets all users from the database.
-     * @return
+     * @return a list of users
      * @throws CustomDAOException
      */
     @Override
@@ -62,8 +57,8 @@ public class UserServiceImplementation implements UserService {
 
     /**
      * Gets user by a specified number.
-     * @param number
-     * @return
+     * @param number the number of user's contract
+     * @return a user
      * @throws CustomDAOException
      */
     @Override
@@ -74,8 +69,8 @@ public class UserServiceImplementation implements UserService {
 
     /**
      * Get user by a specified login,
-     * @param login
-     * @return
+     * @param login the user's login
+     * @return a user
      * @throws CustomDAOException
      */
     @Override

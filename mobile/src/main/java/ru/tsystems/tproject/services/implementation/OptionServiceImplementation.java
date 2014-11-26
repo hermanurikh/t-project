@@ -12,7 +12,7 @@ import ru.tsystems.tproject.services.API.OptionService;
 import java.util.List;
 
 /**
- * Created by german on 19.10.14.
+ * An optionService implementation.
  */
 @Service("optionService")
 public class OptionServiceImplementation implements OptionService {
@@ -45,7 +45,7 @@ public class OptionServiceImplementation implements OptionService {
 
     /**
      * A method to get all options from the database.
-     * @return
+     * @return a list of options
      * @throws CustomDAOException
      */
     @Override
@@ -56,8 +56,8 @@ public class OptionServiceImplementation implements OptionService {
 
     /**
      * A method to get all the options for the specified tariff ID.
-     * @param id
-     * @return
+     * @param id the tariff's id
+     * @return a list of options
      * @throws CustomDAOException
      */
     @Override
@@ -65,18 +65,37 @@ public class OptionServiceImplementation implements OptionService {
     public List<Option> getAllOptionsForTariff(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsForTariff(id);
     }
+
+    /**
+     * A method to get all the contracts for the specified contract ID.
+     * @param id contracts id;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     @Override
     @Transactional
     public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsForContract(id);
     }
 
+    /**
+     * A method to get all the options together for the specified option ID.
+     * @param id options id;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     @Override
     @Transactional
     public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException {
         return optionDAO.getAllOptionsTogetherForOption(id);
     }
 
+    /**
+     * A method to get all the options incompatible for the specified option ID.
+     * @param id options id;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     @Override
     @Transactional
     public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException {

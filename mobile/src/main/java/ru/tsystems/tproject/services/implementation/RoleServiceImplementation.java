@@ -45,7 +45,7 @@ public class RoleServiceImplementation  implements RoleService {
 
     /**
      * A method to get all possible roles.
-     * @return
+     * @return a list of roles
      * @throws CustomDAOException
      */
     @Override

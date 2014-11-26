@@ -46,7 +46,7 @@ public class TariffServiceImplementation implements TariffService {
 
     /**
      * A method to get all tariffs from the database.
-     * @return
+     * @return a list of tariffs
      * @throws CustomDAOException
      */
     @Override

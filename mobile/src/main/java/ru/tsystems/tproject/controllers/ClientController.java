@@ -11,12 +11,13 @@ import ru.tsystems.tproject.entities.Contract;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
+import ru.tsystems.tproject.exceptions.ScriptViolationException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.ContractService;
 import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
-import ru.tsystems.tproject.utils.Locale.Translatable;
+import ru.tsystems.tproject.utils.locale.Translatable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -86,7 +87,6 @@ public class ClientController {
     @RequestMapping(value = "/cp_client_change_contract", method = RequestMethod.GET)
     public String changeContract(@RequestParam(value = "contractId") int contractId,
                                  HttpServletRequest request, Locale locale, Model model) {
-        Translatable translatable = (Translatable) request.getSession().getAttribute("language");
         Contract contract = contractService.getEntityById(contractId);
         User user = (User) request.getSession().getAttribute("currentUserU");
         if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
@@ -125,8 +125,7 @@ public class ClientController {
                 request.getSession().setAttribute("action", translatable.getJSP_CONTRACTS_BLOCK());
                 request.getSession().setAttribute("contract", contract);
             }
-        }
-        else {
+        } else {
             contract.setBlocked(true);
             contractService.updateEntity(contract);
             request.getSession().setAttribute("paramIsBlocked", translatable.getJSP_CONTRACTS_BLOCKED());
@@ -165,8 +164,7 @@ public class ClientController {
             model.addAttribute("optionsList", contract.getOptions());
             request.getSession().setAttribute("totalAmount", 0);
             return "cp_client/cp_client_contract_change_bucket";
-        }
-        else {
+        } else {
             List<Exception> exceptionList = new ArrayList<>();
             List validationResultList = contractValidator.validateOptions(array, exceptionList, user.getId()); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
@@ -181,9 +179,8 @@ public class ClientController {
                 request.getSession().setAttribute("updatedContract", contract);
                 model.addAttribute("optionsList", contract.getOptions());
                 return "cp_client/cp_client_contract_change_bucket";
-            }
-            else {
-                throw new Exception("jQuery required to perform this operation!");
+            } else {
+                throw new ScriptViolationException("jQuery required to perform this operation!");
             }
         }
 

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.tsystems.tproject.entities.Option;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.OptionService;
-import ru.tsystems.tproject.utils.Locale.EnglishLanguage;
-import ru.tsystems.tproject.utils.Locale.RussianLanguage;
+import ru.tsystems.tproject.utils.locale.EnglishLanguage;
+import ru.tsystems.tproject.utils.locale.RussianLanguage;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -56,12 +56,11 @@ public class AjaxDispatcher {
                                         @RequestParam(value = "currentUserID", required = false) Integer userID) {
         if (array == null || array.length == 0) return null;
         else {
-            List returnList = new ArrayList();
+            List returnList;
             List<Exception> list = new ArrayList<>();
             if (userID != null && userID !=0) {
                 returnList = contractValidator.validateOptions(array, list, userID);
-            }
-            else {
+            } else {
                 returnList = contractValidator.validateOptions(array, list, 0);
             }
             list = (List<Exception>) returnList.get(1);

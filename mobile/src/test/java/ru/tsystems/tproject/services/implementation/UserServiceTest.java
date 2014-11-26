@@ -1,7 +1,6 @@
 package ru.tsystems.tproject.services.implementation;
 
 
-import org.junit.Test;
 import org.junit.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -17,7 +16,6 @@ import ru.tsystems.tproject.services.API.UserService;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 

@@ -5,7 +5,7 @@ import ru.tsystems.tproject.exceptions.CustomDAOException;
 import java.util.List;
 
 /**
- * Created by german on 10.11.14.
+ * A generic service to be implemented with basic operations.
  */
 public interface GenericService<E, K> {
     public void createEntity(E entity) throws CustomDAOException;

@@ -201,6 +201,6 @@
 
 
 
-<script type="text/javascript" src="/js/awstats_misc_tracker.js"></script><noscript><img src="/js/awstats_misc_tracker.js.php?nojs=y" height=20 width=0 border=0></noscript>
+
 </body>
 </html>

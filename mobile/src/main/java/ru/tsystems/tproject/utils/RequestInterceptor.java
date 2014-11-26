@@ -28,16 +28,13 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
             String userLogin = ((User) request.getSession().getAttribute("currentUserU")).getLogin();
             logger.info("User " + userLogin + " requested URL::" + url);
             request.setAttribute("startTime", startTime);
-        }
-        //if returned false, we need to make sure 'response' is sent
-        catch (Exception ex) {
+        } catch (Exception ex) {
             logger.info("No user found while requesting the URL::" + url);
             try {
                 org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 User currentUser = userService.getUserByLogin(user.getUsername());
                 request.getSession().setAttribute("currentUserU", currentUser);
-            }
-            catch (Exception exception) {
+            } catch (Exception exception) {
                 return true;
             }
         }

@@ -6,7 +6,7 @@ $(document).ready(function() {
     var number = $('#number');
     var numberDiv = $('#numberDiv');
     var login = $('#login');
-    var loginDiv = $('#loginDiv')
+    var loginDiv = $('#loginDiv');;
 
    number.focus(function () {
         numberDiv.addClass('ui-state-focus');

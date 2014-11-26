@@ -35,7 +35,6 @@ public class EntityRemoval {
      * @param tariffId the tariff's id
      */
     public void removeTariff(int tariffId) {
-        int balance = 0;
         User user;
         Tariff tariff = tariffService.getEntityById(tariffId);
         Tariff baseTariff = tariffService.getEntityById(11);
@@ -60,7 +59,6 @@ public class EntityRemoval {
         Option option = optionService.getEntityById(optionId);
         option.getOptionsTogether().clear();
         option.getOptionsIncompatible().clear();
-        int balance;
         User user;
         boolean flag = false;
         List<Option> options = optionService.getAll();

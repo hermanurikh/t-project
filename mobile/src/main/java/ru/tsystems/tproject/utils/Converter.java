@@ -21,8 +21,8 @@ public class Converter extends org.springframework.security.authentication.encod
     @Override
     public boolean isPasswordValid(String s, String s2, Object o) {
         try {
-        return (s.equals(getMD5(s2))); }
-        catch (NoSuchAlgorithmException ex) {
+            return (s.equals(getMD5(s2)));
+        } catch (NoSuchAlgorithmException ex) {
             return false;
         }
     }
@@ -31,8 +31,7 @@ public class Converter extends org.springframework.security.authentication.encod
     public String encodePassword(String s, Object o) {
         try {
             return getMD5(s);
-        }
-        catch (NoSuchAlgorithmException ex) {
+        } catch (NoSuchAlgorithmException ex) {
             return s;
         }
     }

@@ -1,78 +1,78 @@
-package ru.tsystems.tproject.utils.Locale;
+package ru.tsystems.tproject.utils.locale;
 
 /**
  * A class to hold the static String values for the English language.
  */
 public class EnglishLanguage implements Translatable  {
 
-    private final String JSP_PANEL_NAME = "Account control panel";
-    private final String JSP_CONTRACTS_NAME = "Contracts";
-    private final String JSP_BALANCE_NAME = "Balance";
-    private final String JSP_INFO_NAME = "Account details";
-    private final String JSP_PROFILE_NAME = "Profile";
-    private final String JSP_SUPPORT_NAME = "Support";
-    private final String JSP_INVITE_NAME = "Welcome";
-    private final String JSP_LOGOUT_NAME = "Logout";
-    private final String JSP_CONTRACTS_LIST_NAME = "Contracts list";
-    private final String JSP_CONTRACTS_LIST_NUMBER = "Number";
-    private final String JSP_CONTRACTS_LIST_TARIFF = "Tariff";
-    private final String JSP_CONTRACTS_LIST_OPTIONS = "Options";
-    private final String JSP_CONTRACTS_LIST_STATUS = "Status";
-    private final String JSP_CONTRACTS_LIST_ACTIONS = "Actions";
-    private final String JSP_CONTRACTS_ACTION_DETAILED = "Details";
-    private final String JSP_CONTRACTS_ACTION_CHANGE = "Modify";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_CONTRACT = "The details of the contract ";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_TARIFF = "Current tariff";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_PRICE = "Cost, per month";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_OPTIONS = "Current options";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE = "Cost, overall";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED = "Account status";
-    private final String JSP_CONTRACTS_CHANGE = "Changing the contract with the number ";
-    private final String JSP_CONTRACTS_CHOOSE_TARIFF = "Kindly choose a tariff";
-    private final String JSP_CONTRACTS_TARIFF_HELPER = "After selecting a tariff you may choose the options.";
-    private final String JSP_CONTRACTS_PRICE = "Price";
-    private final String JSP_CONTRACTS_SUBMIT = "Submit";
-    private final String JSP_CONTRACTS_BLOCK = "Block";
-    private final String JSP_CONTRACTS_BLOCKED = "The contract is BLOCKED. No changes can be made";
-    private final String JSP_CONTRACTS_UNBLOCK = "Unblock";
-    private final String JSP_CONTRACTS_UNBLOCKED = "The contract is not blocked";
-    private final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "BLOCKED BY ADMIN. You can not unblock the contract yourself. Please contact your manager.";
-    private final String JSP_CONTRACTS_ERROR = "Errors were found while selecting the options!";
-    private final String JSP_CONTRACTS_CHANGING = "Changing the contract";
-    private final String JSP_CONTRACTS_CHANGING_NUMBER = "Contracts number:";
-    private final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Kindly choose the options for the tariff";
-    private final String JSP_CONTRACTS_DETAILED_OPTIONS = "Click an option to view its necessary and incompatible options.";
-    private final String JSP_CONTRACTS_OPTION = "Option";
-    private final String JSP_CONTRACTS_OPTION_PRICE = "Price";
-    private final String JSP_CONTRACTS_OPTION_INITIAL_PRICE = "Initial price";
-    private final String JSP_CONTRACTS_OPTIONS_TOGETHER = "Necessary options";
-    private final String JSP_CONTRACTS_OPTIONS_INCOMPATIBLE = "Incompatible options";
-    private final String JSP_CONTRACTS_SUBMIT_CONTRACT = "Modify a contract";
-    private final String JSP_CONTRACTS_BACK_TO_TARIFF = "Back to tariffs' selection";
-    private final String JSP_CONTRACTS_SUBMIT_BUCKET = "Please submit the changing of the contract";
-    private final String JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS = "The selected tariff and options are:";
-    private final String JSP_SUCCESS = "Success!";
-    private final String JSP_BALANCE_PAY = "Make a payment";
-    private final String JSP_BALANCE_INCREASE_BALANCE = "Increase the balance by 100 dollars";
-    private final String JSP_BALANCE_CURRENT = "Current balance";
-    private final String JSP_BALANCE_CURRENCY = "$";
-    private final String JSP_BALANCE_DECREASED = "The account's balance will be decreased by ";
-    private final String JSP_BALANCE_MONTHLY_CURRENCY = "$/month.";
-    private final String JSP_INFO_PROFILE = "Profile of the account ";
-    private final String JSP_INFO_BIRTHDAY = "Birthday";
-    private final String JSP_INFO_PASSPORT = "Passport";
-    private final String JSP_INFO_CONTACT_INFO = "Contact info";
-    private final String JSP_INFO_EMAIL = "E-mail";
-    private final String JSP_INFO_POST = "Post address";
-    private final String JSP_PLEASE_WAIT = "Kindly wait for a moment ";
-    private final String JSP_BLOCKED_BY_ADMIN = "BLOCKED BY ADMIN";
-    private final String JSP_BLOCKED_BY_ADMIN_SMALL = "Blocked by admin";
-    private final String JSP_BLOCKED = "Blocked";
-    private final String JSP_ACTIVE = "Active";
-    private final String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Possible options to choose ";
-    private final String JSP_NO_OPTIONS_FOR_TARIFF = "This tariff does not have any options to add.";
-    private final String JSP_NO_OPTIONS_TOGETHER = "Current option does not have any necessary options to add.";
-    private final String JSP_NO_OPTIONS_INCOMPATIBLE = "Current option does not have any incompatible options.";
+    private static final String JSP_PANEL_NAME = "Account control panel";
+    private static final String JSP_CONTRACTS_NAME = "Contracts";
+    private static final String JSP_BALANCE_NAME = "Balance";
+    private static final String JSP_INFO_NAME = "Account details";
+    private static final String JSP_PROFILE_NAME = "Profile";
+    private static final String JSP_SUPPORT_NAME = "Support";
+    private static final String JSP_INVITE_NAME = "Welcome";
+    private static final String JSP_LOGOUT_NAME = "Logout";
+    private static final String JSP_CONTRACTS_LIST_NAME = "Contracts list";
+    private static final String JSP_CONTRACTS_LIST_NUMBER = "Number";
+    private static final String JSP_CONTRACTS_LIST_TARIFF = "Tariff";
+    private static final String JSP_CONTRACTS_LIST_OPTIONS = "Options";
+    private static final String JSP_CONTRACTS_LIST_STATUS = "Status";
+    private static final String JSP_CONTRACTS_LIST_ACTIONS = "Actions";
+    private static final String JSP_CONTRACTS_ACTION_DETAILED = "Details";
+    private static final String JSP_CONTRACTS_ACTION_CHANGE = "Modify";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_CONTRACT = "The details of the contract ";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_TARIFF = "Current tariff";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_PRICE = "Cost, per month";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_OPTIONS = "Current options";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE = "Cost, overall";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED = "Account status";
+    private static final String JSP_CONTRACTS_CHANGE = "Changing the contract with the number ";
+    private static final String JSP_CONTRACTS_CHOOSE_TARIFF = "Kindly choose a tariff";
+    private static final String JSP_CONTRACTS_TARIFF_HELPER = "After selecting a tariff you may choose the options.";
+    private static final String JSP_CONTRACTS_PRICE = "Price";
+    private static final String JSP_CONTRACTS_SUBMIT = "Submit";
+    private static final String JSP_CONTRACTS_BLOCK = "Block";
+    private static final String JSP_CONTRACTS_BLOCKED = "The contract is BLOCKED. No changes can be made";
+    private static final String JSP_CONTRACTS_UNBLOCK = "Unblock";
+    private static final String JSP_CONTRACTS_UNBLOCKED = "The contract is not blocked";
+    private static final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "BLOCKED BY ADMIN. You can not unblock the contract yourself. Please contact your manager.";
+    private static final String JSP_CONTRACTS_ERROR = "Errors were found while selecting the options!";
+    private static final String JSP_CONTRACTS_CHANGING = "Changing the contract";
+    private static final String JSP_CONTRACTS_CHANGING_NUMBER = "Contracts number:";
+    private static final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Kindly choose the options for the tariff";
+    private static final String JSP_CONTRACTS_DETAILED_OPTIONS = "Click an option to view its necessary and incompatible options.";
+    private static final String JSP_CONTRACTS_OPTION = "Option";
+    private static final String JSP_CONTRACTS_OPTION_PRICE = "Price";
+    private static final String JSP_CONTRACTS_OPTION_INITIAL_PRICE = "Initial price";
+    private static final String JSP_CONTRACTS_OPTIONS_TOGETHER = "Necessary options";
+    private static final String JSP_CONTRACTS_OPTIONS_INCOMPATIBLE = "Incompatible options";
+    private static final String JSP_CONTRACTS_SUBMIT_CONTRACT = "Modify a contract";
+    private static final String JSP_CONTRACTS_BACK_TO_TARIFF = "Back to tariffs' selection";
+    private static final String JSP_CONTRACTS_SUBMIT_BUCKET = "Please submit the changing of the contract";
+    private static final String JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS = "The selected tariff and options are:";
+    private static final String JSP_SUCCESS = "Success!";
+    private static final String JSP_BALANCE_PAY = "Make a payment";
+    private static final String JSP_BALANCE_INCREASE_BALANCE = "Increase the balance by 100 dollars";
+    private static final String JSP_BALANCE_CURRENT = "Current balance";
+    private static final String JSP_BALANCE_CURRENCY = "$";
+    private static final String JSP_BALANCE_DECREASED = "The account's balance will be decreased by ";
+    private static final String JSP_BALANCE_MONTHLY_CURRENCY = "$/month.";
+    private static final String JSP_INFO_PROFILE = "Profile of the account ";
+    private static final String JSP_INFO_BIRTHDAY = "Birthday";
+    private static final String JSP_INFO_PASSPORT = "Passport";
+    private static final String JSP_INFO_CONTACT_INFO = "Contact info";
+    private static final String JSP_INFO_EMAIL = "E-mail";
+    private static final String JSP_INFO_POST = "Post address";
+    private static final String JSP_PLEASE_WAIT = "Kindly wait for a moment ";
+    private static final String JSP_BLOCKED_BY_ADMIN = "BLOCKED BY ADMIN";
+    private static final String JSP_BLOCKED_BY_ADMIN_SMALL = "Blocked by admin";
+    private static final String JSP_BLOCKED = "Blocked";
+    private static final String JSP_ACTIVE = "Active";
+    private static final String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Possible options to choose ";
+    private static final String JSP_NO_OPTIONS_FOR_TARIFF = "This tariff does not have any options to add.";
+    private static final String JSP_NO_OPTIONS_TOGETHER = "Current option does not have any necessary options to add.";
+    private static final String JSP_NO_OPTIONS_INCOMPATIBLE = "Current option does not have any incompatible options.";
 
 
 
@@ -83,8 +83,7 @@ public class EnglishLanguage implements Translatable  {
     public static EnglishLanguage getEnglishLanguage() {
         if (englishLanguage == null) {
             return englishLanguage = new EnglishLanguage();
-        }
-        else {
+        } else {
             return englishLanguage;
         }
     }

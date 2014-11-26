@@ -1,4 +1,4 @@
-package ru.tsystems.tproject.integration;
+package ru.tsystems.tproject.integration.injection;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

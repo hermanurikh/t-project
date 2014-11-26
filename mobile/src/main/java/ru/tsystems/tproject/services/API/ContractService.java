@@ -15,8 +15,8 @@ public interface ContractService extends GenericService<Contract, Integer> {
 
     /**
      * A method to get contract by number.
-     * @param number
-     * @return
+     * @param number the number of the contract
+     * @return a contract
      * @throws CustomDAOException
      */
 

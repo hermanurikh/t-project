@@ -10,6 +10,7 @@ import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.CustomDAOException;
 import ru.tsystems.tproject.exceptions.EntityNotDeletedException;
+import ru.tsystems.tproject.exceptions.ScriptViolationException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.integration.EntityRemoval;
 import ru.tsystems.tproject.integration.UserUpdater;
@@ -17,9 +18,9 @@ import ru.tsystems.tproject.services.API.*;
 import ru.tsystems.tproject.utils.Parser;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,25 +38,24 @@ public class EmployeeController {
     @Autowired
     private OptionService optionService;
     @Autowired
-    private RoleService roleService;
-    @Autowired
     private ContractValidator contractValidator;
     @Autowired
     private UserUpdater userUpdater;
     @Autowired
     private EntityRemoval entityRemoval;
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
+    private static final int TARIFF_ID = 11;
+    private static final int OPTION_ID = 12;
 
 
     /**
      * This method returns the main employee page.
-     * @param locale locale;
-     * @param model model;
      * @return cp_employee_main.jsp
      */
     @RequestMapping(value = "/cp_employee_main", method = RequestMethod.GET)
-    public String mainPage(Locale locale, Model model) {
+    public String mainPage() {
         return "cp_employee/cp_employee_main";
     }
 
@@ -71,16 +71,14 @@ public class EmployeeController {
     /**
      * This method resolves a page with all contracts. When contractId is specified, the contract is deleted.
      * @param id the id of the contract;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_contracts.jsp
      */
     @RequestMapping(value = "/cp_employee_contracts", method = RequestMethod.GET)
     public String contractsPage(@RequestParam(value = "contractId", required = false) Integer id,
-                                Locale locale, Model model) {
+                                Model model) {
         if (id != null && id != 0) {
             Contract contract = contractService.getEntityById(id);
-            User user = userService.getUserByNumber(contract.getNumber());
             contractService.deleteEntity(contract);
         }
         model.addAttribute("contractsList", contractService.getAll());
@@ -91,12 +89,11 @@ public class EmployeeController {
      * This method returns a page where a new contract is being created. It sets a list with all tariffs to choose from.
      * If the id is specified, the login of the user will be added to the page.
      * @param id the id of the user;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_new_contract.jsp
      */
     @RequestMapping(value = "/cp_employee_new_contract", method = RequestMethod.GET)
-    public String addContract(@RequestParam(value = "id", required = false) Integer id, Locale locale, Model model) {
+    public String addContract(@RequestParam(value = "id", required = false) Integer id, Model model) {
         if (id != null) {
             model.addAttribute("currentLogin", userService.getEntityById(id).getLogin());
         }
@@ -133,8 +130,7 @@ public class EmployeeController {
             user.addContract(contract);
             userService.updateEntity(user);
             return "cp_employee/success";
-        }
-        else {
+        } else {
             List<Exception> exceptionList = new ArrayList<>();
             List validationResultList = contractValidator.validateOptions(array, exceptionList, 0); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
@@ -147,9 +143,8 @@ public class EmployeeController {
                 user.addContract(contract);
                 userService.updateEntity(user);
                 return "cp_employee/success";
-            }
-            else {
-                throw new Exception("jQuery required for performing the action!");
+            } else {
+                throw new ScriptViolationException("jQuery required for performing the action!");
             }
         }
 
@@ -170,8 +165,7 @@ public class EmployeeController {
         if (contract.isBlocked()) {
             contract.setBlocked(!contract.isBlocked());
             contract.setEmployee(null);
-        }
-        else {
+        } else {
             contract.setBlocked(!contract.isBlocked());
             contract.setEmployee((User) request.getSession().getAttribute("currentUserU"));
         }
@@ -198,8 +192,7 @@ public class EmployeeController {
             if (contract.isBlocked()) {
                 contract.setBlocked(!contract.isBlocked());
                 contract.setEmployee(null);
-            }
-            else {
+            } else {
                 contract.setBlocked(!contract.isBlocked());
                 contract.setEmployee((User) request.getSession().getAttribute("currentUserU"));
             }
@@ -208,8 +201,7 @@ public class EmployeeController {
         if (contract.isBlocked()) {
             model.addAttribute("paramIsBlocked", "ВКЛЮЧЕНА");
             model.addAttribute("action", "Разблокировать");
-        }
-        else {
+        } else {
             model.addAttribute("paramIsBlocked", "выключена");
             model.addAttribute("action", "Заблокировать");
         }
@@ -246,8 +238,7 @@ public class EmployeeController {
             contract.removeAllOptions();
             contractService.updateEntity(contract);
             return "cp_employee/success";
-        }
-        else {
+        } else {
             List<Exception> exceptionList = new ArrayList<>();
             List validationResultList = contractValidator.validateOptions(array, exceptionList, 0); //checking if the entered options are correct
             List<Option> optionList = (List<Option>) validationResultList.get(0);
@@ -259,9 +250,8 @@ public class EmployeeController {
                 }
                 contractService.updateEntity(contract);
                 return "cp_employee/success";
-            }
-            else {
-                throw new Exception("jQuery required to perform this operation!");
+            } else {
+                throw new ScriptViolationException("jQuery required to perform this operation!");
             }
         }
 
@@ -310,7 +300,7 @@ public class EmployeeController {
         model.addAttribute("id", user.getId());
         model.addAttribute("name", user.getName());
         model.addAttribute("surname", user.getSurname());
-        model.addAttribute("birthday", dateFormat.format(user.getBirthday()));
+        model.addAttribute("birthday", DATE_FORMAT.format(user.getBirthday()));
         model.addAttribute("passport", user.getPassport());
         model.addAttribute("address", user.getAddress());
         model.addAttribute("email", user.getEmail());
@@ -330,13 +320,11 @@ public class EmployeeController {
     @RequestMapping(value = "cp_employee_user_delete", method = RequestMethod.GET)
     public String deleteUser(@RequestParam(value = "id") int id,
                              Locale locale, Model model) {
-        //добавить проверку, если есть контракты - не удалять!
         User user = userService.getEntityById(id);
         if (!contractService.getAllContractsForUser(id).isEmpty())
         {
             throw new EntityNotDeletedException("Unable to delete user, you need to remove his contracts first!");
-        }
-        else {
+        } else {
             userService.deleteEntity(user);
             model.addAttribute("usersList", userService.getAll());
             return "cp_employee/cp_employee_users";
@@ -390,8 +378,6 @@ public class EmployeeController {
      * @param email user's email
      * @param balance user's balance
      * @param password user's password
-     * @param locale locale
-     * @param model model
      * @return success.jsp
      * @throws Exception
      */
@@ -404,8 +390,7 @@ public class EmployeeController {
                              @RequestParam(value = "address", required = false) String address,
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam(value = "balance", required = false) Integer balance,
-                             @RequestParam(value = "password") String password,
-                             Locale locale, Model model) throws Exception{
+                             @RequestParam(value = "password") String password) throws Exception{
         User user = userUpdater.updateUser(id, name, surname, birthday, passport, address, email, balance, password);
         userService.updateEntity(user);
         return "cp_employee/success";
@@ -413,12 +398,10 @@ public class EmployeeController {
 
     /**
      * This method redirects to a page for user searching.
-     * @param locale locale
-     * @param model model
      * @return cp_employee_user_search.jsp
      */
     @RequestMapping(value = "cp_employee_user_search", method = RequestMethod.GET)
-    public String searchForUser(Locale locale, Model model) {
+    public String searchForUser() {
         return "cp_employee/cp_employee_user_search";
     }
 
@@ -426,28 +409,25 @@ public class EmployeeController {
      * This method searches for a user. It redirects to a page where user can be changed, if the user is found, and back otherwise.
      * @param number user's contract number
      * @param login user's login
-     * @param locale locale
      * @param model model
      * @return cp_employee_user_data_change.jsp or cp_employee_user_search.jsp
      */
     @RequestMapping(value = "cp_employee_find_user", method = RequestMethod.POST)
     public String doSearch(@RequestParam(value = "number", required = false) String number,
                            @RequestParam(value = "login", required = false) String login,
-                           Locale locale, Model model) {
+                           Model model) {
         User user;
         try {
             if (number == null || number.equals("")) {
                 user = userService.getUserByLogin(login);
-            }
-            else {
+            } else {
                 long userNumber = Long.parseLong(Parser.doParse(number));
                 user = userService.getUserByNumber(userNumber);
             }
 
             model.addAttribute("id", user.getId());
             return "redirect:/cp_employee_user_data_change";
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             model.addAttribute("found", "false");
             return "cp_employee/cp_employee_user_search";
         }
@@ -455,12 +435,11 @@ public class EmployeeController {
 
     /**
      * This method resolves a page with all tariffs.
-     * @param locale locale
      * @param model model
      * @return cp_employee_tariffs.jsp
      */
     @RequestMapping(value = "cp_employee_tariffs", method = RequestMethod.GET)
-    public String getTariffs(Locale locale, Model model) {
+    public String getTariffs(Model model) {
         model.addAttribute("tariffsList", tariffService.getAll());
         model.addAttribute("optionsList", optionService.getAll());
         return "cp_employee/cp_employee_tariffs";
@@ -471,15 +450,12 @@ public class EmployeeController {
      * @param name tariff's name;
      * @param price tariff's price;
      * @param array the array of selected options' ids;
-     * @param locale locale;
-     * @param model model;
      * @return cp_employee_tariffs.jsp
      */
     @RequestMapping(value = "cp_employee_create_tariff", method = RequestMethod.POST)
     public String createNewTariff(@RequestParam(value = "name") String name,
                                   @RequestParam(value = "price") int price,
-                                  @RequestParam(value = "cb", required = false) int[] array,
-                                  Locale locale, Model model) throws Exception{
+                                  @RequestParam(value = "cb", required = false) int[] array) throws Exception{
         contractValidator.priceCheck(price, "price");
         Tariff tariff = new Tariff(name, price);
         if (null != array && array.length > 0) {
@@ -494,14 +470,13 @@ public class EmployeeController {
     /**
      * This method returns a page where the tariff can be changed.
      * @param tariffId the tariff id;
-     * @param request request;     *
-     * @param locale locale;
+     * @param request request;
      * @param model model;
      * @return cp_employee_change_tariff.jsp
      */
     @RequestMapping(value = "cp_employee_change_tariff", method = RequestMethod.GET)
     public String changeTariff(@RequestParam(value = "id") int tariffId,
-                               HttpServletRequest request, Locale locale, Model model) {
+                               HttpServletRequest request, Model model) {
         Tariff tariff = tariffService.getEntityById(tariffId);
         List<Option> allOptionsList = optionService.getAll();
         List<Option> currentTariffOptionsList = optionService.getAllOptionsForTariff(tariffId);
@@ -510,8 +485,6 @@ public class EmployeeController {
         model.addAttribute("currentOptionsList", currentTariffOptionsList);
         model.addAttribute("allOptionsList", allOptionsList);
         request.getSession().setAttribute("tariff", tariff);
-        /*model.addAttribute("name", tariff.getName());
-        model.addAttribute("price", tariff.getPrice());*/
         return "cp_employee/cp_employee_change_tariff";
     }
 
@@ -521,16 +494,13 @@ public class EmployeeController {
      * @param name the tariff's name;
      * @param price the tariff's price;
      * @param array the array of selected options' ids;
-     * @param locale locale;
-     * @param model model;
      * @return success.jsp
      */
     @RequestMapping(value = "cp_employee_tariff_final_change", method = RequestMethod.POST)
     public String finalChangeTariff(@RequestParam(value = "id") int tariffId,
                                     @RequestParam(value = "name") String name,
                                     @RequestParam(value = "price") int price,
-                                    @RequestParam(value = "cb", required = false) int[] array,
-                                    Locale locale, Model model) throws Exception{
+                                    @RequestParam(value = "cb", required = false) int[] array) throws IOException{
         contractValidator.priceCheck(price, "price");
         Tariff tariff = tariffService.getEntityById(tariffId);
         tariff.removePossibleOptions();
@@ -548,17 +518,15 @@ public class EmployeeController {
     /**
      * This method deletes a tariff with the help of entityRemoval service.
      * @param tariffId the tariff id;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_tariffs.jsp
      */
     @RequestMapping(value = "cp_employee_delete_tariff", method = RequestMethod.GET)
     public String deleteTariff(@RequestParam(value = "id") int tariffId,
-                               Locale locale, Model model) {
-        if(tariffId == 11) {
+                               Model model) {
+        if(tariffId == TARIFF_ID) {
             throw new EntityNotDeletedException("This tariff can not be deleted, some serious business logic is based upon it!");
-        }
-        else {
+        } else {
             entityRemoval.removeTariff(tariffId);
             model.addAttribute("tariffsList", tariffService.getAll());
             return "cp_employee/cp_employee_tariffs";
@@ -567,12 +535,11 @@ public class EmployeeController {
 
     /**
      * This method returns a page with all options where you can create a new one or change the existing ones.
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_options.jsp
      */
     @RequestMapping(value = "cp_employee_options", method = RequestMethod.GET)
-    public String getAllOptions(Locale locale, Model model) {
+    public String getAllOptions(Model model) {
         model.addAttribute("optionsList", optionService.getAll());
         return "cp_employee/cp_employee_options";
     }
@@ -584,8 +551,6 @@ public class EmployeeController {
      * @param initialPrice option's initialPrice;
      * @param optionsTogether an array of option's ids that will be necessary for current option;
      * @param optionsIncompatible an array of option's ids that will be incompatible for current option;
-     * @param locale locale;
-     * @param model model;
      * @return success.jsp
      */
     @RequestMapping(value = "cp_employee_option_created", method = RequestMethod.POST)
@@ -593,8 +558,7 @@ public class EmployeeController {
                                     @RequestParam(value = "price") int price,
                                     @RequestParam(value = "initialPrice") int initialPrice,
                                     @RequestParam(value = "cb", required = false) int[] optionsTogether,
-                                    @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
-                                    Locale locale, Model model) throws Exception{
+                                    @RequestParam(value = "cb2", required = false) int[] optionsIncompatible) throws IOException{
         contractValidator.priceCheck(price, "price");
         contractValidator.priceCheck(initialPrice, "initialPrice");
         Option option = new Option(name, price, initialPrice);
@@ -611,7 +575,7 @@ public class EmployeeController {
         }
         for (Option x : option.getOptionsTogether()) {
             if (option.getOptionsIncompatible().contains(x)) {
-                throw new Exception("jQuery required to perform this operation!");
+                throw new ScriptViolationException("jQuery required to perform this operation!");
             }
         }
         optionService.createEntity(option);
@@ -626,22 +590,25 @@ public class EmployeeController {
      * - the list of options which are not incompatible, but can be selected as incompatible.
      * @param optionId option's id;
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_change_option.jsp
      */
     @RequestMapping(value = "cp_employee_change_option", method = RequestMethod.GET)
     public String changeOption(@RequestParam(value = "optionId") int optionId,
-                               HttpServletRequest request, Locale locale, Model model) {
+                               HttpServletRequest request, Model model) {
         Option option = optionService.getEntityById(optionId);
         List<Option> optionsListAllIncompatible = new ArrayList<>();
         List<Option> optionsListAllTogether = optionService.getAll();
         optionsListAllIncompatible.addAll(optionsListAllTogether);
-        List<Option> optionsTogether = option.getOptionsTogether(); // a list of options together, checked
-        optionsListAllTogether.removeAll(optionsTogether); // a list of other options together, unchecked
+        // a list of options together, checked
+        List<Option> optionsTogether = option.getOptionsTogether();
+        optionsListAllTogether.removeAll(optionsTogether);
+        // a list of other options together, unchecked
         optionsListAllTogether.remove(option);
-        List<Option> optionsIncompatible = option.getOptionsIncompatible(); // a list of incompatible options, checked
-        optionsListAllIncompatible.removeAll(optionsIncompatible); // and unchecked
+        // a list of incompatible options, checked
+        List<Option> optionsIncompatible = option.getOptionsIncompatible();
+        // and unchecked
+        optionsListAllIncompatible.removeAll(optionsIncompatible);
         optionsListAllIncompatible.remove(option);
         request.getSession().setAttribute("option", option);
         model.addAttribute("optionsTogether", optionsTogether);
@@ -659,7 +626,6 @@ public class EmployeeController {
      * @param optionsTogether an array of option's ids that will be necessary for current option;
      * @param optionsIncompatible an array of option's ids that will be incompatible for current option;
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return success.jsp
      */
@@ -669,7 +635,7 @@ public class EmployeeController {
                                     @RequestParam(value = "initialPrice") int initialPrice,
                                     @RequestParam(value = "cb", required = false) int[] optionsTogether,
                                     @RequestParam(value = "cb2", required = false) int[] optionsIncompatible,
-                                    HttpServletRequest request, Locale locale, Model model) throws Exception{
+                                    HttpServletRequest request, Model model) throws IOException{
         contractValidator.priceCheck(price, "price");
         contractValidator.priceCheck(initialPrice, "initialPrice");
         Option option = (Option) request.getSession().getAttribute("option");
@@ -696,15 +662,15 @@ public class EmployeeController {
     /**
      * This method deletes an option with the help of entityRemoval.deleteOption method.
      * @param optionId option's id;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_options.jsp
      */
     @RequestMapping(value = "cp_employee_delete_option", method = RequestMethod.GET)
     public String deleteOption(@RequestParam(value = "optionId") int optionId,
-                               Locale locale, Model model) {
-        if (optionId == 12) throw new EntityNotDeletedException("This option can not be deleted, as some serious business logic is based upon it!");
-        else {
+                               Model model) {
+        if (optionId == OPTION_ID) {
+            throw new EntityNotDeletedException("This option can not be deleted, as some serious business logic is based upon it!");
+        } else {
             entityRemoval.removeOption(optionId);
             model.addAttribute("optionsList", optionService.getAll());
             return "cp_employee/cp_employee_options";
@@ -722,8 +688,7 @@ public class EmployeeController {
         long contractNumber = Long.parseLong(Parser.doParse(number));
         try {
             contractService.getContractByNumber(contractNumber);
-        }
-        catch (CustomDAOException ex) {
+        } catch (CustomDAOException ex) {
             return true;
         }
         return false;
@@ -733,33 +698,10 @@ public class EmployeeController {
     public boolean checkUser(@PathVariable String login) {
         try {
             userService.getUserByLogin(login);
-        }
-        catch (CustomDAOException ex) {
+        } catch (CustomDAOException ex) {
             return false;
         }
         return true;
-    }
-    @RequestMapping(value = "cp_employee_tariff_change/{tariffId}", method = RequestMethod.GET)
-    @ResponseBody
-    public List changeTariffData(@PathVariable int tariffId,
-                               HttpServletRequest request, Locale locale, Model model) {
-        Tariff tariff = tariffService.getEntityById(tariffId);
-        List<Option> allOptionsList = optionService.getAll();
-        List<Option> currentTariffOptionsList = optionService.getAllOptionsForTariff(tariffId);
-        allOptionsList.removeAll(currentTariffOptionsList);
-        List<Option> allOptions = new ArrayList<>();
-        List<Option> currentOptions = new ArrayList<>();
-        for (Option option : allOptionsList) {
-            allOptions.add(new Option(option.getId(), option.getName(), option.getPrice(), option.getInitialPrice()));
-
-        }
-        for (Option option : currentTariffOptionsList) {
-            currentOptions.add(new Option(option.getId(), option.getName(), option.getPrice(), option.getInitialPrice()));
-
-        }
-        List list = new ArrayList();
-        Collections.addAll(list, currentOptions, allOptions);
-        return list;
     }
 
 

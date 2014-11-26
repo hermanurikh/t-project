@@ -1,8 +1,5 @@
 package ru.tsystems.tproject.DAO.implementation;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import ru.tsystems.tproject.DAO.API.ContractDAO;
 import ru.tsystems.tproject.entities.Contract;
@@ -45,8 +42,7 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
             Query query = entityManager.createQuery("select u.contracts from User u where u.id=:id").setParameter("id", id);
 
             return (List<Contract>)query.getResultList();
-        }
-        catch (PersistenceException ex)
+        } catch (PersistenceException ex)
         {
             throw new ContractsForEntityNotGotException("Contracts for user " + id + " not got", ex);
         }

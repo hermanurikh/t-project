@@ -47,8 +47,8 @@ public class ContractServiceImplementation implements ContractService {
 
     /**
      * Gets contract by a specified number.
-     * @param number
-     * @return
+     * @param number contract's number
+     * @return a contract
      * @throws CustomDAOException
      */
     @Override
@@ -59,7 +59,7 @@ public class ContractServiceImplementation implements ContractService {
 
     /**
      * A method to get all contracts.
-     * @return
+     * @return a list of contracts
      * @throws CustomDAOException
      */
     @Override
@@ -67,6 +67,13 @@ public class ContractServiceImplementation implements ContractService {
     public List<Contract> getAll() throws CustomDAOException {
         return this.contractDAO.getAll();
     }
+
+    /**
+     * A method to get all contracts for a specified user.
+     * @param id a user's id;
+     * @return a list of contracts
+     * @throws ContractsForEntityNotGotException
+     */
     @Override
     @Transactional
     public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException {

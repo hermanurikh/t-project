@@ -3,16 +3,14 @@ package ru.tsystems.tproject.integration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tsystems.tproject.entities.Option;
-import ru.tsystems.tproject.entities.Tariff;
 import ru.tsystems.tproject.services.API.OptionService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.log4j.Logger;
 import ru.tsystems.tproject.services.API.UserService;
-
-import javax.print.attribute.IntegerSyntax;
 
 /**
  * A class that handles the validation of the contracts creation.
@@ -25,6 +23,13 @@ public class ContractValidator {
     private UserService userService;
     Logger logger = Logger.getLogger(ContractValidator.class);
 
+    /**
+     * This method checks if the selected options are compatible with each other.
+     * @param array the array of options' ids;
+     * @param exceptionsList the list of exceptions occured;
+     * @param userId the id of the user to check the balance;
+     * @return a list with a list of options and a list of exceptions.
+     */
     public List validateOptions(int[] array, List<Exception> exceptionsList, int userId) {
         List<Option> optionsTogether;
         List<Option> optionsIncompatible;
@@ -64,6 +69,13 @@ public class ContractValidator {
         Collections.addAll(list, optionList, exceptionsList);
         return list;
     }
+
+    /**
+     * This method asserts whether selected options can be acquired to the user's account.
+     * @param userId the user's id;
+     * @param optionList the list of options;
+     * @return the remaining sum
+     */
     public int balanceCheck(int userId, List<Option> optionList) {
         int balance = userService.getEntityById(userId).getBalance();
         for (Option x : optionList) {
@@ -71,8 +83,15 @@ public class ContractValidator {
         }
         return balance;
     }
-    public void priceCheck(int price, String priceName) throws Exception{
-        if (price > 400000) throw new Exception(String.format("The %s is too high!", priceName));
-        if (price < 0) throw new Exception(String.format("The %s must be > 0!", priceName));
+
+    /**
+     * This method validates the entered sum. It should be between 0 and 400000.
+     * @param price the entered sum;
+     * @param priceName the name of the param to throw the explainable exception;
+     * @throws Exception
+     */
+    public void priceCheck(int price, String priceName) throws IOException{
+        if (price > 400000) throw new IOException(String.format("The %s is too high!", priceName));
+        if (price < 0) throw new IOException(String.format("The %s must be > 0!", priceName));
     }
 }

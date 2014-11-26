@@ -1,4 +1,4 @@
-package ru.tsystems.tproject.utils.Locale;
+package ru.tsystems.tproject.utils.locale;
 
 /**
  * A singleton class to hold the static String values for the Russian language.
@@ -6,74 +6,74 @@ package ru.tsystems.tproject.utils.Locale;
 public class RussianLanguage implements Translatable {
     private static RussianLanguage russianLanguage;
 
-    private final String JSP_PANEL_NAME = "Панель управления аккаунтом";
-    private final String JSP_CONTRACTS_NAME = "Контракты";
-    private final String JSP_BALANCE_NAME = "Баланс";
-    private final String JSP_INFO_NAME = "Информация об аккаунте";
-    private final String JSP_PROFILE_NAME = "Профиль";
-    private final String JSP_SUPPORT_NAME = "Служба поддержки";
-    private final String JSP_INVITE_NAME = "Добро пожаловать";
-    private final String JSP_LOGOUT_NAME = "Выход из аккаунта";
-    private final String JSP_CONTRACTS_LIST_NAME = "Список контрактов";
-    private final String JSP_CONTRACTS_LIST_NUMBER = "Номер";
-    private final String JSP_CONTRACTS_LIST_TARIFF = "Тариф";
-    private final String JSP_CONTRACTS_LIST_OPTIONS = "Опции";
-    private final String JSP_CONTRACTS_LIST_STATUS = "Статус";
-    private final String JSP_CONTRACTS_LIST_ACTIONS = "Действия";
-    private final String JSP_CONTRACTS_ACTION_DETAILED = "Подробней";
-    private final String JSP_CONTRACTS_ACTION_CHANGE = "Изменить";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_CONTRACT = "Просмотр контракта";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_TARIFF = "Подключенный тариф";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_PRICE = "Стоимость, в месяц";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_OPTIONS = "Подключенные опции";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE = "Суммарная стоимость тарифа с опциями";
-    private final String JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED = "Состояние контракта";
-    private final String JSP_CONTRACTS_CHANGE = "Изменение контракта с номером ";
-    private final String JSP_CONTRACTS_CHOOSE_TARIFF = "Выберите тариф для контракта";
-    private final String JSP_CONTRACTS_TARIFF_HELPER = "После выбора тарифа к нему можно будет подключить опции.";
-    private final String JSP_CONTRACTS_PRICE = "Цена";
-    private final String JSP_CONTRACTS_SUBMIT = "Подтвердить";
-    private final String JSP_CONTRACTS_BLOCK = "Заблокировать";
-    private final String JSP_CONTRACTS_BLOCKED = "В данный момент блокировка ВКЛЮЧЕНА. Вы не можете произвести изменения с контрактом";
-    private final String JSP_CONTRACTS_UNBLOCK = "Разблокировать";
-    private final String JSP_CONTRACTS_UNBLOCKED = "В данный момент блокировка выключена";
-    private final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору";
-    private final String JSP_CONTRACTS_ERROR = "В процессе выбора опций произошли ошибки!";
-    private final String JSP_CONTRACTS_CHANGING = "Изменение контракта";
-    private final String JSP_CONTRACTS_CHANGING_NUMBER = "Номер контракта:";
-    private final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Выберите опции для тарифа";
-    private final String JSP_CONTRACTS_DETAILED_OPTIONS = "Щелкните по опции для просмотра ее необходимых и несовместимых опций.";
-    private final String JSP_CONTRACTS_OPTION = "Опция";
-    private final String JSP_CONTRACTS_OPTION_PRICE = "Цена";
-    private final String JSP_CONTRACTS_OPTION_INITIAL_PRICE = "Цена подключения";
-    private final String JSP_CONTRACTS_OPTIONS_TOGETHER = "Необходимые опции";
-    private final String JSP_CONTRACTS_OPTIONS_INCOMPATIBLE = "Несовместимые опции";
-    private final String JSP_CONTRACTS_SUBMIT_CONTRACT = "Изменить контракт";
-    private final String JSP_CONTRACTS_BACK_TO_TARIFF = "Назад к выбору тарифа";
-    private final String JSP_CONTRACTS_SUBMIT_BUCKET = "Пожалуйста, подтвердите изменение контракта";
-    private final String JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS = "Выбранный тариф и опции:";
-    private final String JSP_SUCCESS = "Успешно!";
-    private final String JSP_BALANCE_PAY = "Оплатить услуги";
-    private final String JSP_BALANCE_INCREASE_BALANCE = "Пополнить баланс на 100 рублей";
-    private final String JSP_BALANCE_CURRENT = "Текущий баланс";
-    private final String JSP_BALANCE_CURRENCY = "р.";
-    private final String JSP_BALANCE_DECREASED = "С баланса аккаунта будет списано";
-    private final String JSP_BALANCE_MONTHLY_CURRENCY = "р./мес.";
-    private final String JSP_INFO_PROFILE = "Профиль аккаунта";
-    private final String JSP_INFO_BIRTHDAY = "Дата рождения";
-    private final String JSP_INFO_PASSPORT = "Паспорт";
-    private final String JSP_INFO_CONTACT_INFO = "Контактная информация";
-    private final String JSP_INFO_EMAIL = "Эл. почта";
-    private final String JSP_INFO_POST = "Почтовый адрес";
-    private final String JSP_PLEASE_WAIT = "Пожалуйста, подождите ";
-    private final String JSP_BLOCKED_BY_ADMIN = "ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ";
-    private final String JSP_BLOCKED_BY_ADMIN_SMALL = "Заблокирован администратором";
-    private final String JSP_BLOCKED = "Заблокирован";
-    private final String JSP_ACTIVE = "Активен";
-    private final String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Доступные опции для тарифа ";
-    private final String JSP_NO_OPTIONS_FOR_TARIFF = "К данному тарифу невозможно подключить опции.";
-    private final String JSP_NO_OPTIONS_TOGETHER = "Для данной опции нет других обязательных к подключению опций.";
-    private final String JSP_NO_OPTIONS_INCOMPATIBLE = "Для данной опции нет других невозможных к подключению опций.";
+    private static final String JSP_PANEL_NAME = "Панель управления аккаунтом";
+    private static final String JSP_CONTRACTS_NAME = "Контракты";
+    private static final String JSP_BALANCE_NAME = "Баланс";
+    private static final String JSP_INFO_NAME = "Информация об аккаунте";
+    private static final String JSP_PROFILE_NAME = "Профиль";
+    private static final String JSP_SUPPORT_NAME = "Служба поддержки";
+    private static final String JSP_INVITE_NAME = "Добро пожаловать";
+    private static final String JSP_LOGOUT_NAME = "Выход из аккаунта";
+    private static final String JSP_CONTRACTS_LIST_NAME = "Список контрактов";
+    private static final String JSP_CONTRACTS_LIST_NUMBER = "Номер";
+    private static final String JSP_CONTRACTS_LIST_TARIFF = "Тариф";
+    private static final String JSP_CONTRACTS_LIST_OPTIONS = "Опции";
+    private static final String JSP_CONTRACTS_LIST_STATUS = "Статус";
+    private static final String JSP_CONTRACTS_LIST_ACTIONS = "Действия";
+    private static final String JSP_CONTRACTS_ACTION_DETAILED = "Подробней";
+    private static final String JSP_CONTRACTS_ACTION_CHANGE = "Изменить";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_CONTRACT = "Просмотр контракта";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_TARIFF = "Подключенный тариф";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_PRICE = "Стоимость, в месяц";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_OPTIONS = "Подключенные опции";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_OVERALL_PRICE = "Суммарная стоимость тарифа с опциями";
+    private static final String JSP_CONTRACTS_DETAILED_VIEW_IS_BLOCKED = "Состояние контракта";
+    private static final String JSP_CONTRACTS_CHANGE = "Изменение контракта с номером ";
+    private static final String JSP_CONTRACTS_CHOOSE_TARIFF = "Выберите тариф для контракта";
+    private static final String JSP_CONTRACTS_TARIFF_HELPER = "После выбора тарифа к нему можно будет подключить опции.";
+    private static final String JSP_CONTRACTS_PRICE = "Цена";
+    private static final String JSP_CONTRACTS_SUBMIT = "Подтвердить";
+    private static final String JSP_CONTRACTS_BLOCK = "Заблокировать";
+    private static final String JSP_CONTRACTS_BLOCKED = "Контракт заблокирован. С ним невозможно произвести изменения.";
+    private static final String JSP_CONTRACTS_UNBLOCK = "Разблокировать";
+    private static final String JSP_CONTRACTS_UNBLOCKED = "В данный момент блокировка выключена";
+    private static final String JSP_CONTRACTS_BLOCKED_BY_ADMIN = "ВКЛЮЧЕНА АДМИНИСТРАТОРОМ. Вы не можете самостоятельно разблокировать контракт. Пожалуйста, обратитесь к администратору";
+    private static final String JSP_CONTRACTS_ERROR = "В процессе выбора опций произошли ошибки!";
+    private static final String JSP_CONTRACTS_CHANGING = "Изменение контракта";
+    private static final String JSP_CONTRACTS_CHANGING_NUMBER = "Номер контракта:";
+    private static final String JSP_CONTRACTS_CHOOSE_OPTIONS = "Выберите опции для тарифа";
+    private static final String JSP_CONTRACTS_DETAILED_OPTIONS = "Щелкните по опции для просмотра ее необходимых и несовместимых опций.";
+    private static final String JSP_CONTRACTS_OPTION = "Опция";
+    private static final String JSP_CONTRACTS_OPTION_PRICE = "Цена";
+    private static final String JSP_CONTRACTS_OPTION_INITIAL_PRICE = "Цена подключения";
+    private static final String JSP_CONTRACTS_OPTIONS_TOGETHER = "Необходимые опции";
+    private static final String JSP_CONTRACTS_OPTIONS_INCOMPATIBLE = "Несовместимые опции";
+    private static final String JSP_CONTRACTS_SUBMIT_CONTRACT = "Изменить контракт";
+    private static final String JSP_CONTRACTS_BACK_TO_TARIFF = "Назад к выбору тарифа";
+    private static final String JSP_CONTRACTS_SUBMIT_BUCKET = "Пожалуйста, подтвердите изменение контракта";
+    private static final String JSP_CONTRACTS_SUBMIT_BUCKET_TARIFF_OPTIONS = "Выбранный тариф и опции:";
+    private static final String JSP_SUCCESS = "Успешно!";
+    private static final String JSP_BALANCE_PAY = "Оплатить услуги";
+    private static final String JSP_BALANCE_INCREASE_BALANCE = "Пополнить баланс на 100 рублей";
+    private static final String JSP_BALANCE_CURRENT = "Текущий баланс";
+    private static final String JSP_BALANCE_CURRENCY = "р.";
+    private static final String JSP_BALANCE_DECREASED = "С баланса аккаунта будет списано";
+    private static final String JSP_BALANCE_MONTHLY_CURRENCY = "р./мес.";
+    private static final String JSP_INFO_PROFILE = "Профиль аккаунта";
+    private static final String JSP_INFO_BIRTHDAY = "Дата рождения";
+    private static final String JSP_INFO_PASSPORT = "Паспорт";
+    private static final String JSP_INFO_CONTACT_INFO = "Контактная информация";
+    private static final String JSP_INFO_EMAIL = "Эл. почта";
+    private static final String JSP_INFO_POST = "Почтовый адрес";
+    private static final String JSP_PLEASE_WAIT = "Пожалуйста, подождите ";
+    private static final String JSP_BLOCKED_BY_ADMIN = "ЗАБЛОКИРОВАН АДМИНИСТРАТОРОМ";
+    private static final String JSP_BLOCKED_BY_ADMIN_SMALL = "Заблокирован администратором";
+    private static final String JSP_BLOCKED = "Заблокирован";
+    private static final String JSP_ACTIVE = "Активен";
+    private static final String JSP_POSSIBLE_OPTIONS_FOR_TARIFF = "Доступные опции для тарифа ";
+    private static final String JSP_NO_OPTIONS_FOR_TARIFF = "К данному тарифу невозможно подключить опции.";
+    private static final String JSP_NO_OPTIONS_TOGETHER = "Для данной опции нет других обязательных к подключению опций.";
+    private static final String JSP_NO_OPTIONS_INCOMPATIBLE = "Для данной опции нет других невозможных к подключению опций.";
 
 
 
@@ -83,8 +83,7 @@ public class RussianLanguage implements Translatable {
     public static RussianLanguage getRussianLanguage() {
         if (russianLanguage == null) {
             return russianLanguage = new RussianLanguage();
-        }
-        else {
+        } else {
             return russianLanguage;
         }
     }

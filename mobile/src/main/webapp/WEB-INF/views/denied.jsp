@@ -4,8 +4,8 @@
 <html>
 <head><title>403 Forbidden</title></head>
 <body bgcolor="white">
-<center><h1>403 Forbidden</h1></center>
-<hr><center>Access denied!</center>
+<div style="text-align: center;"><h1>403 Forbidden</h1></div>
+<hr><div style="text-align: center;">Access denied!</div>
 </body>
 </html>
 
