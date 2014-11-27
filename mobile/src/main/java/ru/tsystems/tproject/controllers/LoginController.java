@@ -12,7 +12,7 @@ import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.utils.locale.RussianLanguage;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Locale;
+import static ru.tsystems.tproject.utils.pages.SharedPages.*;
 
 /**
  * A controllers that validates the login data and redirects to main page.
@@ -25,64 +25,60 @@ public class LoginController {
 
     /**
      * This method returns the login page.
-     * @param locale locale;
-     * @param model model;
      * @return login.jsp
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Locale locale, Model model) {
-        return "login";
+    @RequestMapping(value = LOGIN, method = RequestMethod.GET)
+    public String loginPage() {
+        return LOGIN;
     }
 
     /**'
      * This method returns the login page when logout is required.
      * @return login.jsp
      */
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = LOGOUT, method = RequestMethod.GET)
     public String logoutPage() {
-        return "login";
+        return LOGIN;
     }
 
     /**
      * This method returns an error403 page when a restricted access page is called.
      * @return denied.jsp
      */
-    @RequestMapping(value = "/denied", method = RequestMethod.GET)
+    @RequestMapping(value = DENIED, method = RequestMethod.GET)
     public String deniedPage() {
-        return "denied";
+        return DENIED;
     }
 
     /**
      * This method returns a login page with an error block after an unsuccessful attempt.
-     * @param locale locale;
      * @param model model;
      * @return login.jsp
      */
-    @RequestMapping(value = "/login-denied", method = RequestMethod.GET)
-    public String loginDenied(Locale locale, Model model) {
+    @RequestMapping(value = LOGIN_DENIED, method = RequestMethod.GET)
+    public String loginDenied(Model model) {
         model.addAttribute("isInputValid", "false");
-        return "login";
+        return LOGIN;
     }
 
     /**
      * This method dispatches the requests to the starting page of an employee or to the one of a user.
      * It also sets the current user entity into session.
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return cp_employee_main.jsp or cp_client_main.jsp
      */
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String dispatch(HttpServletRequest request, Locale locale, Model model) {
+    @RequestMapping(value = MAIN, method = RequestMethod.GET)
+    public String dispatch(HttpServletRequest request, Model model) {
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User currentUser = userService.getUserByLogin(user.getUsername());
         request.getSession().setAttribute("currentUserU", currentUser);
         request.getSession().setAttribute("language", RussianLanguage.getRussianLanguage());
         if (currentUser.getRole().getId() == 2) {
-            return "cp_employee/cp_employee_main";
+            return EMPLOYEE_MAIN;
         } else if (currentUser.getRole().getId() == 1){
-            return "cp_client/cp_client_main";
-        } else return "login";
+            return CLIENT_MAIN;
+        } else return LOGIN;
     }
 
 }

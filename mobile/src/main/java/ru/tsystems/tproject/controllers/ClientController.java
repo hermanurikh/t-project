@@ -1,6 +1,6 @@
 
 package ru.tsystems.tproject.controllers;
-
+import static ru.tsystems.tproject.utils.pages.ClientPages.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,6 @@ import ru.tsystems.tproject.utils.locale.Translatable;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * A controllers to dispatch the queries of the clients.
@@ -36,67 +35,61 @@ public class ClientController {
     @Autowired
     private TariffService tariffService;
     @Autowired
-    private OptionService optionService;
-    @Autowired
     private ContractValidator contractValidator;
+    public static final String CURRENT_USER = "currentUserU";
+    public static final int AMOUNT = 100;
+
 
     /**
      * This method returns a main page for the user control panel.
-     * @param locale locale;
-     * @param model model;
      * @return cp_client_main.jsp
      */
-    @RequestMapping(value = "/cp_client_main", method = RequestMethod.GET)
-    public String getMainPage(Locale locale, Model model) {
-        return "cp_client/cp_client_main";
+    @RequestMapping(value = MAIN, method = RequestMethod.GET)
+    public String getMainPage() {
+        return CLIENT + MAIN;
     }
 
     /**
      * This method returns a profile page.
-     * @param locale locale;
-     * @param model model;
      * @return cp_client_profile.jsp
      */
-    @RequestMapping(value = "/cp_client_profile", method = RequestMethod.GET)
-    public String getProfile(Locale locale, Model model) {
-        return "cp_client/cp_client_profile";
+    @RequestMapping(value = PROFILE, method = RequestMethod.GET)
+    public String getProfile() {
+        return CLIENT + PROFILE;
     }
 
     /**
      * This method returns a page will all the contracts of current user.
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return cp_client_contracts.jsp
      */
-    @RequestMapping(value = "/cp_client_contracts", method = RequestMethod.GET)
-    public String getContracts(HttpServletRequest request, Locale locale, Model model) {
-        User user = (User) request.getSession().getAttribute("currentUserU");
+    @RequestMapping(value = CONTRACTS, method = RequestMethod.GET)
+    public String getContracts(HttpServletRequest request, Model model) {
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
         model.addAttribute("contractsUserList", contractService.getAllContractsForUser(user.getId()));
-        return "cp_client/cp_client_contracts";
+        return CLIENT + CONTRACTS;
     }
 
     /**
      * This method returns a page where the tariff for the contract should be selected.
      * @param contractId the contracts id;
      * @param request request;
-     * @param locale locale;
-     * @param model model;
      * @return cp_client_change_contract.jsp
      */
-    @RequestMapping(value = "/cp_client_change_contract", method = RequestMethod.GET)
+    @RequestMapping(value = CHANGE_CONTRACT, method = RequestMethod.GET)
     public String changeContract(@RequestParam(value = "contractId") int contractId,
-                                 HttpServletRequest request, Locale locale, Model model) {
+                                 HttpServletRequest request) {
         Contract contract = contractService.getEntityById(contractId);
-        User user = (User) request.getSession().getAttribute("currentUserU");
-        if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
+        if (!user.getContracts().contains(contract)) return CLIENT + MAIN;
         if (contract.isBlocked()) {
-            return "cp_client/cp_client_main";
+            return CLIENT + MAIN;
         }
         request.getSession().setAttribute("tariffsList", tariffService.getAll());
         request.getSession().setAttribute("contract", contract);
         /*request.getSession().setAttribute("contractNumber", contract.getNumber());*/
-        return "cp_client/cp_client_change_contract";
+        return CLIENT + CHANGE_CONTRACT;
     }
 
     /**
@@ -106,17 +99,16 @@ public class ClientController {
      *              - doesn't allow to do any actions, if it has been blocked by employee.
      * @param number contracts number;
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return cp_client_change_contract.jsp
      */
-    @RequestMapping(value = "/cp_client_block_contract", method = RequestMethod.GET)
+    @RequestMapping(value = BLOCK_CONTRACT, method = RequestMethod.GET)
     public String blockContract(@RequestParam(value = "contractId") int number,
-                                HttpServletRequest request, Locale locale, Model model) {
+                                HttpServletRequest request, Model model) {
         Translatable translatable = (Translatable) request.getSession().getAttribute("language");
         Contract contract = contractService.getEntityById(number);
-        User user = (User) request.getSession().getAttribute("currentUserU");
-        if (!user.getContracts().contains(contract)) return "cp_client/cp_client_main";
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
+        if (!user.getContracts().contains(contract)) return CLIENT + MAIN;
         if (contract.isBlocked()) {
             if (contract.getEmployee() == null) {
                 contract.setBlocked(false);
@@ -133,7 +125,7 @@ public class ClientController {
             request.getSession().setAttribute("contract", contract);
         }
         model.addAttribute("contractsUserList", contractService.getAllContractsForUser(user.getId()));
-        return "cp_client/cp_client_contracts";
+        return CLIENT + CONTRACTS;
     }
 
 
@@ -142,19 +134,18 @@ public class ClientController {
      * added to the exceptionsList.
      * @param array the array of options' ids;
      * @param request request;
-     * @param locale locale;
      * @param model model;
      * @return cp_client_contract_change_bucket.jsp or exception.jsp
      */
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "/cp_client_contract_bucket", method = RequestMethod.POST)
+    @RequestMapping(value = BUCKET, method = RequestMethod.POST)
     public String finalContractChange(@RequestParam(value = "cb") int tariffId,
                                       @RequestParam(value = "cb3", required = false) int[] array,
-                                      HttpServletRequest request, Locale locale, Model model) throws Exception{
+                                      HttpServletRequest request, Model model) throws Exception{
         if (((Contract) request.getSession().getAttribute("contract")).isBlocked()) {
-            return "cp_client/cp_client_main";
+            return CLIENT + MAIN;
         }
-        User user = (User) request.getSession().getAttribute("currentUserU");
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
         Tariff tariff = tariffService.getEntityById(tariffId);
         Contract contract = (Contract) request.getSession().getAttribute("contract");
         contract.setTariff(tariff);
@@ -163,7 +154,7 @@ public class ClientController {
             request.getSession().setAttribute("updatedContract", contract);
             model.addAttribute("optionsList", contract.getOptions());
             request.getSession().setAttribute("totalAmount", 0);
-            return "cp_client/cp_client_contract_change_bucket";
+            return CLIENT + BUCKET;
         } else {
             List<Exception> exceptionList = new ArrayList<>();
             List validationResultList = contractValidator.validateOptions(array, exceptionList, user.getId()); //checking if the entered options are correct
@@ -178,7 +169,7 @@ public class ClientController {
                 request.getSession().setAttribute("totalAmount", user.getBalance() - contractValidator.balanceCheck(user.getId(), optionList));
                 request.getSession().setAttribute("updatedContract", contract);
                 model.addAttribute("optionsList", contract.getOptions());
-                return "cp_client/cp_client_contract_change_bucket";
+                return CLIENT + BUCKET;
             } else {
                 throw new ScriptViolationException("jQuery required to perform this operation!");
             }
@@ -190,46 +181,40 @@ public class ClientController {
     /**
      * This method finally changes the contract after the approval by the client.
      * @param request request;
-     * @param locale locale;
-     * @param model model;
      * @return success.jsp
      */
-    @RequestMapping(value = "/cp_client_bucket_approved", method =  RequestMethod.POST)
-    public String approveBucket(HttpServletRequest request, Locale locale, Model model) {
+    @RequestMapping(value = BUCKET_APPROVED, method =  RequestMethod.POST)
+    public String approveBucket(HttpServletRequest request) {
         Contract contract = (Contract) request.getSession().getAttribute("updatedContract");
-        User user = (User) request.getSession().getAttribute("currentUserU");
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
         contractService.updateEntity(contract);
         //balance decreased
         user.setBalance(user.getBalance() - (Integer) request.getSession().getAttribute("totalAmount"));
         userService.updateEntity(user);
-        return "cp_client/success";
+        return CLIENT + SUCCESS;
     }
 
     /**
      * This method returns a page where you can increase the current balance.
-     * @param locale locale;
-     * @param model model;
      * @return cp_client_balance
      */
-    @RequestMapping(value = "/cp_client_balance", method = RequestMethod.GET)
-    public String getBalance(Locale locale, Model model) {
-        return "cp_client/cp_client_balance";
+    @RequestMapping(value = BALANCE, method = RequestMethod.GET)
+    public String getBalance() {
+        return CLIENT + BALANCE;
     }
 
     /**
      * This method increases the current balance by 100.
      * @param request request;
-     * @param locale locale;
-     * @param model model;
      * @return cp_client_balance.jsp
      */
-    @RequestMapping(value = "/cp_client_increase_balance", method = RequestMethod.GET)
-    public String increaseBalance(HttpServletRequest request, Locale locale, Model model) {
-        User user = (User) request.getSession().getAttribute("currentUserU");
-        user.setBalance(user.getBalance() + 100);
+    @RequestMapping(value = INCREASE_BALANCE, method = RequestMethod.GET)
+    public String increaseBalance(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
+        user.setBalance(user.getBalance() + AMOUNT);
         userService.updateEntity(user);
-        request.getSession().setAttribute("currentUserU", user);
-        return "cp_client/cp_client_balance";
+        request.getSession().setAttribute(CURRENT_USER, user);
+        return CLIENT + BALANCE;
     }
 }
 

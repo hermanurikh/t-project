@@ -12,6 +12,7 @@ import ru.tsystems.tproject.utils.locale.RussianLanguage;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import static ru.tsystems.tproject.utils.pages.SharedPages.*;
 
 /**
  * A controller to dispatch the ajax queries.
@@ -22,7 +23,9 @@ public class AjaxDispatcher {
     private OptionService optionService;
     @Autowired
     private ContractValidator contractValidator;
-    @RequestMapping(value = "cp_get_options_for_tariff/{tariffId}", method = RequestMethod.GET)
+
+    public static final String LANGUAGE = "language";
+    @RequestMapping(value = GET_OPTIONS_FOR_TARIFF, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsForTariff(@PathVariable int tariffId) {
         List<Option> optionList = new ArrayList<>();
@@ -31,7 +34,7 @@ public class AjaxDispatcher {
         }
         return optionList;
     }
-    @RequestMapping(value = "cp_get_optionsTogether_for_option/{optionId}", method = RequestMethod.GET)
+    @RequestMapping(value = GET_OPTIONS_TOGETHER, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsTogether(@PathVariable int optionId) {
         List<Option> optionList = new ArrayList<>();
@@ -40,7 +43,7 @@ public class AjaxDispatcher {
         }
         return optionList;
     }
-    @RequestMapping(value = "cp_get_optionsIncompatible_for_option/{optionId}", method = RequestMethod.GET)
+    @RequestMapping(value = GET_OPTIONS_INCOMPATIBLE, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsIncompatible(@PathVariable int optionId) {
         List<Option> optionList = new ArrayList<>();
@@ -50,7 +53,7 @@ public class AjaxDispatcher {
         return optionList;
     }
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "cp_ajax_validate_options", method = RequestMethod.POST)
+    @RequestMapping(value = VALIDATE_OPTIONS, method = RequestMethod.POST)
     @ResponseBody
     public List<String> validateOptions(@RequestParam(value = "cb3", required = false) int[] array,
                                         @RequestParam(value = "currentUserID", required = false) Integer userID) {
@@ -74,18 +77,18 @@ public class AjaxDispatcher {
             }
         }
     }
-    @RequestMapping(value = "cp_language_en", method = RequestMethod.GET)
+    @RequestMapping(value = EN, method = RequestMethod.GET)
     @ResponseBody
     public String setEnglish(HttpServletRequest request) {
-        request.getSession().removeAttribute("language");
-        request.getSession().setAttribute("language", EnglishLanguage.getEnglishLanguage());
+        request.getSession().removeAttribute(LANGUAGE);
+        request.getSession().setAttribute(LANGUAGE, EnglishLanguage.getEnglishLanguage());
         return "";
     }
-    @RequestMapping(value = "cp_language_ru", method = RequestMethod.GET)
+    @RequestMapping(value = RU, method = RequestMethod.GET)
     @ResponseBody
     public String setRussian(HttpServletRequest request) {
-        request.getSession().removeAttribute("language");
-        request.getSession().setAttribute("language", RussianLanguage.getRussianLanguage());
+        request.getSession().removeAttribute(LANGUAGE);
+        request.getSession().setAttribute(LANGUAGE, RussianLanguage.getRussianLanguage());
         return "";
     }
 }

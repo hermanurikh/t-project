@@ -59,7 +59,9 @@ public class Tariff {
         return this.possibleOptions;
     }
 
-    public void removePossibleOptions() { this.possibleOptions.clear(); }
+    public void removePossibleOptions() {
+        this.possibleOptions.clear();
+    }
 
     /**
      * This method removes an option from the list of possible options.
@@ -84,8 +86,12 @@ public class Tariff {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Tariff)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Tariff)) {
+            return false;
+        }
 
         Tariff tariff = (Tariff) o;
 

@@ -19,7 +19,9 @@ public class UserUpdater {
     private RoleService roleService;
     @Autowired
     private UserService userService;
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    public static final int LENGTH = 100;
+    public static final int EMAIL_LENGTH = 50;
 
     /**
      * This method validates the entered fields and gives back a user to create.
@@ -42,26 +44,26 @@ public class UserUpdater {
         User user = new User();
         user.setName(name);
         user.setSurname(surname);
-        user.setBirthday(dateFormat.parse(date));
+        user.setBirthday(DATE_FORMAT.parse(date));
         user.setLogin(login);
         user.setPassword(Converter.getMD5(password));
         user.setRole(roleService.getEntityById(roleID));
         if (passport != null && passport.length() !=0) {
-            if (passport.length() > 100) {
+            if (passport.length() > LENGTH) {
                 throw new IOException("The passport length is too big!");
             } else {
                 user.setPassport(passport);
             }
         }
         if (address != null && address.length() !=0) {
-            if (address.length() > 100) {
+            if (address.length() > LENGTH) {
                 throw new IOException("The address length is too big!");
             } else {
                 user.setAddress(address);
             }
         }
         if (email != null && email.length() !=0) {
-            if (email.length() > 50) {
+            if (email.length() > EMAIL_LENGTH) {
                 throw new IOException("The email length is too big!");
             } else {
                 user.setEmail(email);
@@ -94,24 +96,26 @@ public class UserUpdater {
     public User updateUser(int id, String name, String surname, String date, String passport, String address, String email,
                            Integer balance, String password) throws Exception {
         User user = userService.getEntityById(id);
-        user.setName(name); user.setSurname(surname); user.setBirthday(dateFormat.parse(date));
+        user.setName(name);
+        user.setSurname(surname);
+        user.setBirthday(DATE_FORMAT.parse(date));
         user.setPassword(Converter.getMD5(password));
         if (passport != null && passport.length() !=0) {
-            if (passport.length() > 100) {
+            if (passport.length() > LENGTH) {
                 throw new IOException("The passport length is too big!");
             } else {
                 user.setPassport(passport);
             }
         }
         if (address != null && address.length() !=0) {
-            if (address.length() > 100) {
+            if (address.length() > LENGTH) {
                 throw new IOException("The address length is too big!");
             } else {
                 user.setAddress(address);
             }
         }
         if (email != null && email.length() !=0) {
-            if (email.length() > 50) {
+            if (email.length() > EMAIL_LENGTH) {
                 throw new IOException("The email length is too big!");
             } else {
                 user.setEmail(email);

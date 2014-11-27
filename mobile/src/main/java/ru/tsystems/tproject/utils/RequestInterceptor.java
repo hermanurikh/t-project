@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RequestInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private UserService userService;
-    private static final Logger logger = Logger.getLogger(RequestInterceptor.class);
+    private static final Logger LOGGER = Logger.getLogger(RequestInterceptor.class);
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
@@ -26,10 +26,10 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURL().toString();
         try {
             String userLogin = ((User) request.getSession().getAttribute("currentUserU")).getLogin();
-            logger.info("User " + userLogin + " requested URL::" + url);
+            LOGGER.info("User " + userLogin + " requested URL::" + url);
             request.setAttribute("startTime", startTime);
         } catch (Exception ex) {
-            logger.info("No user found while requesting the URL::" + url);
+            LOGGER.info("No user found while requesting the URL::" + url);
             try {
                 org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 User currentUser = userService.getUserByLogin(user.getUsername());
@@ -54,6 +54,6 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
                                 HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
         long startTime = (Long) request.getAttribute("startTime");
-        logger.info("Request URL dispatching time taken::" + (System.currentTimeMillis() - startTime));
+        LOGGER.info("Request URL dispatching time taken::" + (System.currentTimeMillis() - startTime));
     }
 }
