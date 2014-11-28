@@ -242,7 +242,7 @@
                                     <div class="js-row control-group">
                                         <label class="js-caption control-label">Баланс:</label>
                                         <div class="js-td controls jq-validate-container">
-                                            <input type="number" id="balance" class="js-input big-input" name="balance" value="${balance}">
+                                            <input type="text" id="balance" class="js-input big-input" name="balance" value="${balance}">
                                             <span class="error-custom-message" id="error-custom-message-balance">Пожалуйста, введите корректное значение баланса от 0 до 999999 или оставьте поле пустым.</span>
 
                                         </div>

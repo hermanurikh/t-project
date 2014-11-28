@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.252" errors="0" skipped="0" tests="9" name="ru.tsystems.tproject.integration.ContractValidatorTest">
+<testsuite failures="0" time="0.027" errors="0" skipped="0" tests="9" name="ru.tsystems.tproject.integration.ContractValidatorTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/amd64"/>
@@ -41,7 +41,7 @@
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-7-oracle/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher org.jacoco:jacoco-maven-plugin:prepare-agent clean install -Pcoverage-per-test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="ru"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -59,13 +59,13 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.02" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestNegative2"/>
-  <testcase time="0.002" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsOneException"/>
-  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsTwoExceptions"/>
-  <testcase time="0" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestPositive"/>
+  <testcase time="0" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestNegative2"/>
+  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsOneException"/>
+  <testcase time="0.002" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsTwoExceptions"/>
+  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestPositive"/>
   <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestNegative"/>
-  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsNoExceptions"/>
+  <testcase time="0" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testValidateOptionsNoExceptions"/>
   <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="priceCheckTestPositive2"/>
-  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testBalanceCheckPositive"/>
-  <testcase time="0" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testBalanceCheckNegative"/>
+  <testcase time="0.002" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testBalanceCheckPositive"/>
+  <testcase time="0.001" classname="ru.tsystems.tproject.integration.ContractValidatorTest" name="testBalanceCheckNegative"/>
 </testsuite>

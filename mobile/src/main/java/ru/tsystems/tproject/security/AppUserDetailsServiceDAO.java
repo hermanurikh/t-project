@@ -25,20 +25,16 @@ public class AppUserDetailsServiceDAO implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-        logger.info("Requested login - " + username);
         User user;
         try {
             user = this.userDAO.getUserByLogin(username);
-            logger.info("User found - " + user);
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
-            logger.info("The authorities of the user - " + user.getRole().getName());
             return new org.springframework.security.core.userdetails.User(username, user.getPassword(), true, true, true, true, authorities);
         } catch (CustomDAOException ex) {
-            logger.info("User with login " + username + " not found!");
             throw new UsernameNotFoundException(username + " not found");
         } catch (Exception ex) {
-            logger.error("Error! The text is: " + ex + ", as well as " + ex.getMessage());
+            logger.error("Exception caught: " + ex);
             return null;
         }
 
