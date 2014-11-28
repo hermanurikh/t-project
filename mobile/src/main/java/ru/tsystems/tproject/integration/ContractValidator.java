@@ -21,7 +21,7 @@ public class ContractValidator {
     private OptionService optionService;
     @Autowired
     private UserService userService;
-    Logger logger = Logger.getLogger(ContractValidator.class);
+    private static final int MAX_PRICE = 400000;
 
     /**
      * This method checks if the selected options are compatible with each other.
@@ -38,10 +38,13 @@ public class ContractValidator {
         for (int x : array) {
             temporaryList.add(x);
         }
-        for (Integer x : temporaryList) { // for each option
+        // for each option
+        for (Integer x : temporaryList) {
             Option currentOption = optionService.getEntityById(x);
-            optionList.add(currentOption); //we add it to the final list
-            optionsTogether = currentOption.getOptionsTogether(); // we get a list of necessary options
+            //we add it to the final list
+            optionList.add(currentOption);
+            // we get a list of necessary options
+            optionsTogether = currentOption.getOptionsTogether();
             if (!optionsTogether.isEmpty()) {
                 for (Option necessary : optionsTogether) { //for each option from the together list we check whether it was checked
                     if (!temporaryList.contains(necessary.getId())) { //if it wasn't
@@ -49,7 +52,8 @@ public class ContractValidator {
                     }
                 }
             }
-            optionsIncompatible = currentOption.getOptionsIncompatible(); //we get a list of incompatible options
+            //we get a list of incompatible options
+            optionsIncompatible = currentOption.getOptionsIncompatible();
             if (!optionsIncompatible.isEmpty()) {
                 for (Option incompatible : optionsIncompatible) {
                     if (temporaryList.contains(incompatible.getId())) {
@@ -91,7 +95,11 @@ public class ContractValidator {
      * @throws Exception
      */
     public void priceCheck(int price, String priceName) throws IOException{
-        if (price > 400000) throw new IOException(String.format("The %s is too high!", priceName));
-        if (price < 0) throw new IOException(String.format("The %s must be > 0!", priceName));
+        if (price > MAX_PRICE) {
+            throw new IOException(String.format("The %s is too high!", priceName));
+        }
+        if (price < 0) {
+            throw new IOException(String.format("The %s must be > 0!", priceName));
+        }
     }
 }

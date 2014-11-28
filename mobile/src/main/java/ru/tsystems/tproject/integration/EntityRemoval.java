@@ -19,7 +19,6 @@ import java.util.List;
  */
 @Service("entityRemoval")
 public class EntityRemoval {
-    private static Logger logger = Logger.getLogger(EntityRemoval.class);
     @Autowired
     private TariffService tariffService;
     @Autowired
@@ -29,6 +28,10 @@ public class EntityRemoval {
     @Autowired
     private OptionService optionService;
 
+    private static final int BASE_TARIFF = 11;
+    private static final int TARIFF_COMPENSATION = 500;
+    private static final int OPTION_COMPENSATION = 100;
+
     /**
      * When a tariff is removed, all users that have it in contract have the tariff changed to base one. Their balance is increased
      * by 500.
@@ -37,13 +40,13 @@ public class EntityRemoval {
     public void removeTariff(int tariffId) {
         User user;
         Tariff tariff = tariffService.getEntityById(tariffId);
-        Tariff baseTariff = tariffService.getEntityById(11);
+        Tariff baseTariff = tariffService.getEntityById(BASE_TARIFF);
         List<Contract> contractList = contractService.getAll();
         for (Contract x : contractList) {
             if (x.getTariff().equals(tariff)) {
                 x.setTariff(baseTariff);
                 user = x.getUser();
-                user.setBalance(user.getBalance() + 500);
+                user.setBalance(user.getBalance() + TARIFF_COMPENSATION);
                 contractService.updateEntity(x);
                 userService.updateEntity(user);
             }
@@ -89,7 +92,7 @@ public class EntityRemoval {
                 x.removeOption(option);
                 contractService.updateEntity(x);
                 user = x.getUser();
-                user.setBalance(user.getBalance() + 100);
+                user.setBalance(user.getBalance() + OPTION_COMPENSATION);
                 userService.updateEntity(user);
             }
         }

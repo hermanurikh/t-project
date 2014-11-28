@@ -630,7 +630,6 @@ public class EmployeeController {
         option.setInitialPrice(initialPrice);
         option.removeOptionsIncompatible();
         option.removeOptionsTogether();
-        //добавить проверку на обход скрипта
         if (null != optionsTogether && optionsTogether.length > 0) {
             for (int optionId : optionsTogether) {
                 option.addOptionsTogether(optionService.getEntityById(optionId));
