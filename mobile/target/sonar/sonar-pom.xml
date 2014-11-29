@@ -19,7 +19,6 @@
     <sonar.jdbc.password>sonar</sonar.jdbc.password>
     <spring-framework.version>4.0.3.RELEASE</spring-framework.version>
     <spring-security.version>3.2.3.RELEASE</spring-security.version>
-    <sonar.host.url>http://localhost:9000</sonar.host.url>
     <sonar.jdbc.username>sonar</sonar.jdbc.username>
   </properties>
   <dependencies>
@@ -168,22 +167,22 @@
     </pluginRepository>
   </pluginRepositories>
   <build>
-    <sourceDirectory>/home/german/T-project/t-project/mobile/src/main/java</sourceDirectory>
-    <scriptSourceDirectory>/home/german/T-project/t-project/mobile/src/main/scripts</scriptSourceDirectory>
-    <testSourceDirectory>/home/german/T-project/t-project/mobile/src/test/java</testSourceDirectory>
-    <outputDirectory>/home/german/T-project/t-project/mobile/target/classes</outputDirectory>
-    <testOutputDirectory>/home/german/T-project/t-project/mobile/target/test-classes</testOutputDirectory>
+    <sourceDirectory>/home/german/T-project/mobile/src/main/java</sourceDirectory>
+    <scriptSourceDirectory>/home/german/T-project/mobile/src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>/home/german/T-project/mobile/src/test/java</testSourceDirectory>
+    <outputDirectory>/home/german/T-project/mobile/target/classes</outputDirectory>
+    <testOutputDirectory>/home/german/T-project/mobile/target/test-classes</testOutputDirectory>
     <resources>
       <resource>
-        <directory>/home/german/T-project/t-project/mobile/src/main/resources</directory>
+        <directory>/home/german/T-project/mobile/src/main/resources</directory>
       </resource>
     </resources>
     <testResources>
       <testResource>
-        <directory>/home/german/T-project/t-project/mobile/src/test/resources</directory>
+        <directory>/home/german/T-project/mobile/src/test/resources</directory>
       </testResource>
     </testResources>
-    <directory>/home/german/T-project/t-project/mobile/target</directory>
+    <directory>/home/german/T-project/mobile/target</directory>
     <finalName>mobile</finalName>
     <pluginManagement>
       <plugins>
@@ -346,7 +345,7 @@
               <goal>site</goal>
             </goals>
             <configuration>
-              <outputDirectory>/home/german/T-project/t-project/mobile/target/site</outputDirectory>
+              <outputDirectory>/home/german/T-project/mobile/target/site</outputDirectory>
               <reportPlugins>
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -362,7 +361,7 @@
               <goal>deploy</goal>
             </goals>
             <configuration>
-              <outputDirectory>/home/german/T-project/t-project/mobile/target/site</outputDirectory>
+              <outputDirectory>/home/german/T-project/mobile/target/site</outputDirectory>
               <reportPlugins>
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
@@ -373,7 +372,7 @@
           </execution>
         </executions>
         <configuration>
-          <outputDirectory>/home/german/T-project/t-project/mobile/target/site</outputDirectory>
+          <outputDirectory>/home/german/T-project/mobile/target/site</outputDirectory>
           <reportPlugins>
             <reportPlugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -385,6 +384,6 @@
     </plugins>
   </build>
   <reporting>
-    <outputDirectory>/home/german/T-project/t-project/mobile/target/site</outputDirectory>
+    <outputDirectory>/home/german/T-project/mobile/target/site</outputDirectory>
   </reporting>
 </project>

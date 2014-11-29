@@ -33,11 +33,17 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
             Query query = entityManager.createQuery("select t.possibleOptions from Tariff t where t.id=:id").setParameter("id", id);
 
             return (List<Option>)query.getResultList();
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }
+
+    /**
+     * Gets all options selected for a contract.
+     * @param id the id of the contract;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException{
@@ -45,11 +51,17 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
             Query query = entityManager.createQuery("select c.options from Contract c where c.id=:id").setParameter("id", id);
 
             return (List<Option>)query.getResultList();
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new OptionsForEntityNotGotException("Options for contract " + id + " not got", ex);
         }
     }
+
+    /**
+     * Gets all options together for an option.
+     * @param id the id of the option;
+     * @return a list of options
+     * @throws OptionsForEntityNotGotException
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException{
@@ -57,11 +69,17 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
             Query query = entityManager.createQuery("select opt.optionsTogether from Option opt where opt.id=:id").setParameter("id", id);
 
             return (List<Option>)query.getResultList();
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }
+
+    /**
+     * Gets all options incompatible for an option.
+     * @param id the id of the option;
+     * @return a list of options.
+     * @throws OptionsForEntityNotGotException
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException{
@@ -69,8 +87,7 @@ public class OptionDAOImplementation extends GenericDAOImplementation<Option, In
             Query query = entityManager.createQuery("select opt.optionsIncompatible from Option opt where opt.id=:id").setParameter("id", id);
 
             return (List<Option>)query.getResultList();
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new OptionsForEntityNotGotException("Options for tariff " + id + " not got", ex);
         }
     }

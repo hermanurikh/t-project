@@ -2,7 +2,6 @@ package ru.tsystems.tproject.aspect;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import ru.tsystems.tproject.entities.User;
 
 import java.util.Arrays;
 
@@ -27,42 +26,83 @@ public class MainAspect {
         //a general pointcut of deleting
     }
 
-
+    /**
+     * Logging before creation
+     * @param joinPoint a joinPoint;
+     */
     @Before("createEntityPointcut()")
     public void loggingBeforeCreateActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("A method: {%s} is called, arguments passed: {%s}", joinPoint.toString(), Arrays.toString(joinPoint.getArgs())));
     }
+
+    /**
+     * Logging after creation
+     * @param joinPoint a joinPoint;
+     */
     @After("createEntityPointcut()")
     public void loggingAfterCreateActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("Entity %s is successfully created", Arrays.toString(joinPoint.getArgs())));
     }
 
+    /**
+     * Logging before getting
+     * @param joinPoint a joinPoint;
+     */
     @Before("getEntityPointcut()")
     public void loggingBeforeGetActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("A method: {%s} is called, arguments passed: {%s}", joinPoint.toString(), Arrays.toString(joinPoint.getArgs())));
     }
-    @AfterReturning(pointcut = "getEntityPointcut()", returning = "user")
-    public void loggingAfterGetActionAdvice(User user) {
-        LOGGER.info(String.format("Entity/ies %s has been found", user));
+
+    /**
+     * Logging after getting
+     * @param object the entity found
+     */
+    @AfterReturning(pointcut = "getEntityPointcut()", returning = "object")
+    public void loggingAfterGetActionAdvice(Object object) {
+        LOGGER.info(String.format("Entity/ies %s has been found", object));
     }
 
+    /**
+     * Logging before updating
+     * @param joinPoint a joinPoint;
+     */
     @Before("updateEntityPointcut()")
     public void loggingBeforeUpdateActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("A method: {%s} is called, arguments passed: {%s}", joinPoint.toString(), Arrays.toString(joinPoint.getArgs())));
     }
+
+    /**
+     * Logging after updating
+     * @param joinPoint a joinPoint;
+     */
     @After("updateEntityPointcut()")
     public void loggingAfterUpdateActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("Entity %s is successfully updated", Arrays.toString(joinPoint.getArgs())));
     }
 
+    /**
+     * Logging before deleting
+     * @param joinPoint a joinPoint;
+     */
     @Before("deleteEntityPointcut()")
     public void loggingBeforeDeleteActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("A method: {%s} is called, arguments passed: {%s}", joinPoint.toString(), Arrays.toString(joinPoint.getArgs())));
     }
+
+    /**
+     * Logging after deleting
+     * @param joinPoint a joinPoint;
+     */
     @After("deleteEntityPointcut()")
     public void loggingAfterDeleteActionAdvice(JoinPoint joinPoint) {
         LOGGER.info(String.format("Entity %s is successfully deleted", Arrays.toString(joinPoint.getArgs())));
     }
+
+    /**
+     * Logging possible exception
+     * @param joinPoint a joinPoint;
+     * @param ex exception
+     */
     @AfterThrowing(value = "execution(* ru.tsystems.tproject.services..*(..))", throwing = "ex")
     public void logExceptions(JoinPoint joinPoint, Exception ex){
         LOGGER.error(String.format("Exception thrown at the method: %s, the message is {%s}", joinPoint.toString(), ex.getMessage()));

@@ -35,6 +35,13 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
             throw new ContractNotFoundException("Contract with number " + number + " not got", e);
         }
     }
+
+    /**
+     * Gets a list of contracts for a specified user id.
+     * @param id user's id;
+     * @return a list of contracts;
+     * @throws ContractsForEntityNotGotException
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException {
@@ -42,8 +49,7 @@ public class ContractDAOImplementation extends GenericDAOImplementation<Contract
             Query query = entityManager.createQuery("select u.contracts from User u where u.id=:id").setParameter("id", id);
 
             return (List<Contract>)query.getResultList();
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new ContractsForEntityNotGotException("Contracts for user " + id + " not got", ex);
         }
     }

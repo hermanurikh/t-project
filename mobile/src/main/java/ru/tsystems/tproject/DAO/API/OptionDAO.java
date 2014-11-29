@@ -18,8 +18,29 @@ public interface OptionDAO extends GenericDAO<Option, Integer> {
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForTariff(int id) throws OptionsForEntityNotGotException;
+
+    /**
+     * Gets all options for a contract id
+     * @param id the id of the contract;
+     * @return a list of options
+     * @throws OptionsForEntityNotGotException
+     */
     public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException;
+
+    /**
+     * Gets all options that should go together with a specified option
+     * @param id the id of the option;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException;
+
+    /**
+     * Gets all options that should not go together with a specified option.
+     * @param id the id of the option;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException;
 
 

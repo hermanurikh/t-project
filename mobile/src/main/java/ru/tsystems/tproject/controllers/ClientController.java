@@ -14,7 +14,6 @@ import ru.tsystems.tproject.entities.User;
 import ru.tsystems.tproject.exceptions.ScriptViolationException;
 import ru.tsystems.tproject.integration.ContractValidator;
 import ru.tsystems.tproject.services.API.ContractService;
-import ru.tsystems.tproject.services.API.OptionService;
 import ru.tsystems.tproject.services.API.TariffService;
 import ru.tsystems.tproject.services.API.UserService;
 import ru.tsystems.tproject.utils.locale.Translatable;

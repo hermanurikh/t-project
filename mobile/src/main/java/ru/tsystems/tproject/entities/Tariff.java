@@ -25,8 +25,7 @@ public class Tariff {
     )
     private final List<Option> possibleOptions = new ArrayList<>();
     public Tariff(){}
-    public Tariff(String name, int price)
-    {
+    public Tariff(String name, int price) {
         this.name = name;
         this.price = price;
     }

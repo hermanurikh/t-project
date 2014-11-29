@@ -15,8 +15,7 @@ public class Role {
     private String name;
     public Role(){
     }
-    public Role(String name)
-    {
+    public Role(String name) {
         this.name = name;
     }
 
@@ -35,6 +34,7 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
+
     public String toString(){
         return String.format("Role{name: %s}", this.getName());
     }

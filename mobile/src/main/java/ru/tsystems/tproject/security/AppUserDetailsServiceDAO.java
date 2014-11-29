@@ -23,6 +23,12 @@ public class AppUserDetailsServiceDAO implements UserDetailsService {
     @Autowired
     private UserDAO userDAO;
 
+    /**
+     * This method override the base security method and sets the password and the role of the user to Spring Security user.
+     * @param username the user's login;
+     * @return org.springframework.security.core.userdetails.User
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
         User user;

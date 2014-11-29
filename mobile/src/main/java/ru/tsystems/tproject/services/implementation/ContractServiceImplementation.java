@@ -19,26 +19,46 @@ import java.util.List;
 public class ContractServiceImplementation implements ContractService {
     @Autowired
     private ContractDAO contractDAO;
+
+    /**
+     * The implemention of create entity API.
+     * @param contract the contract
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void createEntity(Contract contract) throws CustomDAOException {
        this.contractDAO.create(contract);
     }
 
+    /**
+     * The implemention of get entity API.
+     * @param id the id of the entity;
+     * @return the contract;
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public Contract getEntityById(Integer id) throws CustomDAOException {
         return this.contractDAO.read(id);
     }
 
-
+    /**
+     * The implemention of update entity API.
+     * @param contract the contract
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void updateEntity(Contract contract) throws CustomDAOException {
         this.contractDAO.update(contract);
     }
 
-
+    /**
+     * The implemention of delete entity API.
+     * @param contract the contract
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void deleteEntity(Contract contract) throws CustomDAOException {

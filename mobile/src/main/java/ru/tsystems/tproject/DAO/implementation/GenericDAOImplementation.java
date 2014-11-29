@@ -25,16 +25,26 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * A generic create operation.
+     * @param entity the entity
+     * @throws CustomDAOException
+     */
     @Override
     public void create(E entity) throws CustomDAOException {
         try {
             this.entityManager.persist(entity);
-        } catch (PersistenceException ex)
-        {
+        } catch (PersistenceException ex) {
             throw new CustomDAOException("Entity not created: " + entity, ex);
         }
     }
 
+    /**
+     * A generic read operation.
+     * @param id the id of the entity;
+     * @return the entity
+     * @throws CustomDAOException
+     */
     @Override
     public E read(K id) throws CustomDAOException {
         try {
@@ -44,6 +54,11 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
         }
     }
 
+    /**
+     * A generic update operation.
+     * @param entity the entity;
+     * @throws CustomDAOException
+     */
     @Override
     public void update(E entity) throws CustomDAOException {
         try {
@@ -54,6 +69,11 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
 
     }
 
+    /**
+     * A generic delete operation.
+     * @param entity the entity;
+     * @throws CustomDAOException
+     */
     @Override
     public void delete(E entity) throws CustomDAOException {
         try {
@@ -63,6 +83,12 @@ public abstract class GenericDAOImplementation<E, K> implements GenericDAO<E, K>
         }
 
     }
+
+    /**
+     * A generic getAll operation
+     * @return a list of entities.
+     * @throws CustomDAOException
+     */
     @Override
     public List<E> getAll() throws CustomDAOException {
         try {

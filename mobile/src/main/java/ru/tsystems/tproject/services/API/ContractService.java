@@ -21,6 +21,13 @@ public interface ContractService extends GenericService<Contract, Integer> {
      */
 
     public Contract getContractByNumber(long number) throws ContractNotFoundException;
+
+    /**
+     * A method to get a list of all contracts of a user.
+     * @param id the user's id;
+     * @return a list of contracts
+     * @throws ContractsForEntityNotGotException
+     */
     public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException;
 
 }

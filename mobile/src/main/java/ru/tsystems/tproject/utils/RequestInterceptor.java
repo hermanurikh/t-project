@@ -18,6 +18,15 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private UserService userService;
     private static final Logger LOGGER = Logger.getLogger(RequestInterceptor.class);
+
+    /**
+     * Overriden method to work with request before it is carried out.
+     * @param request request;
+     * @param response response;
+     * @param handler handler;
+     * @return true
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
@@ -41,6 +50,14 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
         return true;
     }
 
+    /**
+     * Overriden method to work with request after it is carried out.
+     * @param request request;
+     * @param response response;
+     * @param handler handler;
+     * @param modelAndView model and view;
+     * @throws Exception
+     */
     @Override
     public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
@@ -49,6 +66,14 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
         //we can add attributes in the modelAndView and use that in the view page
     }
 
+    /**
+     * Overriden method to work with request after its' completion.
+     * @param request request;
+     * @param response response;
+     * @param handler handler;
+     * @param ex exception
+     * @throws Exception
+     */
     @Override
     public void afterCompletion(HttpServletRequest request,
                                 HttpServletResponse response, Object handler, Exception ex)

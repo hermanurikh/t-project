@@ -41,8 +41,7 @@ public class Contract {
     public Contract(){
 
     }
-    public Contract(long number, User user, Tariff tariff)
-    {
+    public Contract(long number, User user, Tariff tariff) {
         this.number = number;
         this.user = user;
         this.tariff = tariff;

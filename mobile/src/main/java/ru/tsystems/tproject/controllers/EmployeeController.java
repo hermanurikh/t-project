@@ -667,6 +667,11 @@ public class EmployeeController {
     /*-----------------------------------------------------------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------*/
 
+    /**
+     * The ajax query to check if the entered number already exists.
+     * @param number the contract's number;
+     * @return true or false
+     */
     @RequestMapping(value = AJAX_CHECK_NUMBER, method = RequestMethod.GET)
     @ResponseBody
     public boolean checkNumber(@PathVariable String number) {
@@ -678,6 +683,12 @@ public class EmployeeController {
         }
         return false;
     }
+
+    /**
+     * The ajax query to check if the entered user already exists.
+     * @param login the user's login;
+     * @return true or false.
+     */
     @RequestMapping(value = AJAX_CHECK_USER, method = RequestMethod.GET)
     @ResponseBody
     public boolean checkUser(@PathVariable String login) {

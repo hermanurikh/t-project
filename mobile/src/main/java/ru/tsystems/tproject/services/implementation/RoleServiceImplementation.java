@@ -18,11 +18,23 @@ public class RoleServiceImplementation  implements RoleService {
     @Autowired
     private RoleDAO roleDAO;
 
+    /**
+     * The implementation of create entity API.
+     * @param role role
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void createEntity(Role role) throws CustomDAOException {
         this.roleDAO.create(role);
     }
+
+    /**
+     * The implementation of read entity API.
+     * @param id the id of the entity;
+     * @return role
+     * @throws CustomDAOException
+     */
 
     @Override
     @Transactional
@@ -30,12 +42,22 @@ public class RoleServiceImplementation  implements RoleService {
         return this.roleDAO.read(id);
     }
 
+    /**
+     * The implementation of update entity API.
+     * @param role role
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void updateEntity(Role role) throws CustomDAOException {
         this.roleDAO.update(role);
     }
 
+    /**
+     * The implementation of delete entity API.
+     * @param role role
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void deleteEntity(Role role) throws CustomDAOException {

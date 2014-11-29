@@ -15,7 +15,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
+    /**
+     * A handler to dispatch the request when EntityNotDeletedException occurs.
+     * @param ex exception;
+     * @return model and view
+     */
     @ExceptionHandler(EntityNotDeletedException.class)
     public ModelAndView handleEntityNotDeletedException(Exception ex) {
         ModelAndView modelAndView = new ModelAndView();
@@ -24,6 +28,12 @@ public class GlobalExceptionHandler {
         return modelAndView;
     }
 
+    /**
+     * A handler to dispatch the request when Exception occurs.
+     * @param request request;
+     * @param ex exception;
+     * @return model and view
+     */
     @ExceptionHandler(Exception.class)
     public ModelAndView handleGlobalException(HttpServletRequest request, Exception ex) {
         User user = (User) request.getSession().getAttribute("currentUserU");

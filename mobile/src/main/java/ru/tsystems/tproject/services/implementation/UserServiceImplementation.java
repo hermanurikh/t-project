@@ -19,24 +19,45 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     private UserDAO userDAO;
 
+    /**
+     * The implementation of create entity API.
+     * @param entity user;
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void createEntity(User entity) throws CustomDAOException {
         this.userDAO.create(entity);
     }
 
+    /**
+     * The implementation of read entity API.
+     * @param id the id of the user;
+     * @return the user;
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public User getEntityById(Integer id) throws CustomDAOException {
         return this.userDAO.read(id);
     }
 
+    /**
+     * The implementation of update entity API.
+     * @param entity the user;
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void updateEntity(User entity) throws CustomDAOException {
         this.userDAO.update(entity);
     }
 
+    /**
+     * The implementation of delete entity API.
+     * @param entity the user;
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void deleteEntity(User entity) throws CustomDAOException {

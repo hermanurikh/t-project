@@ -19,24 +19,45 @@ public class OptionServiceImplementation implements OptionService {
     @Autowired
     private OptionDAO optionDAO;
 
+    /**
+     * The implementation of create entity API.
+     * @param option option
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void createEntity(Option option) throws CustomDAOException {
         this.optionDAO.create(option);
     }
 
+    /**
+     * The implementation of get entity API.
+     * @param id the id of the entity;
+     * @return an option
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public Option getEntityById(Integer id) throws CustomDAOException {
         return this.optionDAO.read(id);
     }
 
+    /**
+     * The implementation of update entity API
+     * @param option option
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void updateEntity(Option option) throws CustomDAOException {
         this.optionDAO.update(option);
     }
 
+    /**
+     * The implementation of delete entity API
+     * @param option option
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void deleteEntity(Option option) throws CustomDAOException {

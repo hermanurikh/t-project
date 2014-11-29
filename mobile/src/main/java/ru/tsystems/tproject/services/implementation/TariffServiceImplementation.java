@@ -18,6 +18,11 @@ public class TariffServiceImplementation implements TariffService {
     @Autowired
     private TariffDAO tariffDAO;
 
+    /**
+     * The implementation of create entity API.
+     * @param tariff tariff
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void createEntity(Tariff tariff) throws CustomDAOException {
@@ -25,12 +30,23 @@ public class TariffServiceImplementation implements TariffService {
 
     }
 
+    /**
+     * The implementation of read entity API.
+     * @param id the id of the tariff;
+     * @return tariff
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public Tariff getEntityById(Integer id) throws CustomDAOException {
         return this.tariffDAO.read(id);
     }
 
+    /**
+     * The implementation of update entity API.
+     * @param tariff tariff
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void updateEntity(Tariff tariff) throws CustomDAOException {
@@ -38,6 +54,11 @@ public class TariffServiceImplementation implements TariffService {
 
     }
 
+    /**
+     * The implementation of delete entity API.
+     * @param tariff tariff
+     * @throws CustomDAOException
+     */
     @Override
     @Transactional
     public void deleteEntity(Tariff tariff) throws CustomDAOException {

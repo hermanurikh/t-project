@@ -20,6 +20,13 @@ public interface ContractDAO extends GenericDAO<Contract, Integer> {
      */
 
     public Contract getContractByNumber(long number) throws ContractNotFoundException;
+
+    /**
+     * Gets all contracts for a specified user id.
+     * @param id user's id;
+     * @return a list of contracts
+     * @throws ContractsForEntityNotGotException
+     */
     public List<Contract> getAllContractsForUser(int id) throws ContractsForEntityNotGotException;
 
 }

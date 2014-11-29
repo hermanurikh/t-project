@@ -25,6 +25,12 @@ public class AjaxDispatcher {
     private ContractValidator contractValidator;
 
     public static final String LANGUAGE = "language";
+
+    /**
+     * The ajax method to get options for a tariff.
+     * @param tariffId the tariff's id;
+     * @return a list of options
+     */
     @RequestMapping(value = GET_OPTIONS_FOR_TARIFF, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsForTariff(@PathVariable int tariffId) {
@@ -34,6 +40,12 @@ public class AjaxDispatcher {
         }
         return optionList;
     }
+
+    /**
+     * The ajax method to get options together for an option.
+     * @param optionId the option's id;
+     * @return a list of options
+     */
     @RequestMapping(value = GET_OPTIONS_TOGETHER, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsTogether(@PathVariable int optionId) {
@@ -43,6 +55,12 @@ public class AjaxDispatcher {
         }
         return optionList;
     }
+
+    /**
+     * The ajax method to get options incompatible for an option
+     * @param optionId the option's id;
+     * @return a list of options
+     */
     @RequestMapping(value = GET_OPTIONS_INCOMPATIBLE, method = RequestMethod.GET)
     @ResponseBody
     public List<Option> getOptionsIncompatible(@PathVariable int optionId) {
@@ -52,6 +70,13 @@ public class AjaxDispatcher {
         }
         return optionList;
     }
+
+    /**
+     * A method to validate whether the entered options are correct.
+     * @param array the array with option's id's
+     * @param userID the user's id;
+     * @return the list with options and exceptions
+     */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = VALIDATE_OPTIONS, method = RequestMethod.POST)
     @ResponseBody
@@ -77,6 +102,12 @@ public class AjaxDispatcher {
             }
         }
     }
+
+    /**
+     * A method to switch to english locale.
+     * @param request request;
+     * @return empty string if everything is correct
+     */
     @RequestMapping(value = EN, method = RequestMethod.GET)
     @ResponseBody
     public String setEnglish(HttpServletRequest request) {
@@ -84,6 +115,12 @@ public class AjaxDispatcher {
         request.getSession().setAttribute(LANGUAGE, EnglishLanguage.getEnglishLanguage());
         return "";
     }
+
+    /**
+     * A method to switch to russian locale
+     * @param request request;
+     * @return empty string if everything is correct
+     */
     @RequestMapping(value = RU, method = RequestMethod.GET)
     @ResponseBody
     public String setRussian(HttpServletRequest request) {

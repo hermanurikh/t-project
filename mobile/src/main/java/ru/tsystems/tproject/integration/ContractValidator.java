@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.log4j.Logger;
 import ru.tsystems.tproject.services.API.UserService;
 
 /**
@@ -45,8 +44,9 @@ public class ContractValidator {
             optionList.add(currentOption);
             // we get a list of necessary options
             optionsTogether = currentOption.getOptionsTogether();
+            //for each option from the together list we check whether it was
             if (!optionsTogether.isEmpty()) {
-                for (Option necessary : optionsTogether) { //for each option from the together list we check whether it was checked
+                for (Option necessary : optionsTogether) {
                     if (!temporaryList.contains(necessary.getId())) { //if it wasn't
                         exceptionsList.add(new Exception("You didn't select the " + necessary.getName() + " option, but it was necessary for the option " + currentOption.getName()));
                     }
@@ -92,9 +92,9 @@ public class ContractValidator {
      * This method validates the entered sum. It should be between 0 and 400000.
      * @param price the entered sum;
      * @param priceName the name of the param to throw the explainable exception;
-     * @throws Exception
+     * @throws IOException
      */
-    public void priceCheck(int price, String priceName) throws IOException{
+    public void priceCheck(int price, String priceName) throws IOException {
         if (price > MAX_PRICE) {
             throw new IOException(String.format("The %s is too high!", priceName));
         }

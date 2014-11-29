@@ -26,6 +26,20 @@ public interface OptionService extends GenericService<Option, Integer> {
      * @throws CustomDAOException
      */
     public List<Option> getAllOptionsForContract(int id) throws OptionsForEntityNotGotException;
+
+    /**
+     * Get all options together for a specified option.
+     * @param id options id;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     public List<Option> getAllOptionsTogetherForOption(int id) throws OptionsForEntityNotGotException;
+
+    /**
+     * Get all options incompatible for a specified option.
+     * @param id options id;
+     * @return a list of options;
+     * @throws OptionsForEntityNotGotException
+     */
     public List<Option> getAllOptionsIncompatibleForOption(int id) throws OptionsForEntityNotGotException;
 }
